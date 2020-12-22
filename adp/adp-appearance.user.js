@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         ADP
 // @namespace    https://workforcenow.adp.com/
-// @version      0.1
+// @version      0.2
 // @description  Tweaks for Liquid Web's employee portal
-// @author       You
+// @author       borkweb
 // @include      /^https:\/\/workforcenow.adp.com.*/
 // @require      https://code.jquery.com/jquery-3.2.1.min.js
 // @grant        none
@@ -52,6 +52,40 @@ var tec_adp = {};
         $( 'head' ).append( '<style id="tec-liquid-web-styles"/>' );
         obj.$styles = $( document.getElementById( 'tec-liquid-web-styles' ) );
         obj.$styles.html( `
+#Portlet1Title {
+  display: none;
+}
+
+#Portlet1Content > div > span img {
+  display: none;
+}
+
+#Portlet1Content > div > span {
+  background-image: url(https://workforcenow.adp.com/static/clients/themes/LW%20Logo%20Horizontal_1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  height: 80px;
+}
+
+#Portlet1Content > div font,
+#Portlet1Content > div span {
+  color: #666;
+}
+
+#Portlet1Content > div font {
+   display: block;
+}
+
+#Portlet1Content {
+  text-align: center;
+}
+
+#Portlet2Content img,
+#Portlet3Content img {
+  display: none;
+}
+
 #wfn_body.revolution .revitButton.revitButtonHideBackground {
   color: #b7b7b7;
 }
