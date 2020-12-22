@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ADP
 // @namespace    https://workforcenow.adp.com/
-// @version      0.3
+// @version      0.4
 // @description  Tweaks for Liquid Web's employee portal
 // @author       borkweb
 // @include      /^https:\/\/workforcenow.adp.com.*/
@@ -116,7 +116,7 @@ header .row1 {
   font-size: 2.25rem;
   font-weight: 400;
   line-height: 1.194;
-  margin: 0.25rem 0 0.67em;
+  margin: 0.25rem 0;
   text-rendering: optimizeLegibility;
 }
 
