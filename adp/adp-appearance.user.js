@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ADP
 // @namespace    https://workforcenow.adp.com/
-// @version      0.2
+// @version      0.3
 // @description  Tweaks for Liquid Web's employee portal
 // @author       borkweb
 // @include      /^https:\/\/workforcenow.adp.com.*/
@@ -273,6 +273,12 @@ body div#appWrapper {
   border-radius: 16px;
 }
 
+#wfn_body .ess-employee-profile-mdf .trash-icon-styles,
+#wfn_body .ess-employee-profile-mdf .camera-icon-styles,
+#wfn_body .ess-employee-profile-mdf .edit-and-chart-icon-styles {
+  background-color: rgba(0,0,0,.5215686275) !important;
+}
+
 #wfn_body .ess-employee-profile-mdf .compensation-info .rowHeader {
   margin-bottom: 0.25rem;
 }
@@ -294,3 +300,4 @@ body div#appWrapper {
         obj.init();
     } );
 })( jQuery, tec_adp );
+
