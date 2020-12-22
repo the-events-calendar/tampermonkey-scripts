@@ -86,6 +86,10 @@ var tec_adp = {};
   display: none;
 }
 
+#portlet {
+  overflow: visible;
+}
+
 #wfn_body.revolution .revitButton.revitButtonHideBackground {
   color: #b7b7b7;
 }
