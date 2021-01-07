@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LiveAgent - Latest plugin versions
 // @namespace    https://theeventscalendar.com/
-// @version      3.9.1
+// @version      4.0.0
 // @description  Display our plugins' latest version numbers.
 // @author       Andras Guseo
 // @include      https://theeventscalendar.ladesk.com/agent/*
@@ -21,7 +21,7 @@
  * 6. Create a pull request and ping Andras to check and approve
  *
  * Versioning:
- * First digit:  only changes when year changes. 2 = 2019; 3 = 2020
+ * First digit:  only changes when year changes. 2 = 2019; 3 = 2020; 4 = 2021
  * Second digit: increment when updating the script with plugin versions
  * Third digit:  increment when a bugfix or feature for the script
  */
@@ -162,7 +162,8 @@
             78: { name: "G20.10",    date: "Oct 19",     tec: "5.2.0",     pro: "5.1.5",     vev: "1.1.0",    fib: "5.0.0.1",  apm: "4.5",  ebt: "4.6.5",  eti: "5.0.2x",     etp: "5.0.1",     cev: "4.8.1",     ctx: "4.7.6x",   iwp: "1.0.3",  woo: "4.6.0", edd: "2.9.26" },
             79: { name: "B20.10",    date: "Oct 22",     tec: "5.2.1x",    pro: "5.1.6x",    vev: "1.1.1x",   fib: "5.0.1x",   apm: "4.5",  ebt: "4.6.5",  eti: "5.0.2",      etp: "5.0.1",     cev: "4.8.1",     ctx: "4.7.6",    iwp: "1.0.3",  woo: "4.6.1", edd: "2.9.26" },
             80: { name: "G20.11",    date: "Nov 19",     tec: "5.2.1.1x",  pro: "5.1.6",     vev: "1.1.1",    fib: "5.0.1",    apm: "4.5",  ebt: "4.6.5",  eti: "5.0.3.1x",   etp: "5.1.0.2x",  cev: "4.8.2x",    ctx: "4.7.7x",   iwp: "1.0.3",  woo: "4.6.1", edd: "2.9.26" },
-            81: { name: "B20.11",    date: "Dec 2",      tec: "5.3.0x"  ,  pro: "5.2.0x",    vev: "1.1.2x",   fib: "5.0.2x",   apm: "4.5",  ebt: "4.6.6x", eti: "5.0.3.1" ,   etp: "5.1.0.2" ,  cev: "4.8.2" ,    ctx: "4.7.7" ,   iwp: "1.0.3",  woo: "4.6.1", edd: "2.9.26" },
+            81: { name: "BY20.11",   date: "Dec 2",      tec: "5.3.0x",    pro: "5.2.0x",    vev: "1.1.2x",   fib: "5.0.2x",   apm: "4.5",  ebt: "4.6.6x", eti: "5.0.3.1" ,   etp: "5.1.0.2" ,  cev: "4.8.2" ,    ctx: "4.7.7" ,   iwp: "1.0.3",  woo: "4.7.1", edd: "2.9.26" },
+            82: { name: "BG20.12",   date: "Dec 15",     tec: "5.3.1.1x",  pro: "5.2.1x",    vev: "1.1.3x",   fib: "5.0.3x",   apm: "4.5",  ebt: "4.6.6" , eti: "5.0.4.2x",   etp: "5.1.1x",    cev: "4.8.3x",    ctx: "4.7.7" ,   iwp: "1.0.3",  woo: "4.8.0", edd: "2.9.26" },
         };
 
         // The number of releases (the length of the object)
@@ -401,6 +402,8 @@
 
     /**
      * === Changelog ===
+     *
+     * 4.0.0 - 2021-01-07
      *
      * 3.9.1 - 2020-12-08
      * Usability improvements & code cleanup
