@@ -386,11 +386,10 @@
         // Scrolling to bottom on load
         scrollToBottomAction();
 
-        // Hide if we are starting hidden
         if ( startHidden ) {
-            startRight = -parent.offsetWidth + 100;
+            var startHiddenRight = -parent.offsetWidth + 55;
+            $('#plugin-versions').css({ 'right': startHiddenRight });
         }
-        $('#plugin-versions').css({'right': startRight});
 
         // Handle actions
         if ( document.getElementById( 'plugin-versions' ) != null ) {
@@ -404,6 +403,9 @@
      * === Changelog ===
      *
      * 4.0.0 - 2021-01-07
+     * Added new plugin versions (82)
+     * Fixed bug where if the script started hidden it could not be unhidden
+     *
      *
      * 3.9.1 - 2020-12-08
      * Usability improvements & code cleanup
