@@ -242,9 +242,9 @@
             '<td class="green"><img src="https://andrasguseo.com/images/new-et-icon.svg" title="ET" alt="Event Tickets icon" /></td>' +
             '<td class="green"><img src="https://andrasguseo.com/images/new-etp-icon.svg" title="ET+" alt="Event Tickets Plus icon" /></td>' +
             '<td class="green"><img src="https://andrasguseo.com/images/new-ce-icon.svg" title="Community Events" alt="Community Events icon" /></td>' +
-            '<td class="green"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>' +
-            '<td class="charcoal">APM</td>' +
-            '<td class="charcoal">IW+</td>';
+            '<td class="green" style="padding-top: 7px !important;"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>' +
+            '<td class="charcoal" style="padding-top: 7px !important;">APM</td>' +
+            '<td class="charcoal" style="padding-top: 7px !important;">IW+</td>';
 
         // eCommerce in Header
         htmlstring += '<td><img src="https://andrasguseo.com/images/woo-icon.png" title="WooCommerce" alt="WooCommerce icon" /></td>';
@@ -405,7 +405,8 @@
      * 4.0.0 - 2021-01-07
      * Added new plugin versions (82)
      * Fixed bug where if the script started hidden it could not be unhidden
-     *
+     * Added scrollbar styling for webkit browsers
+     * Reordered plugins based on new teams
      *
      * 3.9.1 - 2020-12-08
      * Usability improvements & code cleanup
