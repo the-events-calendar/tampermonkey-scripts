@@ -3,7 +3,7 @@
 // @namespace    https://theeventscalendar.atlassian.net/
 // @version      0.0.2
 // @description  Inject items into the global nav
-// @author       Modern Tribe Products
+// @author       The Events Calendar Products
 // @include      https://theeventscalendar.atlassian.net/*
 // @grant        none
 // ==/UserScript==
