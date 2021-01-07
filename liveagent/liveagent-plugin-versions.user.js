@@ -211,7 +211,7 @@
             '.versions td.green.new-version { background-color: #2dd39c; }' +
             '.versions td.yellow { background-color: #ebe463; color: #666; }' +
             '.versions td.yellow.new-version { background-color: #ebc863; }' +
-            '.row td:nth-child(6), .row td:nth-child(7) { border-right-width: 3px; }' +
+            '.row td:nth-child(7), .row td:nth-child(11) { border-right-width: 3px; }' +
             '.row { text-align: center; }' +
             '#hider, #more { cursor: pointer; }' +
             '.hider-cell, .more-cell { vertical-align: top; }' +
@@ -243,8 +243,8 @@
             '<td class="green"><img src="https://andrasguseo.com/images/new-etp-icon.svg" title="ET+" alt="Event Tickets Plus icon" /></td>' +
             '<td class="green"><img src="https://andrasguseo.com/images/new-ce-icon.svg" title="Community Events" alt="Community Events icon" /></td>' +
             '<td class="green"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>' +
-            '<td class="blue">APM</td>' +
-            '<td class="green">IW+</td>';
+            '<td class="charcoal">APM</td>' +
+            '<td class="charcoal">IW+</td>';
 
         // eCommerce in Header
         htmlstring += '<td><img src="https://andrasguseo.com/images/woo-icon.png" title="WooCommerce" alt="WooCommerce icon" /></td>';
@@ -287,10 +287,7 @@
                 if ( 0 <= j && j <= 4 ) {
                     htmlstring += 'blue';
                 }
-                else if ( 5 == j ) {
-                    htmlstring += 'yellow'
-                }
-                else if ( 6 <= j && j <= 10 ) {
+                else if ( 5 <= j && j < 9 ) {
                     htmlstring += 'green'
                 }
 
