@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Suppress the-events-calendar/
 // @namespace    https://central.tri.be/
-// @version      0.1
+// @version      0.2
 // @description  When on a combined pull request list, remove the-events-calendar/ so the list is more easily scannable
 // @author       Matthew Batchelder
 // @include      /https:\/\/github.com\/pulls?.*q=is%3Aopen\+is%3Apr\+sort%3Aupdated-desc\+repo%3Amoderntribe%2Fevents-pro.*/
