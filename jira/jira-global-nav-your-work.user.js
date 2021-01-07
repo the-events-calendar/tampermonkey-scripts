@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Jira: Add Your Work to Global Nav
-// @namespace    https://moderntribe.atlassian.net/
-// @version      0.0.1
+// @namespace    https://theeventscalendar.atlassian.net/
+// @version      0.0.2
 // @description  Inject items into the global nav
-// @author       Modern Tribe Products
-// @include      https://moderntribe.atlassian.net/*
+// @author       The Events Calendar Products
+// @include      https://theeventscalendar.atlassian.net/*
 // @grant        none
 // ==/UserScript==
 
