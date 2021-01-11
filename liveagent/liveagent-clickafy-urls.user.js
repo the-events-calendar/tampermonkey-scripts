@@ -77,7 +77,7 @@
                 /* Otherwise it is Jira */
                 else {
                     if (log) console.log("Found Jira - " + val);
-                    url = 'https://moderntribe.atlassian.net/browse/';
+                    url = 'https://theeventscalendar.atlassian.net/browse/';
                 }
                 url = url + val;
             }
