@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LiveAgent - Clickafy URLs
 // @namespace    http://tampermonkey.net/
-// @version      2.0
+// @version      2.1
 // @description  Make the Central and Jira issue tracker IDs, the user ID, the user's website, and the sandbox site URL clickable in LiveAgent
 // @author       Andras Guseo
 // @include      https://support.theeventscalendar.com/agent/*
@@ -94,6 +94,10 @@
 
     /**
      * Changelog
+     * 2.1 - 2021-01-11
+     * - The URL is now pointing to the new Jira instance.
+     * - The download URL is now pointing to the new GitHub repo.
+     *
      * 2.0 - 2020-09-23
      * - Re-wrote the script to make it work with updated LiveAgent fields
      *
