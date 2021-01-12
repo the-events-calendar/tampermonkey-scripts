@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TEC Sniffer
 // @namespace    http://tampermonkey.net/
-// @version      2.0.0
+// @version      2.1.0
 // @description  Trying to find out what's running on a WordPress site with The Events Calendar.
 // @author       Andras Guseo
 // @include      https://*
@@ -27,7 +27,7 @@
     var logLevel2 = false;
     if ( logLevel2 ) logLevel1 = true;
 
-    var snifferVersionNumber = '2.0';
+    var snifferVersionNumber = '2.1';
 
     /**
      * Declarations

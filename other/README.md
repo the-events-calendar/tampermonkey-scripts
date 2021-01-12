@@ -1,6 +1,6 @@
 # Tribe Sniffer
 Author: Andras Guseo  
-Current version: 2.0.0  
+Current version: 2.1.0  
 Release date: November 26, 2020
 
 ## Description
@@ -86,6 +86,12 @@ Here are the steps to create a bookmarklet from the code:
 ![image](https://dl.dropboxusercontent.com/s/7kgeotpxg3ff95n/shot_201126_113741.jpg)
 
 ## Changelog
+2.1.0 - TBD
+* Added recognition of WordPress.com hosting
+* Replaced instances of Modern Tribe with The Events Calendar
+* Renamed plugin and filename
+* Updated download URL to point to the new repository
+
 2.0.0 - 2020-11-26
 * Refactored the script from ground up. It works now fully as a TamperMonkey script.
 * Added Divi version number recognition
