@@ -103,6 +103,9 @@
         return false;
     }
 
+    // Bool
+    var wordpressDotCom = checkDotCom();
+
     // String V1 or V2
     var tecDesignVersion = getTecDesignVersion();
 
@@ -170,6 +173,22 @@
             }
         }
         return false;
+    }
+
+    /**
+     * Check if the site is hosted on WordPress.com
+     *
+     * @returns {boolean}
+     */
+    function checkDotCom() {
+        if ( logLevel2 ) console.log( 'Checking for WordPress.com hosting' );
+        for( var i = 0; i < links.length; i++ ) {
+            var link = links[ i ].href.match( /\/\/public-api.wordpress.com/ );
+            if ( links[ i ].href != undefined && link != null ) {
+                return true;
+                break;
+            }
+        }
     }
 
     /**
@@ -568,6 +587,9 @@
         if ( false !== competitorHtml ) {
             html += '<p>' + competitorHtml + '</p>';
         } else {
+            if ( true === wordpressDotCom ) {
+                html += '<p style="font-weight:bold;">This site is hosted on WordPress.com</p>';
+            }
             html += '<h2>About this page</h2>';
             html += '<p><span class="sniffer-label">View:</span> <span class="sniffer-value">';
             html += tecView;
