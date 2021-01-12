@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Tribe Sniffer
+// @name         TEC Sniffer
 // @namespace    http://tampermonkey.net/
 // @version      2.0.0
 // @description  Trying to find out what's running on a WordPress site with The Events Calendar.
@@ -97,9 +97,9 @@
         // Check for competitor
     var competitorHtml = checkIfCompetitor();
 
-    // If there is no competitor or tribe product found, then quit
+    // If there is no competitor or TEC product found, then quit
     if ( false === competitorHtml && false === checkIfTribe() ) {
-        console.log( 'Tribe or competitor not found. Quitting.' );
+        console.log( 'TEC or competitor not found. Quitting.' );
         return false;
     }
 
@@ -192,7 +192,7 @@
     }
 
     /**
-     * Check for 'tribe' in body classes to see if Modern Tribe plugins are present
+     * Check for 'tribe' in body classes to see if The Events Calendar plugins are present
      *
      * @returns {boolean}
      */
@@ -206,7 +206,7 @@
     }
 
     /**
-     * Get the used design version for Modern Tribe Products based on the presence of a V2 css class
+     * Get the used design version for The Events Calendar Products based on the presence of a V2 css class
      *
      * @returns {string} V1 or V2
      */
@@ -284,7 +284,7 @@
      * @returns {string} Returns if the page is generated with shortcode and if yes, then which plugin was used.
      */
     function getShortcode() {
-        // Tribe shortcodes
+        // TEC shortcodes
         var shortcodeV1 = document.getElementsByClassName( 'tribe-events-shortcode' );
         var shortcodeV2 = document.getElementsByClassName( 'tribe-events-view--shortcode' );
         // Events Calendar Shortcode & Block
@@ -417,7 +417,7 @@
     }
 
     /**
-     * Get Modern Tribe plugin version numbers.
+     * Get The Events Calendar plugin version numbers.
      *
      * @param design The design used in The Events Calendar, V1 or V2.
      *
@@ -579,7 +579,7 @@
 
         var html = '';
         html = '<div id="sniffer-container">';
-        html += '<div class="sniffer-version">Tribe Sniffer ' + snifferVersionNumber + '</div>';
+        html += '<div class="sniffer-version">TEC Sniffer ' + snifferVersionNumber + '</div>';
         html += '<div class="tab" id="hider">&nbsp;</div>';
         html += '<div class="info">';
         html += '<div class="sniffer-section">';
