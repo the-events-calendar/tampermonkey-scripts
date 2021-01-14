@@ -1,7 +1,7 @@
 # TEC Sniffer
 Author: Andras Guseo  
 Current version: 2.1.0  
-Release date: November 26, 2020
+Release date: January 14, 2021
 
 ## Description
 This is a tool created for the Support Team at The Events Calendar.
@@ -63,7 +63,7 @@ Please refer to the readme file in the [root of this repository](https://github.
 ![image](https://dl.dropboxusercontent.com/s/7kgeotpxg3ff95n/shot_201126_113741.jpg)
 
 ## Changelog
-2.1.0 - TBD
+2.1.0 - 2021-01-14
 * Added recognition of WordPress.com hosting
 * Replaced instances of Modern Tribe with The Events Calendar
 * Renamed plugin and filename
