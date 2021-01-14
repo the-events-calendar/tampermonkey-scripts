@@ -183,7 +183,7 @@
             }
 
             if ( competitorFound ) {
-                return '<a href="' + competitors[competitor].url + '" target="_blank">' + competitor + '</a>';
+                return '<a href="' + competitors[competitor].url + '" target="_blank">' + competitor + ' ↗</a>';
             }
 
         }
