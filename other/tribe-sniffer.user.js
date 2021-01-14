@@ -27,6 +27,8 @@
     var logLevel2 = false;
     if ( logLevel2 ) logLevel1 = true;
 
+    var alwaysRun = false;
+
     var snifferVersionNumber = '2.1';
 
     /**
@@ -101,8 +103,11 @@
 
     // If there is no competitor or TEC product found, then quit
     if ( false === competitorHtml && false === checkIfTribe() ) {
-        console.log( 'TEC or competitor not found. Quitting.' );
-        return false;
+        console.log( 'TEC or competitor not found.' );
+        if ( ! alwaysRun ) {
+            console.log( 'Quitting.' );
+            return false;
+        }
     }
 
     // Bool
