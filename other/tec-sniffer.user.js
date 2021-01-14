@@ -2,7 +2,7 @@
 // @name         TEC Sniffer
 // @namespace    http://tampermonkey.net/
 // @version      2.1.0
-// @description  Trying to find out what's running on a WordPress site with The Events Calendar.
+// @description  Trying to find out what's running on a WordPress site in terms of calendars.
 // @author       Andras Guseo
 // @include      https://*
 // @exclude      http*://*.local/wp-admin/*
@@ -10,7 +10,7 @@
 // @exclude      https://theeventscalendar.ladesk.com/*
 // @exclude      https://theeventscalendar.com/*
 // @exclude      *google*
-// @downloadURL  https://github.com/moderntribe/tampermonkey-scripts/raw/master/other/tribe-sniffer.user.js
+// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/master/other/tec-sniffer.user.js
 // @grant        none
 // @run-at document-end
 // ==/UserScript==

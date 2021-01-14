@@ -6,7 +6,7 @@ Release date: November 26, 2020
 ## Description
 This is a tool created for the Support Team at The Events Calendar.
 
-* tribe-sniffer.user.js - TamperMonkey script
+* tec-sniffer.user.js - TamperMonkey script
 * tribe-sniffer.min.js - Bookmarklet script
 
 ## What does it do?
