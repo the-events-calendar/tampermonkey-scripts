@@ -81,9 +81,7 @@
         'Divi',
     ];
 
-    /**
-     * Caching plugins
-     */
+    // Caching plugins
     var caching = [
         'WP-Super-Cache',
         'WP Fastest Cache',
