@@ -34,6 +34,7 @@
      */
     var competitors = {
         "Modern Events Calendar": { id: "mec-frontend-script-js-extra" },
+        "Events Manager": { class: "em-calendar-wrapper" },
         "Something Else": { id: "something-else" },
     };
 
@@ -95,7 +96,7 @@
      * Work
      */
 
-        // Check for competitor
+    // Check for competitor
     var competitorHtml = checkIfCompetitor();
 
     // If there is no competitor or TEC product found, then quit
@@ -165,6 +166,15 @@
             if ( logLevel2 ) console.log( "Checking for: " + competitor );
 
             if ( null !== document.getElementById( competitors[ competitor ].id ) ) {
+
+                if ( logLevel1 ) console.log( competitor + ' found.' );
+
+                //var competitorHtml = competitor;
+
+                return competitor;
+            }
+
+            if ( document.getElementsByClassName( competitors[ competitor ].class ).length > 0 ) {
 
                 if ( logLevel1 ) console.log( competitor + ' found.' );
 

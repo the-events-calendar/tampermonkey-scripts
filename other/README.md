@@ -92,6 +92,8 @@ Here are the steps to create a bookmarklet from the code:
 * Renamed plugin and filename
 * Updated download URL to point to the new repository
 * Added WP-Optimize to the caching plugin list
+* Added the option to recognize competitors by a css class
+* Added Events Manager to the recognized competitors list
 
 2.0.0 - 2020-11-26
 * Refactored the script from ground up. It works now fully as a TamperMonkey script.
