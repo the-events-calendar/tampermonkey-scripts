@@ -27,6 +27,8 @@
     var logLevel2 = false;
     if ( logLevel2 ) logLevel1 = true;
 
+    // The script stops if it does not find TEC or listed competitors.
+    // Set to true to let the script always run its course.
     var alwaysRun = false;
 
     var snifferVersionNumber = '2.1';
@@ -35,8 +37,8 @@
      * Declarations
      */
     var competitors = {
-        "Modern Events Calendar": { id: "mec-frontend-script-js-extra" },
-        "Events Manager": { class: "em-calendar-wrapper" },
+        "Modern Events Calendar": { id: "mec-frontend-script-js-extra", url: "https://wordpress.org/plugins/modern-events-calendar-lite/" },
+        "Events Manager": { class: "em-calendar-wrapper", url: "https://wordpress.org/plugins/events-manager/" },
         "Something Else": { id: "something-else" },
     };
 
@@ -163,31 +165,31 @@
      * @returns {string|boolean} Returns the product name or false if not found.
      */
     function checkIfCompetitor() {
-
         if ( logLevel1 ) console.log( "Checking for competitors." );
 
-        for( var competitor in competitors ) {
+        var competitorFound = false;
 
+        for( var competitor in competitors ) {
             if ( logLevel2 ) console.log( "Checking for: " + competitor );
 
             if ( null !== document.getElementById( competitors[ competitor ].id ) ) {
-
                 if ( logLevel1 ) console.log( competitor + ' found.' );
 
-                //var competitorHtml = competitor;
-
-                return competitor;
+                competitorFound = true;
             }
 
             if ( document.getElementsByClassName( competitors[ competitor ].class ).length > 0 ) {
-
                 if ( logLevel1 ) console.log( competitor + ' found.' );
 
-                //var competitorHtml = competitor;
-
-                return competitor;
+                competitorFound = true;
             }
+
+            if ( competitorFound ) {
+                return '<a href="' + competitors[competitor].url + '" target="_blank">' + competitor + '</a>';
+            }
+
         }
+
         return false;
     }
 
