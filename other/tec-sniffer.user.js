@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Tribe Sniffer
+// @name         TEC Sniffer
 // @namespace    http://tampermonkey.net/
-// @version      2.0.0
-// @description  Trying to find out what's running on a WordPress site with The Events Calendar.
+// @version      2.1.0
+// @description  Trying to find out what's running on a WordPress site in terms of calendars.
 // @author       Andras Guseo
 // @include      https://*
 // @exclude      http*://*.local/wp-admin/*
@@ -10,7 +10,7 @@
 // @exclude      https://theeventscalendar.ladesk.com/*
 // @exclude      https://theeventscalendar.com/*
 // @exclude      *google*
-// @downloadURL  https://github.com/moderntribe/tampermonkey-scripts/raw/master/other/tribe-sniffer.user.js
+// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/master/other/tec-sniffer.user.js
 // @grant        none
 // @run-at document-end
 // ==/UserScript==
@@ -27,13 +27,18 @@
     var logLevel2 = false;
     if ( logLevel2 ) logLevel1 = true;
 
-    var snifferVersionNumber = '2.0';
+    // The script stops if it does not find TEC or listed competitors.
+    // Set to true to let the script always run its course.
+    var alwaysRun = false;
+
+    var snifferVersionNumber = '2.1';
 
     /**
      * Declarations
      */
     var competitors = {
-        "Modern Events Calendar": { id: "mec-frontend-script-js-extra" },
+        "Modern Events Calendar": { id: "mec-frontend-script-js-extra", url: "https://wordpress.org/plugins/modern-events-calendar-lite/" },
+        "Events Manager": { class: "em-calendar-wrapper", url: "https://wordpress.org/plugins/events-manager/" },
         "Something Else": { id: "something-else" },
     };
 
@@ -76,9 +81,7 @@
         'Divi',
     ];
 
-    /**
-     * Caching plugins
-     */
+    // Caching plugins
     var caching = [
         'WP-Super-Cache',
         'WP Fastest Cache',
@@ -88,20 +91,27 @@
         'Endurance Page Cache',
         'LiteSpeed Cache',
         'WP Super Minify',
+        'WP-Optimize',
     ];
 
     /**
      * Work
      */
 
-        // Check for competitor
+    // Check for competitor
     var competitorHtml = checkIfCompetitor();
 
-    // If there is no competitor or tribe product found, then quit
+    // If there is no competitor or TEC product found, then quit
     if ( false === competitorHtml && false === checkIfTribe() ) {
-        console.log( 'Tribe or competitor not found. Quitting.' );
-        return false;
+        console.log( 'TEC or competitor not found.' );
+        if ( ! alwaysRun ) {
+            console.log( 'Quitting.' );
+            return false;
+        }
     }
+
+    // Bool
+    var wordpressDotCom = checkDotCom();
 
     // String V1 or V2
     var tecDesignVersion = getTecDesignVersion();
@@ -153,27 +163,52 @@
      * @returns {string|boolean} Returns the product name or false if not found.
      */
     function checkIfCompetitor() {
-
         if ( logLevel1 ) console.log( "Checking for competitors." );
 
-        for( var competitor in competitors ) {
+        var competitorFound = false;
 
+        for( var competitor in competitors ) {
             if ( logLevel2 ) console.log( "Checking for: " + competitor );
 
             if ( null !== document.getElementById( competitors[ competitor ].id ) ) {
-
                 if ( logLevel1 ) console.log( competitor + ' found.' );
 
-                //var competitorHtml = competitor;
-
-                return competitor;
+                competitorFound = true;
             }
+
+            if ( document.getElementsByClassName( competitors[ competitor ].class ).length > 0 ) {
+                if ( logLevel1 ) console.log( competitor + ' found.' );
+
+                competitorFound = true;
+            }
+
+            if ( competitorFound ) {
+                return '<a href="' + competitors[competitor].url + '" target="_blank">' + competitor + ' ↗</a>';
+            }
+
         }
+
         return false;
     }
 
     /**
-     * Check for 'tribe' in body classes to see if Modern Tribe plugins are present
+     * Check if the site is hosted on WordPress.com
+     *
+     * @returns {boolean}
+     */
+    function checkDotCom() {
+        if ( logLevel2 ) console.log( 'Checking for WordPress.com hosting' );
+        for( var i = 0; i < links.length; i++ ) {
+            var link = links[ i ].href.match( /\/\/public-api.wordpress.com/ );
+            if ( links[ i ].href != undefined && link != null ) {
+                return true;
+                break;
+            }
+        }
+    }
+
+    /**
+     * Check for 'tribe' in body classes to see if The Events Calendar plugins are present
      *
      * @returns {boolean}
      */
@@ -187,7 +222,7 @@
     }
 
     /**
-     * Get the used design version for Modern Tribe Products based on the presence of a V2 css class
+     * Get the used design version for The Events Calendar Products based on the presence of a V2 css class
      *
      * @returns {string} V1 or V2
      */
@@ -265,7 +300,7 @@
      * @returns {string} Returns if the page is generated with shortcode and if yes, then which plugin was used.
      */
     function getShortcode() {
-        // Tribe shortcodes
+        // TEC shortcodes
         var shortcodeV1 = document.getElementsByClassName( 'tribe-events-shortcode' );
         var shortcodeV2 = document.getElementsByClassName( 'tribe-events-view--shortcode' );
         // Events Calendar Shortcode & Block
@@ -398,7 +433,7 @@
     }
 
     /**
-     * Get Modern Tribe plugin version numbers.
+     * Get The Events Calendar plugin version numbers.
      *
      * @param design The design used in The Events Calendar, V1 or V2.
      *
@@ -560,7 +595,7 @@
 
         var html = '';
         html = '<div id="sniffer-container">';
-        html += '<div class="sniffer-version">Tribe Sniffer ' + snifferVersionNumber + '</div>';
+        html += '<div class="sniffer-version">TEC Sniffer ' + snifferVersionNumber + '</div>';
         html += '<div class="tab" id="hider">&nbsp;</div>';
         html += '<div class="info">';
         html += '<div class="sniffer-section">';
@@ -568,6 +603,9 @@
         if ( false !== competitorHtml ) {
             html += '<p>' + competitorHtml + '</p>';
         } else {
+            if ( true === wordpressDotCom ) {
+                html += '<p style="font-weight:bold;">This site is hosted on WordPress.com</p>';
+            }
             html += '<h2>About this page</h2>';
             html += '<p><span class="sniffer-label">View:</span> <span class="sniffer-value">';
             html += tecView;

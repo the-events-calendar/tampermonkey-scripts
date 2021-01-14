@@ -1,17 +1,19 @@
-# Tribe Sniffer
+# TEC Sniffer
 Author: Andras Guseo  
-Current version: 2.0.0  
-Release date: November 26, 2020
+Current version: 2.1.0  
+Release date: January 14, 2021
 
 ## Description
-This is a tool created for the Support Team at Modern Tribe | The Events Calendar.
-
-* tribe-sniffer.user.js - TamperMonkey script
-* tribe-sniffer.min.js - Bookmarklet script
+This is a tool created for the Support Team at The Events Calendar.
 
 ## What does it do?
-The script adds a sniffer button to the lower right corner of each webpage.
-With clicking on the button on a WordPress site that is running our plugins the sniffer will check the following attributes on the page:
+The script adds a frame to the right side of each webpage.
+The sniffer will check the following attributes on the page:
+
+### Competitor products 
+Recognized competitors: 
+* Modern Events Calendar
+* Events Manager
 
 ### Page attributes
 * Is it Single Event view?
@@ -42,50 +44,36 @@ The sniffer checks for the presence of the following caching plugins:
 * LiteSpeed Cache
 * Swift Performance Caching Plugin
 * WP Fastest Cache
+* WP-Optimize
 * WP Rocket
 * WP-Super-Cache
 * WP Super Minify
 * W3 Total Cache
 
 ## How to use it
-This tool can be used as a TamperMonkey script.
-The old bookmarklet version (1.3) still works but is no longer being maintained. 
+This tool can be used as a [TamperMonkey](https://www.tampermonkey.net/) script.
 
 ### Install as a TamperMonkey script
-As you would any other Tampermonkey Scripts. Please refer to the readme file in the [root of this repository](https://github.com/moderntribe/tampermonkey-scripts/blob/master/README.md).
-
-### Quick deploy as a bookmarklet (version 1.3)
-
-1. Copy the one-line script from `tribe-sniffer.min.js` to your clipboard.
-2. In your preferred browser create a new bookmark button on the bookmark bar.
-3. Name it "Tribe Sniffer" or whatever you like.
-4. Paste the code into the location / URL field and save it.
-5. When visiting a webpage click on the bookmark button. A popup dialog will contain the information.
-
-### Slow deploy as a bookmarklet
-
-The non-minified file is a TamperMonkey script. It will run on the websites defined with `@include`, which currently is 
-all the sites.
-
-To use it as a bookmarklet you will need to minimize the script. You can use an online tool like 
-https://javascript-minifier.com/
-
-Here are the steps to create a bookmarklet from the code:
-
-1. Take the popup() function (starting with `function` and ending with `}`) and run it through the minifier.
-2. Change the beginning from `function popup()` to `javascript:(function()`. (Delete `popup` and add `javacript:(`.)
-3. Change the end from `};` to `})();`. (Add a closing parentheses `)();` after the curly bracket `}`.)
-4. Select the minified code and copy it on your clipboard.
-5. In your preferred browser create a new bookmark button on the bookmark bar.
-6. Name it "Tribe Sniffer" or whatever you like.
-7. Paste the code into the location / URL field and save it.
-8. When visiting a webpage click on the bookmark button. A popup dialog will contain the information.
+As you would any other Tampermonkey Scripts.  
+Fastest way would probably be clicking [here](https://github.com/the-events-calendar/tampermonkey-scripts/raw/master/other/tec-sniffer.user.js).  
+Please refer to the readme file in the [root of this repository](https://github.com/theeventscalendar/tampermonkey-scripts/blob/master/README.md). 
 
 ## Sample screenshot
 
 ![image](https://dl.dropboxusercontent.com/s/7kgeotpxg3ff95n/shot_201126_113741.jpg)
 
 ## Changelog
+2.1.0 - 2021-01-14
+* Added recognition of WordPress.com hosting
+* Replaced instances of Modern Tribe with The Events Calendar
+* Renamed plugin and filename
+* Updated download URL to point to the new repository
+* Added WP-Optimize to the caching plugin list
+* Added the option to recognize competitors by a css class
+* Added Events Manager to the recognized competitors list
+* Added a setting to have the script run to the end on all pages (and not quit after supposedly not finding TEC or a competitor.)
+* Deprecated bookmarklet version.
+
 2.0.0 - 2020-11-26
 * Refactored the script from ground up. It works now fully as a TamperMonkey script.
 * Added Divi version number recognition
