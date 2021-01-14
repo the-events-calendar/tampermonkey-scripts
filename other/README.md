@@ -91,6 +91,7 @@ Here are the steps to create a bookmarklet from the code:
 * Replaced instances of Modern Tribe with The Events Calendar
 * Renamed plugin and filename
 * Updated download URL to point to the new repository
+* Added WP-Optimize to the caching plugin list
 
 2.0.0 - 2020-11-26
 * Refactored the script from ground up. It works now fully as a TamperMonkey script.

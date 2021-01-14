@@ -88,6 +88,7 @@
         'Endurance Page Cache',
         'LiteSpeed Cache',
         'WP Super Minify',
+        'WP-Optimize',
     ];
 
     /**
