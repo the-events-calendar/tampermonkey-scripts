@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LiveAgent - Latest plugin versions
 // @namespace    https://theeventscalendar.com/
-// @version      4.0.0
+// @version      4.0.1
 // @description  Display our plugins' latest version numbers.
 // @author       Andras Guseo
 // @include      https://theeventscalendar.ladesk.com/agent/*
@@ -22,8 +22,8 @@
  *
  * Versioning:
  * First digit:  only changes when year changes. 2 = 2019; 3 = 2020; 4 = 2021
- * Second digit: increment when updating the script with plugin versions
- * Third digit:  increment when a bugfix or feature for the script
+ * Second digit: increment when a bugfix or feature for the script
+ * Third digit:  increment when updating the script with plugin versions
  */
 (function() {
     'use strict';
@@ -163,7 +163,9 @@
             79: { name: "B20.10",    date: "Oct 22",     tec: "5.2.1x",    pro: "5.1.6x",    vev: "1.1.1x",   fib: "5.0.1x",   ebt: "4.6.5",  eti: "5.0.2",      etp: "5.0.1",     cev: "4.8.1",     ctx: "4.7.6",    apm: "4.5",  iwp: "1.0.3",  woo: "4.6.1", edd: "2.9.26" },
             80: { name: "G20.11",    date: "Nov 19",     tec: "5.2.1.1x",  pro: "5.1.6",     vev: "1.1.1",    fib: "5.0.1",    ebt: "4.6.5",  eti: "5.0.3.1x",   etp: "5.1.0.2x",  cev: "4.8.2x",    ctx: "4.7.7x",   apm: "4.5",  iwp: "1.0.3",  woo: "4.6.1", edd: "2.9.26" },
             81: { name: "BY20.11",   date: "Dec 2",      tec: "5.3.0x",    pro: "5.2.0x",    vev: "1.1.2x",   fib: "5.0.2x",   ebt: "4.6.6x", eti: "5.0.3.1" ,   etp: "5.1.0.2" ,  cev: "4.8.2" ,    ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.7.1", edd: "2.9.26" },
-            82: { name: "BG20.12",   date: "Dec 15",     tec: "5.3.1.1x",  pro: "5.2.1x",    vev: "1.1.3x",   fib: "5.0.3x",   ebt: "4.6.6" , eti: "5.0.4.2x",   etp: "5.1.1x",    cev: "4.8.3x",    ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.8.0", edd: "2.9.26" },
+            82: { name: "BG20.12",   date: "Dec 15",     tec: "5.3.1.1x",  pro: "5.2.1.2x",  vev: "1.1.3x",   fib: "5.0.3x",   ebt: "4.6.6",  eti: "5.0.4.2x",   etp: "5.1.1x",    cev: "4.8.3x",    ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.8.0", edd: "2.9.26" },
+            83: { name: "G21.01",    date: "Jan 20",     tec: "5.3.1.1",   pro: "5.2.1.2",   vev: "1.1.3",    fib: "5.0.3",    ebt: "4.6.6",  eti: "5.0.5x",     etp: "5.1.2x",    cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.9.1", edd: "2.9.26" },
+            84: { name: "B21.01",    date: "Feb 1",      tec: "5.3.2x",    pro: "5.2.2x",    vev: "1.1.4x",   fib: "5.0.4x",   ebt: "4.6.7x", eti: "5.0.5",      etp: "5.1.2",     cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.9.2", edd: "2.9.26" },
         };
 
         // The number of releases (the length of the object)
@@ -401,6 +403,9 @@
 
     /**
      * === Changelog ===
+     *
+     * 4.0.1 - 2021-02-02
+     * Added new plugin versions (83-84)
      *
      * 4.0.0 - 2021-01-07
      * Added new plugin versions (82)
