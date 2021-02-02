@@ -10,7 +10,7 @@
 // @exclude      https://theeventscalendar.ladesk.com/*
 // @exclude      https://theeventscalendar.com/*
 // @exclude      *google*
-// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/master/other/tec-sniffer.user.js
+// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/other/tec-sniffer.user.js
 // @grant        none
 // @run-at document-end
 // ==/UserScript==
