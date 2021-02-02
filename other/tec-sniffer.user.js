@@ -149,7 +149,7 @@
     var finalHtml = renderStyle() + renderMarkup();
     if ( window.self === window.top ) {
         document.getElementsByTagName( 'body' )[ 0 ].insertAdjacentHTML( 'afterend', finalHtml );
-        document.getElementById( 'sniffer-container' ).style.right = -document.getElementById( 'sniffer-container' ).offsetWidth + 55 + "px";
+        document.getElementById( 'sniffer-container' ).style.right = -document.getElementById( 'sniffer-container' ).offsetWidth + "px";
         document.getElementById( 'hider' ).addEventListener( 'click', hideBlock );
     }
 
@@ -577,8 +577,8 @@
      * Rendering
      */
     function renderStyle() {
-        var style = '<style>#sniffer-container { border: 0px solid black; color: #666; position: fixed; top: 10%; font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; z-index: 9999999999; transition-duration: 1000ms; transition-timing-function: ease-in-out; }';
-        style += '#sniffer-container .sniffer-version { font-size: 10px; font-weight: bold; position: absolute; top: -1.1em; left: 65px; }';
+        var style = '<style>#sniffer-container { border: 0 solid black; color: #666; position: fixed; top: 10%; font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; z-index: 9999999999; transition-duration: 1000ms; transition-timing-function: ease-in-out; }';
+        style += '#sniffer-container .sniffer-version { font-size: 10px; font-weight: bold; position: absolute; top: -1.1em; left: 10px; }';
         style += '#sniffer-container .tab { position: absolute; left: -60px; top: 0; width: 60px; height: 50px; border: 1px solid #666; border-right-width: 0; background-image: url("https://andrasguseo.com/images/sniffer-1.png"); background-repeat: no-repeat; background-size: 50px 50px; background-position-x: 5px; background-color: #fff; border-top-left-radius: 10px; border-bottom-left-radius: 10px; }';
         style += '#sniffer-container .info { float: left; padding: 10px; border: 1px solid #666; background-color: #efefef; }';
         style += '#sniffer-container .sniffer-section { margin-bottom: 1em; }';
@@ -663,7 +663,7 @@
         var block = document.getElementById( 'sniffer-container' );
         var str = document.getElementById( 'hider' );
         var right = window.outerWidth - block.offsetLeft;
-        var hideRight = -block.offsetWidth + 55;
+        var hideRight = -block.offsetWidth;
         if ( logLevel2 ) console.log( 'block.offsetLeft: ' + block.offsetLeft );
         if ( logLevel2 ) console.log( 'block.offsetWidth: ' + block.offsetWidth );
         if ( logLevel2 ) console.log( 'window.outerWidth: ' + window.outerWidth );
