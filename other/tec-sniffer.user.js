@@ -579,7 +579,7 @@
     function renderStyle() {
         var style = '<style>#sniffer-container { border: 0px solid black; color: #666; position: fixed; top: 10%; font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; z-index: 9999999999; transition-duration: 1000ms; transition-timing-function: ease-in-out; }';
         style += '#sniffer-container .sniffer-version { font-size: 10px; font-weight: bold; position: absolute; top: -1.1em; left: 65px; }';
-        style += '#sniffer-container .tab { width: 60px; height: 50px; border: 1px solid #666; border-right-width: 0; float: left; background-image: url("https://andrasguseo.com/images/sniffer-1.png"); background-repeat: no-repeat; background-size: 50px 50px; background-position-x: 5px; background-color: #fff; border-top-left-radius: 10px; border-bottom-left-radius: 10px; }';
+        style += '#sniffer-container .tab { position: absolute; left: -60px; top: 0; width: 60px; height: 50px; border: 1px solid #666; border-right-width: 0; background-image: url("https://andrasguseo.com/images/sniffer-1.png"); background-repeat: no-repeat; background-size: 50px 50px; background-position-x: 5px; background-color: #fff; border-top-left-radius: 10px; border-bottom-left-radius: 10px; }';
         style += '#sniffer-container .info { float: left; padding: 10px; border: 1px solid #666; background-color: #efefef; }';
         style += '#sniffer-container .sniffer-section { margin-bottom: 1em; }';
         style += '#sniffer-container h2, #sniffer-container p { margin: 0.4em 0; color: #333; line-height: unset; padding: 0; font-family: unset; }';
@@ -596,8 +596,8 @@
         var html = '';
         html = '<div id="sniffer-container">';
         html += '<div class="sniffer-version">TEC Sniffer ' + snifferVersionNumber + '</div>';
-        html += '<div class="tab" id="hider">&nbsp;</div>';
         html += '<div class="info">';
+        html += '<div class="tab" id="hider">&nbsp;</div>';
         html += '<div class="sniffer-section">';
 
         if ( false !== competitorHtml ) {
