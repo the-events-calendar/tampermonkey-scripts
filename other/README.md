@@ -10,6 +10,10 @@ This is a tool created for the Support Team at The Events Calendar.
 The script adds a frame to the right side of each webpage.
 The sniffer will check the following attributes on the page:
 
+### Hosting
+Recognized hosts:
+* WordPress.com
+
 ### Competitor products 
 Recognized competitors: 
 * Modern Events Calendar
@@ -63,6 +67,9 @@ Please refer to the readme file in the [root of this repository](https://github.
 ![image](https://dl.dropboxusercontent.com/s/7kgeotpxg3ff95n/shot_201126_113741.jpg)
 
 ## Changelog
+2.1.1 - 2021-02-02
+* Fixed some overlay issues where for example query monitor could not be closed
+
 2.1.0 - 2021-01-14
 * Added recognition of WordPress.com hosting
 * Replaced instances of Modern Tribe with The Events Calendar

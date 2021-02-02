@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TEC Sniffer
 // @namespace    http://tampermonkey.net/
-// @version      2.1.0
+// @version      2.1.1
 // @description  Trying to find out what's running on a WordPress site in terms of calendars.
 // @author       Andras Guseo
 // @include      https://*
