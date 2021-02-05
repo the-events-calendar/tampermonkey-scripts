@@ -165,14 +165,14 @@
             81: { name: "BY20.11",   date: "Dec 2",      tec: "5.3.0x",    pro: "5.2.0x",    vev: "1.1.2x",   fib: "5.0.2x",   ebt: "4.6.6x", eti: "5.0.3.1" ,   etp: "5.1.0.2" ,  cev: "4.8.2" ,    ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.7.1", edd: "2.9.26" },
             82: { name: "BG20.12",   date: "Dec 15",     tec: "5.3.1.1x",  pro: "5.2.1.2x",  vev: "1.1.3x",   fib: "5.0.3x",   ebt: "4.6.6",  eti: "5.0.4.2x",   etp: "5.1.1x",    cev: "4.8.3x",    ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.8.0", edd: "2.9.26" },
             83: { name: "G21.01",    date: "Jan 20",     tec: "5.3.1.1",   pro: "5.2.1.2",   vev: "1.1.3",    fib: "5.0.3",    ebt: "4.6.6",  eti: "5.0.5x",     etp: "5.1.2x",    cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.9.1", edd: "2.9.26" },
-            84: { name: "B21.01",    date: "Feb 1",      tec: "5.3.2x",    pro: "5.2.2x",    vev: "1.1.4x",   fib: "5.0.4x",   ebt: "4.6.7x", eti: "5.0.5",      etp: "5.1.2",     cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.9.2", edd: "2.9.26" },
+            84: { name: "B21.01",    date: "Feb 1",      tec: "5.3.2.1x",  pro: "5.2.2x",    vev: "1.1.4x",   fib: "5.0.4x",   ebt: "4.6.7x", eti: "5.0.5",      etp: "5.1.2",     cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.9.2", edd: "2.9.26" },
         };
 
         // The number of releases (the length of the object)
         var rowNumber = Object.keys(pluginHistory).length;
 
         // Added Woo and EDD for static version
-        var pluginNames = ['tec', 'pro', 'vev', 'fib', 'apm', 'ebt', 'eti', 'etp', 'cev', 'ctx', 'iwp', 'woo', 'edd'];
+        var pluginNames = ['tec', 'pro', 'vev', 'fib', 'ebt', 'eti', 'etp', 'cev', 'ctx', 'apm', 'iwp', 'woo', 'edd'];
 
         /**
          * Defining our plugins
