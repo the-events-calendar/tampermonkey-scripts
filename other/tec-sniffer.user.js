@@ -42,6 +42,8 @@
         "Something Else": { id: "something-else" },
     };
 
+    var headContent = document.getElementsByTagName('head')[ 0 ].innerHTML;
+
     var bodyClasses = document.getElementsByTagName( 'body' )[ 0 ].className.split( " " );
 
     // Classes of the views. Note: List should be (almost) at the end, as its css class can be present on other list-based views.
@@ -555,6 +557,11 @@
         if ( document.getElementsByClassName( 'swift-in-viewport' ).length > 0 ) {
             if( logLevel1 ) console.log( 'Caching found: Swift Performance' );
             return "Swift Performance";
+        }
+
+        if( headContent.search("SG Optimizer") >= 0) {
+            if( logLevel1 ) console.log( 'Caching found: SiteGround Optimizer' );
+            return "SiteGround Optimizer";
         }
 
         if( logLevel1 ) console.log( 'No caching found' );
