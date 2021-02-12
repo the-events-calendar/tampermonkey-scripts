@@ -18,6 +18,9 @@
 (function() {
     'use strict';
 
+    // Version number. Only version.sub-version
+    var snifferVersionNumber = '2.1';
+
     console.log( 'Started sniffing' );
 
     // Only logs found items
@@ -31,8 +34,6 @@
     // Set to true to let the script always run its course.
     var alwaysRun = false;
 
-    var snifferVersionNumber = '2.1';
-
     /**
      * Declarations
      */
@@ -42,8 +43,10 @@
         "Something Else": { id: "something-else" },
     };
 
+    // Content in the <head>
     var headContent = document.getElementsByTagName('head')[ 0 ].innerHTML;
 
+    // Classes of the <body> tag
     var bodyClasses = document.getElementsByTagName( 'body' )[ 0 ].className.split( " " );
 
     // Classes of the views. Note: List should be (almost) at the end, as its css class can be present on other list-based views.
@@ -72,9 +75,11 @@
         "Avada"                  : { css: "avada-stylesheet-css" },
     };
 
+    // <link> tags
     // Used for themes and Autoptimize
     var links = document.getElementsByTagName( 'link' );
 
+    // <meta> tags
     // Getting the <meta>'s: WPML, WooCommerce, etc
     var metaTags = document.getElementsByTagName( 'meta' );
     var metas = [
@@ -84,6 +89,7 @@
     ];
 
     // Caching plugins
+    // Note, some caching plugins are sniffed out differently
     var caching = [
         'WP-Super-Cache',
         'WP Fastest Cache',
@@ -560,7 +566,7 @@
         }
 
         if( headContent.search("SG Optimizer") >= 0) {
-            if( logLevel1 ) console.log( 'Caching found: SiteGround Optimizer' );
+            if( logLevel1 ) console.log( 'Caching found: SiteGround Optimizergi' );
             return "SiteGround Optimizer";
         }
 
