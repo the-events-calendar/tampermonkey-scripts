@@ -151,6 +151,8 @@
     // String
     var cachingPlugin = checkCaching();
 
+    var cloudFlare = checkCloudflare();
+
     /**
      * Render
      */
@@ -574,6 +576,19 @@
         return 'not found';
     }
 
+    function checkCloudflare() {
+        if ( logLevel2 ) console.log( 'Checking for Cloudflare' );
+        for( var i = 0; i < links.length; i++ ) {
+            var link = links[ i ].href.match( /cloudflare.com/ );
+            if ( links[ i ].href != undefined && link != null ) {
+                return true;
+                break;
+            }
+        }
+        return false;
+    }
+
+
     /**
      * Create a renderable line with HTML markup
      *
@@ -659,6 +674,10 @@
 
             if ( true === autoptimize ) {
                 html += '<p>AUTOPTIMIZE FOUND!!!</p>';
+            }
+
+            if ( true === cloudFlare ) {
+                html += '<p>CloudFlare found!!!</p>';
             }
 
             html += '<p>' + cachingPlugin + '</p>';
