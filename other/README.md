@@ -1,7 +1,7 @@
 # TEC Sniffer
 Author: Andras Guseo  
-Current version: 2.1.0  
-Release date: January 14, 2021
+Current version: 2.2.0  
+Release date: TBD
 
 ## Description
 This is a tool created for the Support Team at The Events Calendar.
@@ -39,13 +39,15 @@ Recognized competitors:
  * WooCommerce
  * WPML
  
- ### Is a caching plugin in use?
+ ### Is some caching used?
 The sniffer checks for the presence of the following caching plugins:
 * Asset CleanUp: Page Speed Booster
 * Autoptimize
+* Cloudflare
 * Endurance Page Cache
 * Hummingbird
 * LiteSpeed Cache
+* Siteground Optimizer
 * Swift Performance Caching Plugin
 * WP Fastest Cache
 * WP-Optimize
@@ -67,6 +69,10 @@ Please refer to the readme file in the [root of this repository](https://github.
 ![image](https://dl.dropboxusercontent.com/s/7kgeotpxg3ff95n/shot_201126_113741.jpg)
 
 ## Changelog
+2.2.0 - TBD
+* Added recognition for Siteground Optimizer
+* Added recognition for Cloudflare
+
 2.1.1 - 2021-02-02
 * Fixed some overlay issues where for example query monitor could not be closed
 

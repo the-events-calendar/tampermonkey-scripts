@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TEC Sniffer
 // @namespace    http://tampermonkey.net/
-// @version      2.1.1
+// @version      2.2.0
 // @description  Trying to find out what's running on a WordPress site in terms of calendars.
 // @author       Andras Guseo
 // @include      https://*
@@ -19,7 +19,7 @@
     'use strict';
 
     // Version number. Only version.sub-version
-    var snifferVersionNumber = '2.1';
+    var snifferVersionNumber = '2.2';
 
     console.log( 'Started sniffing' );
 
@@ -573,7 +573,7 @@
         }
 
         if( logLevel1 ) console.log( 'No caching found' );
-        return 'not found';
+        return 'Caching plugin not found';
     }
 
     function checkCloudflare() {
@@ -677,7 +677,7 @@
             }
 
             if ( true === cloudFlare ) {
-                html += '<p>CloudFlare found!!!</p>';
+                html += '<p>CloudFlare found</p>';
             }
 
             html += '<p>' + cachingPlugin + '</p>';
