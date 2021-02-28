@@ -15,11 +15,13 @@
 
     // If you set this to true you will see log messages in the console
     var log = false;
-    if (log) console.log('Starting Clickafy Script');
+
+    console.log('Starting Clickafy Script');
 
     // Run the script every 5 seconds. This is necessary due to the dynamic nature of LiveAgent
     var startScript = window.setInterval(clickableScript, 5000);
 
+    // Variables
     var fields = ["Central ID", "Issue Tracker ID", "Site's URL", "WordPress ID", "Sandbox URL", "url"];
     var field = "",
         url = "",
@@ -27,6 +29,7 @@
         countingRuns = 0,
         maxRuns = 15;
 
+    // Script to run
     function clickableScript() {
 
         // Get the rows is an object
@@ -104,13 +107,13 @@
 
         // If script already ran and found results, then stop.
         if ( alreadyDone ) {
-            if (log) console.log("Script already ran with results. Stopping script.");
+            console.log("Clickafy script already ran with success. Stopping script.");
             clearInterval( startScript );
         }
 
         // Stop script if it ran more than 'maxRuns' times without success.
         if ( countingRuns > maxRuns ) {
-            if (log) console.log('Script ran ' + maxRuns + ' times without success. Stopping script.');
+            console.log('Clickafy script ran ' + maxRuns + ' times without success. Stopping script.');
             clearInterval( startScript );
         }
 
