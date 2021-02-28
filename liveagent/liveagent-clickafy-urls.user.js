@@ -18,13 +18,13 @@
     if (log) console.log('Starting Clickafy Script');
 
     // Run the script every 5 seconds. This is necessary due to the dynamic nature of LiveAgent
-    var startScript = window.setInterval(clickableCentral, 5000);
+    var startScript = window.setInterval(clickableScript, 5000);
 
     var fields = ["Central ID", "Issue Tracker ID", "Site's URL", "WordPress ID", "Sandbox URL"];
     var field = "",
         url = "";
 
-    function clickableCentral() {
+    function clickableScript() {
 
         // Get the rows is an object
         var rows = document.getElementsByClassName('gwt-TextBox');
@@ -90,7 +90,7 @@
             rows[i].parentNode.insertBefore(linkContainer, rows[i]);
 
         } // for ( var i=0; i<rows.length; i++ )
-    } //function clickableCentral
+    } // function clickableScript
 
     /**
      * Changelog
