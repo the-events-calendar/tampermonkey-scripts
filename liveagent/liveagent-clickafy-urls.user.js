@@ -20,7 +20,7 @@
     // Run the script every 5 seconds. This is necessary due to the dynamic nature of LiveAgent
     var startScript = window.setInterval(clickableScript, 5000);
 
-    var fields = ["Central ID", "Issue Tracker ID", "Site's URL", "WordPress ID", "Sandbox URL"];
+    var fields = ["Central ID", "Issue Tracker ID", "Site's URL", "WordPress ID", "Sandbox URL", "url"];
     var field = "",
         url = "";
 
