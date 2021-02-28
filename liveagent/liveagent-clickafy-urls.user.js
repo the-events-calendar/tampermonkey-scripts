@@ -22,7 +22,8 @@
 
     var fields = ["Central ID", "Issue Tracker ID", "Site's URL", "WordPress ID", "Sandbox URL", "url"];
     var field = "",
-        url = "";
+        url = "",
+        alreadyDone = false;
 
     function clickableScript() {
 
@@ -89,7 +90,16 @@
             linkContainer.style = 'position: absolute; right: 10px; z-index: 9;';
             rows[i].parentNode.insertBefore(linkContainer, rows[i]);
 
+            alreadyDone = true;
+            if (log) console.log("Script ran. Setting variable true.");
+
         } // for ( var i=0; i<rows.length; i++ )
+
+        // If script already ran and found results, then stop.
+        if ( alreadyDone ) {
+            if (log) console.log("Script already ran with results. Stopping script.");
+            clearInterval( startScript );
+        }
     } // function clickableScript
 
     /**
@@ -97,6 +107,7 @@
      * 2.2 - 2021-02-28
      * - Script now doesn't stop after finding the first field.
      * - The 'url' field is also recognized.
+     * - Script stops if it already has found results.
      *
      * 2.1 - 2021-01-11
      * - The URL is now pointing to the new Jira instance.
