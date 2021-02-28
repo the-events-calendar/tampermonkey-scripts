@@ -23,7 +23,9 @@
     var fields = ["Central ID", "Issue Tracker ID", "Site's URL", "WordPress ID", "Sandbox URL", "url"];
     var field = "",
         url = "",
-        alreadyDone = false;
+        alreadyDone = false,
+        countingRuns = 0,
+        maxRuns = 15;
 
     function clickableScript() {
 
@@ -39,6 +41,8 @@
             // If it's not a field we're looking for, then skip.
             if (fields.indexOf(field) < 0) {
                 if (log) console.log('Skipped. Field not in array: ' + field);
+                countingRuns++;
+                if (log) console.log('Script ran ' + countingRuns + ' times so far. (Non-matching field.)');
                 continue;
             }
 
@@ -93,6 +97,9 @@
             alreadyDone = true;
             if (log) console.log("Script ran. Setting variable true.");
 
+            countingRuns++;
+            if (log) console.log("Script ran " + countingRuns + " times so far.");
+
         } // for ( var i=0; i<rows.length; i++ )
 
         // If script already ran and found results, then stop.
@@ -100,6 +107,13 @@
             if (log) console.log("Script already ran with results. Stopping script.");
             clearInterval( startScript );
         }
+
+        // Stop script if it ran more than 'maxRuns' times without success.
+        if ( countingRuns > maxRuns ) {
+            if (log) console.log('Script ran ' + maxRuns + ' times without success. Stopping script.');
+            clearInterval( startScript );
+        }
+
     } // function clickableScript
 
     /**
@@ -108,6 +122,7 @@
      * - Script now doesn't stop after finding the first field.
      * - The 'url' field is also recognized.
      * - Script stops if it already has found results.
+     * - Script stops if it ran a defined max number of times without success.
      *
      * 2.1 - 2021-01-11
      * - The URL is now pointing to the new Jira instance.
