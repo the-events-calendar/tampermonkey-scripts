@@ -46,10 +46,10 @@
             if (log) console.log('ID: ' + id);
 
             // Check if the ID exists. If it exists it means we already created it, so skip.
-            if (null != document.getElementById(id)) {
+            /*if (null != document.getElementById(id)) {
                 if (log) console.log('Skipped at ID: ' + id);
                 continue;
-            }
+            }*/
 
             // Now we can start creating...
 
