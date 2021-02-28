@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         LiveAgent - Clickafy URLs
 // @namespace    http://tampermonkey.net/
-// @version      2.1
-// @description  Make the Central and Jira issue tracker IDs, the user ID, the user's website, and the sandbox site URL clickable in LiveAgent
+// @version      2.2
+// @description  Make the Jira issue tracker IDs, the user ID, the user's website, the url, and the sandbox site URL clickable in LiveAgent.
 // @author       Andras Guseo
 // @include      https://support.theeventscalendar.com/agent/*
 // @include      https://theeventscalendar.ladesk.com/agent/*
@@ -10,108 +10,141 @@
 // @grant        none
 // ==/UserScript==
 
-(function () {
-    'use strict';
+(function() {
+	'use strict';
 
-    // If you set this to true you will see log messages in the console
-    var log = false;
-    if (log) console.log('Starting Clickafy Script');
+	// If you set this to true you will see log messages in the console
+	var log = false;
 
-    // Run the script every 5 seconds. This is necessary due to the dynamic nature of LiveAgent
-    var startScript = window.setInterval(clickableCentral, 5000);
+	console.log( 'Starting Clickafy Script' );
 
-    var fields = ["Central ID", "Issue Tracker ID", "Site's URL", "WordPress ID", "Sandbox URL"];
-    var field = "",
-        url = "";
+	// Run the script every 5 seconds. This is necessary due to the dynamic nature of LiveAgent
+	var startScript = window.setInterval( clickableScript, 5000 );
 
-    function clickableCentral() {
+	// Variables
+	var fields = [ "Central ID", "Issue Tracker ID", "Site's URL", "WordPress ID", "Sandbox URL", "url" ];
+	var field = "",
+		url = "",
+		alreadyDone = false,
+		countingRuns = 0,
+		maxRuns = 15;
 
-        // Get the rows is an object
-        var rows = document.getElementsByClassName('gwt-TextBox');
+	// Script to run
+	function clickableScript() {
 
-        // Walk the object
-        for (var i = 0; i < rows.length; i++) {
+		// Get the rows is an object
+		var rows = document.getElementsByClassName( 'gwt-TextBox' );
 
-            // Get the HTML from the row
-            field = rows[i].name;
+		// Walk the object
+		for( var i = 0; i < rows.length; i++ ) {
 
-            // If it's not a field we're looking for, then skip.
-            if (fields.indexOf(field) < 0) {
-                if (log) console.log('Skipped. Field not in array: ' + field);
-                continue;
-            }
+			// Get the HTML from the row
+			field = rows[ i ].name;
 
-            // Create the id for the field
-            var id = field.toLowerCase().replace(' ', '-').replace("'", '');
-            if (log) console.log('ID: ' + id);
+			// If it's not a field we're looking for, then skip.
+			if ( fields.indexOf( field ) < 0 ) {
+				if ( log ) console.log( 'Skipped. Field not in array: ' + field );
+				countingRuns++;
+				if ( log ) console.log( 'Script ran ' + countingRuns + ' times so far. (Non-matching field.)' );
+				continue;
+			}
 
-            // Check if the ID exists. If it exists it means we already created it, so skip.
-            if (null != document.getElementById(id)) {
-                if (log) console.log('Skipped at ID: ' + id);
-                continue;
-            }
+			// Create the id for the field
+			var id = field.toLowerCase().replace( ' ', '-' ).replace( "'", '' );
+			if ( log ) console.log( 'ID: ' + id );
 
-            // Now we can start creating...
+			// Check if the ID exists. If it exists it means we already created it, so skip.
+			/*if (null != document.getElementById(id)) {
+				if (log) console.log('Skipped at ID: ' + id);
+				continue;
+			}*/
 
-            // Get the value of the field
-            var val = rows[i].value;
-            if (log) console.log(field + ': ' + val);
+			// Now we can start creating...
 
-            // If they are URLs, then use the value
-            if (val.search('http') >= 0) {
-                if (log) console.log("Found 'http', using value as URL. . " + val);
-                url = val;
-            } else if (field == "Site's URL") {
-                if (log) console.log("Found Site's URL - " + val);
-                url = 'https://' + val;
-            } else if (field == "WordPress ID") {
-                if (log) console.log("Found WordPress ID - " + val);
-                url = 'https://theeventscalendar.com/wp-admin/user-edit.php?user_id=' + val;
-            } else if (field == "Issue Tracker ID" || field == "Central ID") {
-                if (log) console.log("Found Issue Tracker ID - " + val);
-                /* If it doesn't contain a dash, then it's Central */
-                if (val.search('-') < 0) {
-                    if (log) console.log("Found Central - " + val);
-                    url = 'https://central.tri.be/issues/';
-                }
-                /* Otherwise it is Jira */
-                else {
-                    if (log) console.log("Found Jira - " + val);
-                    url = 'https://theeventscalendar.atlassian.net/browse/';
-                }
-                url = url + val;
-            }
+			// Get the value of the field
+			var val = rows[ i ].value;
+			if ( log ) console.log( field + ': ' + val );
 
-            //Creating the container.
-            var linkContainer = document.createElement('span');
-            linkContainer.id = id;
-            linkContainer.innerHTML = '<a href="' + url + '" target="_blank" title="Open link in new window">👁️</a>';
-            linkContainer.style = 'position: absolute; right: 10px; z-index: 9;';
-            rows[i].parentNode.insertBefore(linkContainer, rows[i]);
+			// If they are URLs, then use the value
+			if ( val.search( 'http' ) >= 0 ) {
+				if ( log ) console.log( "Found 'http', using value as URL. . " + val );
+				url = val;
+			} else if ( field == "Site's URL" ) {
+				if ( log ) console.log( "Found Site's URL - " + val );
+				url = 'https://' + val;
+			} else if ( field == "WordPress ID" ) {
+				if ( log ) console.log( "Found WordPress ID - " + val );
+				url = 'https://theeventscalendar.com/wp-admin/user-edit.php?user_id=' + val;
+			} else if ( field == "Issue Tracker ID" || field == "Central ID" ) {
+				if ( log ) console.log( "Found Issue Tracker ID - " + val );
+				/* If it doesn't contain a dash, then it's Central */
+				if ( val.search( '-' ) < 0 ) {
+					if ( log ) console.log( "Found Central - " + val );
+					url = 'https://central.tri.be/issues/';
+				}
+				/* Otherwise it is Jira */
+				else {
+					if ( log ) console.log( "Found Jira - " + val );
+					url = 'https://theeventscalendar.atlassian.net/browse/';
+				}
+				url = url + val;
+			}
 
-        } // for ( var i=0; i<rows.length; i++ )
-    } //function clickableCentral
+			//Creating the container.
+			var linkContainer = document.createElement( 'span' );
+			linkContainer.id = id;
+			linkContainer.innerHTML = '<a href="' + url + '" target="_blank" title="Open link in new window">👁️</a>';
+			linkContainer.style = 'position: absolute; right: 10px; z-index: 9;';
+			rows[ i ].parentNode.insertBefore( linkContainer, rows[ i ] );
 
-    /**
-     * Changelog
-     * 2.1 - 2021-01-11
-     * - The URL is now pointing to the new Jira instance.
-     * - The download URL is now pointing to the new GitHub repo.
-     *
-     * 2.0 - 2020-09-23
-     * - Re-wrote the script to make it work with updated LiveAgent fields
-     *
-     * 1.1 - 2020-01-14
-     * - Fixed a glitch where the user's site URL was added to the Jira Issue Tracker URL
-     *
-     * 1.0 - 2020-01-07
-     * - Adjusted to make it work with both Central and Jira ticket IDs
-     * - Renamed file and updated download URL
-     *
-     * 0.5 - 2019-09-26
-     * - The script now handles Sandbox URL as well
-     *
-     * 0.4 - 2019-09-06
-     * - The script now correctly handles central tickets with full URL
-     */
+			alreadyDone = true;
+			if ( log ) console.log( "Script ran. Setting variable true." );
+
+			countingRuns++;
+			if ( log ) console.log( "Script ran " + countingRuns + " times so far." );
+
+		} // for ( var i=0; i<rows.length; i++ )
+
+		// If script already ran and found results, then stop.
+		if ( alreadyDone ) {
+			console.log( "Clickafy script ran with success. Stopping script." );
+			clearInterval( startScript );
+		}
+
+		// Stop script if it ran more than 'maxRuns' times without success.
+		if ( countingRuns > maxRuns ) {
+			console.log( 'Clickafy script ran ' + maxRuns + ' times without success. Stopping script.' );
+			clearInterval( startScript );
+		}
+
+	} // function clickableScript
+
+	/**
+	 * Changelog
+	 * 2.2 - 2021-02-28
+	 * - Script now doesn't stop after finding the first field.
+	 * - The 'url' field is also recognized.
+	 * - Script stops if it already has found results.
+	 * - Script stops if it ran a defined max number of times without success.
+	 *
+	 * 2.1 - 2021-01-11
+	 * - The URL is now pointing to the new Jira instance.
+	 * - The download URL is now pointing to the new GitHub repo.
+	 *
+	 * 2.0 - 2020-09-23
+	 * - Re-wrote the script to make it work with updated LiveAgent fields
+	 *
+	 * 1.1 - 2020-01-14
+	 * - Fixed a glitch where the user's site URL was added to the Jira Issue Tracker URL
+	 *
+	 * 1.0 - 2020-01-07
+	 * - Adjusted to make it work with both Central and Jira ticket IDs
+	 * - Renamed file and updated download URL
+	 *
+	 * 0.5 - 2019-09-26
+	 * - The script now handles Sandbox URL as well
+	 *
+	 * 0.4 - 2019-09-06
+	 * - The script now correctly handles central tickets with full URL
+	 */
 })();
