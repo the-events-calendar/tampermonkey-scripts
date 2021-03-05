@@ -167,6 +167,9 @@
             83: { name: "G21.01",    date: "Jan 20",     tec: "5.3.1.1",   pro: "5.2.1.2",   vev: "1.1.3",    fib: "5.0.3",    ebt: "4.6.6",  eti: "5.0.5x",     etp: "5.1.2x",    cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.9.1", edd: "2.9.26" },
             84: { name: "B21.01",    date: "Feb 1",      tec: "5.3.2.1x",  pro: "5.2.2x",    vev: "1.1.4x",   fib: "5.0.4x",   ebt: "4.6.7x", eti: "5.0.5",      etp: "5.1.2",     cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.9.2", edd: "2.9.26" },
             85: { name: "G21.02",    date: "Feb 16",     tec: "5.3.2.1",   pro: "5.2.2",     vev: "1.1.4",    fib: "5.0.4",    ebt: "4.6.7",  eti: "5.1.0x",     etp: "5.2.0x",    cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "5.0.0", edd: "2.9.26" },
+            86: { name: "B21.02",    date: "Feb 24",     tec: "5.4.0x",    pro: "5.3.0x",    vev: "1.1.5x",   fib: "5.0.5x",   ebt: "4.6.8x", eti: "5.1.0",      etp: "5.2.0",     cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "5.0.0", edd: "2.9.26" },
+            87: { name: "ELMNTR",    date: "Mar 2",      tec: "5.4.0.1",   pro: "5.4.0.2x",  vev: "1.1.5",    fib: "5.0.5",    ebt: "4.6.8",  eti: "5.1.0",      etp: "5.2.0",     cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "5.0.0", edd: "2.9.26" },
+            88: { name: "G21.03",    date: "Mar 4",      tec: "5.4.0.1",   pro: "5.4.0.2",   vev: "1.1.5",    fib: "5.0.5",    ebt: "4.6.8",  eti: "5.1.1x",     etp: "5.2.1x",    cev: "4.8.5x",    ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "5.0.0", edd: "2.9.26" },
         };
 
         // The number of releases (the length of the object)
