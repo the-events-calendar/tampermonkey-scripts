@@ -315,25 +315,27 @@
          * Expand / collapse table
          */
         function moreLess() {
+            var tbody = document.getElementById('pluginversions-tbody');
             var more = document.getElementById( 'mmore' );
-            var bodyHeight = document.getElementById('pluginversions-tbody').clientHeight;
+            var bodyHeight = tbody.clientHeight;
 
             if ( bodyHeight >= expandedHeight ) {
-                $( '#pluginversions-tbody' ).css({ 'height': initialRowsHeight + 'px' });
+                tbody.style.height = initialRowsHeight + 'px';
                 more.innerHTML = '[more]';
                 if ( scrollOnCollapse ) scrollToBottom();
             }
             else {
-                $( '#pluginversions-tbody' ).css({ 'height': expandedHeight + 'px' });
+                tbody.style.height = expandedHeight + 'px';
                 more.innerHTML = '[less]';
             }
-
         }
 
         /**
          * Hide / show table
          */
         function hideBlock() {
+            var pluginVersions = document.getElementById( 'plugin-versions' );
+
             var block = document.getElementById( 'plugin-versions' );
             var str   = document.getElementById( 'hider' );
             var right = window.outerWidth-block.offsetLeft;
@@ -345,11 +347,11 @@
             if ( log ) console.log( 'hideRight: ' + hideRight );
 
             if ( block.offsetLeft + 150 > window.outerWidth ) {
-                $( '#plugin-versions' ).css({ 'right': startRight });
+                pluginVersions.style.right = startRight;
                 str.innerHTML = '[hide]';
             }
             else {
-                $( '#plugin-versions' ).css({ 'right': hideRight });
+                pluginVersions.style.right = hideRight;
                 str.innerHTML = '[show]';
             }
         }
@@ -377,7 +379,8 @@
 
         if ( startHidden ) {
             var startHiddenRight = -parent.offsetWidth + 55;
-            $('#plugin-versions').css({ 'right': startHiddenRight });
+            parent.style.right = startHiddenRight;
+
         }
 
         // Handle actions
