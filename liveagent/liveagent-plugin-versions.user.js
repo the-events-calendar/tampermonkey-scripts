@@ -38,7 +38,7 @@
 
     // Define starting position of the container
     // The distance from the right edge of the screen
-    var startRight = '350px';
+    var startRight = '350';
 
     // Define the width of the first 2 columns (in pixels)
     var secondColumnWidth = 70;
@@ -191,7 +191,7 @@
         var htmlstring = '';
 
         htmlstring += '<style>' +
-            '#plugin-versions { z-index: 2; position: fixed; top: 0; background-color: rgb(62, 72, 73); color: rgb(242, 241, 240); transition-duration: 1000ms; transition-timing-function: ease-in-out; right: ' + startRight + '; min-width: 860px; }' +
+            '#plugin-versions { z-index: 2; position: fixed; top: 0; background-color: rgb(62, 72, 73); color: rgb(242, 241, 240); transition-duration: 1000ms; transition-timing-function: ease-in-out; right: ' + startRight + 'px; min-width: 860px; }' +
             '#plugin-versions table { width: 100%; }' +
             '.versions td { padding: 0 5px !important; border-right: 1px solid white; line-height: 1.5em !important; font-size: 110% !important; }' +
             '.versions td img { width: 30px !important; }' +
@@ -352,13 +352,16 @@
             if ( log ) console.log( 'window.outerWidth: ' + window.outerWidth );
             if ( log ) console.log( 'right: ' + right );
             if ( log ) console.log( 'hideRight: ' + hideRight );
+            if ( log ) console.log( 'startRight: ' + startRight );
 
-            if ( block.offsetLeft + 150 > window.outerWidth ) {
-                pluginVersions.style.right = startRight;
+            if ( block.offsetLeft > window.outerWidth - 150 ) {
+                if ( log ) console.log( 'showing' );
+                pluginVersions.style.right = startRight + 'px';
                 str.innerHTML = '[hide]';
             }
             else {
-                pluginVersions.style.right = hideRight;
+                if ( log ) console.log( 'hiding' );
+                pluginVersions.style.right = hideRight + 'px';
                 str.innerHTML = '[show]';
             }
         }
