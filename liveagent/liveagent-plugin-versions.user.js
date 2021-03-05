@@ -412,6 +412,7 @@
      * Added new plugin versions (86-88)
      * Replaced jQuery code with vanilla JavaScript
      * Made adjustments to show/hide to account for browser zoom level
+     * Adjusted code so it only runs when necessary
      *
      * 4.1.1 - 2021-02-22
      * Added new plugin versions (85)
