@@ -110,17 +110,6 @@
 
 				} // for ( var i=0; i<rows.length; i++ )
 			}
-			// If script already ran and found results, then stop.
-			if ( alreadyDone ) {
-				console.log( "Clickafy script ran with success. Stopping script." );
-				clearInterval( startScript );
-			}
-
-			// Stop script if it ran more than 'maxRuns' times without success.
-			if ( countingRuns > maxRuns ) {
-				console.log( 'Clickafy script ran ' + maxRuns + ' times without success. Stopping script.' );
-				clearInterval( startScript );
-			}
 
 		} // function clickableScript
 
