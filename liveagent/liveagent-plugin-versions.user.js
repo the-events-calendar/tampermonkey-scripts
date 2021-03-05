@@ -181,7 +181,10 @@
         /**
          * Table of the plugin versions
          */
-        var htmlstring = '<div id="plugin-versions">';
+        var htmlMarkup = document.createElement('div');
+        htmlMarkup.id = 'plugin-versions';
+
+        var htmlstring = '';
 
         htmlstring += '<style>' +
             '#plugin-versions { z-index: 2; position: fixed; top: 0; background-color: rgb(62, 72, 73); color: rgb(242, 241, 240); transition-duration: 1000ms; transition-timing-function: ease-in-out; right: ' + startRight + '; min-width: 860px; }' +
@@ -301,12 +304,12 @@
 
         // Close the table and the container
         htmlstring += '</table>';
-        htmlstring += '</div>';
 
         if ( log ) console.log( htmlstring );
 
         // Adding to markup
-        $( '#body' ).after( htmlstring );
+        console.log('Adding plugin versions to markup');
+        document.getElementsByTagName("body")[0].appendChild( htmlMarkup );
 
         /**
          * Expand / collapse table
