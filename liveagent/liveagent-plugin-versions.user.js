@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LiveAgent - Latest plugin versions
 // @namespace    https://theeventscalendar.com/
-// @version      4.1.1
+// @version      4.2.0
 // @description  Display our plugins' latest version numbers.
 // @author       Andras Guseo
 // @include      https://theeventscalendar.ladesk.com/agent/*
@@ -38,7 +38,7 @@
 
     // Define starting position of the container
     // The distance from the right edge of the screen
-    var startRight = '350px';
+    var startRight = '350';
 
     // Define the width of the first 2 columns (in pixels)
     var secondColumnWidth = 70;
@@ -52,12 +52,19 @@
     // Height of the table (in pixels) when expanded
     var expandedHeight = 300;
 
+    // Check for the zoom level of the browser
+    let zoomlevel = (( window.outerWidth - 10 ) / window.innerWidth);
+
+    // The body tag. Used to check where to add the markup
+    var bodyTag = document.getElementsByTagName("body")[0];
+
 //== START ==//
     if ( log ) console.log ( alreadydone );
     if ( log ) console.log ( typeof alreadydone );
+    if ( log ) console.log ( 'The <body> tag has ' + bodyTag.classList.length + ' classes' );
 
     // Only run if it wasn't executed before
-    if ( typeof alreadydone == 'undefined' ) {
+    if ( typeof alreadydone == 'undefined'  && bodyTag.classList.length > 0 ) {
 
         var alreadydone = true;
 
@@ -167,6 +174,9 @@
             83: { name: "G21.01",    date: "Jan 20",     tec: "5.3.1.1",   pro: "5.2.1.2",   vev: "1.1.3",    fib: "5.0.3",    ebt: "4.6.6",  eti: "5.0.5x",     etp: "5.1.2x",    cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.9.1", edd: "2.9.26" },
             84: { name: "B21.01",    date: "Feb 1",      tec: "5.3.2.1x",  pro: "5.2.2x",    vev: "1.1.4x",   fib: "5.0.4x",   ebt: "4.6.7x", eti: "5.0.5",      etp: "5.1.2",     cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "4.9.2", edd: "2.9.26" },
             85: { name: "G21.02",    date: "Feb 16",     tec: "5.3.2.1",   pro: "5.2.2",     vev: "1.1.4",    fib: "5.0.4",    ebt: "4.6.7",  eti: "5.1.0x",     etp: "5.2.0x",    cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "5.0.0", edd: "2.9.26" },
+            86: { name: "B21.02",    date: "Feb 24",     tec: "5.4.0x",    pro: "5.3.0x",    vev: "1.1.5x",   fib: "5.0.5x",   ebt: "4.6.8x", eti: "5.1.0",      etp: "5.2.0",     cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "5.0.0", edd: "2.9.26" },
+            87: { name: "ELMNTR",    date: "Mar 2",      tec: "5.4.0.1",   pro: "5.4.0.2x",  vev: "1.1.5",    fib: "5.0.5",    ebt: "4.6.8",  eti: "5.1.0",      etp: "5.2.0",     cev: "4.8.3",     ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "5.0.0", edd: "2.9.26" },
+            88: { name: "G21.03",    date: "Mar 4",      tec: "5.4.0.1",   pro: "5.4.0.2",   vev: "1.1.5",    fib: "5.0.5",    ebt: "4.6.8",  eti: "5.1.1x",     etp: "5.2.1x",    cev: "4.8.5x",    ctx: "4.7.7" ,   apm: "4.5",  iwp: "1.0.3",  woo: "5.0.0", edd: "2.9.26" },
         };
 
         // The number of releases (the length of the object)
@@ -176,32 +186,15 @@
         var pluginNames = ['tec', 'pro', 'vev', 'fib', 'ebt', 'eti', 'etp', 'cev', 'ctx', 'apm', 'iwp', 'woo', 'edd'];
 
         /**
-         * Defining our plugins
-         * (Probably "version" here is not needed.)
-         */
-        var pluginVersions = {
-            tec: { name: '(The Events Calendar version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)',                           namelength: '28', version: '', curr: '#currtecver', user: '#usertecver' },
-            pro: { name: '(Events Calendar PRO version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)',                           namelength: '28', version: '', curr: '#currprover', user: '#userprover' },
-            vev: { name: '(The Events Calendar: Virtual Events version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)',           namelength: '44', version: '', curr: '#currfibver', user: '#userfibver' },
-            fib: { name: '(The Events Calendar: Filter Bar version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)',               namelength: '40', version: '', curr: '#currfibver', user: '#userfibver' },
-            ebt: { name: '(The Events Calendar: Eventbrite Tickets version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)',       namelength: '48', version: '', curr: '#currebtver', user: '#userebtver' },
-            eti: { name: '(Event Tickets version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)',                                 namelength: '22', version: '', curr: '#curretiver', user: '#useretiver' },
-            etp: { name: '(Event Tickets Plus version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)',                            namelength: '27', version: '', curr: '#curretpver', user: '#useretpver' },
-            cev: { name: '(The Events Calendar: Community Events version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)',         namelength: '46', version: '', curr: '#currcevver', user: '#usercevver' },
-            ctx: { name: '(The Events Calendar: Community Events Tickets version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)', namelength: '54', version: '', curr: '#currctxver', user: '#userctxver' },
-            apm: { name: '(Advanced Post Manager version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)',                         namelength: '30', version: '', curr: '#currapmver', user: '#userapmver' },
-            iwp: { name: '(Image Widget Plus version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Modern Tribe, Inc.)',                             namelength: '26', version: '', curr: '#curriwpver', user: '#useriwpver' },
-            woo: { name: '(WooCommerce version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Automattic)',                                           namelength: '20', version: '', curr: '#currecmver', user: '#userecmver' },
-            edd: { name: '(Easy Digital Downloads version )(.{0,})( by )(<a href=".{0,30}">){0,1}(Easy Digital Downloads)',                    namelength: '31', version: '', curr: '#currecmver', user: '#userecmver' }
-        };
-
-        /**
          * Table of the plugin versions
          */
-        var htmlstring = '<div id="plugin-versions">';
+        var htmlMarkup = document.createElement('div');
+        htmlMarkup.id = 'plugin-versions';
+
+        var htmlstring = '';
 
         htmlstring += '<style>' +
-            '#plugin-versions { z-index: 2; position: fixed; top: 0; background-color: rgb(62, 72, 73); color: rgb(242, 241, 240); transition-duration: 1000ms; transition-timing-function: ease-in-out; right: ' + startRight + '; min-width: 860px; }' +
+            '#plugin-versions { z-index: 2; position: fixed; top: 0; background-color: rgb(62, 72, 73); color: rgb(242, 241, 240); transition-duration: 1000ms; transition-timing-function: ease-in-out; right: ' + startRight + 'px; min-width: 860px; }' +
             '#plugin-versions table { width: 100%; }' +
             '.versions td { padding: 0 5px !important; border-right: 1px solid white; line-height: 1.5em !important; font-size: 110% !important; }' +
             '.versions td img { width: 30px !important; }' +
@@ -318,36 +311,41 @@
 
         // Close the table and the container
         htmlstring += '</table>';
-        htmlstring += '</div>';
 
         if ( log ) console.log( htmlstring );
 
+        // Add content to element
+        htmlMarkup.innerHTML = htmlstring;
+
         // Adding to markup
-        $( '#body' ).after( htmlstring );
+        console.log('Adding plugin versions to markup');
+        document.getElementsByTagName("body")[0].appendChild( htmlMarkup );
 
         /**
          * Expand / collapse table
          */
         function moreLess() {
+            var tbody = document.getElementById('pluginversions-tbody');
             var more = document.getElementById( 'mmore' );
-            var bodyHeight = document.getElementById('pluginversions-tbody').clientHeight;
+            var bodyHeight = tbody.clientHeight;
 
             if ( bodyHeight >= expandedHeight ) {
-                $( '#pluginversions-tbody' ).css({ 'height': initialRowsHeight + 'px' });
+                tbody.style.height = initialRowsHeight + 'px';
                 more.innerHTML = '[more]';
                 if ( scrollOnCollapse ) scrollToBottom();
             }
             else {
-                $( '#pluginversions-tbody' ).css({ 'height': expandedHeight + 'px' });
+                tbody.style.height = expandedHeight + 'px';
                 more.innerHTML = '[less]';
             }
-
         }
 
         /**
          * Hide / show table
          */
         function hideBlock() {
+            var pluginVersions = document.getElementById( 'plugin-versions' );
+
             var block = document.getElementById( 'plugin-versions' );
             var str   = document.getElementById( 'hider' );
             var right = window.outerWidth-block.offsetLeft;
@@ -357,13 +355,17 @@
             if ( log ) console.log( 'window.outerWidth: ' + window.outerWidth );
             if ( log ) console.log( 'right: ' + right );
             if ( log ) console.log( 'hideRight: ' + hideRight );
+            if ( log ) console.log( 'startRight: ' + startRight );
+            if ( log ) console.log( 'zoom level: ' + zoomlevel );
 
-            if ( block.offsetLeft + 150 > window.outerWidth ) {
-                $( '#plugin-versions' ).css({ 'right': startRight });
+            if ( block.offsetLeft * zoomlevel > window.outerWidth - 150 ) {
+                if ( log ) console.log( 'showing' );
+                pluginVersions.style.right = startRight + 'px';
                 str.innerHTML = '[hide]';
             }
             else {
-                $( '#plugin-versions' ).css({ 'right': hideRight });
+                if ( log ) console.log( 'hiding' );
+                pluginVersions.style.right = hideRight + 'px';
                 str.innerHTML = '[show]';
             }
         }
@@ -391,7 +393,8 @@
 
         if ( startHidden ) {
             var startHiddenRight = -parent.offsetWidth + 55;
-            $('#plugin-versions').css({ 'right': startHiddenRight });
+            parent.style.right = startHiddenRight;
+
         }
 
         // Handle actions
@@ -404,6 +407,12 @@
 
     /**
      * === Changelog ===
+     *
+     * 4.2.0 - 2021-03-05
+     * Added new plugin versions (86-88)
+     * Replaced jQuery code with vanilla JavaScript
+     * Made adjustments to show/hide to account for browser zoom level
+     * Adjusted code so it only runs when necessary
      *
      * 4.1.1 - 2021-02-22
      * Added new plugin versions (85)
