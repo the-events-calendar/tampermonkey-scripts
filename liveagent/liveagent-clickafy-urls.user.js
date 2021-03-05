@@ -22,7 +22,7 @@
 	var startScript = window.setInterval( clickableScript, 5000 );
 
 	// Variables
-	var fields = [ "Central ID", "Issue Tracker ID", "Site's URL", "WordPress ID", "Sandbox URL", "url" ];
+	var fields = [ "Central ID", "Issue Tracker ID", "Site's URL", "WordPress ID", "Sandbox URL", "url", "braintree_url" ];
 	var field = "",
 		url = "",
 		alreadyDone = false,
