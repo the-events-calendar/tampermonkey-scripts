@@ -52,6 +52,9 @@
     // Height of the table (in pixels) when expanded
     var expandedHeight = 300;
 
+    // Check for the zoom level of the browser
+    let zoomlevel = (( window.outerWidth - 10 ) / window.innerWidth);
+
     // The body tag. Used to check where to add the markup
     var bodyTag = document.getElementsByTagName("body")[0];
 
@@ -353,8 +356,9 @@
             if ( log ) console.log( 'right: ' + right );
             if ( log ) console.log( 'hideRight: ' + hideRight );
             if ( log ) console.log( 'startRight: ' + startRight );
+            if ( log ) console.log( 'zoom level: ' + zoomlevel );
 
-            if ( block.offsetLeft > window.outerWidth - 150 ) {
+            if ( block.offsetLeft * zoomlevel > window.outerWidth - 150 ) {
                 if ( log ) console.log( 'showing' );
                 pluginVersions.style.right = startRight + 'px';
                 str.innerHTML = '[hide]';
