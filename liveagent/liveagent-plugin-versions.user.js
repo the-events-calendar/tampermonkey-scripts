@@ -52,12 +52,16 @@
     // Height of the table (in pixels) when expanded
     var expandedHeight = 300;
 
+    // The body tag. Used to check where to add the markup
+    var bodyTag = document.getElementsByTagName("body")[0];
+
 //== START ==//
     if ( log ) console.log ( alreadydone );
     if ( log ) console.log ( typeof alreadydone );
+    if ( log ) console.log ( 'The <body> tag has ' + bodyTag.classList.length + ' classes' );
 
     // Only run if it wasn't executed before
-    if ( typeof alreadydone == 'undefined' ) {
+    if ( typeof alreadydone == 'undefined'  && bodyTag.classList.length > 0 ) {
 
         var alreadydone = true;
 
@@ -306,6 +310,9 @@
         htmlstring += '</table>';
 
         if ( log ) console.log( htmlstring );
+
+        // Add content to element
+        htmlMarkup.innerHTML = htmlstring;
 
         // Adding to markup
         console.log('Adding plugin versions to markup');
