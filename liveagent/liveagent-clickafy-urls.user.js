@@ -6,6 +6,8 @@
 // @author       Andras Guseo
 // @include      https://support.theeventscalendar.com/agent/*
 // @include      https://theeventscalendar.ladesk.com/agent/*
+// @include      https://help.loxi.io/agent/*
+// @include      https://loxi.ladesk.com/agent/*
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/liveagent/liveagent-clickafy-urls.user.js
 // @grant        none
 // ==/UserScript==
@@ -119,6 +121,7 @@
 	 * 2.3 - 2021-03-05
 	 * - Adjusted script to run when needed and only when needed.
 	 * - Added Braintree URL field to be recognized.
+	 * - Script now also runs on Loxi LiveAgent.
 	 *
 	 * 2.2 - 2021-02-28
 	 * - Script now doesn't stop after finding the first field.
