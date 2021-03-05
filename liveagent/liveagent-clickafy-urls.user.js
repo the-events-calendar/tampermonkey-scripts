@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LiveAgent - Clickafy URLs
 // @namespace    http://tampermonkey.net/
-// @version      2.2
+// @version      2.3
 // @description  Make the Jira issue tracker IDs, the user ID, the user's website, the url, and the sandbox site URL clickable in LiveAgent.
 // @author       Andras Guseo
 // @include      https://support.theeventscalendar.com/agent/*
@@ -112,35 +112,40 @@
 			}
 
 		} // function clickableScript
-
-		/**
-		 * Changelog
-		 * 2.2 - 2021-02-28
-		 * - Script now doesn't stop after finding the first field.
-		 * - The 'url' field is also recognized.
-		 * - Script stops if it already has found results.
-		 * - Script stops if it ran a defined max number of times without success.
-		 *
-		 * 2.1 - 2021-01-11
-		 * - The URL is now pointing to the new Jira instance.
-		 * - The download URL is now pointing to the new GitHub repo.
-		 *
-		 * 2.0 - 2020-09-23
-		 * - Re-wrote the script to make it work with updated LiveAgent fields
-		 *
-		 * 1.1 - 2020-01-14
-		 * - Fixed a glitch where the user's site URL was added to the Jira Issue Tracker URL
-		 *
-		 * 1.0 - 2020-01-07
-		 * - Adjusted to make it work with both Central and Jira ticket IDs
-		 * - Renamed file and updated download URL
-		 *
-		 * 0.5 - 2019-09-26
-		 * - The script now handles Sandbox URL as well
-		 *
-		 * 0.4 - 2019-09-06
-		 * - The script now correctly handles central tickets with full URL
-		 */
 	}
+	/**
+	 * Changelog
+	 *
+	 * 2.3 - 2021-03-05
+	 * - Adjusted script to run when needed and only when needed.
+	 * - Added Braintree URL field to be recognized.
+	 *
+	 * 2.2 - 2021-02-28
+	 * - Script now doesn't stop after finding the first field.
+	 * - The 'url' field is also recognized.
+	 * - Script stops if it already has found results.
+	 * - Script stops if it ran a defined max number of times without success.
+	 *
+	 * 2.1 - 2021-01-11
+	 * - The URL is now pointing to the new Jira instance.
+	 * - The download URL is now pointing to the new GitHub repo.
+	 *
+	 * 2.0 - 2020-09-23
+	 * - Re-wrote the script to make it work with updated LiveAgent fields
+	 *
+	 * 1.1 - 2020-01-14
+	 * - Fixed a glitch where the user's site URL was added to the Jira Issue Tracker URL
+	 *
+	 * 1.0 - 2020-01-07
+	 * - Adjusted to make it work with both Central and Jira ticket IDs
+	 * - Renamed file and updated download URL
+	 *
+	 * 0.5 - 2019-09-26
+	 * - The script now handles Sandbox URL as well
+	 *
+	 * 0.4 - 2019-09-06
+	 * - The script now correctly handles central tickets with full URL
+	 */
+
 
 )();
