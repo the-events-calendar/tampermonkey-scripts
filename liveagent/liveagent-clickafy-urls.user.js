@@ -37,6 +37,7 @@
 
 		// Walk the object
 		for( var i = 0; i < rows.length; i++ ) {
+			var exists = false;
 
 			// Get the HTML from the row
 			field = rows[ i ].name;
@@ -54,10 +55,14 @@
 			if ( log ) console.log( 'ID: ' + id );
 
 			// Check if the ID exists. If it exists it means we already created it, so skip.
-			/*if (null != document.getElementById(id)) {
+			if ( null != document.getElementById( id ) ) {
 				if (log) console.log('Skipped at ID: ' + id);
-				continue;
-			}*/
+				exists = true;
+			}
+
+			// If the icon doesn't exist yet, then create.
+			if ( false === exists ) {
+				if ( log ) console.log( 'Creating icon' );
 
 			// Now we can start creating...
 
@@ -90,7 +95,7 @@
 				url = url + val;
 			}
 
-			//Creating the container.
+			// Creating the container.
 			var linkContainer = document.createElement( 'span' );
 			linkContainer.id = id;
 			linkContainer.innerHTML = '<a href="' + url + '" target="_blank" title="Open link in new window">👁️</a>';
