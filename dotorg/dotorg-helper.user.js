@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         .org Helper for Modern Tribe Support
+// @name         .org Helper for The Events Calendar Support
 // @namespace    http://tampermonkey.net/
 // @version      1.7.5
-// @description  The script runs in the .org forums for Modern Tribe plugins. It colors resolved threads green, and threads where last voice is a team member light yellow.
+// @description  The script runs in the .org forums for The Events Calendar plugins. It colors resolved threads green, and threads where last voice is a team member light yellow.
 // @author       Andras Guseo
 // @include      https://wordpress.org/support/plugin/pardot*
 // @include      https://wordpress.org/support/plugin/the-events-calendar*
@@ -16,7 +16,7 @@
 
 /**
  * Marks resolved threads green.
- * Marks threads blue where Modern Tribe is the last voice. (No action needed.)
+ * Marks threads blue where The Events Calendar is the last voice. (No action needed.)
  * Marks threads yellow that are more than a month old.
  */
 

@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         .org Hider for Modern Tribe Support
+// @name         .org Hider for The Events Calendar Support
 // @namespace    http://tampermonkey.net/
 // @version      1.7.5
-// @description  The script runs in the .org forums for Modern Tribe plugins. A twin to .org Helper. It hides threads that don't need attention: resolved threads and threads where last voice is a team member.
+// @description  The script runs in the .org forums for The Events Calendar plugins. A twin to .org Helper. It hides threads that don't need attention: resolved threads and threads where last voice is a team member.
 // @author       Andras Guseo
 // @include      https://wordpress.org/support/plugin/pardot*
 // @include      https://wordpress.org/support/plugin/the-events-calendar*
@@ -15,7 +15,7 @@
 // ==/UserScript==
 
 /**
- * Hides all threads that are resolved or last voice is Modern Tribe.
+ * Hides all threads that are resolved or last voice is The Events Calendar.
  * Marks threads yellow that are more than a month old.
  */
 
