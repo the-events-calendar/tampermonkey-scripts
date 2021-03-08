@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         .org Hider for Modern Tribe Support
+// @name         .org Hider for The Events Calendar Support
 // @namespace    http://tampermonkey.net/
-// @version      1.7.3
-// @description  The script runs in the .org forums for Modern Tribe plugins. A twin to .org Helper. It hides threads that don't need attention: resolved threads and threads where last voice is a team member.
+// @version      1.7.5
+// @description  The script runs in the .org forums for The Events Calendar plugins. A twin to .org Helper. It hides threads that don't need attention: resolved threads and threads where last voice is a team member.
 // @author       Andras Guseo
 // @include      https://wordpress.org/support/plugin/pardot*
 // @include      https://wordpress.org/support/plugin/the-events-calendar*
@@ -10,12 +10,12 @@
 // @include      https://wordpress.org/support/plugin/gigpress*
 // @include      https://wordpress.org/support/plugin/image-widget*
 // @include      https://wordpress.org/support/plugin/advanced-post-manager*
-// @downloadURL  https://github.com/moderntribe/tampermonkey-scripts/raw/master/dotorg/dotorg-hider.user.js
+// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-hider.user.js
 // @grant        none
 // ==/UserScript==
 
 /**
- * Hides all threads that are resolved or last voice is Modern Tribe.
+ * Hides all threads that are resolved or last voice is The Events Calendar.
  * Marks threads yellow that are more than a month old.
  */
 
@@ -25,51 +25,57 @@
     // Get all lines in an array
     var x = document.getElementsByClassName( 'type-topic' );
 
-    // MT team members
-    var mtteam = [
-        'aguseo',                       // Andras Guseo
-        'alaasalama',                   // Alaa Salama
-        'barryhughes-1',                // Barry Hughes
+    // TEC team members
+    var tecteam = [
+        'aguseo',                       // Andras Guseo                 - 2016-04-25
+        'alaasalama',                   // Alaa Salama                  - 2018-11-19 to 2020-08-31
+        'barryhughes-1',                // Barry Hughes                 - xxxx-xx-xx to 2020-07-31
         'bordoni',                      // Gustavo Bordoni
-        'bskousen3',                    // Brendan Skousen
+        'bskousen3',                    // Brendan Skousen              - 2017-10-23
         'brianjessee',                  // Brian Jessee
         'borkweb',                      // Mattew Batchelder            - 2020-03-30
-        'brook-tribe',                  // Brook
+        'brook-tribe',                  // Brook                        - xxxx-xx-xx to 2017-xx-xx
         'chikaibeneme',                 // Chika Ibeneme                - 2020-02-10
         'cliffpaulick',                 // Clifford Paulick
         'cliffseal',                    // Cliff Seal - Pardot
         'cswebd3v',                     // Chris Swenson                - 2020-09-01
-        'courane01',                    // Courtney Robertson
-        'deblynprado',                  // Deblyn Prado
+        'courane01',                    // Courtney Robertson           - 2017-02-22
+        'deblynprado',                  // Deblyn Prado                 - 2019-04-11
         'djbramer',                     // Dan Bramer
-        'erishel',                      // Edward Rishel
+        'erishel',                      // Edward Rishel                - 2018-03-12 to 2018-12-31	
         'eugenekyale',                  // Eugene Kyale                 - 2020-09-01
-        'geoffbel',                     // Geoffroy 'LeGeoff' Belanger
+        'eugenetribe',                  // Eugene Kyale                 - 2020-09-01
+        'geoffbel',                     // Geoffroy 'LeGeoff' Belanger  - 2016-01-20
         'geoffgraham',                  // Geoff Graham
-        'ggwicz',                       // George Gecewicz
-        'jaimemarchwinski',             // Jaime Marchwinski
-        'jentheo',                      // Jennifer Theodore
-        'jeremy80',                     // Jeremy Marchandeau
+        'ggwicz',                       // George Gecewicz              - xxxx-xx-xx to 2017-xx-xx
+        'highprrrr',                    // James Welbes                 - 2021-02-01
+        'iammarta',                     // Marta Kozak                  - 2020-09-01
+        'jaimemarchwinski',             // Jaime Marchwinski            - 2017-08-31
+        'jentheo',                      // Jennifer Theodore            - 2017-05-08
+        'jeremy80',                     // Jeremy Marchandeau           - 2018-03-26
         'juanfra',                      // Juan Francisco Aldasoro
         'koriashton',                   // Kori Ashton                  - 2020-09-01
         'lucasbustamante',              // Lucas Bustamante             - 2020-03-30
         'mandraagora',                  // Wolf Bishop                  - 2020-03-04
         'masoodak',                     // Masood Khan                  - 2020-09-01
+        'matumu',                       // Marho Atumu                  - 2020-09-01
         'mitogh',                       // Crisoforo Hernandez
         'neillmcshea',                  // Neill McShae
-        'nicosantos',                   // Nico Santos
-        'nikrosales',                   // Nik Rosales
-        'patriciahillebrandt',          // Patricia Hillebrandt
-        'rafsuntaskin',                 // Rafsun Chowdhury             -2020-03-30
-        'sdenike',                      // Shelby DeNike
-        'sjaure',                       // Santiago Jaureguiberry
-        'skyshab',                      // Jason 'Sky' Shabatura
-        'tokyobiyori',                  // Ali Darwich
-        'tribalmike',                   // Mike Cotton
-        'tribecari',                    // Caroline
+        'nicosantos',                   // Nico Santos                  - 2015-xx-xx to 2019-xx-xx
+        'nikrosales',                   // Nik Rosales                  - 2020-02-24
+        'patriciahillebrandt',          // Patricia Hillebrandt         - 2017-06-09
+        'rafsuntaskin',                 // Rafsun Chowdhury             - 2020-03-30
+        'sdenike',                      // Shelby DeNike                - 2018-10-08 to 2019-08-31
+        'shatterdorn1',                 // Truman Dorn                  - 2021-03-01
+        'sjaure',                       // Santiago Jaureguiberry       - 2019-05-26
+        'skyshab',                      // Jason 'Sky' Shabatura        - 2018-01-02
+        'theeventscalendar',            // The Events Calendar          - 2020-12-18
+        'tokyobiyori',                  // Ali Darwich                  - 2018-11-19
+        'tribalmike',                   // Mike Cotton                  - 2018-10-11
+        'tribecari',                    // Caroline                     - 2016-05-16 to 2017-12-31
         'translationsbymoderntribe',    // Modern Tribe Translations    - 2020-03-30
-        'vicskf',                       // Victor Zarranz
-        'zbtirrell',                    // Zach Tirrell
+        'vicskf',                       // Victor Zarranz               - 2017-xx-xx
+        'zbtirrell',                    // Zach Tirrell                 - 
     ];
 
     var i, j;
@@ -78,7 +84,7 @@
     for( i = 0; i < x.length; i++ ) {
 
         // Check if the line is resolved
-        for( j = 0; j < mtteam.length; j++ ) {
+        for( j = 0; j < tecteam.length; j++ ) {
             //console.log();
             var m = x[i].innerHTML.search( 'class="resolved"' );
             if( m > 0 ) {
@@ -89,7 +95,7 @@
             }
 
             // If not resolved, check if tha last voice is a team member
-            var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + mtteam[j] + '/"' );
+            var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
 
             if ( n > 0 ) {
                 var o = x[i].innerHTML.search( /[1-9] (month[s]?)/ );

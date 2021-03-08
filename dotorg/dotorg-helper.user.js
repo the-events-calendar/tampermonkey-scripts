@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         .org Helper for Modern Tribe Support
+// @name         .org Helper for The Events Calendar Support
 // @namespace    http://tampermonkey.net/
-// @version      1.7.4
-// @description  The script runs in the .org forums for Modern Tribe plugins. It colors resolved threads green, and threads where last voice is a team member light yellow.
+// @version      1.7.5
+// @description  The script runs in the .org forums for The Events Calendar plugins. It colors resolved threads green, and threads where last voice is a team member light yellow.
 // @author       Andras Guseo
 // @include      https://wordpress.org/support/plugin/pardot*
 // @include      https://wordpress.org/support/plugin/the-events-calendar*
@@ -10,13 +10,13 @@
 // @include      https://wordpress.org/support/plugin/gigpress*
 // @include      https://wordpress.org/support/plugin/image-widget*
 // @include      https://wordpress.org/support/plugin/advanced-post-manager*
-// @downloadURL  https://github.com/moderntribe/tampermonkey-scripts/raw/master/dotorg/dotorg-helper.user.js
+// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-helper.user.js
 // @grant        none
 // ==/UserScript==
 
 /**
  * Marks resolved threads green.
- * Marks threads blue where Modern Tribe is the last voice. (No action needed.)
+ * Marks threads blue where The Events Calendar is the last voice. (No action needed.)
  * Marks threads yellow that are more than a month old.
  */
 
@@ -26,8 +26,8 @@
     // Get all lines in an array
     var x = document.getElementsByClassName( 'type-topic' );
 
-    // MT team members
-    var mtteam = [
+    // TEC team members
+    var tecteam = [
         'aguseo',                       // Andras Guseo                 - 2016-04-25
         'alaasalama',                   // Alaa Salama                  - 2018-11-19 to 2020-08-31
         'barryhughes-1',                // Barry Hughes                 - xxxx-xx-xx to 2020-07-31
@@ -49,6 +49,7 @@
         'geoffbel',                     // Geoffroy 'LeGeoff' Belanger  - 2016-01-20
         'geoffgraham',                  // Geoff Graham
         'ggwicz',                       // George Gecewicz              - xxxx-xx-xx to 2017-xx-xx
+        'highprrrr',                    // James Welbes                 - 2021-02-01
         'iammarta',                     // Marta Kozak                  - 2020-09-01
         'jaimemarchwinski',             // Jaime Marchwinski            - 2017-08-31
         'jentheo',                      // Jennifer Theodore            - 2017-05-08
@@ -66,8 +67,10 @@
         'patriciahillebrandt',          // Patricia Hillebrandt         - 2017-06-09
         'rafsuntaskin',                 // Rafsun Chowdhury             - 2020-03-30
         'sdenike',                      // Shelby DeNike                - 2018-10-08 to 2019-08-31
+        'shatterdorn1',                 // Truman Dorn                  - 2021-03-01
         'sjaure',                       // Santiago Jaureguiberry       - 2019-05-26
         'skyshab',                      // Jason 'Sky' Shabatura        - 2018-01-02
+        'theeventscalendar',            // The Events Calendar          - 2020-12-18
         'tokyobiyori',                  // Ali Darwich                  - 2018-11-19
         'tribalmike',                   // Mike Cotton                  - 2018-10-11
         'tribecari',                    // Caroline                     - 2016-05-16 to 2017-12-31
@@ -85,7 +88,7 @@
     for( i = 0; i < x.length; i++ ) {
 
         // Check if the line is resolved
-        for( j = 0; j < mtteam.length; j++ ) {
+        for( j = 0; j < tecteam.length; j++ ) {
             //console.log();
             var m = x[i].innerHTML.search( 'class="resolved"' );
             if( m > 0 ) {
@@ -96,7 +99,7 @@
             }
 
             // If not resolved, check if tha last voice is a team member
-            var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + mtteam[j] + '/"' );
+            var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
 
             if ( n > 0 ) {
                 var o = x[i].innerHTML.search( /[1-9] (month[s]?)/ );
@@ -108,6 +111,5 @@
             }
         }
     }
-
 
 })();
