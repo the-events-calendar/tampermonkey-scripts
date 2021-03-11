@@ -76,7 +76,7 @@
 					if ( val.search( 'http' ) >= 0 ) {
 						if ( log ) console.log( "Found 'http', using value as URL. . " + val );
 						url = val;
-					} else if ( field == "Site's URL" ) {
+					} else if ( field == "Site's URL" || field == 'url' ) {
 						if ( log ) console.log( "Found Site's URL - " + val );
 						url = 'https://' + val;
 					} else if ( field == "WordPress ID" ) {
