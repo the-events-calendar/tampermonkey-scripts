@@ -396,7 +396,7 @@
 
         if ( startHidden ) {
             var startHiddenRight = -parent.offsetWidth + 55;
-            parent.style.right = startHiddenRight;
+            parent.style.right = startHiddenRight + 'px';
 
         }
 
