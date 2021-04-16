@@ -23,7 +23,7 @@ let central_redirect_to_jira = {};
 	'use strict';
 
 	function redirect() {
-		window.location = encodeURI( 'https://moderntribe.atlassian.net/issues/?jql=cf[10037]="' + window.location.href + '"' );
+		window.location = encodeURI( 'https://theeventscalendar.atlassian.net/issues/?jql=cf[10037]="' + window.location.href + '"' );
 	}
 
 	document.write( 'Redirecting you to find this issue in Jira...' );
