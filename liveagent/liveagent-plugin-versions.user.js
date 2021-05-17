@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LiveAgent - Latest plugin versions
 // @namespace    https://theeventscalendar.com/
-// @version      4.2.1
+// @version      4.2.2
 // @description  Display our plugins' latest version numbers.
 // @author       Andras Guseo
 // @include      https://theeventscalendar.ladesk.com/agent/*
@@ -179,7 +179,11 @@
             88: { name: "G21.03",    date: "Mar 4",      tec: "5.4.0.2",   pro: "5.4.0.2",   vev: "1.1.5",    fib: "5.0.5",    ebt: "4.6.8",  eti: "5.1.1x",     etp: "5.2.1x",    cev: "4.8.5x",    ctx: "4.7.7",    apm: "4.5",  iwp: "1.0.3",  woo: "5.0.0", edd: "2.9.26" },
             89: { name: "B21.03",    date: "Mar 29",     tec: "5.5.0.1x",  pro: "5.5.0.2x",  vev: "1.2.0x",   fib: "5.1.0x",   ebt: "4.6.8",  eti: "5.1.1",      etp: "5.2.1",     cev: "4.8.5",     ctx: "4.7.7",    apm: "4.5",  iwp: "1.0.3",  woo: "5.1.0", edd: "2.10.1" },
             90: { name: "G21.04",    date: "Mar 30",     tec: "5.5.0.1",   pro: "5.5.0.2",   vev: "1.2.0",    fib: "5.1.0",    ebt: "4.6.8",  eti: "5.1.2.1x",   etp: "5.2.2.1x",  cev: "4.8.6x",    ctx: "4.7.8x",   apm: "4.5",  iwp: "1.0.3",  woo: "5.1.0", edd: "2.10.1" },
-            //91: { name: "G21.04",    date: "Mar 30",     tec: "5.5.0.1",   pro: "5.5.0.2",   vev: "1.2.0",    fib: "5.1.0",    ebt: "4.6.8",  eti: "5.1.2.1",    etp: "5.2.2.1",   cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.2.0", edd: "2.10.3" },
+            91: { name: "B21.alex",  date: "Apr 20",     tec: "5.5.0.1",   pro: "5.5.0.2",   vev: "1.3.0x",   fib: "5.1.0",    ebt: "4.6.8",  eti: "5.1.2.1",    etp: "5.2.2.1",   cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.2.2", edd: "2.10.3" },
+            92: { name: "G21.05",    date: "Apr 22",     tec: "5.5.0.1",   pro: "5.5.0.2",   vev: "1.3.0",    fib: "5.1.0",    ebt: "4.6.8",  eti: "5.1.3x",     etp: "5.2.3x",    cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.2.2", edd: "2.10.3" },
+            93: { name: "B21.alfa",  date: "Apr 29",     tec: "5.6.0x",    pro: "5.6.0x",    vev: "1.3.0",    fib: "5.1.1x",   ebt: "4.6.8",  eti: "5.1.3",      etp: "5.2.3",     cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.2.2", edd: "2.10.3" },
+            94: { name: "B21.bakl",  date: "May 10",     tec: "5.6.0",     pro: "5.6.0 ",    vev: "1.4.0x",   fib: "5.1.1",    ebt: "4.6.8",  eti: "5.1.3",      etp: "5.2.3",     cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.2.2", edd: "2.10.4" },
+            95: { name: "G21.agil",  date: "May 12",     tec: "5.6.0",     pro: "5.6.0 ",    vev: "1.4.0",    fib: "5.1.1",    ebt: "4.6.8",  eti: "5.1.4x",     etp: "5.2.4x",    cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.3.0", edd: "2.10.4" },
         };
 
         // The number of releases (the length of the object)
@@ -410,6 +414,9 @@
 
     /**
      * === Changelog ===
+     *
+     * 4.2.2 - 2021-05-17
+     * Added new plugin versions (91-95)
      *
      * 4.2.1 - 2021-04-14
      * Added new plugin versions (89-90)
