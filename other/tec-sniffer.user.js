@@ -243,9 +243,12 @@
      * @returns {string} V1 or V2
      */
     function getTecDesignVersion() {
-        // We use breakpoint to check for design version
         var design = 'V1';
-        if ( document.getElementsByClassName( 'tribe-common--breakpoint-xsmall' ).length > 0 ) {
+        // We use breakpoint to check for design version
+        //if ( document.getElementsByClassName( 'tribe-common--breakpoint-xsmall' ).length > 0 ) {
+
+        // We use v2 CSS to check for design version
+        if ( null != document.getElementById( 'tribe-events-views-v2-skeleton-css' ) ) {
             design = 'V2';
         }
         if ( logLevel1 ) console.log ( 'Design used: ' + design );
