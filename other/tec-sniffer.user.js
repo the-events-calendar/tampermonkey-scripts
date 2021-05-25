@@ -4,15 +4,16 @@
 // @version      2.2.0
 // @description  Trying to find out what's running on a WordPress site in terms of calendars.
 // @author       Andras Guseo
-// @include      https://*
+// @include      http*://*
 // @exclude      http*://*.local/wp-admin/*
 // @exclude      https://support.theeventscalendar.com/*
 // @exclude      https://theeventscalendar.ladesk.com/*
 // @exclude      https://theeventscalendar.com/*
+// @exclude      https://*loxi.io/*
 // @exclude      *google*
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/other/tec-sniffer.user.js
 // @grant        none
-// @run-at document-end
+// @run-at       document-idle
 // ==/UserScript==
 
 (function() {
@@ -92,6 +93,7 @@
     // Note, some caching plugins are sniffed out differently
     var caching = [
         'WP-Super-Cache',
+        'super cache',
         'WP Fastest Cache',
         'W3 Total Cache',
         'Hummingbird',
@@ -106,7 +108,7 @@
      * Work
      */
 
-    // Check for competitor
+        // Check for competitor
     var competitorHtml = checkIfCompetitor();
 
     // If there is no competitor or TEC product found, then quit
@@ -117,6 +119,8 @@
             return false;
         }
     }
+
+    console.log( 'Continuing to work...' );
 
     // Bool
     var wordpressDotCom = checkDotCom();
@@ -180,13 +184,14 @@
         for( var competitor in competitors ) {
             if ( logLevel2 ) console.log( "Checking for: " + competitor );
 
-            if ( null !== document.getElementById( competitors[ competitor ].id ) ) {
+            if ( undefined !== competitors[ competitor ].id && null !== document.getElementById( competitors[ competitor ].id ) ) {
+
                 if ( logLevel1 ) console.log( competitor + ' found.' );
 
                 competitorFound = true;
             }
 
-            if ( document.getElementsByClassName( competitors[ competitor ].class ).length > 0 ) {
+            if ( undefined !== competitors[ competitor ].class && document.getElementsByClassName( competitors[ competitor ].class ).length > 0 ) {
                 if ( logLevel1 ) console.log( competitor + ' found.' );
 
                 competitorFound = true;
@@ -573,7 +578,7 @@
         }
 
         if( logLevel1 ) console.log( 'No caching found' );
-        return 'Caching plugin not found';
+        return 'not found';
     }
 
     function checkCloudflare() {
@@ -677,7 +682,7 @@
             }
 
             if ( true === cloudFlare ) {
-                html += '<p>CloudFlare found</p>';
+                html += '<p>CloudFlare found!!!</p>';
             }
 
             html += '<p>' + cachingPlugin + '</p>';
