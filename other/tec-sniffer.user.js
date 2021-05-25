@@ -102,6 +102,7 @@
         'LiteSpeed Cache',
         'WP Super Minify',
         'WP-Optimize',
+        'breeze CACHE',
     ];
 
     /**

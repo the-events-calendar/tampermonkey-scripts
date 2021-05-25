@@ -43,6 +43,7 @@ Recognized competitors:
 The sniffer checks for the presence of the following caching plugins:
 * Asset CleanUp: Page Speed Booster
 * Autoptimize
+* [Breeze - WordPress Cache Plugin (by Cloudways)](https://wordpress.org/plugins/breeze/)
 * Cloudflare
 * Endurance Page Cache
 * Hummingbird
