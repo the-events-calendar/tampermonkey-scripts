@@ -1,22 +1,26 @@
 // ==UserScript==
 // @name         TEC Sniffer
 // @namespace    http://tampermonkey.net/
-// @version      2.1.1
+// @version      2.2.0
 // @description  Trying to find out what's running on a WordPress site in terms of calendars.
 // @author       Andras Guseo
-// @include      https://*
+// @include      http*://*
 // @exclude      http*://*.local/wp-admin/*
 // @exclude      https://support.theeventscalendar.com/*
 // @exclude      https://theeventscalendar.ladesk.com/*
 // @exclude      https://theeventscalendar.com/*
+// @exclude      https://*loxi.io/*
 // @exclude      *google*
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/other/tec-sniffer.user.js
 // @grant        none
-// @run-at document-end
+// @run-at       document-idle
 // ==/UserScript==
 
 (function() {
     'use strict';
+
+    // Version number. Only version.sub-version
+    var snifferVersionNumber = '2.2';
 
     console.log( 'Started sniffing' );
 
@@ -31,8 +35,6 @@
     // Set to true to let the script always run its course.
     var alwaysRun = false;
 
-    var snifferVersionNumber = '2.1';
-
     /**
      * Declarations
      */
@@ -42,6 +44,10 @@
         "Something Else": { id: "something-else" },
     };
 
+    // Content in the <head>
+    var headContent = document.getElementsByTagName('head')[ 0 ].innerHTML;
+
+    // Classes of the <body> tag
     var bodyClasses = document.getElementsByTagName( 'body' )[ 0 ].className.split( " " );
 
     // Classes of the views. Note: List should be (almost) at the end, as its css class can be present on other list-based views.
@@ -70,9 +76,11 @@
         "Avada"                  : { css: "avada-stylesheet-css" },
     };
 
+    // <link> tags
     // Used for themes and Autoptimize
     var links = document.getElementsByTagName( 'link' );
 
+    // <meta> tags
     // Getting the <meta>'s: WPML, WooCommerce, etc
     var metaTags = document.getElementsByTagName( 'meta' );
     var metas = [
@@ -82,8 +90,10 @@
     ];
 
     // Caching plugins
+    // Note, some caching plugins are sniffed out differently
     var caching = [
         'WP-Super-Cache',
+        'super cache',
         'WP Fastest Cache',
         'W3 Total Cache',
         'Hummingbird',
@@ -92,13 +102,14 @@
         'LiteSpeed Cache',
         'WP Super Minify',
         'WP-Optimize',
+        'breeze CACHE',
     ];
 
     /**
      * Work
      */
 
-    // Check for competitor
+        // Check for competitor
     var competitorHtml = checkIfCompetitor();
 
     // If there is no competitor or TEC product found, then quit
@@ -109,6 +120,8 @@
             return false;
         }
     }
+
+    console.log( 'Continuing to work...' );
 
     // Bool
     var wordpressDotCom = checkDotCom();
@@ -143,6 +156,8 @@
     // String
     var cachingPlugin = checkCaching();
 
+    var cloudFlare = checkCloudflare();
+
     /**
      * Render
      */
@@ -170,13 +185,14 @@
         for( var competitor in competitors ) {
             if ( logLevel2 ) console.log( "Checking for: " + competitor );
 
-            if ( null !== document.getElementById( competitors[ competitor ].id ) ) {
+            if ( undefined !== competitors[ competitor ].id && null !== document.getElementById( competitors[ competitor ].id ) ) {
+
                 if ( logLevel1 ) console.log( competitor + ' found.' );
 
                 competitorFound = true;
             }
 
-            if ( document.getElementsByClassName( competitors[ competitor ].class ).length > 0 ) {
+            if ( undefined !== competitors[ competitor ].class && document.getElementsByClassName( competitors[ competitor ].class ).length > 0 ) {
                 if ( logLevel1 ) console.log( competitor + ' found.' );
 
                 competitorFound = true;
@@ -227,9 +243,12 @@
      * @returns {string} V1 or V2
      */
     function getTecDesignVersion() {
-        // We use breakpoint to check for design version
         var design = 'V1';
-        if ( document.getElementsByClassName( 'tribe-common--breakpoint-xsmall' ).length > 0 ) {
+        // We use breakpoint to check for design version
+        //if ( document.getElementsByClassName( 'tribe-common--breakpoint-xsmall' ).length > 0 ) {
+
+        // We use v2 CSS to check for design version
+        if ( null != document.getElementById( 'tribe-events-views-v2-skeleton-css' ) ) {
             design = 'V2';
         }
         if ( logLevel1 ) console.log ( 'Design used: ' + design );
@@ -557,9 +576,27 @@
             return "Swift Performance";
         }
 
+        if( headContent.search("SG Optimizer") >= 0) {
+            if( logLevel1 ) console.log( 'Caching found: SiteGround Optimizergi' );
+            return "SiteGround Optimizer";
+        }
+
         if( logLevel1 ) console.log( 'No caching found' );
         return 'not found';
     }
+
+    function checkCloudflare() {
+        if ( logLevel2 ) console.log( 'Checking for Cloudflare' );
+        for( var i = 0; i < links.length; i++ ) {
+            var link = links[ i ].href.match( /cloudflare.com/ );
+            if ( links[ i ].href != undefined && link != null ) {
+                return true;
+                break;
+            }
+        }
+        return false;
+    }
+
 
     /**
      * Create a renderable line with HTML markup
@@ -646,6 +683,10 @@
 
             if ( true === autoptimize ) {
                 html += '<p>AUTOPTIMIZE FOUND!!!</p>';
+            }
+
+            if ( true === cloudFlare ) {
+                html += '<p>CloudFlare found!!!</p>';
             }
 
             html += '<p>' + cachingPlugin + '</p>';
