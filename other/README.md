@@ -70,9 +70,13 @@ Please refer to the readme file in the [root of this repository](https://github.
 ![image](https://dl.dropboxusercontent.com/s/7kgeotpxg3ff95n/shot_201126_113741.jpg)
 
 ## Changelog
-2.2.0 - TBD
+2.2.0 - 2021-02-28
 * Added recognition for Siteground Optimizer
 * Added recognition for Cloudflare
+* Added recognition for Breeze - WordPress Cache Plugin
+* Made sure the script runs on non-https sites as well
+* Tweaked the recognition method of competitors
+* Tweaked the recognition method of TEC design version
 
 2.1.1 - 2021-02-02
 * Fixed some overlay issues where for example query monitor could not be closed
