@@ -184,7 +184,10 @@
             93: { name: "B21.alfa",  date: "Apr 29",     tec: "5.6.0x",    pro: "5.6.0x",    vev: "1.3.0",    fib: "5.1.1x",   ebt: "4.6.8",  eti: "5.1.3",      etp: "5.2.3",     cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.2.2", edd: "2.10.3" },
             94: { name: "B21.bakl",  date: "May 10",     tec: "5.6.0",     pro: "5.6.0",     vev: "1.4.0x",   fib: "5.1.1",    ebt: "4.6.8",  eti: "5.1.3",      etp: "5.2.3",     cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.2.2", edd: "2.10.4" },
             95: { name: "G21.agil",  date: "May 12",     tec: "5.6.0",     pro: "5.6.0",     vev: "1.4.0",    fib: "5.1.1",    ebt: "4.6.8",  eti: "5.1.4x",     etp: "5.2.4x",    cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.3.0", edd: "2.10.4" },
-            96: { name: "G21.brio",  date: "May 27",     tec: "5.7.0x",    pro: "5.7.0x",    vev: "1.4.1x",   fib: "5.1.2x",   ebt: "4.6.8",  eti: "5.1.4",      etp: "5.2.4",     cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.3.0", edd: "2.10.5" },
+            96: { name: "B21.brio",  date: "May 27",     tec: "5.7.0x",    pro: "5.7.0x",    vev: "1.4.1x",   fib: "5.1.2x",   ebt: "4.6.8",  eti: "5.1.4",      etp: "5.2.4",     cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.3.0", edd: "2.10.5" },
+            97: { name: "G21.bell",  date: "Jun 9",      tec: "5.7.0",     pro: "5.7.0",     vev: "1.4.1",    fib: "5.1.2",    ebt: "4.6.8",  eti: "5.1.5x",     etp: "5.2.5x",    cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.3.0", edd: "2.10.5" },
+            98: { name: "B21.cann",  date: "Jun 10",     tec: "5.7.0",     pro: "5.7.0",     vev: "1.5.0x",   fib: "5.1.2",    ebt: "4.6.8",  eti: "5.1.5",      etp: "5.2.5",     cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.3.0", edd: "2.10.5" },
+            99: { name: "B21.chur",  date: "Jun 10",     tec: "5.7.1x",    pro: "5.7.1x",    vev: "1.5.0",    fib: "5.1.3x",   ebt: "4.6.8",  eti: "5.1.5",      etp: "5.2.6x",    cev: "4.8.6",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.3.0", edd: "2.10.5" },
         };
 
         // The number of releases (the length of the object)
