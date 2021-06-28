@@ -43,6 +43,7 @@
         'courane01',                    // Courtney Robertson           - 2017-02-22
         'deblynprado',                  // Deblyn Prado                 - 2019-04-11
         'djbramer',                     // Dan Bramer
+        'eeide',                        // Erica Eide                   - 2021-05-24
         'erishel',                      // Edward Rishel                - 2018-03-12 to 2018-12-31	
         'eugenekyale',                  // Eugene Kyale                 - 2020-09-01
         'eugenetribe',                  // Eugene Kyale                 - 2020-09-01
@@ -66,10 +67,12 @@
         'nikrosales',                   // Nik Rosales                  - 2020-02-24
         'patriciahillebrandt',          // Patricia Hillebrandt         - 2017-06-09
         'rafsuntaskin',                 // Rafsun Chowdhury             - 2020-03-30
+        'robelemental',                 // Rob Liy                      - 2021-05-24
         'sdenike',                      // Shelby DeNike                - 2018-10-08 to 2019-08-31
         'shatterdorn1',                 // Truman Dorn                  - 2021-03-01
         'sjaure',                       // Santiago Jaureguiberry       - 2019-05-26
         'skyshab',                      // Jason 'Sky' Shabatura        - 2018-01-02
+        'tecphil',                      // Phil Hodges (Community Mgr)  - 2021-04
         'theeventscalendar',            // The Events Calendar          - 2020-12-18
         'tokyobiyori',                  // Ali Darwich                  - 2018-11-19
         'tribalmike',                   // Mike Cotton                  - 2018-10-11
