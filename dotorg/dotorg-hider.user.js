@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         .org Hider for The Events Calendar Support
 // @namespace    http://tampermonkey.net/
-// @version      1.7.6
+// @version      1.7.7
 // @description  The script runs in the .org forums for The Events Calendar plugins. A twin to .org Helper. It hides threads that don't need attention: resolved threads and threads where last voice is a team member.
 // @author       Andras Guseo
 // @include      https://wordpress.org/support/plugin/pardot*
@@ -71,6 +71,7 @@
         'shatterdorn1',                 // Truman Dorn                  - 2021-03-01
         'sjaure',                       // Santiago Jaureguiberry       - 2019-05-26
         'skyshab',                      // Jason 'Sky' Shabatura        - 2018-01-02
+        'tdorn',                        // Truman Dorn (2)              - 2021-03-01
         'tecphil',                      // Phil Hodges (Community Mgr)  - 2021-04
         'theeventscalendar',            // The Events Calendar          - 2020-12-18
         'tokyobiyori',                  // Ali Darwich                  - 2018-11-19
