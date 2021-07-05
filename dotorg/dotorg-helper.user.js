@@ -73,7 +73,7 @@
         'sjaure',                       // Santiago Jaureguiberry       - 2019-05-26
         'skyshab',                      // Jason 'Sky' Shabatura        - 2018-01-02
         'tdorn',                        // Truman Dorn (2)              - 2021-03-01
-        'tecphil',                      // Phil Hodges (Community Mgr)  - 2021-04    to 2021-07
+        'tecphil',                      // Phil Hodges (Community Mgr)  - 2021-04
         'theeventscalendar',            // The Events Calendar          - 2020-12-18
         'tokyobiyori',                  // Ali Darwich                  - 2018-11-19
         'tribalmike',                   // Mike Cotton                  - 2018-10-11
