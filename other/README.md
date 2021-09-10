@@ -1,6 +1,6 @@
 # TEC Sniffer
 Author: Andras Guseo  
-Current version: 2.2.0  
+Current version: 2.3.0  
 Release date: TBD
 
 ## Description
