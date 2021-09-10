@@ -67,9 +67,13 @@ Please refer to the readme file in the [root of this repository](https://github.
 
 ## Sample screenshot
 
-![image](https://dl.dropboxusercontent.com/s/7kgeotpxg3ff95n/shot_201126_113741.jpg)
+![image](https://dl.dropbox.com/s/80g757y7poysvw8/shot_210910_173431.jpg)
 
 ## Changelog
+2.3.0 - 2021-09-10
+* Fixed a bug where the panel wouldn't open when Chrome was zoomed in.
+* The results now also show up in the browser console. This can be turned off by setting a variable to false.
+
 2.2.0 - 2021-02-28
 * Added recognition for Siteground Optimizer
 * Added recognition for Cloudflare
