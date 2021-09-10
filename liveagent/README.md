@@ -27,3 +27,7 @@ You can customize the script with adjusting the following variables:
 * `expandedHeight` - Integer, to set the height of the table when expanded. Default: _300_  
 
 Note: the changes on script update will be lost.
+
+### Sample screenshot
+
+![image](https://dl.dropboxusercontent.com/s/078iamgg5d1zgf0/shot_210910_182830.jpg)
