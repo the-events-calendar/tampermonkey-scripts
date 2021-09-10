@@ -11,6 +11,7 @@
 // @include      https://wordpress.org/support/plugin/image-widget*
 // @include      https://wordpress.org/support/plugin/advanced-post-manager*
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-helper.user.js
+// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-helper.user.js
 // @grant        none
 // ==/UserScript==
 
