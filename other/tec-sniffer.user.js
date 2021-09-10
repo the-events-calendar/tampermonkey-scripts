@@ -12,6 +12,7 @@
 // @exclude      https://*loxi.io/*
 // @exclude      *google*
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/other/tec-sniffer.user.js
+// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/other/tec-sniffer.user.js
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
