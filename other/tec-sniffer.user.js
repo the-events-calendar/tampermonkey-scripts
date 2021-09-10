@@ -708,11 +708,12 @@
         if ( logLevel2 ) console.log( 'block.offsetLeft: ' + block.offsetLeft );
         if ( logLevel2 ) console.log( 'block.offsetWidth: ' + block.offsetWidth );
         if ( logLevel2 ) console.log( 'window.outerWidth: ' + window.outerWidth );
+        if ( logLevel2 ) console.log( 'window.innerWidth: ' + window.innerWidth );
         if ( logLevel2 ) console.log( 'right: ' + right );
         if ( logLevel2 ) console.log( 'hideRight: ' + hideRight );
 
 
-        if ( block.offsetLeft + 150 > window.outerWidth ) {
+        if ( block.offsetLeft + 50 > window.innerWidth ) {
             block.style.right = "10px";
             if ( logLevel2 ) console.log( 'move left' );
         } else {
