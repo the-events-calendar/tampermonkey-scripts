@@ -7,6 +7,7 @@
 // @include      https://theeventscalendar.ladesk.com/agent/*
 // @include      https://support.theeventscalendar.com/agent/*
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/liveagent/liveagent-plugin-versions.user.js
+// @updateURL   https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/liveagent/liveagent-plugin-versions.user.js
 // @grant        none
 // @noframes
 // ==/UserScript==
