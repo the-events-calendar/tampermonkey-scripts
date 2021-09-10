@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TEC Sniffer
 // @namespace    http://tampermonkey.net/
-// @version      2.2.0
+// @version      2.3.0
 // @description  Trying to find out what's running on a WordPress site in terms of calendars.
 // @author       Andras Guseo
 // @include      http*://*
@@ -12,6 +12,7 @@
 // @exclude      https://*loxi.io/*
 // @exclude      *google*
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/other/tec-sniffer.user.js
+// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/other/tec-sniffer.user.js
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
@@ -20,9 +21,12 @@
     'use strict';
 
     // Version number. Only version.sub-version
-    var snifferVersionNumber = '2.2';
+    var snifferVersionNumber = '2.3';
 
     console.log( 'Started sniffing' );
+
+    // Show the results in the console
+    var showResultInConsole = true;
 
     // Only logs found items
     var logLevel1 = false;
@@ -145,9 +149,11 @@
     var theme = getTheme();
 
     // HTML markup
+    // true = looking forWordPress
     var WordPress = getOtherPlugins( true );
 
     // HTML markup
+    // false = looking for pluigns
     var otherPlugins = getOtherPlugins( false );
 
     // Bool
@@ -168,6 +174,11 @@
         document.getElementById( 'hider' ).addEventListener( 'click', hideBlock );
     }
 
+    // Showing the results in the console
+    if ( showResultInConsole ) {
+        resultInConsole();
+    }
+
     /**
      * Functions
      */
@@ -177,7 +188,7 @@
      *
      * @returns {string|boolean} Returns the product name or false if not found.
      */
-    function checkIfCompetitor() {
+    function checkIfCompetitor( returnHTML = true ) {
         if ( logLevel1 ) console.log( "Checking for competitors." );
 
         var competitorFound = false;
@@ -199,7 +210,12 @@
             }
 
             if ( competitorFound ) {
-                return '<a href="' + competitors[competitor].url + '" target="_blank">' + competitor + ' ↗</a>';
+                if ( returnHTML ) {
+                    return '<a href="' + competitors[ competitor ].url + '" target="_blank">' + competitor + ' ↗</a>';
+                }
+                else {
+                    return competitor + ' (' + competitors[competitor].url + ')';
+                }
             }
 
         }
@@ -420,7 +436,7 @@
      *
      * @returns {*}
      */
-    function getOtherPlugins( wp = false ) {
+    function getOtherPlugins( wp = false, returnHTML = true ) {
         var other = '';
         // Looking for WordPress and other plugins
         for( var i = 0; i < metaTags.length; i++ ) {
@@ -428,20 +444,24 @@
             if ( metaTags[ i ].name != 'generator' ) continue;
 
             if ( logLevel2 ) console.log( 'Checking <meta> ' + metaTags[i].content + ' for...' );
+
+            // If not checking for WordPress
             if ( ! wp ) {
                 for( var j = 0; j < metas.length; j++ ) {
                     if ( logLevel2 ) console.log( '...' + metas[j] + '...' );
                     if ( metaTags[ i ].content.search( metas[j] ) >= 0 ) {
-                        other += lineify( metaTags[ i ].content ); //'<p>' + metaTags[i].content + '</p>';
+                        other += lineify( metaTags[ i ].content, returnHTML ); //'<p>' + metaTags[i].content + '</p>';
                         if ( logLevel2 ) console.log( other );
                     }
                 }
             }
+
+            // If checking for WordPress
             else {
                 // WordPress
                 if ( logLevel2 ) console.log( 'Checking <meta> ' + metaTags[i].content + ' for WordPress' );
                 if ( metaTags[ i ].content.search( 'WordPress' ) == 0 ) {
-                    other += lineify( metaTags[ i ].content ); //'<p>' + metaTags[i].content.split(" ")[0]; + '</p>';
+                    other += lineify( metaTags[ i ].content, returnHTML ); //'<p>' + metaTags[i].content.split(" ")[0]; + '</p>';
                     if ( logLevel2 ) console.log( other );
                     return other;
                 }
@@ -460,7 +480,7 @@
      *
      * @todo Eliminate one Filter Bar version
      */
-    function getVersionNumbers( design ) {
+    function getVersionNumbers( design, returnHTML = true ) {
         var plugins = '';
         var version = '';
 
@@ -492,10 +512,15 @@
 
             if ( logLevel1 ) console.log( product + ' ' + version + ' found' );
             // Open the line
-            plugins += '<p><span class="sniffer-label sniffer-product-name">' + product + ':</span> <span class="sniffer-product-version">';
-            plugins += version;
-            // Close the line
-            plugins += '</span></p>';
+            if ( returnHTML ) {
+                plugins += '<p><span class="sniffer-label sniffer-product-name">' + product + ':</span> <span class="sniffer-product-version">';
+                plugins += version;
+                // Close the line
+                plugins += '</span></p>';
+            }
+            else {
+                plugins += product + ': ' + version + "\n";
+            }
 
         }
 
@@ -605,13 +630,18 @@
      *
      * @returns {string}
      */
-    function lineify( line ) {
+    function lineify( line, returnHTML = true ) {
         line = line.split( " " );
-        return '<p><span class="sniffer-label">' + line[ 0 ] + ':</span> ' + line[ 1 ].replace( 'ver:', '' ).replace( 'v.', '' ) + '</p>';
+        if ( returnHTML ) {
+            return '<p><span class="sniffer-label">' + line[ 0 ] + ':</span> ' + line[ 1 ].replace( 'ver:', '' ).replace( 'v.', '' ) + '</p>';
+        }
+        else {
+            return line[ 0 ] + ': ' + line[ 1 ].replace( 'ver:', '' ).replace( 'v.', '' );
+        }
     }
 
     /**
-     * Rendering
+     * Prepared the markup for styling
      */
     function renderStyle() {
         var style = '<style>#sniffer-container { border: 0 solid black; color: #666; position: fixed; top: 10%; font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; z-index: 9999999999; transition-duration: 1000ms; transition-timing-function: ease-in-out; }';
@@ -628,6 +658,11 @@
         return style;
     }
 
+    /**
+     * Prepares the markup with the results that will be rendered
+     *
+     * @returns {string}
+     */
     function renderMarkup() {
 
         var html = '';
@@ -698,6 +733,78 @@
     }
 
     /**
+     * Prints the results in the console.
+     */
+    function resultInConsole() {
+        var html = '';
+        var comp = checkIfCompetitor( false );
+        var divider = '----------------------------------';
+
+        html = 'TEC Sniffer ' + snifferVersionNumber;
+        html += "\n";
+        html += divider;
+        html += "\n";
+
+        if ( false !== comp ) {
+            html += comp;
+            html += "\n";
+        } else {
+            if ( true === wordpressDotCom ) {
+                html += 'This site is hosted on WordPress.com';
+                html += "\n";
+            }
+            html += 'ABOUT THIS PAGE';
+            html += "\n";
+            html += 'View: ' + tecView;
+            html += "\n";
+            html += 'Editor used: ' + editorUsed;
+            html += "\n";
+            html += 'Design: ' + tecDesignVersion;
+            html += "\n";
+            html += 'Generated by shortcode: ' + shortcode;
+            html += "\n";
+            html += 'Theme used: ' + theme;
+            html += "\n";
+            html += divider;
+            html += "\n";
+
+            html += 'VERSIONS';
+            html += "\n";
+            html += getOtherPlugins( true, false );
+            html += "\n";
+            html += getVersionNumbers( tecDesignVersion, false )
+            //html += "\n";
+            html += getOtherPlugins( false, false );
+            html += "\n";
+            html += divider;
+            html += "\n";
+
+            html += 'CACHING / MINIFICATION';
+            html += "\n";
+
+            if ( true === autoptimize ) {
+                html += 'AUTOPTIMIZE FOUND!!!';
+                html += "\n";
+            }
+
+            if ( true === cloudFlare ) {
+                html += 'CloudFlare found!!!';
+                html += "\n";
+            }
+
+            html += cachingPlugin;
+
+        }
+        html += "\n";
+        html += divider;
+        html += "\n";
+        html += 'Done sniffing.';
+
+        console.log(html);
+
+    }
+
+    /**
      * Animation
      */
     function hideBlock() {
@@ -708,11 +815,12 @@
         if ( logLevel2 ) console.log( 'block.offsetLeft: ' + block.offsetLeft );
         if ( logLevel2 ) console.log( 'block.offsetWidth: ' + block.offsetWidth );
         if ( logLevel2 ) console.log( 'window.outerWidth: ' + window.outerWidth );
+        if ( logLevel2 ) console.log( 'window.innerWidth: ' + window.innerWidth );
         if ( logLevel2 ) console.log( 'right: ' + right );
         if ( logLevel2 ) console.log( 'hideRight: ' + hideRight );
 
 
-        if ( block.offsetLeft + 150 > window.outerWidth ) {
+        if ( block.offsetLeft + 50 > window.innerWidth ) {
             block.style.right = "10px";
             if ( logLevel2 ) console.log( 'move left' );
         } else {
