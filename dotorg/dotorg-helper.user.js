@@ -28,19 +28,23 @@
 
     // TEC team members
     var tecteam = [
+        'abzlevelup',                   // Abz Abdul                    - 2021-07-19
         'aguseo',                       // Andras Guseo                 - 2016-04-25
         'alaasalama',                   // Alaa Salama                  - 2018-11-19 to 2020-08-31
+        'allenzamora',                  // Allen Zamora                 - 2021-08-23
         'barryhughes-1',                // Barry Hughes                 - xxxx-xx-xx to 2020-07-31
         'bordoni',                      // Gustavo Bordoni
-        'bskousen3',                    // Brendan Skousen              - 2017-10-23
+        'bskousen3',                    // Brendan Skousen              - 2017-10-23 to 2021
         'brianjessee',                  // Brian Jessee
         'borkweb',                      // Mattew Batchelder            - 2020-03-30
         'brook-tribe',                  // Brook                        - xxxx-xx-xx to 2017-xx-xx
+        'camwynsp',                     // Stephen Page
+        'cmccullough1967',              // Chad McCollough              - 2021-08-23
         'chikaibeneme',                 // Chika Ibeneme                - 2020-02-10
-        'cliffpaulick',                 // Clifford Paulick
+        'cliffpaulick',                 // Clifford Paulick             - 2015 to 2020
         'cliffseal',                    // Cliff Seal - Pardot
-        'cswebd3v',                     // Chris Swenson                - 2020-09-01
-        'courane01',                    // Courtney Robertson           - 2017-02-22
+        'cswebd3v',                     // Chris Swenson                - 2020-09-01 to 2021-12-31
+        'courane01',                    // Courtney Robertson           - 2017-02-22 to 2020
         'deblynprado',                  // Deblyn Prado                 - 2019-04-11
         'djbramer',                     // Dan Bramer
         'eeide',                        // Erica Eide                   - 2021-05-24
@@ -48,24 +52,26 @@
         'eugenekyale',                  // Eugene Kyale                 - 2020-09-01
         'eugenetribe',                  // Eugene Kyale                 - 2020-09-01
         'geoffbel',                     // Geoffroy 'LeGeoff' Belanger  - 2016-01-20
-        'geoffgraham',                  // Geoff Graham
+        'geoffgraham',                  // Geoff Graham                 - 2014 (?)
         'ggwicz',                       // George Gecewicz              - xxxx-xx-xx to 2017-xx-xx
+        'gugaalves',                    // Gustavo "Guga" Alves         - 2021-08-23
         'highprrrr',                    // James Welbes                 - 2021-02-01
         'iammarta',                     // Marta Kozak                  - 2020-09-01
         'jaimemarchwinski',             // Jaime Marchwinski            - 2017-08-31
         'jentheo',                      // Jennifer Theodore            - 2017-05-08
-        'jeremy80',                     // Jeremy Marchandeau           - 2018-03-26
+        'jeremy80',                     // Jeremy Marchandeau           - 2018-03-26 to 2020
+        'joshlevelupsupport2021',       // Joshua Cagasan               - 2021-07-19
         'juanfra',                      // Juan Francisco Aldasoro
-        'koriashton',                   // Kori Ashton                  - 2020-09-01
-        'lucasbustamante',              // Lucas Bustamante             - 2020-03-30
+        'koriashton',                   // Kori Ashton                  - 2020-09-01 to 2020
+        'lucasbustamante',              // Lucas Bustamante             - 2020-03-30 to 2020
         'mandraagora',                  // Wolf Bishop                  - 2020-03-04
         'masoodak',                     // Masood Khan                  - 2020-09-01
         'matumu',                       // Marho Atumu                  - 2020-09-01
-        'mitogh',                       // Crisoforo Hernandez
+        'mitogh',                       // Crisoforo Hernandez          - 2018 (?)
         'neillmcshea',                  // Neill McShae
         'nicosantos',                   // Nico Santos                  - 2015-xx-xx to 2019-xx-xx
-        'nikrosales',                   // Nik Rosales                  - 2020-02-24
-        'patriciahillebrandt',          // Patricia Hillebrandt         - 2017-06-09
+        'nikrosales',                   // Nik Rosales                  - 2020-02-24 to 2020-12-31
+        'patriciahillebrandt',          // Patricia Hillebrandt         - 2017-06-09 to 2021-08-15
         'rafsuntaskin',                 // Rafsun Chowdhury             - 2020-03-30
         'robelemental',                 // Rob Liy                      - 2021-05-24
         'sdenike',                      // Shelby DeNike                - 2018-10-08 to 2019-08-31
@@ -73,7 +79,7 @@
         'sjaure',                       // Santiago Jaureguiberry       - 2019-05-26
         'skyshab',                      // Jason 'Sky' Shabatura        - 2018-01-02
         'tdorn',                        // Truman Dorn (2)              - 2021-03-01
-        'tecphil',                      // Phil Hodges (Community Mgr)  - 2021-04
+        'tecphil',                      // Phil Hodges (Community Mgr)  - 2021-04 to 2021-08
         'theeventscalendar',            // The Events Calendar          - 2020-12-18
         'tokyobiyori',                  // Ali Darwich                  - 2018-11-19
         'tribalmike',                   // Mike Cotton                  - 2018-10-11
