@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         TEC Sniffer beta
+// @name         TEC Sniffer
 // @namespace    http://tampermonkey.net/
-// @version      2.3.0-beta
+// @version      2.3.0
 // @description  Trying to find out what's running on a WordPress site in terms of calendars.
 // @author       Andras Guseo
 // @include      http*://*
@@ -21,7 +21,7 @@
     'use strict';
 
     // Version number. Only version.sub-version
-    var snifferVersionNumber = '2.2';
+    var snifferVersionNumber = '2.3';
 
     console.log( 'Started sniffing' );
 
