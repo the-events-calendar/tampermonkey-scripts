@@ -200,6 +200,7 @@
             107: { name: "G21.eorap", date: "Aug 31",     tec: "5.9.0",     pro: "5.9.0",     vev: "1.6.0",    fib: "5.2.0",    ebt: "4.6.8",  eti: "5.1.9.1x",   etp: "5.2.9x",    cev: "4.8.7",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.6.0", edd: "2.11.1" },
             108: { name: "B21.foret", date: "Sep 14",     tec: "5.9.1x",    pro: "5.9.1x",    vev: "1.6.1x",   fib: "5.2.1x",   ebt: "4.6.8",  eti: "5.1.9.1",    etp: "5.2.9",     cev: "4.8.7",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.6.0", edd: "2.11.1" },
             109: { name: "G21.falca", date: "Sep 28",     tec: "5.9.1",     pro: "5.9.1",     vev: "1.6.1",    fib: "5.2.1",    ebt: "4.6.8",  eti: "5.1.10x",    etp: "5.2.10x",   cev: "4.8.8x",    ctx: "4.7.9x",   apm: "4.5",  iwp: "1.0.3",  woo: "5.7.1", edd: "2.11.1" },
+            110: { name: "B21.gatea", date: "Oct 12",     tec: "5.9.2x",    pro: "5.9.2.1x",  vev: "1.7.0x",   fib: "5.2.1",    ebt: "4.6.8",  eti: "5.1.10",     etp: "5.2.10",    cev: "4.8.8",     ctx: "4.7.9",    apm: "4.5",  iwp: "1.0.3",  woo: "5.7.1", edd: "2.11.1" },
         };
 
         // The number of releases (the length of the object)
@@ -430,6 +431,10 @@
 
     /**
      * === Changelog ===
+     *
+     * 4.2.6 - 2021-10-13
+     * Added new plugin versions (108-110)
+     * Fixed past Woo and EDD versions
      *
      * 4.2.5 - 2021-09-10
      * Added new plugin versions (100-107)
