@@ -218,6 +218,7 @@
         var htmlstring = '';
 
         htmlstring += '<style>' +
+            '#plugin-versions, #plugin-versions * {	box-sizing: border-box; }' +
             '#plugin-versions { z-index: 2; position: fixed; top: 0; background-color: rgb(62, 72, 73); color: rgb(242, 241, 240); transition-duration: 1000ms; transition-timing-function: ease-in-out; right: ' + startRight + 'px; min-width: 860px; }' +
             '#plugin-versions table { width: 100%; }' +
             '.versions td { padding: 0 5px !important; border-right: 1px solid white; line-height: 1.5em !important; font-size: 110% !important; }' +
@@ -431,6 +432,9 @@
 
     /**
      * === Changelog ===
+     *
+     * TBD - TBD
+     * Fixed CSS for Zendesk
      *
      * 4.2.6 - 2021-10-13
      * Added new plugin versions (108-110)
