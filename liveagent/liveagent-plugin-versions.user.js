@@ -1,11 +1,12 @@
 // ==UserScript==
-// @name         LiveAgent - Latest plugin versions
+// @name         Zendesk - Latest plugin versions
 // @namespace    https://theeventscalendar.com/
-// @version      4.2.6
+// @version      5.0.0
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @include      https://theeventscalendar.ladesk.com/agent/*
 // @include      https://support.theeventscalendar.com/agent/*
+// @include      https://ithemeshelp.zendesk.com/agent*
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/liveagent/liveagent-plugin-versions.user.js
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/liveagent/liveagent-plugin-versions.user.js
 // @grant        none
@@ -43,7 +44,8 @@
     var startRight = '350';
 
     // Define the width of the first 2 columns (in pixels)
-    var secondColumnWidth = 70;
+    var firstColumnWidth = 70;
+    var secondColumnWidth = 120;
 
     // Define how many rows should be shown on load and when table is collapsed
     var initialRows = 1;
@@ -66,7 +68,8 @@
     if ( log ) console.log ( 'The <body> tag has ' + bodyTag.classList.length + ' classes' );
 
     // Only run if it wasn't executed before
-    if ( typeof alreadydone == 'undefined'  && bodyTag.classList.length > 0 ) {
+    if ( typeof alreadydone == 'undefined'  && bodyTag.classList.length >= 0 ) {
+        if ( log ) console.log ( "Plugin versions has not run before." );
 
         var alreadydone = true;
 
@@ -200,7 +203,16 @@
             107: { name: "G21.eorap", date: "Aug 31",     tec: "5.9.0",     pro: "5.9.0",     vev: "1.6.0",    fib: "5.2.0",    ebt: "4.6.8",  eti: "5.1.9.1x",   etp: "5.2.9x",    cev: "4.8.7",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.6.0", edd: "2.11.1" },
             108: { name: "B21.foret", date: "Sep 14",     tec: "5.9.1x",    pro: "5.9.1x",    vev: "1.6.1x",   fib: "5.2.1x",   ebt: "4.6.8",  eti: "5.1.9.1",    etp: "5.2.9",     cev: "4.8.7",     ctx: "4.7.8",    apm: "4.5",  iwp: "1.0.3",  woo: "5.6.0", edd: "2.11.1" },
             109: { name: "G21.falca", date: "Sep 28",     tec: "5.9.1",     pro: "5.9.1",     vev: "1.6.1",    fib: "5.2.1",    ebt: "4.6.8",  eti: "5.1.10x",    etp: "5.2.10x",   cev: "4.8.8x",    ctx: "4.7.9x",   apm: "4.5",  iwp: "1.0.3",  woo: "5.7.1", edd: "2.11.1" },
-            110: { name: "B21.gatea", date: "Oct 12",     tec: "5.9.2x",    pro: "5.9.2.1x",  vev: "1.7.0x",   fib: "5.2.1",    ebt: "4.6.8",  eti: "5.1.10",     etp: "5.2.10",    cev: "4.8.8",     ctx: "4.7.9",    apm: "4.5",  iwp: "1.0.3",  woo: "5.7.1", edd: "2.11.1" },
+            110: { name: "B21.gateau",  date: "Oct 12",   tec: "5.9.2x",    pro: "5.9.2.1x",  vev: "1.7.0x",   fib: "5.2.1",    ebt: "4.6.8",  eti: "5.1.10",     etp: "5.2.10",    cev: "4.8.8",     ctx: "4.7.9",    apm: "4.5",  iwp: "1.0.3",  woo: "5.8.0", edd: "2.11.2" },
+            111: { name: "B21.galette", date: "Oct 19",     tec: "5.10.0x",   pro: "5.9.2.1",   vev: "1.7.1x",   fib: "5.2.1",    ebt: "4.6.8",  eti: "5.1.10",     etp: "5.2.10",    cev: "4.8.8",     ctx: "4.7.9",    apm: "4.5",    iwp: "1.0.3",  woo: "5.8.0", edd: "2.11.2.1" },
+            112: { name: "G21.fukuisaurus", date: "Nov 4",  tec: "5.10.1x",   pro: "5.9.2.1",   vev: "1.7.1",    fib: "5.2.1",    ebt: "4.6.8",  eti: "5.2.0x",     etp: "5.3.0x",    cev: "4.8.8",     ctx: "4.7.9",    apm: "4.5",    iwp: "1.0.3",  woo: "5.8.0", edd: "2.11.3.1" },
+            113: { name: "B21.hotcake",     date: "Nov 17", tec: "5.11.0x",   pro: "5.10.0x",   vev: "1.7.2x",   fib: "5.2.1",    ebt: "4.6.9x", eti: "5.2.0.1x",   etp: "5.3.0x",    cev: "4.8.8",     ctx: "4.7.9",    apm: "4.5",    iwp: "1.0.3",  woo: "5.9.0", edd: "2.11.3.1" },
+            114: { name: "G21.gobisaurus",  date: "Nov 17", tec: "5.11.0",    pro: "5.10.0",    vev: "1.7.2",    fib: "5.2.1",    ebt: "4.6.9",  eti: "5.2.1x",     etp: "5.3.1x",    cev: "4.8.9x",    ctx: "4.7.9",    apm: "4.5",    iwp: "1.0.3",  woo: "5.9.0", edd: "2.11.3.1" },
+            115: { name: "B21.imagawayaki", date: "Dec 2",  tec: "5.12.0x",   pro: "5.11.0x",   vev: "1.7.2",    fib: "5.2.1",    ebt: "4.6.9",  eti: "5.2.1x",     etp: "5.3.1x",    cev: "4.8.9x",    ctx: "4.7.9",    apm: "4.5.1x", iwp: "1.0.3",  woo: "5.9.0", edd: "2.11.3.1" },
+            116: { name: "B21.inipit",      date: "Dec 14", tec: "5.12.1x",   pro: "5.11.1x",   vev: "1.7.3x",   fib: "5.2.1",    ebt: "4.6.9",  eti: "5.2.1",      etp: "5.3.1",     cev: "4.8.9",     ctx: "4.7.9",    apm: "4.5.1",  iwp: "1.0.3",  woo: "6.0.0", edd: "2.11.3.1" },
+            117: { name: "G21.hadrosaurus", date: "Dec 15", tec: "5.12.1",    pro: "5.11.1",    vev: "1.7.3",    fib: "5.2.1",    ebt: "4.6.9",  eti: "5.2.2x",     etp: "5.3.2x",    cev: "4.8.10x",   ctx: "4.7.9",    apm: "4.5.1",  iwp: "1.0.3",  woo: "6.0.0", edd: "2.11.3.1" },
+            118: { name: "B21.imarti",      date: "Dec 20", tec: "5.12.2x",   pro: "5.11.1",    vev: "1.7.3",    fib: "5.2.1",    ebt: "4.6.9",  eti: "5.2.2",      etp: "5.3.2",     cev: "4.8.10",    ctx: "4.7.9",    apm: "4.5.1",  iwp: "1.0.3",  woo: "6.0.0", edd: "2.11.3.1" },
+            119: { name: "B22.jalebi",      date: "Jan 12", tec: "5.12.3x",   pro: "5.11.2x",   vev: "1.7.3",    fib: "5.2.1",    ebt: "4.6.9",  eti: "5.2.2",      etp: "5.3.2",     cev: "4.8.10",    ctx: "4.7.9",    apm: "4.5.1",  iwp: "1.0.3",  woo: "6.1.0", edd: "2.11.4.1" },
         };
 
         // The number of releases (the length of the object)
@@ -218,8 +230,9 @@
         var htmlstring = '';
 
         htmlstring += '<style>' +
-            '#plugin-versions { z-index: 2; position: fixed; top: 0; background-color: rgb(62, 72, 73); color: rgb(242, 241, 240); transition-duration: 1000ms; transition-timing-function: ease-in-out; right: ' + startRight + 'px; min-width: 860px; }' +
-            '#plugin-versions table { width: 100%; }' +
+            '#plugin-versions, #plugin-versions * {	box-sizing: border-box; }' +
+            '#plugin-versions { z-index: 15; position: fixed; top: 0; background-color: rgb(62, 72, 73); color: rgb(242, 241, 240); transition-duration: 1000ms; transition-timing-function: ease-in-out; right: ' + startRight + 'px; min-width: 860px; }' +
+            '#plugin-versions table { width: 100%; font-size: 12px; }' +
             '.versions td { padding: 0 5px !important; border-right: 1px solid white; line-height: 1.5em !important; font-size: 110% !important; }' +
             '.versions td img { width: 30px !important; }' +
             '.versions tr.first-row td { text-align: center; }' +
@@ -243,8 +256,11 @@
             '#plugin-versions thead::-webkit-scrollbar-track, #plugin-versions tbody::-webkit-scrollbar-track { background: rgb(62, 72, 73); }' +
             '#plugin-versions thead::-webkit-scrollbar-thumb, #plugin-versions tbody::-webkit-scrollbar-thumb { background-color: orange ; border: 1px solid rgb(62, 72, 73); }' +
             '#plugin-versions thead { overflow-y: scroll; scrollbar-width: thin; scrollbar-color: rgb(62, 72, 73) rgb(62, 72, 73); }' +
-            '#plugin-versions td { width: ' + secondColumnWidth + 'px; float: left; white-space: nowrap; }' +
-            '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + 2 * secondColumnWidth + 'px) / 13); }' +
+            '#plugin-versions tr { margin-left: 0; }' +
+            '#plugin-versions td { float: left; white-space: nowrap; }' +
+            '#plugin-versions td:nth-child(1) { width: ' + firstColumnWidth + 'px; }' +
+            '#plugin-versions td:nth-child(2) { width: ' + secondColumnWidth + 'px; text-align: left; }' +
+            '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth+secondColumnWidth) + 'px) / 13); }' +
             '</style>';
         htmlstring += '<table width="100%" class="versions" id="versions-table" cellpadding="0" cellspacing="0">';
 
@@ -431,6 +447,10 @@
 
     /**
      * === Changelog ===
+     *
+     * 5.0.0 - 2022-01-14
+     * Fixed CSS for Zendesk
+     * Added new plugin versions (111-119)
      *
      * 4.2.6 - 2021-10-13
      * Added new plugin versions (108-110)
