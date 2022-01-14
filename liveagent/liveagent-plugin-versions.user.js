@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         LiveAgent - Latest plugin versions
+// @name         Zendesk - Latest plugin versions
 // @namespace    https://theeventscalendar.com/
 // @version      4.2.6
 // @description  Display the latest version numbers of The Events Calendar plugins.
