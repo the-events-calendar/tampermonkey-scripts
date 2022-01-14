@@ -44,7 +44,8 @@
     var startRight = '350';
 
     // Define the width of the first 2 columns (in pixels)
-    var secondColumnWidth = 70;
+    var firstColumnWidth = 70;
+    var secondColumnWidth = 120;
 
     // Define how many rows should be shown on load and when table is collapsed
     var initialRows = 1;
@@ -69,7 +70,7 @@
     // Only run if it wasn't executed before
     if ( typeof alreadydone == 'undefined'  && bodyTag.classList.length >= 0 ) {
         if ( log ) console.log ( "Plugin versions has not run before." );
-        
+
         var alreadydone = true;
 
         var initialRowsHeight = initialRows * 20;
@@ -255,9 +256,11 @@
             '#plugin-versions thead::-webkit-scrollbar-track, #plugin-versions tbody::-webkit-scrollbar-track { background: rgb(62, 72, 73); }' +
             '#plugin-versions thead::-webkit-scrollbar-thumb, #plugin-versions tbody::-webkit-scrollbar-thumb { background-color: orange ; border: 1px solid rgb(62, 72, 73); }' +
             '#plugin-versions thead { overflow-y: scroll; scrollbar-width: thin; scrollbar-color: rgb(62, 72, 73) rgb(62, 72, 73); }' +
-            '#plugin-versions td { width: ' + secondColumnWidth + 'px; float: left; white-space: nowrap; }' +
-            '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + 2 * secondColumnWidth + 'px) / 13); }' +
             '#plugin-versions tr { margin-left: 0; }' +
+            '#plugin-versions td { float: left; white-space: nowrap; }' +
+            '#plugin-versions td:nth-child(1) { width: ' + firstColumnWidth + 'px; }' +
+            '#plugin-versions td:nth-child(2) { width: ' + secondColumnWidth + 'px; text-align: left; }' +
+            '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth+secondColumnWidth) + 'px) / 13); }' +
             '</style>';
         htmlstring += '<table width="100%" class="versions" id="versions-table" cellpadding="0" cellspacing="0">';
 
