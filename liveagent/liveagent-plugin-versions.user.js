@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions
 // @namespace    https://theeventscalendar.com/
-// @version      4.2.6
+// @version      5.0.0
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @include      https://theeventscalendar.ladesk.com/agent/*
@@ -448,8 +448,9 @@
     /**
      * === Changelog ===
      *
-     * TBD - TBD
+     * 5.0.0 - 2022-01-14
      * Fixed CSS for Zendesk
+     * Added new plugin versions (111-119)
      *
      * 4.2.6 - 2021-10-13
      * Added new plugin versions (108-110)
