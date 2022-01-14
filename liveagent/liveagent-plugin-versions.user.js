@@ -67,8 +67,9 @@
     if ( log ) console.log ( 'The <body> tag has ' + bodyTag.classList.length + ' classes' );
 
     // Only run if it wasn't executed before
-    if ( typeof alreadydone == 'undefined'  && bodyTag.classList.length > 0 ) {
-
+    if ( typeof alreadydone == 'undefined'  && bodyTag.classList.length >= 0 ) {
+        if ( log ) console.log ( "Plugin versions has not run before." );
+        
         var alreadydone = true;
 
         var initialRowsHeight = initialRows * 20;
