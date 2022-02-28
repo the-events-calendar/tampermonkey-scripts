@@ -6,7 +6,7 @@ body:
     - type: markdown
       attributes:
           value: |
-              Thanks for taking the time to fill out this bug report! If this is a security issue, please report it in HackerOne instead: https://hackerone.com/wordpress
+              Thanks for taking the time to create a request for a canned answer, most of the time these will be implemented as is and some times our team will want to improve, so keep an eye on the issue afterwards.
     - type: textarea
       attributes:
           label: Description
@@ -26,7 +26,7 @@ body:
     - type: dropdown
       id: existing
       attributes:
-          label: Please confirm that you have searched existing canned responses in the repository.
+          label: Searched for duplicates.
           description:
             "You can do this by searching [open requests](https://github.com/the-events-calendar/tampermonkey-scripts/issues) and [Existing canned answers](https://github.com/the-events-calendar/tampermonkey-scripts/tree/main/canned-answers)."
           options:
@@ -38,7 +38,9 @@ body:
     - type: dropdown
       id: language-check
       attributes:
-          label: Please confirm that you checked the language of the Canned Response as it will be available and used by the whole company.
+          label: Check Language
+          description:
+            "Please confirm that you checked the language of the Canned Response as it will be available and used by the whole company."
           options:
              - 'No'
              - 'Yes'
