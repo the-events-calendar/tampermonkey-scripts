@@ -165,7 +165,7 @@ jQuery(document).ready(function( $ ) {
                 <input id="tec-select-all" type="checkbox">
                 Select all Topics
             </label>
-            <input type="submit" id="tec-open-in-new-tab" value="Open in new Tab" />
+            <input type="submit" id="tec-open-in-new-tab" value="Open" />
         </div>
         ` );
 
