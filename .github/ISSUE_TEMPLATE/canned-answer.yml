@@ -1,0 +1,46 @@
+name: Canned Answer
+description: Suggest a new canned answer for our support tools
+title: "[Canned Answer]: "
+labels: ["canned answer"]
+body:
+    - type: markdown
+      attributes:
+          value: |
+              Thanks for taking the time to fill out this bug report! If this is a security issue, please report it in HackerOne instead: https://hackerone.com/wordpress
+    - type: textarea
+      attributes:
+          label: Description
+          description: Please write a the whole canned response here, please use `{variable}` to insert variables.
+          placeholder: |
+              Hi {name},
+
+              Thanks so much for reaching out, but we no longer Support our Legacy Views, you will need
+              to update to the new Views for our team to be able to assist you.
+
+              https://evnt.is/v1-removal
+
+              Best regards,
+      validations:
+          required: true
+
+    - type: dropdown
+      id: existing
+      attributes:
+          label: Please confirm that you have searched existing canned responses in the repository.
+          description:
+            "You can do this by searching [open requests](https://github.com/the-events-calendar/tampermonkey-scripts/issues) and [Existing canned answers](https://github.com/the-events-calendar/tampermonkey-scripts/tree/main/canned-answers)."
+          options:
+             - 'No'
+             - 'Yes'
+      validations:
+          required: true
+
+    - type: dropdown
+      id: language-check
+      attributes:
+          label: Please confirm that you checked the language of the Canned Response as it will be available and used by the whole company.
+          options:
+             - 'No'
+             - 'Yes'
+      validations:
+          required: true
