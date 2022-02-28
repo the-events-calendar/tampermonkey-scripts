@@ -21,7 +21,7 @@
  * Marks threads yellow that are more than a month old.
  */
 
- (function() {
+(function() {
     'use strict';
 
     // Get all lines in an array
