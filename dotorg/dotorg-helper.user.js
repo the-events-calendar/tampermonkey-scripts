@@ -64,6 +64,8 @@
         'joshlevelupsupport2021',       // Joshua Cagasan               - 2021-07-19
         'juanfra',                      // Juan Francisco Aldasoro
         'koriashton',                   // Kori Ashton                  - 2020-09-01 to 2020
+        'kutatishh',                    // Kudzai Vilika
+        'latoyam1',                     // LaToya Murray
         'lelandf',                      // Leland Fiegel                - 2021-09-06
         'lucasbustamante',              // Lucas Bustamante             - 2020-03-30 to 2020
         'mandraagora',                  // Wolf Bishop                  - 2020-03-04
