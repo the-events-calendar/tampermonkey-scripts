@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         The Events Calendar: WP.org Topic highlighter
+// @name         TEC: WP.org Topic highlighter
 // @namespace    https://theeventscalendar.com
 // @version      0.1.0
 // @description  Highly based on a offical code from WP.org, add status highlights to topics for easy overviews.
