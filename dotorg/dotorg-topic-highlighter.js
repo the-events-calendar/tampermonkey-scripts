@@ -17,6 +17,7 @@
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-topic-highlighter.js
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-topic-highlighter.js
 // @grant        GM_getResourceText
+// @grant        GM_openInTab
 // ==/UserScript==
 
 jQuery(document).ready(function( $ ) {
@@ -70,10 +71,14 @@ jQuery(document).ready(function( $ ) {
 
 		$topics = $( '.bbp-body > ul' );
 		$topics.each(function() {
+            const $topic = $( this );
+            const id = $topic.attr( 'id' ).replace( 'bbp-topic-', '' );
 			let $permalink = $( this ).find( 'a.bbp-topic-permalink' );
 			let voicecount = $( this ).find( '.bbp-topic-voice-count' ).text();
 			let freshness  = $( this ).find( '.bbp-topic-freshness' ).text();
 			let resolved   = $permalink.find('.resolved').length > 0;
+
+            $topic.find( '.bbp-topic-title .bbp-topic-meta' ).prepend( `<input id="tec-select-${id}" type="checkbox" name="topics[]" value="${id}" class="tec-select-topic">` );
 
 			/* Highlight resolved threads.
 			* Resolved topics on the forums already get prepended with a check-mark tick, so we don't
@@ -136,10 +141,7 @@ jQuery(document).ready(function( $ ) {
 	// Run processer.
 	process_topics();
 
-	// Add options link to the sidebar.
-	$( '.entry-meta.sidebar div:first-of-type ul' ).append( '<li><a href="#" id="tamper-show-options">Highlighter Options</a></li>' );
-
-	// Trigger options form display
+    // Trigger options form display
 	$(".entry-meta").on( 'click', '#tamper-show-options', function( e ) {
 		e.preventDefault();
 
@@ -155,6 +157,32 @@ jQuery(document).ready(function( $ ) {
 		$( '#tamper-wp-topic-highlighter-old-closed-text' ).val( settings.color.oldClosed.text );
  		$( '#tamper-wp-topic-highlighter-nonport' ).prop( 'checked', settings.nonPOrT );
 	});
+
+    if ( $( 'body' ).is( '.bbp-view.archive' ) ) {
+        $( '#bbpress-forums .bbp-pagination' ).after( `
+        <div class="custom-topic-header">
+            <label for="tec-select-all">
+                <input id="tec-select-all" type="checkbox">
+                Select all Topics
+            </label>
+            <input type="submit" id="tec-open-in-new-tab" value="Open in new Tab" />
+        </div>
+        ` );
+
+        // Add options link to the sidebar.
+        $( '.entry-meta.sidebar div:first-of-type ul' ).append( '<li><a href="#" id="tamper-show-options">Highlighter Options</a></li>' );
+
+        $( '#tec-select-all' ).on( 'change', ( event ) => {
+            $( '.tec-select-topic' ).prop( 'checked', $( event.target ).is( ':checked' ) );
+        } );
+
+        $( '#tec-open-in-new-tab' ).on( 'click', ( event ) => {
+            event.preventDefault();
+            $( '.tec-select-topic:checked' ).each(( k, topic ) => {
+                GM_openInTab( $( topic ).parents( '.topic' ).eq( 0 ).find( '.bbp-topic-permalink' ).attr( 'href' ) );
+            } );
+        } );
+    }
 
 	// Save options
 	$( '#page' ).on( 'submit', '#tamper-wp-topic-highlighter', function( e ) {
