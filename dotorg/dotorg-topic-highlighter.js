@@ -159,7 +159,7 @@ jQuery(document).ready(function( $ ) {
 	});
 
     if ( $( 'body' ).is( '.bbp-view.archive' ) ) {
-        $( '#bbpress-forums .bbp-pagination' ).after( `
+        $( '#bbpress-forums .bbp-pagination:first' ).after( `
         <div class="custom-topic-header">
             <label for="tec-select-all">
                 <input id="tec-select-all" type="checkbox">
