@@ -21,7 +21,7 @@
  * Marks threads yellow that are more than a month old.
  */
 
-(function() {
+ (function() {
     'use strict';
 
     // Get all lines in an array
@@ -64,6 +64,7 @@
         'joshlevelupsupport2021',       // Joshua Cagasan               - 2021-07-19
         'juanfra',                      // Juan Francisco Aldasoro
         'koriashton',                   // Kori Ashton                  - 2020-09-01 to 2020
+        'lelandf',                      // Leland Fiegel                - 2021-09-06
         'lucasbustamante',              // Lucas Bustamante             - 2020-03-30 to 2020
         'mandraagora',                  // Wolf Bishop                  - 2020-03-04
         'masoodak',                     // Masood Khan                  - 2020-09-01
