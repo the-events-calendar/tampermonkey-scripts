@@ -57,8 +57,25 @@
         select.addEventListener( 'change', ( event ) => {
             event.preventDefault();
 
-            textarea.setRangeText( event.target.value, textarea.selectionStart, textarea.selectionEnd, 'select' );
+            const insertedText = obj.processVariables( event.target.value );
+
+            textarea.setRangeText( insertedText, textarea.selectionStart, textarea.selectionEnd, 'select' );
         } );
+    };
+
+    obj.processVariables = ( text ) => {
+        const variables = [
+            {
+                variable: 'name',
+                replacement: document.querySelector( '.bbp-lead-topic .bbp-author-name' ).innerText
+            }
+        ];
+
+        variables.forEach( ( { variable, replacement } ) => {
+            text = text.replace( '{{' + variable + '}}', replacement );
+        } );
+
+        return text;
     };
 
     obj.init();
