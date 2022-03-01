@@ -1,0 +1,12 @@
+{
+    "replies": [
+        {
+            "title": "Premium product",
+            "content": "This is a premium product. Please submit a support ticket."
+        },
+        {
+            "title": "Conflict test",
+            "content": "This sounds like a plugin conflict. Have you tired a conflict test?"
+        }
+    ]
+}
