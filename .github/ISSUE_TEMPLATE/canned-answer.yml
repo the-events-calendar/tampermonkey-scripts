@@ -11,7 +11,7 @@ body:
       attributes:
           label: Description      
           render: html
-          description: Please write a the whole canned response here, please use `{variable}` to insert variables.
+          description: Please write a the whole canned response here, please use `{{variable}}` to insert variables.
           placeholder: |
               Hi {name},
 
