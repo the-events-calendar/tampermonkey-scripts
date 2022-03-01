@@ -10,9 +10,10 @@
 // @exclude      https://*.wordpress.org/support/view/pending*
 // @exclude      https://wordpress.org/support/view/spam*
 // @exclude      https://*.wordpress.org/support/view/spam*
+// @resource     cannedReplies https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/canned-replies.json
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-canned-replies.js
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-canned-replies.js
-// @grant        none
+// @grant        GM_getResourceText
 // ==/UserScript==
 
 ( function( obj ) {
@@ -26,23 +27,15 @@
         obj.changeListener();
     };
 
-    // @todo: get this from a json file
     obj.getCannedReplies = () => {
-        return [
-            {
-                title: 'Premium product',
-                content: 'Hey! This is a premium product. So go submit a support ticket.'
-            },
-            {
-                title: 'Conflict test',
-                content: 'Hey! This sounds like a conflict with another plugin. Do a conflict test and let us know how it goes.'
-            }
-        ];
+        const stringifiedJSON = GM_getResourceText( 'cannedReplies' );
+
+        return JSON.parse( stringifiedJSON );
     }
 
     obj.insertHTML = () => {
         const form = document.getElementById( 'new-post' );
-        const replies = obj.getCannedReplies();
+        const { replies } = obj.getCannedReplies();
 
         let HTML;
 
