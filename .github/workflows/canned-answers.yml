@@ -4,6 +4,8 @@ on:
     branches:
       - main
     paths:
+      - '.github/workflows/canned-replies.yml'
+      - 'dev/generate-canned-replies'
       - 'dotorg/canned-replies/*'
 jobs:
   run:
