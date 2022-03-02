@@ -15,10 +15,10 @@ jobs:
         fetch-depth: 1
 
     - name: Install composer
-      uses: php-actions/composer@v5
+      uses: php-actions/composer@v6
       with:
         php_version: 7.3
-        version: 1
+        version: 2
 
     - name: Execute the markdown Readme generation script
       run: dev/generate-canned-replies
