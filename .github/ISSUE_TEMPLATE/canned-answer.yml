@@ -7,13 +7,14 @@ body:
       attributes:
           value: |
               Thanks for taking the time to create a request for a canned answer, most of the time these will be implemented as is and some times our team will want to improve, so keep an eye on the issue afterwards.
+
     - type: textarea
       attributes:
           label: Answer Text/HTML      
           render: html
           description: Please write a the whole canned response here, please use `{{variable}}` to insert variables.
           placeholder: |
-              Hi {name},
+              Hi {{name}},
 
               Thanks so much for reaching out, but we no longer Support our Legacy Views, you will need
               to update to the new Views for our team to be able to assist you.
@@ -23,6 +24,15 @@ body:
               Best regards,
       validations:
           required: true
+
+    - type: input
+      id: expand-keyword
+      attributes:
+        label: Expand on this Keyword
+        description: When you type certain keyword it will expand to the Canned answer.
+        placeholder: "[hello]"
+      validations:
+        required: false
 
     - type: dropdown
       id: existing
