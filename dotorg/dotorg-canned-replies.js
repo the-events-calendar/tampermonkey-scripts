@@ -11,13 +11,16 @@
 // @exclude      https://wordpress.org/support/view/spam*
 // @exclude      https://*.wordpress.org/support/view/spam*
 // @resource     cannedReplies https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/canned-replies.json
+// @require      https://raw.githubusercontent.com/lodash/lodash/4.17.15-npm/lodash.min.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-canned-replies.js
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-canned-replies.js
 // @grant        GM_getResourceText
 // ==/UserScript==
 
-( function( obj ) {
+( function( obj, _ ) {
     'use strict';
+    // Configure the LoDash Template
+    _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
     /**
      * Initialize the script.
@@ -64,19 +67,14 @@
     };
 
     obj.processVariables = ( text ) => {
-        const variables = [
-            {
-                variable: 'name',
-                replacement: document.querySelector( '.bbp-lead-topic .bbp-author-name' ).innerText
-            }
-        ];
+        const context = {
+            'name': document.querySelector( '.bbp-lead-topic .bbp-author-name' ).innerText,
+        };
 
-        variables.forEach( ( { variable, replacement } ) => {
-            text = text.replace( '{{' + variable + '}}', replacement );
-        } );
+        const compiledTemplate = _.template( text );
 
-        return text;
+        return compiledTemplate( context );
     };
 
     obj.init();
-})( {} );
+})( {}, _ );
