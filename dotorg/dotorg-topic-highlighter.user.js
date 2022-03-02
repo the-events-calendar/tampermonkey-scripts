@@ -14,8 +14,8 @@
 // @require      https://unpkg.com/dayjs@1.8.21/dayjs.min.js
 // @require      https://unpkg.com/dayjs@1.8.21/plugin/customParseFormat.js
 // @resource     configHtml https://raw.githubusercontent.com/the-events-calendar/tampermonkey-scripts/main/dotorg/options.html
-// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-topic-highlighter.js
-// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-topic-highlighter.js
+// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-topic-highlighter.user.js
+// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-topic-highlighter.user.js
 // @grant        GM_getResourceText
 // @grant        GM_openInTab
 // ==/UserScript==

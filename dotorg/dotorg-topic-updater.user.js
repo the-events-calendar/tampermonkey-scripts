@@ -11,8 +11,8 @@
 // @exclude      https://wordpress.org/support/view/spam*
 // @exclude      https://*.wordpress.org/support/view/spam*
 // @require      https://code.jquery.com/jquery-3.2.1.min.js
-// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-topic-updater.js
-// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-topic-updater.js
+// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-topic-updater.user.js
+// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-topic-updater.user.js
 // @grant        none
 // ==/UserScript==
 

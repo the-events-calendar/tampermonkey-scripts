@@ -12,8 +12,8 @@
 // @exclude      https://*.wordpress.org/support/view/spam*
 // @resource     cannedReplies https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/canned-replies.json
 // @require      https://raw.githubusercontent.com/lodash/lodash/4.17.15-npm/lodash.min.js
-// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-canned-replies.js
-// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-canned-replies.js
+// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-canned-replies.user.js
+// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-canned-replies.user.js
 // @grant        GM_getResourceText
 // ==/UserScript==
 
