@@ -1,0 +1,29 @@
+{
+  "name": "the-events-calendar/tampermonkey-scripts",
+  "description": "The Events Calendar Tampermonkey Scripts",
+  "type": "library",
+  "keywords": [
+    "wordpress",
+    "tampermonkey"
+  ],
+  "homepage": "https://theeventscalendar.com",
+  "license": "GPL-2.0",
+  "require-dev": {
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "config": {
+    "preferred-install": "dist",
+    "platform": {
+      "php": "7.3"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "TEC\\Tampermonkey\\": "src/Tampermonkey"
+    }
+  },
+  "require": {
+   "php": ">=7.3"
+  }
+}
