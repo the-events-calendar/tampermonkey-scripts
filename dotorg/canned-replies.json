@@ -1,16 +1,12 @@
 {
     "replies": [
         {
-            "title": "Premium product",
-            "content": "This is a premium product. Please submit a support ticket."
+            "title": "Inactive topic resolved",
+            "content": "Hi {{name}},\n\nSince we haven't heard from you in a while on this topic we will assume that the problem was fixed or is no longer applicable and with that I will mark this as resolved.\n\nIf that is not the case, please let me know and I will gladly remove the \"Resolved\" tag and try to help you further. Or you can create a new topic with the problem if you prefer.\n\nBest Regards,\n"
         },
         {
-            "title": "Conflict test",
-            "content": "This sounds like a plugin conflict. Have you tired a conflict test?"
-        },
-        {
-            "title": "Legacy Views Unsupported",
-            "content": "Hi {{name}},\n\nUnfortunately you are using our Legacy views which we do not provide support anymore due to bugs like these that are complicated for us to track down and fix.\n\n<a href='https://evnt.is/v1-removal'>https://evnt.is/v1-removal</a>\n\nPlease take a look at this particular article about why we are no longer supporting that version of our codebase.\n\nIf you switch to the Updated Views and the problem continues, I would love to to try to help you get to the bottom of the problem\n\nBest Regards,"
+            "title": "Legacy views unsupported",
+            "content": "Hi {{name}},\n\nUnfortunately you are using our Legacy views which we do not provide support anymore due to bugs like these that are complicated for us to track down and fix.\n\n<a target=\"_blank\" rel=\"noopener\" href='https:\/\/evnt.is\/v1-removal'>https:\/\/evnt.is\/v1-removal<\/a>\n\nPlease take a look at this particular article about why we are no longer supporting that version of our codebase.\n\nIf you switch to the Updated Views and the problem continues, I would love to to try to help you get to the bottom of the problem\n\nBest Regards,\n"
         }
     ]
 }

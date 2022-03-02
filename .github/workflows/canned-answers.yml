@@ -1,0 +1,31 @@
+name: 'Canned Replies JSON Auto Generator'
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'dotorg/canned-replies/*'
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    name: Generate Canned Replies JSON
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - name: Install composer
+      uses: php-actions/composer@v5
+      with:
+        php_version: 7.3
+        version: 1
+
+    - name: Execute the markdown Readme generation script
+      run: dev/generate-canned-replies
+
+    - name: Commit canned-replies.json file
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Generate Canned Replies JSON
+        branch: main
+        file_pattern: dotorg/canned-replies.json

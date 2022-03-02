@@ -1,0 +1,51 @@
+#!/usr/bin/env php
+<?php
+try {
+	if ( php_sapi_name() !== 'cli' ) {
+		throw new Exception( 'Only allowed in CLI mode.' );
+	}
+
+	$files = glob( 'dotorg/canned-replies/*' );
+	$replies_paths = [];
+
+	foreach ( $files as $reply_file ) {
+		if ( ! file_exists( $reply_file ) ) {
+			continue;
+		}
+		$reply_file_info = pathinfo( $reply_file );
+
+		$replies[ $reply_file_info['filename'] ] = file_get_contents( realpath( $reply_file ) );
+	}
+
+	$data = [
+		'replies' => [],
+	];
+
+	foreach ( $replies as $key => $reply_html ) {
+		$title = ucfirst( str_replace( [ '-', '_' ], ' ', $key ) );
+		$content = $reply_html;
+
+		$data['replies'][] = [
+			'title' => $title,
+			'content' => $content,
+		];
+	}
+
+	$json_raw = json_encode( $data, JSON_PRETTY_PRINT );
+	$canned_replies_file = realpath( 'dotorg/canned-replies.json' );
+
+	if ( empty( $canned_replies_file ) ) {
+		throw new Exception( 'Failed to find the dotorg/canned-replies.json file.' );
+	}
+
+	$is_written = file_put_contents( $canned_replies_file, $json_raw );
+	if ( ! $is_written ) {
+		throw new Exception( sprintf( 'Failed to write to %s', $canned_replies_file ) );
+	}
+
+	fwrite( STDERR, 'Successfully generated the new canned replies json file.' . PHP_EOL );
+	fwrite( STDOUT, $canned_replies_file . PHP_EOL );
+} catch ( Exception $e ) {
+	fwrite( STDERR, $e->getMessage() . PHP_EOL );
+	exit( 1 );
+}
