@@ -68,7 +68,7 @@
 
     obj.processVariables = ( text ) => {
         const context = {
-            'name': document.querySelector( '.bbp-lead-topic .bbp-author-name' ).innerText,
+            'name': '@' + document.querySelector( '.bbp-lead-topic .bbp-author-name' ).innerText,
         };
 
         const compiledTemplate = _.template( text );
