@@ -35,7 +35,7 @@ try {
 	$canned_replies_file = realpath( 'dotorg/canned-replies.json' );
 
 	if ( empty( $canned_replies_file ) ) {
-		throw new Exception( 'Failed to find a readme.txt or README.txt above the current working directory.' );
+		throw new Exception( 'Failed to find the dotorg/canned-replies.json file.' );
 	}
 
 	$is_written = file_put_contents( $canned_replies_file, $json_raw );
