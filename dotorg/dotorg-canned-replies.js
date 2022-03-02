@@ -60,8 +60,8 @@
 
         select.addEventListener( 'change', ( event ) => {
             event.preventDefault();
-            const content = _.find( obj.getCannedReplies(), { id: event.target.value } )
-            const insertedText = obj.processVariables( content );
+            const reply = _.find( obj.getCannedReplies().replies, { id: event.target.value } );
+            const insertedText = obj.processVariables( reply );
 
             textarea.setRangeText( insertedText, textarea.selectionStart, textarea.selectionEnd, 'select' );
         } );
