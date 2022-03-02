@@ -26,6 +26,7 @@ try {
 		$content = $reply_html;
 
 		$data['replies'][] = [
+			'id' => $key,
 			'title' => $title,
 			'content' => $content,
 		];

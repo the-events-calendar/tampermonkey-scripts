@@ -22,6 +22,9 @@
     // Configure the LoDash Template
     _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
+    obj.replies = JSON.parse( GM_getResourceText( 'cannedReplies' ) );
+
+
     /**
      * Initialize the script.
      */
@@ -31,9 +34,7 @@
     };
 
     obj.getCannedReplies = () => {
-        const stringifiedJSON = GM_getResourceText( 'cannedReplies' );
-
-        return JSON.parse( stringifiedJSON );
+        return obj.replies;
     }
 
     obj.insertHTML = () => {
@@ -44,8 +45,8 @@
 
         HTML = '<select id="canned-replies"><option value="">Select a canned reply</option>';
 
-        replies.forEach( ( { title, content } ) => {
-            HTML += `<option value="${content}">${title}</option>`;
+        replies.forEach( ( { title, content, id } ) => {
+            HTML += `<option value="${id}">${title}</option>`;
         } );
 
         HTML += '</select>';
@@ -59,19 +60,19 @@
 
         select.addEventListener( 'change', ( event ) => {
             event.preventDefault();
-
-            const insertedText = obj.processVariables( event.target.value );
+            const content = _.find( obj.getCannedReplies(), { id: event.target.value } )
+            const insertedText = obj.processVariables( content );
 
             textarea.setRangeText( insertedText, textarea.selectionStart, textarea.selectionEnd, 'select' );
         } );
     };
 
-    obj.processVariables = ( text ) => {
+    obj.processVariables = ( reply ) => {
         const context = {
             'name': '@' + document.querySelector( '.bbp-lead-topic .bbp-author-name' ).innerText,
         };
 
-        const compiledTemplate = _.template( text );
+        const compiledTemplate = _.template( reply.content );
 
         return compiledTemplate( context );
     };
