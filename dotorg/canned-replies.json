@@ -1,6 +1,11 @@
 {
     "replies": [
         {
+            "id": "bug-report-created",
+            "title": "Bug report created",
+            "content": "Hi {{name}},\n\nThe problem you are facing is now on your Bug Tracker, and due to some of the Guidelines from WordPress.org forums we might not be able to report back to you here when we fix it as the topic might be closed before we get to fixing the problem.\n\nKeep an eye on our <a href=\"https:\/\/wordpress.org\/plugins\/the-events-calendar\/#developers\" target=\"_blank\" rel=\"noopener\">changelogs<\/a> for the following tracking code:\n\n[{{jira_ticket_number}}]\n\nOnce the fix is out we will make sure that code is on the changelog so that everyone involved can see that the solution was put in place.\n\nUnfortunately I cannot promise any estimated time of arrival for the bugfix because our team has a lot of competing priorities.\n\nIf you still are facing this bug after the release with your fix was applied to your website please don't hesitate to open another thread and we will assist you as best as we can.\n\nbest regards,\n"
+        },
+        {
             "id": "inactive-topic-resolved",
             "title": "Inactive topic resolved",
             "content": "Hi {{name}},\n\nSince we haven't heard from you in a while on this topic we will assume that the problem was fixed or is no longer applicable and with that I will mark this as resolved.\n\nIf that is not the case, please let me know and I will gladly remove the \"Resolved\" tag and try to help you further. Or you can create a new topic with the problem if you prefer.\n\nBest Regards,\n"
