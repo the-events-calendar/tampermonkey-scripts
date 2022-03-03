@@ -70,7 +70,7 @@
 
     obj.processVariables = ( reply ) => {
         const context = {
-            'name': '@' + $( '.bbp-lead-topic .bbp-author-name' ).text(),
+            'name': $( '.bbp-lead-topic .bbp-user-nicename' ).text().replace( '(', '' ).replace( '}', '' ),
             'plugin_url': $( '.entry-meta.sidebar .plugin-meta-icon' ).next( 'li' ).find( 'a' ).attr( 'href' ),
         };
 
