@@ -12,17 +12,18 @@
 // @exclude      https://*.wordpress.org/support/view/spam*
 // @resource     cannedReplies https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/canned-replies.json
 // @require      https://raw.githubusercontent.com/lodash/lodash/4.17.15-npm/lodash.min.js
+// @require      https://code.jquery.com/jquery-3.2.1.min.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-canned-replies.user.js
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-canned-replies.user.js
 // @grant        GM_getResourceText
 // ==/UserScript==
 
-( function( obj, _ ) {
+( function( obj, _, $ ) {
     'use strict';
     // Configure the LoDash Template
-    _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+    _.templateSettings.interpolate = /{{ *([\s\S]+?) *}}/g;
 
-    obj.replies = JSON.parse( GM_getResourceText( 'cannedReplies' ) );
+    obj.data = JSON.parse( GM_getResourceText( 'cannedReplies' ) );
 
 
     /**
@@ -34,12 +35,12 @@
     };
 
     obj.getCannedReplies = () => {
-        return obj.replies;
+        return obj.data.replies;
     }
 
     obj.insertHTML = () => {
         const form = document.getElementById( 'new-post' );
-        const { replies } = obj.getCannedReplies();
+        const replies = obj.getCannedReplies();
 
         let HTML;
 
@@ -60,7 +61,7 @@
 
         select.addEventListener( 'change', ( event ) => {
             event.preventDefault();
-            const reply = _.find( obj.getCannedReplies().replies, { id: event.target.value } );
+            const reply = _.find( obj.getCannedReplies(), { id: event.target.value } );
             const insertedText = obj.processVariables( reply );
 
             textarea.setRangeText( insertedText, textarea.selectionStart, textarea.selectionEnd, 'select' );
@@ -69,13 +70,30 @@
 
     obj.processVariables = ( reply ) => {
         const context = {
-            'name': '@' + document.querySelector( '.bbp-lead-topic .bbp-author-name' ).innerText,
+            'name': '@' + $( '.bbp-lead-topic .bbp-author-name' ).text(),
+            'plugin_url': $( '.entry-meta.sidebar .plugin-meta-icon' ).next( 'li' ).find( 'a' ).attr( 'href' ),
         };
 
-        const compiledTemplate = _.template( reply.content );
+        let compiledTemplate;
+        let content = reply.content;
+        let hasError = false;
+        let html = '';
 
-        return compiledTemplate( context );
+        do {
+            hasError = false;
+            try {
+                compiledTemplate = _.template( content );
+                html = compiledTemplate( context )
+            } catch ( error ) {
+                hasError = true;
+                let varName = error.message.replace( ' is not defined', '' );
+                let regexVarName = new RegExp( '{{ *' + varName + ' *}}', 'gi' )
+                content = content.replaceAll( regexVarName, `<!-- Undefined Variable: ${varName} -->` );
+            }
+        } while( true === hasError );
+
+        return html;
     };
 
     obj.init();
-})( {}, _ );
+})( {}, _, jQuery );
