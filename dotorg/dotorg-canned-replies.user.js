@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TEC: WordPress.org Canned Replies
 // @namespace    https://theeventscalendar.com/
-// @version      0.1.0
+// @version      0.1.1
 // @description  Add canned replies to WordPress.org support forums.
 // @author       lelandf
 // @match        https://wordpress.org/support/*
