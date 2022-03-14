@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Opens all links in new tab
-// @namespace    http://tampermonkey.net/
+// @namespace    https://theeventscalendar.com
 // @version      0.1
 // @description  This adds target="_blank" to all <a> tags
 // @author       James Welbes
