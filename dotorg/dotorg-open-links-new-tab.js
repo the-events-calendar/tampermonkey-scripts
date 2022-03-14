@@ -6,6 +6,7 @@
 // @author       You
 // @match        https://wordpress.org/support/plugin/the-events-calendar*
 // @include      https://wordpress.org/support/topic*
+// @include      https://wordpress.org/support/plugin/event-tickets*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=wordpress.org
 // @grant        none
 // ==/UserScript==
