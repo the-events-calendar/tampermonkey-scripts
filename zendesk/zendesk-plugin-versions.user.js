@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      5.0.1
+// @version      5.0.2
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @include      https://ithemeshelp.zendesk.com/agent*
@@ -453,7 +453,9 @@
 
     /**
      * === Changelog ===
-     *
+     * 5.0.2 - 2022-03-15
+     * Added new plugin versions (127)
+     * 
      * 5.0.1 - 2022-03-07
      * Added new plugin versions (120-126)
      *
