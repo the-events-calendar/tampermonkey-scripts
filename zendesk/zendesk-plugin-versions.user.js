@@ -456,6 +456,7 @@
      * === Changelog ===
      * 5.0.3 - 2022-03-17
      * Added new plugin versions (128)
+     * Fixed version of tec for Jan release (5.14.0.4 instead of 5.14.4)
      * Adjusted identation
      * 
      *  5.0.2 - 2022-03-15
