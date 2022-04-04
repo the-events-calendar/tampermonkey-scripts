@@ -11,3 +11,7 @@ A twin to .org Helper. The script runs in the .org forums for Modern Tribe plugi
 ## Sample screenshot of dotorg-helper
 
 ![image](https://dl.dropbox.com/s/cr3sqlwd04s9dnq/shot_210910_182623.jpg)
+
+## `dotorg-open-links-new-tab.js`
+
+This causes all links you click on to open in a new tab.
