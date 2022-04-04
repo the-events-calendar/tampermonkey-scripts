@@ -219,7 +219,8 @@
             125: { name: "B22.kuchen",      date: "Feb 23",     tec: "5.14.0.4",  pro: "5.12.1",    vev: "1.8.2x",   fib: "5.2.1",    ebt: "4.6.9",  eti: "5.2.4.1",    etp: "5.3.3",     cev: "4.8.11.1",  ctx: "4.7.10",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.2.1", edd: "2.11.5" },
             126: { name: "G22.jobaria",     date: "Feb 24",     tec: "5.14.0.4",  pro: "5.12.1",    vev: "1.8.2",    fib: "5.2.1",    ebt: "4.6.9",  eti: "5.3.0x",     etp: "5.4.0x",    cev: "4.8.11.1",  ctx: "4.7.10",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.2.1", edd: "2.11.5" },
             127: { name: "G22.juravenator", date: "Mar 15",     tec: "5.14.0.4",  pro: "5.12.1",    vev: "1.8.2",    fib: "5.2.1",    ebt: "4.6.9",  eti: "5.3.1x",     etp: "5.4.1x",    cev: "4.8.12x",   ctx: "4.7.10",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.2.1", edd: "2.11.5" },
-            128: { name: "G22.lattice",     date: "Mar 17",     tec: "5.14.1x",   pro: "5.12.2x",   vev: "1.8.3x",   fib: "5.2.1",    ebt: "4.6.10x",eti: "5.3.1",      etp: "5.4.1",     cev: "4.8.12",    ctx: "4.7.10",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.3.1", edd: "2.11.5" },
+            128: { name: "B22.lattice",     date: "Mar 17",     tec: "5.14.1x",   pro: "5.12.2x",   vev: "1.8.3x",   fib: "5.2.1",    ebt: "4.6.10x",eti: "5.3.1",      etp: "5.4.1",     cev: "4.8.12",    ctx: "4.7.10",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.3.1", edd: "2.11.5" },
+            129: { name: "B22.loukoum",     date: "Mar 30",     tec: "5.14.1",    pro: "5.12.2",    vev: "1.9.0x",   fib: "5.2.1",    ebt: "4.6.10", eti: "5.3.1",      etp: "5.4.1",     cev: "4.8.12",    ctx: "4.7.10",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.3.1", edd: "2.11.5" },
         };
 
         // The number of releases (the length of the object)
