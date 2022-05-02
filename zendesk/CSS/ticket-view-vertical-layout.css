@@ -1,0 +1,347 @@
+/**
+ * Name: Zendesk Ticket View Vertical Layout
+ * Description: Changes the default horizontal layout of the ticket view to vertical.
+ *
+ * This is a stylesheet for Zendesk.
+ * You can use the Stylus browser add-on to use this.
+ * - Chrome:  https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+ * - Firefox: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
+ */
+
+/**
+ RULE: For URLs matching the regexp
+ (https://).*(zendesk.com/tickets/).*
+ */
+
+.zendesk-editor--rich-text-container {
+	background: none !important;
+	background-color: #303030 !important;
+	color: #e0e0e0 !important;
+}
+
+.zendesk-editor--rich-text-container blockquote * {
+	color: #ffaa3e !important;
+	font-weight: bold !important;
+	font-size: 14px !important;
+	line-height: 24px !important;
+	font-style: "roboto" !important;
+}
+
+.zendesk-editor--rich-text-container li:after {
+	color: #e0e0e0 !important;
+}
+
+.zendesk-editor--rich-text-comment li:before {
+	content: ' » ';
+	padding-left: 0 !important;
+	margin-left: 0px !important;
+	margin-right: 5px !important;
+}
+
+.zendesk-editor--rich-text-comment li {
+	margin-left: 5px !important;
+}
+
+.zendesk-editor--rich-text-comment ol, .zendesk-editor--rich-text-comment ul {
+	padding-left: 0 !important;
+	margin-left: 0px !important;
+}
+
+.zendesk-editor--rich-text-container li:before {
+	color: #ffaa3e !important;
+	content: ' » ';
+}
+
+.zendesk-editor--rich-text-container a {
+	cursor: pointer !important;
+	color: #3D54FF !important;
+	opacity: 0.8 !important;
+}
+
+.bQVvDw *,
+.dTZoSv *,
+.zd-comment,
+.zd-comment * {
+	font-size: 17px !important;
+	line-height: 32px !important;
+	letter-spacing: -0.5px;
+	font-style: "roboto";
+	overflow-x: hidden !important;
+}
+
+/** Header Editor **/
+.ember-view .gKDvok {
+}
+
+#editor-view .zendesk-editor--rich-text-container {
+	font-size: 17px !important;
+	line-height: 32px !important;
+	letter-spacing: -0.5px;
+	font-style: "roboto";
+}
+
+.zd-comment p img {
+	width: auto !important;
+	height: auto !important;
+}
+
+table tr:nth-child(odd) {
+	background-color: #f2f3f5 !important;
+}
+
+.zd-comment table tr td font {
+	font-size: 16px !important;
+}
+
+.zd-comment table tr td strong {
+	font-size: 11px !important;
+}
+
+.zd-comment table {
+	margin-bottom: 30px !important;
+}
+
+#main_navigation {
+	background-color: #313df5 !important;
+}
+
+#editor-view .LRln {
+	border: 0 !important;
+}
+
+.zendesk-editor--rich-text-comment code,
+#editor-view code {
+	font-size: 14px !important;
+	line-height: 24px !important;
+	padding: 3px;
+	color: #ffaa3e !important;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border: 0;
+}
+
+.zendesk-editor--rich-text-comment pre code,
+#editor-view pre code {
+	font-size: 11px !important;
+	line-height: 12px !important;
+	border: 0 !important;
+	color: #5ba1cf !important;
+}
+
+.zendesk-editor--rich-text-comment pre,
+#editor-view pre {
+	background-color: #1b2426 !important;
+	border-left: 5px solid #ffaa3e !important;
+	border: 0;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding-left: 30px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+#editor-view .LRb.LRt.LRbg.LReg.LRgv.LRgw.LRgx.LRgy {
+	height: 74px !important;
+}
+
+.omni-conversation-panel .LRlu {
+	margin-bottom: 70px !important;
+	padding-bottom: 100px;
+}
+
+.polaris-react-component.omni-conversation-pane {
+	position: relative;
+}
+
+.conversation-polaris {
+	position: relative !important;
+	top: 0 !important;
+}
+
+.conversation-polaris .iZQJtD {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	width: 100% !important;
+}
+
+/** Container **/
+.ftSqau {
+	display: flex !important;
+}
+
+/** Thread **/
+.dKaSKe {
+	width: 50% !important;
+}
+
+/** Editor **/
+#editor-view {
+	width: 50% !important;
+	position: absolute;
+	right: 0;
+	height: 100% !important;
+	border-left: 1px solid #ccc;
+}
+
+.conversation-polaris .iDDKOe {
+	width: 50% !important;
+	min-height: 500px !important;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100% !important;
+	z-index: 9 !important;
+	background-color: #fff !important;
+	border-right: 1px solid #ccc !important;
+}
+
+.conversation-polaris .cCZTVy {
+	width: 50%;
+	position: absolute;
+	left: 0 !important;
+	padding: 14px 20px;
+}
+
+.conversation-polaris .caDgeh {
+	width: 50%;
+	left: 0 !important;
+	height: 100%;
+	position: absolute;
+	/* top: 68px;
+    padding-bottom: 70px !important; */
+	padding-top: 73px !important;
+	border-left: 0px solid #ccc !important;
+}
+
+.conversation-polaris .LRjr {
+	padding: 0px 6px;
+	border-bottom: 1px solid #ccc;
+}
+
+.conversation-polaris .cCZTVy,
+.LRfn {
+	border-left: 0px solid #ccc !important;
+}
+
+.conversation-polaris .bvNpkX {
+	top: 140px !important;
+	left: 10px !important;
+}
+
+.zendesk-editor--rich-text-container {
+	border-top: 1px solid #ccc !important;
+	border-bottom: 1px solid #ccc !important;
+	padding: 30px !important;
+}
+
+.zendesk-editor--rich-text-container * {
+	line-height: 28px !important;
+}
+
+.zendesk-editor--rich-text-container.LRjl.LRka.LRjq.LRb.LRbf.LRin.LRkb.LRkc.LRkd.LRke.LRkf.LRbm.LRfh.LRm.LRgh.LRkg.LRkh {
+	overflow: auto !important;
+}
+
+.conversation-polaris.polaris-react-component {
+	height: 100% !important;
+}
+
+article {
+	padding: 30px 30px 100px !important;
+}
+
+article:nth-child(odd) {
+	background: #fafafa;
+	padding-top: 30px;
+}
+
+pre * {
+	font-size: 12px !important;
+}
+
+/* Cell Reports */
+.viewer .cell * {
+	font-size: 16px;
+}
+
+/* URLs starting with https://ithemeshelp.zendesk.com/agent/filters */
+/* Tweaking Filter Views
+#### 1 - Reorder Zendesk Views ####
+First let's make Views div (on the left sidebar) use display flex to be able to reorder it*/
+div[data-test-id="views_views-list_general-views-container"] {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Now you can reorder items
+Moving queue "T1 TEC New & Unassigned" to the first Position */
+a[data-view-id="4486415803675"] {
+	order: -3;
+}
+
+a[data-view-id="1260865747030"] {
+	order: -1;
+}
+
+/* #### 2 - Changing queues colors ####
+Now grab your brush and let's play coloring game!
+Hmmmm, Better than a brush, get your HTML color codes at https://htmlcolorcodes.com/
+Also, Inspect the element and get the data-view-id and let's go:
+### 2.1 - Let's highlight our MOST USED queues changing background/text color ### */
+a[data-view-id="4486415803675"],
+a[data-view-id="1900022594204"] {
+	background-color: rgb(120, 163, 0);
+	color: white;
+	font-weight: bold;
+}
+
+/* TEC Overdue with red background*/
+a[data-view-id="1260848122909"] {
+	background-color: #F79BA9;
+	color: white;
+	order: -3;
+}
+
+/* #### 2.2 - Changing ACTIVE View color #### */
+.VxCKy {
+	background-color: #313df5 !important;
+	color: white !important;
+}
+
+/* #### 2.3 - Change view HOVER color #### */
+.sc-1s8ami4-3:hover {
+	background-color: #313df5 !important;
+	color: white !important;
+	font-weight: bold;
+	opacity: 0.5 !important;
+}
+
+/* #### 2.4 - Hide views you NEVER use #### */
+a[data-view-id="360051416433"],
+a[data-view-id="360051880614"],
+a[data-view-id="1260838320309"],
+a[data-view-id="1260814240210"],
+a[data-view-id="1260838514170"],
+a[data-view-id="suspended"],
+a[data-view-id="deleted"] {
+	display: none;
+}
+
+/* #### 3 - Add a small border after My Views section #### */
+div[data-test-id="views_views-list_personal-views-header"] {
+	border-bottom: 1px solid rgb(216, 220, 222);
+	padding-bottom: 10px;
+}
+
+/*
+###### Useful documentation ######
+CSS: Using [attributes] - https://css-tricks.com/almanac/selectors/a/attribute/
+CSS: Ordering Flex Items - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items
+*/
+/* For URLs starting with https://ithemeshelp.zendesk.com/agent/ */
+/* Global - Top bar changes
+#### Change CONVERSATIONS button size - it's TOO SMALL #### */
+button[data-test-id="toolbar-serve-chat-button"] {
+	min-width: 300px !important;
+}

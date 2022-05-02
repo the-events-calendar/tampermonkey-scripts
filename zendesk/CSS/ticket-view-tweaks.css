@@ -1,0 +1,62 @@
+/**
+ * Name: Zendesk Ticket View Tweaks
+ * Description: Tweaks some aspects of the Zendesk ticket view.
+ *
+ * This is a stylesheet for Zendesk.
+ * You can use the Stylus browser add-on to use this.
+ * - Chrome:  https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+ * - Firefox: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
+ */
+
+/**
+ RULE: For URLs matching the regexp
+ (https://).*(zendesk.com/tickets/).*
+ */
+
+/* Tickets - Right Sidebar (Apps) */
+
+div[data-test-id="omnipanel-pane-wrapper-apps"] .app_container {
+	display: flex;
+	flex-direction: column;
+}
+
+div[data-test-id="omnipanel-pane-wrapper-apps"] .app_container div:nth-child(1) {
+	order: -2 !important;
+}
+
+div[data-test-id="omnipanel-pane-wrapper-apps"] .app_container div:nth-child(7) {
+	order: -1 !important;
+}
+
+div[data-test-id="omnipanel-pane-wrapper-apps"] .app_container div:nth-child(3),
+div[data-test-id="omnipanel-pane-wrapper-apps"] .app_container div:nth-child(5) {
+	display: none !important;
+}
+
+/* BLINK the "TEC:Request Type" field if a valid type is missing */
+.LRb div[data-garden-id="typography.ellipsis"][title="-"] {
+	background: red;
+	padding: 10px;
+	animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+	50% {
+		opacity: 0;
+	}
+}
+
+/* Tickets - Main content area */
+.zd-comment a {
+	color: rgb(31, 115, 183);
+}
+
+
+/* Sometimes, users copy and paste the System information and the text comes with a white color.
+Ex: Sysinfo answer at https://ithemeshelp.zendesk.com/agent/tickets/307264 and https://ithemeshelp.zendesk.com/agent/tickets/308440
+This will force those lines to have black color instead (so you can read it properly) */
+.zd-comment dt, .zd-comment dd, .zd-comment p, .zd-comment span {
+	color: black !important;
+	background-color: white !important;
+	border: 0;
+}

@@ -1,0 +1,21 @@
+/**
+ * Name: Zendesk Bigger Conversations Button
+ * Description: Increases the width of the Conversations button in the top bar.
+ *
+ * This is a stylesheet for Zendesk.
+ * You can use the Stylus browser add-on to use this.
+ * - Chrome:  https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+ * - Firefox: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
+ */
+
+/**
+ RULE: For URLs matching the regexp
+ (https://).*(zendesk.com/agent/).*
+ */
+
+/* Global - Top bar changes */
+
+/* #### Increase CONVERSATIONS button size #### */
+button[data-test-id="toolbar-serve-chat-button"] {
+	min-width: 300px !important;
+}
