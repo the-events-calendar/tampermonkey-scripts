@@ -1,0 +1,87 @@
+/**
+ * Name: Zendesk Views List Tweaks
+ * Description: Implements various tweaks for the Zendesk views list, like coloring and reordering.
+ * Note, you might need to make adjustments.
+ *
+ * This is a stylesheet for Zendesk.
+ * You can use the Stylus browser add-on to use this.
+ * - Chrome:  https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+ * - Firefox: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
+ */
+
+/**
+ RULE: For URLs matching the regexp
+ (https://).*(zendesk.com/agent/filters/).*
+ */
+
+/* Tweaking Filter Views /
+
+/* #### 1 - Reorder Zendesk Views ####
+First let's make Views div (on the left sidebar) use display flex to be able to reorder it */
+div[data-test-id="views_views-list_general-views-container"] {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Now you can reorder items
+Moving queue "T1 TEC New & Unassigned" to the first Position */
+a[data-view-id="4486415803675"] {
+	order: -3;
+}
+
+a[data-view-id="1260865747030"] {
+	order: -1;
+}
+
+/* #### 2 - Changing queues colors ####
+Now grab your brush and let's play coloring game!
+Better than a brush, get your HTML color codes at https://htmlcolorcodes.com/
+Also, Inspect the element and get the data-view-id and let's go: */
+
+/* ### 2.1 - Let's highlight our MOST USED queues changing background/text color ### */
+a[data-view-id="4486415803675"],
+a[data-view-id="1900022594204"] {
+	background-color: #03363D;
+	color: white;
+	font-weight: bold;
+}
+
+/* TEC Overdue with red background */
+a[data-view-id="1260848122909"] {
+	background-color: #F79BA9;
+	color: white;
+	order: -2;
+}
+
+/* #### 2.2 - Changing ACTIVE View color #### */
+.VxCKy {
+	background-color: green !important;
+	color: white !important;
+}
+
+/* #### 2.3 - Change view HOVER color #### */
+.sc-1s8ami4-3:hover {
+	background-color: #90EE90 !important;
+	color: black !important;
+	font-weight: bold;
+}
+
+/* #### 2.4 - Hide views you NEVER use #### */
+a[data-view-id="360051416433"],
+a[data-view-id="360051880614"],
+a[data-view-id="suspended"],
+a[data-view-id="deleted"] {
+	display: none;
+}
+
+/* #### 3 - Add a small border after My Views section #### */
+div[data-test-id="views_views-list_personal-views-header"] {
+	border-bottom: 1px solid rgb(216, 220, 222);
+	padding-bottom: 10px;
+}
+
+/*
+###### Useful documentation ######
+CSS: Using [attributes] - https://css-tricks.com/almanac/selectors/a/attribute/
+CSS: Ordering Flex Items - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items
+*/
