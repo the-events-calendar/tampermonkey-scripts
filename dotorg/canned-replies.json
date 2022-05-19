@@ -1,14 +1,59 @@
 {
     "replies": [
         {
-            "id": "bug-report-created",
-            "title": "Bug report created",
-            "content": "Hi {{name}},\n\nThe problem you are facing is now on your Bug Tracker, and due to some of the Guidelines from WordPress.org forums we might not be able to report back to you here when we fix it as the topic might be closed before we get to fixing the problem.\n\nKeep an eye on our <a href=\"{{plugin_url}}#developers\" target=\"_blank\" rel=\"noopener\">changelogs<\/a> for the following tracking code:\n\n[{{jira_ticket_number}}]\n\nOnce the fix is out we will make sure that code is on the changelog so that everyone involved can see that the solution was put in place.\n\nUnfortunately I cannot promise any estimated time of arrival for the bugfix because our team has a lot of competing priorities.\n\nIf you still are facing this bug after the release with your fix was applied to your website please don't hesitate to open another thread and we will assist you as best as we can.\n\nbest regards,\n"
+            "id": "feature-request",
+            "title": "Feature request",
+            "content": "Hi {{name}},\n\nI encourage and recommend you to add it as a feature request in this link: https://evnt.is/ideas, this would help us track users needing this feature.\n\nNevertheless, I am unable to provide you an exact date for when this feature will be available or if it is possible. As our development team considers certain factors before implementing one like if a feature request has enough votes.\n"
         },
         {
-            "id": "inactive-topic-resolved",
-            "title": "Inactive topic resolved",
-            "content": "Hi {{name}},\n\nSince we haven't heard from you in a while on this topic we will assume that the problem was fixed or is no longer applicable and with that I will mark this as resolved.\n\nIf that is not the case, please let me know and I will gladly remove the \"Resolved\" tag and try to help you further. Or you can create a new topic with the problem if you prefer.\n\nBest Regards,\n"
+            "id": "divider",
+            "title": "---------",
+            "content": ""
+        },
+        {
+            "id": "bug-ticket-exists",
+            "title": "Bug ticket (exists)",
+            "content": "Hi {{name}},\n\nWe have an internal bug ticket for this, and I have added your case to it. I will definitely pass along the details you shared with our dev team.\n \nWe don't have a time estimate, but you'll be notified here when there are any updates.\n\nHang tight for now. If you require other assistance on another topic, please feel free to open a new thread.\n\nAppreciate for your time and patience here. Have a great day.\n\nBest,\n\n\n________________________\n\nInternal Bug Ticket Reference:\nBugTicketID\n"
+        },
+        {
+            "id": "bug-report-created-1",
+            "title": "Bug report created",
+            "content": "Hi {{name}},\n\nThe problem you are facing is now on your Bug Tracker, and due to some of the Guidelines from WordPress.org forums we might not be able to report back to you here when we fix it as the topic might be closed before we get to fixing the problem.\n\nKeep an eye on our <a href=\"{{plugin_url}}#developers\" target=\"_blank\" rel=\"noopener\">changelogs<\/a> for the following tracking code:\n\n[{{jira_ticket_number}}]\n\nOnce the fix is out we will make sure that code is on the changelog so that everyone involved can see that the solution was put in place.\n\nUnfortunately I cannot promise any estimated time of arrival for the bugfix because our team has a lot of competing priorities.\n\nIf you still are facing this bug after the release with your fix was applied to your website please don't hesitate to open another thread and we will assist you as best as we can.\n\nbest regards,\n\n\n________________________\n\nInternal Bug Ticket Reference:\nBugTicketID\n"
+        },
+        {
+            "id": "bug-report-created-2",
+            "title": "Bug report created 2",
+            "content": "Hi {{name}},\n\nI went ahead and investigated the issue, and I was able to replicate. This looks like a bug in our plugin. I already created an internal bug ticket for this, and I have added your case to it. Thanks for all the details, I will definitely pass it along to our devs.\n\nI am unable to provide an exact date or time estimate for when this bug will be fixed, but you'll be notified when there are any updates.\n\nAppreciate your patience, and we're looking forward to helping you solve this. If you do have other concerns or issues you need help with, please create another ticket, as it helps us track different issues.\n\nAgain, thank you for your patience.\n\nCheers,\n\n________________________\n\nInternal Bug Ticket Reference:\nBugTicketID\n"
+        },
+        {
+            "id": "bug-ticket-footer",
+            "title": "Bug ticket footer",
+            "content": "________________________\n\nInternal Bug Ticket Reference:\n{BugTicketID}\n"
+        },
+        {
+            "id": "divider",
+            "title": "---------",
+            "content": ""
+        },
+        {
+            "id": "inactive-topic-resolved-long",
+            "title": "Inactive topic resolved (long)",
+            "content": "Hi {{name}},\n\nSince we haven't heard from you in a while on this topic we will assume that the problem was fixed or is no longer applicable and with that I will mark this as resolved.\n\nIf that is not the case, please let us know and we will gladly remove the \"Resolved\" tag and try to help you further. Or you can create a new topic with the problem if you prefer.\n\nBest Regards,\n"
+        },
+        {
+            "id": "inactive-topic-resolved-medium",
+            "title": "Inactive topic resolved (medium)",
+            "content": "Hey {{name}}, this thread has been inactive for a while, so we’re going to go ahead and mark it Resolved. Please feel free to open a new thread if any other questions come up, and we’d be happy to help.\n\nCheers,\n"
+        },
+        {
+            "id": "inactive-topic-resolved-short",
+            "title": "Inactive topic resolved (short)",
+            "content": "Hi {{name}},\n\nWe haven’t heard from you in a while, so I’m going to mark this as resolved. Feel free to start a new thread if you have any more questions."
+        },
+        {
+            "id": "divider",
+            "title": "---------",
+            "content": ""
         },
         {
             "id": "legacy-views-unsupported",
