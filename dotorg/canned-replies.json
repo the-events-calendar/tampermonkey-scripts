@@ -6,7 +6,7 @@
             "content": "Hi {{name}},\n\nI encourage and recommend you to add it as a feature request in this link: https://evnt.is/ideas, this would help us track users needing this feature.\n\nNevertheless, I am unable to provide you an exact date for when this feature will be available or if it is possible. As our development team considers certain factors before implementing one like if a feature request has enough votes.\n"
         },
         {
-            "id": "divider",
+            "id": "divider-1",
             "title": "---------",
             "content": ""
         },
@@ -31,7 +31,7 @@
             "content": "________________________\n\nInternal Bug Ticket Reference:\n{BugTicketID}\n"
         },
         {
-            "id": "divider",
+            "id": "divider-2",
             "title": "---------",
             "content": ""
         },
@@ -51,7 +51,7 @@
             "content": "Hi {{name}},\n\nWe haven’t heard from you in a while, so I’m going to mark this as resolved. Feel free to start a new thread if you have any more questions."
         },
         {
-            "id": "divider",
+            "id": "divider-3",
             "title": "---------",
             "content": ""
         },
