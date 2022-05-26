@@ -229,11 +229,11 @@
             135: { name: "G22.leptoceratops",date: "May 19",     tec: "5.15.0.1x", pro: "5.14.0.1x", vev: "1.10.0x",  fib: "5.3.0x",   ebt: "4.6.11x", eti: "5.4.0.1x",   etp: "5.5.0x",    cev: "4.9.0x",    ctx: "4.7.10",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.5.1", edd: "2.11.6" },
         };
 
-        // The number of releases (the lengt h of the object)
-        var rowNumber = Object.keys(pluginHi story).length;
+        // The number of releases (the length of the object)
+        var rowNumber = Object.keys(pluginHistory).length;
 
-        // Added Woo and EDD for static vers ion
-        var pluginNames = ['tec', 'pro', 've v', 'fib', 'ebt', 'eti', 'etp', 'cev', 'ctx', 'apm', 'iwp', 'woo', 'edd'];
+        // Added Woo and EDD for static version
+        var pluginNames = ['tec', 'pro', 'vev', 'fib', 'ebt', 'eti', 'etp', 'cev', 'ctx', 'apm', 'iwp', 'woo', 'edd'];
 
         /**
          * Table of the plugin versions
