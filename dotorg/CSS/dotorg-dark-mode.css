@@ -1,0 +1,126 @@
+/**
+ * Name: TEC dotorg Dark Mode
+ * Description: Dark Mode for dotorg with tampermonkey script parrallel styling
+ *
+ * This is a stylesheet for TEC dotorg.
+ * You can use the Stylus browser add-on to use this.
+ * - Chrome:  https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+ * - Firefox: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
+ */
+
+/**
+ RULE: For URLs on the domain
+ (https://).*(wordpress.org/).*
+ */
+
+/* Global - Top bar changes */
+* {
+    font: 400 normal 100%/1.5 proxima-nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.site-content {
+    background-color: #1f1f1f !important;
+}
+
+.site-main {
+    filter: invert(100%) contrast(0.76) brightness(1) hue-rotate(180deg) !important;
+    background: #ffffff !important;
+}
+
+.site-main .wp-editor-area,
+.site-main img,
+.site-main figure {
+    filter: invert(100%) hue-rotate(-180deg) !important;
+}
+
+#bbp_reply_content {
+    min-height: 600px;
+    padding: 50px !important;
+    font-size: 16px !important;
+    line-height: 30px !important;
+    font: 400 normal 100%/1.5 proxima-nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+    border: blue !important;
+    /** letter-spacing: -0.5px; **/
+    background-color: #303030 !important;
+    color: #e0e0e0 !important;
+}
+#bbp_reply_content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+}
+
+#bbp_reply_content::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+#bbp_reply_content::-webkit-scrollbar-thumb {
+    background-color: #303030 !important;
+}
+
+.bbp-reply-content,
+.bbp-topic-content {
+    font-size: 16px !important;
+    line-height: 30px !important;
+    font-family: sans-serif !important;
+    letter-spacing: -0.5px !important;
+}
+
+.bbp-form {
+    margin-top: 30px !important;
+}
+
+#main {
+    min-width: 50% !important;
+}
+
+.entry-content {
+    min-width: 40% !important;
+}
+
+.entry-meta .sidebar {
+    min-width: 60% !important;
+}
+
+#tec-open-in-new-tab {
+    background-color: var(--wp--preset--color--blue-1)!important;
+    border-radius: 2px;
+    color: var(--wp--preset--color--white);
+    font-weight: 700;
+    padding: 0 20px !important;
+    border: 0 !important;
+    font-size: 11px !important;
+    line-height: 30px !important;
+    margin-top: -5px !important;
+    margin-left: 20px !important;
+}
+
+.custom-topic-header {
+    margin-bottom: 10px;
+    font-size: 13px !important;
+    padding-top: 20px !important;
+}
+
+#bbp_topic_tags {
+    width: 100% !important;
+    margin-top: 10px !important;
+    padding: 10px !important;
+}
+
+.button.submit {
+    background-color: var(--wp--preset--color--blue-1)!important;
+    border-radius: 2px;
+    color: var(--wp--preset--color--white);
+    font-weight: 700;
+    padding: 10px 19px;
+}
+
+/** Tamper monkey scripts **/
+.tamper-to-resolve {
+    color: #ddd !important;
+    background-color:#3D54FF !important;
+}
+
+.tamper-new-ticket {
+    border-right: green 4px solid;
+}
