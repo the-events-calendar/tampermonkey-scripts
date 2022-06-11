@@ -158,16 +158,67 @@ jQuery(document).ready(function( $ ) {
  		$( '#tamper-wp-topic-highlighter-nonport' ).prop( 'checked', settings.nonPOrT );
 	});
 
+
     if ( $( 'body' ).is( '.bbp-view.archive' ) ) {
         $( '#bbpress-forums .bbp-pagination:first' ).after( `
-        <div class="custom-topic-header">
-            <label for="tec-select-all">
-                <input id="tec-select-all" type="checkbox">
-                Select all Topics
-            </label>
-            <input type="submit" id="tec-open-in-new-tab" value="Open" />
-        </div>
+			<div class="custom-topic-header">
+				<label for="tec-select-all">
+					<input id="tec-select-all" type="checkbox">
+					Select all Topics
+				</label>
+				<input type="submit" id="tec-open-in-new-tab" value="Open" />
+			</div>
         ` );
+
+        var totalOnPageTicket = $( '.topic' ).length;
+        var totalNotLastVoiceTicket = $(".topic:not(.tamper-last-voice)").length;
+        var totalLoggedInTicket = $(".tamper-logged-in-ticket").length;
+        var totalNewTicket = $(".tamper-new-ticket").length;
+        var totalToResolveTicket = $(".tamper-to-resolve").length;
+        var totalFollUpTicket = Math.abs(totalNotLastVoiceTicket - totalNewTicket);
+
+        // Show stats beside the pagination to and bottom
+        $( '.bbp-pagination' ).append( `
+            <span for="tec-pagination count" style="margin-left: -5px;">
+                Tickets (<b>`+ totalOnPageTicket +`</b>)
+            </span>
+        ` );
+
+        if (totalLoggedInTicket > 0 ) {
+            $( '.bbp-pagination' ).append(`
+            <span class="divider" style="font-size:13px; color:#ddd;">/</span>
+            <span for="tec-topics-logged-in">
+                My Tickets (<b>`+ totalLoggedInTicket +`</b>)
+            </span>
+            `);
+        }
+
+        if (totalToResolveTicket > 0 ) {
+            $( '.bbp-pagination' ).append(`
+            <span class="divider" style="font-size:13px; color:#ddd;">/</span>
+            <span for="tec-topics-to-resolve">
+                To Resolve (<b>`+ totalToResolveTicket +`</b>)
+            </span>
+            `);
+        }
+
+        if (totalFollUpTicket > 0 ) {
+            $( '.bbp-pagination' ).append(`
+            <span class="divider" style="font-size:13px; color:#ddd;">/</span>
+            <span for="tec-topics-follow-up">
+                Follow Up (<b>`+ totalFollUpTicket +`</b>)
+            </span>
+            `);
+        }
+
+        if (totalNewTicket > 0 ) {
+            $( '.bbp-pagination' ).append(`
+            <span class="divider" style="font-size:13px; color:#ddd;">/</span>
+            <span for="tec-topics-new">
+                New (<b>`+ totalNewTicket +`</b>)
+            </span>
+            `);
+        }
 
         // Add options link to the sidebar.
         $( '.entry-meta.sidebar div:first-of-type ul' ).append( '<li><a href="#" id="tamper-show-options">Highlighter Options</a></li>' );

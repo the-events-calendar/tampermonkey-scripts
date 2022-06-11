@@ -21,7 +21,7 @@
  * Marks threads yellow that are more than a month old.
  */
 
-(function() {
+ (function() {
     'use strict';
 
     // Get all lines in an array
@@ -107,21 +107,36 @@
             var m = x[i].innerHTML.search( 'class="resolved"' );
             if( m > 0 ) {
                 x[i].style.backgroundColor = resolvedColor;
+                x[i].classList.add('tamper-resolved');
 
                 // If resolved then skip
                 continue;
             }
 
+            // Check tickets to resolve
+            var toResolve = x[i].innerHTML.search( /[2-3] (week[s]?)/ );
+            if ( toResolve > 0 ) {
+                x[i].classList.add('tamper-to-resolve');
+                continue;
+            }
+
             // If not resolved, check if tha last voice is a team member
             var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
-
             if ( n > 0 ) {
                 var o = x[i].innerHTML.search( /[1-9] (month[s]?)/ );
                 if ( o > 0 ) {
                     x[i].style.backgroundColor = closeColor;
+                    x[i].classList.add('tamper-closed');
                     continue;
                 }
                 x[i].style.backgroundColor = lastVoiceColor;
+
+                // Check if logged in user is the last voice
+                if (String(tecteam[j]) == String(document.getElementsByClassName("username")[0].innerHTML)) {
+                    x[i].classList.add('tamper-logged-in-ticket');
+                    continue;
+                }
+
             }
         }
     }

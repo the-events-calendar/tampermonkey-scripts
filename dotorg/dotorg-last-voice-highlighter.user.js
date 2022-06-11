@@ -16,17 +16,17 @@
 // ==/UserScript==
 
 /**
- * Marks resolved threads green.
- * Marks threads blue where The Events Calendar is the last voice. (No action needed.)
- * Marks threads yellow that are more than a month old.
- */
+* Marks resolved threads green.
+* Marks threads blue where The Events Calendar is the last voice. (No action needed.)
+* Marks threads yellow that are more than a month old.
+*/
 
 (function() {
     'use strict';
-
+    
     // Get all lines in an array
     var x = document.getElementsByClassName( 'type-topic' );
-
+    
     // TEC team members
     var tecteam = [
         'abzlevelup',                   // Abz Abdul                    - 2021-07-19
@@ -95,22 +95,29 @@
         'vicskf',                       // Victor Zarranz               - 2017-xx-xx
         'zbtirrell',                    // Zach Tirrell                 -
     ];
-
+    
     var i, j;
     var lastVoiceColor = '#E58000';
-
+    
     // Check every line
     for( i = 0; i < x.length; i++ ) {
-
+        // Search for new topic with no replies
+        var newTickets = x[i].innerHTML.search( 'bbp-topic-reply-count">0' );
+        
+        if ( newTickets > 0 ) {
+            x[i].classList.add('tamper-new-ticket');
+        }
+        
         for( j = 0; j < tecteam.length; j++ ) {
-
+            
             // If not resolved, check if tha last voice is a team member
             var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
-
+            
             if ( n > 0 ) {
                 x[i].style.borderRight = "4px solid " + lastVoiceColor;
+                x[i].classList.add('tamper-last-voice');
             }
         }
     }
-
+    
 })();
