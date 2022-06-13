@@ -177,33 +177,35 @@ jQuery(document).ready(function( $ ) {
         var totalToResolveTicket = $(".tamper-to-resolve").length;
         var totalFollUpTicket = Math.abs(totalNotLastVoiceTicket - totalNewTicket);
 
+		var paginationContainer = $( '.bbp-pagination' );
+
         // Show stats beside the pagination to and bottom
-        $( '.bbp-pagination' ).append( `
+        paginationContainer.append( `
             <span for="tec-pagination count" style="margin-left: -5px;">
-                Tickets (<b>`+ totalOnPageTicket +`</b>)
+                Tickets (<b>${totalOnPageTicket}</b>)
             </span>
         ` );
 
         if (totalLoggedInTicket > 0 ) {
-            $( '.bbp-pagination' ).append(`
+            paginationContainer.append(`
             <span class="divider" style="font-size:13px; color:#ddd;">/</span>
             <span for="tec-topics-logged-in">
-                My Tickets (<b>`+ totalLoggedInTicket +`</b>)
+                My Tickets (<b>${totalLoggedInTicket}</b>)
             </span>
             `);
         }
 
         if (totalToResolveTicket > 0 ) {
-            $( '.bbp-pagination' ).append(`
+            paginationContainer.append(`
             <span class="divider" style="font-size:13px; color:#ddd;">/</span>
             <span for="tec-topics-to-resolve">
-                To Resolve (<b>`+ totalToResolveTicket +`</b>)
+				To Resolve (<b>${totalToResolveTicket}</b>)
             </span>
             `);
         }
 
         if (totalFollUpTicket > 0 ) {
-            $( '.bbp-pagination' ).append(`
+            paginationContainer.append(`
             <span class="divider" style="font-size:13px; color:#ddd;">/</span>
             <span for="tec-topics-follow-up">
                 Follow Up (<b>`+ totalFollUpTicket +`</b>)
@@ -212,7 +214,7 @@ jQuery(document).ready(function( $ ) {
         }
 
         if (totalNewTicket > 0 ) {
-            $( '.bbp-pagination' ).append(`
+            paginationContainer.append(`
             <span class="divider" style="font-size:13px; color:#ddd;">/</span>
             <span for="tec-topics-new">
                 New (<b>`+ totalNewTicket +`</b>)
