@@ -64,17 +64,14 @@
         obj.init();
     } );
 
-    // Check Bug Ticket then add flag to main topic
-    $( '.by-plugin-support-rep' ).each( function( index ) {
-        let bugTicket = $(this).text().search(/Internal Bug Ticket Reference | ticket number | bug report | bug ticket | bug ticket: /);
-        
-        if ( bugTicket > 0 ) {
-            $( '.bbp-lead-topic .topic' ).append(`
-            <div class="tamper-bug-ticket" style="background-color: #3D54FF; color: #fff; position: absolute;  padding: 4px 12px 4px 10px; right: -1px; top: 10px; border-top-left-radius: 6px; border-bottom-left-radius: 6px;">
-            With Bug Ticket
-            </div>
-            `).css( 'border' , '1px solid #3D54FF' );
-        }
-    });
-})( jQuery, {} );
+    // Identify bug tickets
+    let bugTicket = $( document ).text().search( /internal bug ticket reference | ticket number | bug report | bug ticket/i );
 
+    if ( bugTicket > 0 ) {
+        $( '.bbp-lead-topic .topic' ).append(`
+            <div class="tamper-bug-ticket" style="background-color: #3D54FF; color: #fff; position: absolute;  padding: 4px 12px 4px 10px; right: -1px; top: 10px; border-top-left-radius: 6px; border-bottom-left-radius: 6px;">
+                With Bug Ticket
+            </div>
+        `).css( 'border', '1px solid #3D54FF' );
+    }
+})( jQuery, {} );
