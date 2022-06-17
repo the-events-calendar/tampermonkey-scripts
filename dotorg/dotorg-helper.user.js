@@ -21,7 +21,7 @@
  * Marks threads yellow that are more than a month old.
  */
 
- (function() {
+(function() {
     'use strict';
 
     // Get all lines in an array
@@ -120,7 +120,7 @@
                 continue;
             }
 
-            // If not resolved, check if tha last voice is a team member
+            // If not resolved, check if the last voice is a team member
             var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
             if ( n > 0 ) {
                 var o = x[i].innerHTML.search( /[1-9] (month[s]?)/ );
@@ -140,5 +140,4 @@
             }
         }
     }
-
 })();

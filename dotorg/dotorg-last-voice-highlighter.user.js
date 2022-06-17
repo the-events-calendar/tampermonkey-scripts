@@ -109,8 +109,7 @@
         }
         
         for( j = 0; j < tecteam.length; j++ ) {
-            
-            // If not resolved, check if tha last voice is a team member
+            // If not resolved, check if the last voice is a team member
             var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
             
             if ( n > 0 ) {

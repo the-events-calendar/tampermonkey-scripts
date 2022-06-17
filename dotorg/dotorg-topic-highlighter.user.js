@@ -158,7 +158,6 @@ jQuery(document).ready(function( $ ) {
  		$( '#tamper-wp-topic-highlighter-nonport' ).prop( 'checked', settings.nonPOrT );
 	});
 
-
     if ( $( 'body' ).is( '.bbp-view.archive' ) ) {
         $( '#bbpress-forums .bbp-pagination:first' ).after( `
 			<div class="custom-topic-header">
@@ -179,14 +178,14 @@ jQuery(document).ready(function( $ ) {
 
 		var paginationContainer = $( '.bbp-pagination' );
 
-        // Show stats beside the pagination to and bottom
+        // Show stats beside the pagination top and bottom
         paginationContainer.append( `
             <span for="tec-pagination count" style="margin-left: -5px;">
                 Tickets (<b>${totalOnPageTicket}</b>)
             </span>
         ` );
 
-        if (totalLoggedInTicket > 0 ) {
+        if ( totalLoggedInTicket > 0 ) {
             paginationContainer.append(`
             <span class="divider" style="font-size:13px; color:#ddd;">/</span>
             <span for="tec-topics-logged-in">
@@ -195,7 +194,7 @@ jQuery(document).ready(function( $ ) {
             `);
         }
 
-        if (totalToResolveTicket > 0 ) {
+        if ( totalToResolveTicket > 0 ) {
             paginationContainer.append(`
             <span class="divider" style="font-size:13px; color:#ddd;">/</span>
             <span for="tec-topics-to-resolve">
@@ -204,7 +203,7 @@ jQuery(document).ready(function( $ ) {
             `);
         }
 
-        if (totalFollUpTicket > 0 ) {
+        if ( totalFollUpTicket > 0 ) {
             paginationContainer.append(`
             <span class="divider" style="font-size:13px; color:#ddd;">/</span>
             <span for="tec-topics-follow-up">
@@ -213,7 +212,7 @@ jQuery(document).ready(function( $ ) {
             `);
         }
 
-        if (totalNewTicket > 0 ) {
+        if ( totalNewTicket > 0 ) {
             paginationContainer.append(`
             <span class="divider" style="font-size:13px; color:#ddd;">/</span>
             <span for="tec-topics-new">
