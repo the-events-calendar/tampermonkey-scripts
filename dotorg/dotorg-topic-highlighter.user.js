@@ -166,8 +166,14 @@ jQuery(document).ready(function( $ ) {
 					Select all Topics
 				</label>
 				<input type="submit" id="tec-open-in-new-tab" value="Open" />
+				<a style="float:right;" href="#toggle-new-fus" id="tec-hide-last-voice">Toggle New/Follow Up</a>
 			</div>
         ` );
+
+		// Toggle FUs and New tickets only
+		$( '#tec-hide-last-voice' ).click( function() {
+			$( '.tamper-last-voice' ).toggle();
+		});
 
         var totalOnPageTicket = $( '.topic' ).length;
         var totalNotLastVoiceTicket = $(".topic:not(.tamper-last-voice)").length;
