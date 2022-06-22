@@ -1,23 +1,20 @@
 /**
- * Name: TEC dotorg Dark Mode
- * Description: Dark Mode for dotorg with tampermonkey script parrallel styling
- *
- * This is a stylesheet for TEC dotorg.
- * You can use the Stylus browser add-on to use this.
- * - Chrome:  https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
- * - Firefox: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
- */
+* Name: TEC dotorg Dark Mode
+* Description: Dark Mode for dotorg with tampermonkey script parrallel styling
+*
+* This is a stylesheet for TEC dotorg.
+* You can use the Stylus browser add-on to use this.
+* - Chrome:  https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
+* - Firefox: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
+*/
 
 /**
- RULE: For URLs on the domain
- (https://).*(wordpress.org/).*
- */
+RULE: For URLs on the domain
+(https://).*(wordpress.org/).*
+*/
 
-/* Global - Top bar changes */
-* {
-    font: 400 normal 100%/1.5 proxima-nova,Helvetica Neue,Helvetica,Arial,sans-serif;
-}
 
+/* Dark Mode Start */
 .site-content {
     background-color: #1f1f1f !important;
 }
@@ -32,6 +29,15 @@
 .site-main figure {
     filter: invert(100%) hue-rotate(-180deg) !important;
 }
+
+/* Global - Top bar changes */
+
+* {
+    font: 400 normal 100%/1.5 proxima-nova,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+
+/* Dark Mode End */
 
 #bbp_reply_content {
     min-height: 600px;
@@ -99,6 +105,7 @@
     margin-bottom: 10px;
     font-size: 13px !important;
     padding-top: 20px !important;
+    position: relative;
 }
 
 #bbp_topic_tags {
@@ -123,4 +130,46 @@
 
 .tamper-new-ticket {
     border-right: green 4px solid;
+}
+
+.tamper-divider {
+    font-size:13px; 
+    color:#ddd;
+}
+
+#tec-hide-last-voice,
+#tec-open-in-new-tab {
+    background-color: var(--wp--preset--color--blue-1)!important;
+    border-radius: 2px;
+    color: var(--wp--preset--color--white);
+    font-weight: 700;
+    padding: 0 20px !important;
+    border: 0 !important;
+    font-size: 11px !important;
+    line-height: 30px !important;
+    margin-top: -5px !important;
+    margin-left: 20px !important;
+    height: 1.5625rem !important;
+    display: inline-block;
+}
+
+#tec-hide-last-voice {
+    background-color: #ccc !important;
+    color: #000 !important;
+    position: absolute !important;  
+    right: 0 !important;
+}
+
+#tec-hide-last-voice:hover {
+    text-decoration: none;
+}
+
+.tamper-bug-ticket {
+    background-color: #3D54FF; 
+    color: #fff; 
+    padding: 4px 12px 4px 10px; 
+    right: -1px; 
+    top: 10px; 
+    border-top-left-radius: 6px; 
+    border-bottom-left-radius: 6px;
 }

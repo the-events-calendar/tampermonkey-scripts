@@ -166,7 +166,7 @@ jQuery(document).ready(function( $ ) {
 					Select all Topics
 				</label>
 				<input type="submit" id="tec-open-in-new-tab" value="Open" />
-				<a style="float:right;" href="#toggle-new-fus" id="tec-hide-last-voice">Toggle New/Follow Up</a>
+				<a href="#toggle-new-fus" id="tec-hide-last-voice">Toggle New/Follow Up</a>
 			</div>
         ` );
 
@@ -186,14 +186,14 @@ jQuery(document).ready(function( $ ) {
 
         // Show stats beside the pagination top and bottom
         paginationContainer.append( `
-            <span for="tec-pagination count" style="margin-left: -5px;">
+            <span for="tec-pagination count">
                 Tickets (<b>${totalOnPageTicket}</b>)
             </span>
         ` );
 
         if ( totalLoggedInTicket > 0 ) {
             paginationContainer.append(`
-            <span class="divider" style="font-size:13px; color:#ddd;">/</span>
+            <span class="tamper-divider">/</span>
             <span for="tec-topics-logged-in">
                 My Tickets (<b>${totalLoggedInTicket}</b>)
             </span>
@@ -202,7 +202,7 @@ jQuery(document).ready(function( $ ) {
 
         if ( totalToResolveTicket > 0 ) {
             paginationContainer.append(`
-            <span class="divider" style="font-size:13px; color:#ddd;">/</span>
+            <span class="tamper-divider">/</span>
             <span for="tec-topics-to-resolve">
 				To Resolve (<b>${totalToResolveTicket}</b>)
             </span>
@@ -211,7 +211,7 @@ jQuery(document).ready(function( $ ) {
 
         if ( totalFollUpTicket > 0 ) {
             paginationContainer.append(`
-            <span class="divider" style="font-size:13px; color:#ddd;">/</span>
+            <span class="tamper-divider">/</span>
             <span for="tec-topics-follow-up">
                 Follow Up (<b>`+ totalFollUpTicket +`</b>)
             </span>
@@ -220,7 +220,7 @@ jQuery(document).ready(function( $ ) {
 
         if ( totalNewTicket > 0 ) {
             paginationContainer.append(`
-            <span class="divider" style="font-size:13px; color:#ddd;">/</span>
+            <span class="tamper-divider">/</span>
             <span for="tec-topics-new">
                 New (<b>`+ totalNewTicket +`</b>)
             </span>

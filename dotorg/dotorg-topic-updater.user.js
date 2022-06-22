@@ -69,7 +69,7 @@
 
     if ( bugTicket > 0 ) {
         $( '.bbp-lead-topic .topic' ).append(`
-            <div class="tamper-bug-ticket" style="background-color: #3D54FF; color: #fff; position: absolute;  padding: 4px 12px 4px 10px; right: -1px; top: 10px; border-top-left-radius: 6px; border-bottom-left-radius: 6px;">
+            <div class="tamper-bug-ticket">
                 With Bug Ticket
             </div>
         `).css( 'border', '1px solid #3D54FF' );
