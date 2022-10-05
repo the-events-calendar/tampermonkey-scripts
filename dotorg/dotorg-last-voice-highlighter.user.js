@@ -74,6 +74,7 @@
         'koriashton',                   // Kori Ashton                  - 2020-09-01 to 2020
         'kutatishh',                    // Kudzai                       -            to 2022-08-18
         'latoyam1',                     // LaToya Murray                - 2017       to 2022-09-09
+        'leahkoerper',                  // Leah Koerper                 - since forevah
         'lelandf',                      // Leland Fliegel               - 2021-xx-xx to
         'lucasbustamante',              // Lucas Bustamante             - 2020-03-30 to 2020
         'mandraagora',                  // Wolf Bishop                  - 2020-03-04
