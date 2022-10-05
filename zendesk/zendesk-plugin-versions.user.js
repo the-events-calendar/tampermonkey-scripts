@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      5.0.7
+// @version      5.0.8
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @include      https://ithemeshelp.zendesk.com/agent*
@@ -230,11 +230,16 @@
             136: { name: "B22.napoleon",      date: "May 31",     tec: "5.16.0x",   pro: "5.14.1.1x", vev: "1.10.0",   fib: "5.3.1x",   ebt: "4.6.11",  eti: "5.4.0.2",    etp: "5.5.0",     cev: "4.9.0",     ctx: "4.7.11",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.5.1", edd: "2.11.6" },
             137: { name: "G22.microraptor",   date: "June 8",     tec: "5.16.0",    pro: "5.14.1.1",  vev: "1.10.0",   fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.1x",     etp: "5.5.1x",    cev: "4.9.1x",    ctx: "4.7.12x",  apm: "4.5.1",  iwp: "1.0.3",  woo: "6.5.1", edd: "2.11.6" },
             138: { name: "B22.ocpocmaq",      date: "June 9",     tec: "5.16.1.1x", pro: "5.14.2.1x", vev: "1.10.0",   fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.1",      etp: "5.5.1",     cev: "4.9.1",     ctx: "4.7.12",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.5.1", edd: "2.11.6" },
-            139: { name: "G22.nodosaurus",    date: "July 5",     tec: "5.16.1.1",  pro: "5.14.2.1",  vev: "1.10.1x",  fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.2.1x",   etp: "5.5.2x",    cev: "4.9.1",     ctx: "4.7.13x",  apm: "4.5.1",  iwp: "1.0.3",  woo: "6.6.0", edd: "2.11.7" },
-            140: { name: "B22.pampushka",     date: "July 6",     tec: "5.16.2.1x", pro: "5.14.3x",   vev: "1.10.1x",  fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.2.1",    etp: "5.5.2",     cev: "4.9.1",     ctx: "4.7.13",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.6.0", edd: "2.11.6" },
-            141: { name: "APM",               date: "Jul 14",     tec: "5.16.2.1",  pro: "5.14.3",    vev: "1.10.1",   fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.2.1",    etp: "5.5.2",     cev: "4.9.1",     ctx: "4.7.13",   apm: "4.5.2x", iwp: "1.0.3",  woo: "6.7.0", edd: "3.0.0" },
-            142: { name: "B22.profiterole",   date: "Jul 18",     tec: "5.16.2.1",  pro: "5.14.3",    vev: "1.11.0x",  fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.2.1",    etp: "5.5.2",     cev: "4.9.1",     ctx: "4.7.13",   apm: "4.5.2x", iwp: "1.0.3",  woo: "6.7.0", edd: "3.0.1" },
-            143: { name: "B22.qottab",        date: "Jul 20",     tec: "5.16.3.1x", pro: "5.14.4x",   vev: "1.11.0",   fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.3.1x",   etp: "5.5.2",     cev: "4.9.1",     ctx: "4.7.13",   apm: "4.5.2",  iwp: "1.0.3",  woo: "6.7.0", edd: "3.0.1" },
+            139: { name: "G22.nodosaurus",    date: "July 5",     tec: "5.16.1.1",  pro: "5.14.2.1",  vev: "1.10.1x",  fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.2.1x",   etp: "5.5.2x",    cev: "4.9.2x",    ctx: "4.7.13x",  apm: "4.5.1",  iwp: "1.0.3",  woo: "6.6.0", edd: "2.11.7" },
+            140: { name: "B22.pampushka",     date: "July 6",     tec: "5.16.2.1x", pro: "5.14.3x",   vev: "1.10.1x",  fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.2.1",    etp: "5.5.2",     cev: "4.9.2",     ctx: "4.7.13",   apm: "4.5.1",  iwp: "1.0.3",  woo: "6.6.0", edd: "2.11.6" },
+            141: { name: "APM",               date: "Jul 14",     tec: "5.16.2.1",  pro: "5.14.3",    vev: "1.10.1",   fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.2.1",    etp: "5.5.2",     cev: "4.9.2",     ctx: "4.7.13",   apm: "4.5.2x", iwp: "1.0.3",  woo: "6.7.0", edd: "3.0.0" },
+            142: { name: "B22.profiterole",   date: "Jul 18",     tec: "5.16.2.1",  pro: "5.14.3",    vev: "1.11.0x",  fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.2.1",    etp: "5.5.2",     cev: "4.9.2",     ctx: "4.7.13",   apm: "4.5.2x", iwp: "1.0.3",  woo: "6.7.0", edd: "3.0.1" },
+            143: { name: "B22.qottab",        date: "Jul 20",     tec: "5.16.3.1x", pro: "5.14.4x",   vev: "1.11.0",   fib: "5.3.1",    ebt: "4.6.11",  eti: "5.4.3.1x",   etp: "5.5.2",     cev: "4.9.2",     ctx: "4.7.13",   apm: "4.5.2",  iwp: "1.0.3",  woo: "6.7.0", edd: "3.0.1" },
+            144: { name: "B22.remonce",       date: "Aug 9",      tec: "5.16.4x",   pro: "5.14.5x",   vev: "1.11.0",   fib: "5.3.2x",   ebt: "4.6.11",  eti: "5.4.3.1",    etp: "5.5.2",     cev: "4.9.2",     ctx: "4.7.13",   apm: "4.5.2",  iwp: "1.0.3",  woo: "6.8.0", edd: "3.0.2.1" },
+            145: { name: "G22.oviraptor",     date: "Aug 15",     tec: "5.16.4",    pro: "5.14.5",    vev: "1.11.0",   fib: "5.3.2",    ebt: "4.6.11",  eti: "5.4.4x",     etp: "5.5.3x",    cev: "4.9.3x",    ctx: "4.7.13",   apm: "4.5.2",  iwp: "1.0.3",  woo: "6.8.0", edd: "3.0.2.1" },
+            146: { name: "B22.royal",         date: "Sep 6",      tec: "6.0.0.1x",  pro: "6.0.0x",    vev: "1.12.0x",  fib: "5.4.0x",   ebt: "4.6.11",  eti: "5.5.0x",     etp: "5.6.0x",    cev: "4.10.0x",   ctx: "4.8.0x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "6.8.0", edd: "3.0.3" },
+            147: { name: "B22.rozata",        date: "Sep 8",      tec: "6.0.0.1",   pro: "6.0.0",     vev: "1.13.0x",  fib: "5.4.0",    ebt: "4.6.11",  eti: "5.5.0",      etp: "5.6.0",     cev: "4.10.0",    ctx: "4.8.0",    apm: "4.5.2",  iwp: "1.0.3",  woo: "6.8.0", edd: "3.0.4" },
+            148: { name: "B22.scone",         date: "Sep 22",     tec: "6.0.1.1x",  pro: "6.0.1x",    vev: "1.13.1x",  fib: "5.4.0",    ebt: "4.6.12x", eti: "5.5.1x",     etp: "5.6.1x",    cev: "4.10.1x",   ctx: "4.8.1x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "6.9.3", edd: "3.0.4" },
         };
 
         // The number of releases (the length of the object)
@@ -469,7 +474,10 @@
 
     /**
      * === Changelog ===
-     * 5.0.6 - 2022-07-28
+     * 5.0.8 - 2022-10-05
+     * Added new plugin versions (144-148)
+     *
+     * 5.0.7 - 2022-07-28
      * Added new plugin versions (136-143)
      * Fixed past Community Tickets version numbers
      *

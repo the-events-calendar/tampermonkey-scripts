@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TEC: WordPress.org Last Voice Highlighter
 // @namespace    http://tampermonkey.net/
-// @version      1.0.1
+// @version      1.0.2
 // @description  The script runs in the .org forums for The Events Calendar plugins. It adds a dark brown right border to threads where last voice is a team member.
 // @author       Andras Guseo
 // @include      https://wordpress.org/support/plugin/pardot*
@@ -74,6 +74,7 @@
         'koriashton',                   // Kori Ashton                  - 2020-09-01 to 2020
         'kutatishh',                    // Kudzai                       -            to 2022-08-18
         'latoyam1',                     // LaToya Murray                - 2017       to 2022-09-09
+        'leahkoerper',                  // Leah Koerper                 - since forevah
         'lelandf',                      // Leland Fliegel               - 2021-xx-xx to
         'lucasbustamante',              // Lucas Bustamante             - 2020-03-30 to 2020
         'mandraagora',                  // Wolf Bishop                  - 2020-03-04
