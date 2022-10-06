@@ -65,7 +65,7 @@
         'iirvin',                       // Iris Irvin                   - 2022-06-13
         'jaimemarchwinski',             // Jaime Marchwinski            - 2017-08-31
         'jdbeacham',                    // John Beacham                 - 2022-03-08
-        'jeankhladynstefanie',          // Jean Abarquez                - 2022-03-22
+        'jeanabarquez',                 // Jean Abarquez                - 2022-03-22
         'jentheo',                      // Jennifer Theodore            - 2017-05-08
         'jeremy80',                     // Jeremy Marchandeau           - 2018-03-26 to 2020
         'joshlevelupsupport2021',       // Joshua Cagasan               - 2021-07-19
