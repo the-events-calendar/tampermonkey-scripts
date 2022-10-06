@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         .org Helper for The Events Calendar Support
 // @namespace    http://tampermonkey.net/
-// @version      1.7.10
+// @version      1.7.11
 // @description  The script runs in the .org forums for The Events Calendar plugins. It colors resolved threads green, and threads where last voice is a team member light yellow.
 // @author       Andras Guseo
 // @include      https://wordpress.org/support/plugin/pardot*
@@ -65,7 +65,7 @@
         'iirvin',                       // Iris Irvin                   - 2022-06-13
         'jaimemarchwinski',             // Jaime Marchwinski            - 2017-08-31
         'jdbeacham',                    // John Beacham                 - 2022-03-08
-        'jeankhladynstefanie',          // Jean Abarquez                - 2022-03-22
+        'jeanabarquez',                 // Jean Abarquez                - 2022-03-22
         'jentheo',                      // Jennifer Theodore            - 2017-05-08
         'jeremy80',                     // Jeremy Marchandeau           - 2018-03-26 to 2020
         'joshlevelupsupport2021',       // Joshua Cagasan               - 2021-07-19
