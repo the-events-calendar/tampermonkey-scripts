@@ -240,6 +240,11 @@
             146: { name: "B22.royal",         date: "Sep 6",      tec: "6.0.0.1x",  pro: "6.0.0x",    vev: "1.12.0x",  fib: "5.4.0x",   ebt: "4.6.11",  eti: "5.5.0x",     etp: "5.6.0x",    cev: "4.10.0x",   ctx: "4.8.0x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "6.8.0", edd: "3.0.3" },
             147: { name: "B22.rozata",        date: "Sep 8",      tec: "6.0.0.1",   pro: "6.0.0",     vev: "1.13.0x",  fib: "5.4.0",    ebt: "4.6.11",  eti: "5.5.0",      etp: "5.6.0",     cev: "4.10.0",    ctx: "4.8.0",    apm: "4.5.2",  iwp: "1.0.3",  woo: "6.8.0", edd: "3.0.4" },
             148: { name: "B22.scone",         date: "Sep 22",     tec: "6.0.1.1x",  pro: "6.0.1x",    vev: "1.13.1x",  fib: "5.4.0",    ebt: "4.6.12x", eti: "5.5.1x",     etp: "5.6.1x",    cev: "4.10.1x",   ctx: "4.8.1x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "6.9.3", edd: "3.0.4" },
+            149: { name: "B22.strudel",       date: "Oct 20",     tec: "6.0.2x",    pro: "6.0.2.1x",  vev: "1.13.2x",  fib: "5.4.0",    ebt: "4.6.12",  eti: "5.5.2x",     etp: "5.6.1",     cev: "4.10.1",    ctx: "4.8.1",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.0.0", edd: "3.1.0.1" },
+            150: { name: "G22.panoplaus.",    date: "Oct 31",     tec: "6.0.3.1x",  pro: "6.0.2.1",   vev: "1.13.2",   fib: "5.4.0",    ebt: "4.6.12",  eti: "5.5.3x",     etp: "5.6.2x",    cev: "4.10.1",    ctx: "4.8.1",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.0.0", edd: "3.1.0.2" },
+            151: { name: "G22.parksosaurus",  date: "Nov 9",      tec: "6.0.3.1",   pro: "6.0.2.1",   vev: "1.13.2",   fib: "5.4.0",    ebt: "4.6.12",  eti: "5.5.4x",     etp: "5.6.3x",    cev: "4.10.2x",   ctx: "4.8.2x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "7.1.0", edd: "3.1.0.2" },
+            152: { name: "B22.tiramisu",      date: "Nov 15",     tec: "6.0.4x",    pro: "6.0.3x",    vev: "1.13.2",   fib: "5.4.0",    ebt: "4.6.12",  eti: "5.5.4",      etp: "5.6.3",     cev: "4.10.2",    ctx: "4.8.2",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.1.0", edd: "3.1.0.2" },
+            153: { name: "B22.wagashi",       date: "Nov 29",     tec: "6.0.5x",    pro: "6.0.4x",    vev: "1.13.3x",  fib: "5.4.0",    ebt: "4.6.12",  eti: "5.5.4",      etp: "5.6.3",     cev: "4.10.2",    ctx: "4.8.2",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.1.0", edd: "3.1.0.3" },
         };
 
         // The number of releases (the length of the object)
