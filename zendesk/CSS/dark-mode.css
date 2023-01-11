@@ -1,0 +1,15 @@
+body {
+    filter: invert(0.85);
+}
+.sidebar_box_container {
+    background-color: white;
+}
+#main_navigation {
+    filter: hue-rotate(180deg)
+}
+img,
+.folTGq, 
+.dVtegb,
+.krfJbl {
+  filter: invert(1);
+}
