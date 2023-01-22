@@ -1,7 +1,6 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      5.0.9
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @include      https://ithemeshelp.zendesk.com/agent*
@@ -35,7 +34,7 @@
     var log = false;
 
     // Start hidden?
-    var startHidden = false;
+    var startHidden = true;
 
     // Define starting position of the container
     // The distance from the right edge of the screen
