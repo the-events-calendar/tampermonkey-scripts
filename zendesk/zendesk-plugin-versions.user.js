@@ -263,8 +263,6 @@
 
         const pluginNames = [].concat(bluePlugins, greenPlugins, charcoalPlugins, thirdPartyPlugins);
 
-        const firstLine = bluePlugins.length + 2;
-        const secondLine = firstLine + greenPlugins.length;
         const numPlugins = bluePlugins.length + greenPlugins.length + charcoalPlugins.length + thirdPartyPlugins.length;
 
         const tableMinWidth = (numPlugins * 51) + firstColumnWidth + secondColumnWidth + 8;  // 8 = scrollbar width
@@ -292,7 +290,7 @@
             '.versions td.green.new-version { background-color: #2dd39c; }' +
             '.versions td.yellow { background-color: #ebe463; color: #666; }' +
             '.versions td.yellow.new-version { background-color: #ebc863; }' +
-            '.row td:nth-child(' + firstLine + '), .row td:nth-child(' + secondLine + ') { border-right-width: 3px; }' +
+            '.row td.blue.last, .row td.green.last { border-right-width: 3px; }' +
             '.row { text-align: center; }' +
             '#hider, #more { cursor: pointer; }' +
             '.hider-cell, .more-cell { vertical-align: top; }' +
@@ -323,11 +321,11 @@
             '<td class="blue"><img src="https://andrasguseo.com/images/new-ve-icon.svg" title="Virtual Events" alt="The Events Calendar: Virtual Events icon" /></td>' +
             '<td class="blue"><img src="https://andrasguseo.com/images/EventAutomator-icon.svg" title="Event Automator" alt="The Events Calendar: Event Automator icon" /></td>' +
             '<td class="blue"><img src="https://andrasguseo.com/images/new-fb-icon.svg" title="Filter Bar" alt="The Events Calendar: Filter Bar icon" /></td>' +
-            '<td class="blue"><img src="https://andrasguseo.com/images/new-eb-icon.svg" title="Eventbrite Tickets" alt="Eventbrite Tickets icon" /></td>' +
+            '<td class="blue last"><img src="https://andrasguseo.com/images/new-eb-icon.svg" title="Eventbrite Tickets" alt="Eventbrite Tickets icon" /></td>' +
             '<td class="green"><img src="https://andrasguseo.com/images/new-et-icon.svg" title="Event Tickets" alt="Event Tickets icon" /></td>' +
             '<td class="green"><img src="https://andrasguseo.com/images/new-etp-icon.svg" title="Event Tickets Plus" alt="Event Tickets Plus icon" /></td>' +
             '<td class="green"><img src="https://andrasguseo.com/images/new-ce-icon.svg" title="Community Events" alt="Community Events icon" /></td>' +
-            '<td class="green" style="padding-top: 7px !important;"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>' +
+            '<td class="green last" style="padding-top: 7px !important;"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>' +
             '<td class="charcoal" style="padding-top: 7px !important;">APM</td>' +
             '<td class="charcoal" style="padding-top: 7px !important;">IW+</td>';
 
@@ -371,9 +369,15 @@
                 // Add class based on team
                 if ( 0 <= j && j < bluePlugins.length ) {
                     htmlstring += 'blue';
+                    if ( j == bluePlugins.length - 1 ) {
+                        htmlstring += ' last';
+                    }
                 }
                 else if ( bluePlugins.length <= j && j < bluePlugins.length + greenPlugins.length ) {
                     htmlstring += 'green'
+                    if ( j == bluePlugins.length + greenPlugins.length - 1 ) {
+                        htmlstring += ' last';
+                    }
                 }
 
                 if( log ) console.log( 'this: ' + number + '-' + pN );
