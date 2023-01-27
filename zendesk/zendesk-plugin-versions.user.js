@@ -258,8 +258,9 @@
             154: { name: "G22.tyrannosaurus", date: "Dec 8",      tec: "6.0.5",     pro: "6.0.4",     vev: "1.13.3",   eva: "-",        fib: "5.4.0",    ebt: "4.6.12",  eti: "5.5.5x",     etp: "5.6.4x",    cev: "4.10.3x",   ctx: "4.8.3x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "7.1.1", edd: "3.1.0.3" },
             155: { name: "B22.zeppole",       date: "Dec 14",     tec: "6.0.6.2x",  pro: "6.0.5.1x",  vev: "1.13.3",   eva: "-",        fib: "5.4.1x",   ebt: "4.6.12",  eti: "5.5.5",      etp: "5.6.4",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.2.0", edd: "3.1.0.3" },
             156: { name: "G23.artichoke",     date: "Jan 16",     tec: "6.0.6",     pro: "6.0.5",     vev: "1.13.3",   eva: "-",        fib: "5.4.1",    ebt: "4.6.12",  eti: "5.5.6x",     etp: "5.6.5x",    cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },
-            157: { name: "B23.alexa",         date: "Jan 18",     tec: "6.0.7.1x",  pro: "6.0.6x",    vev: "1.13.4x",  eva: "1.0.0x",   fib: "5.4.2x",   ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },
-        };
+            157: { name: "B23.alexa",         date: "Jan 18",     tec: "6.0.7.1x",  pro: "6.0.6x",    vev: "1.13.4x",  eva: "-",        fib: "5.4.2x",   ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },
+            158: { name: "B23.asimo",         date: "Jan 26",     tec: "6.0.7.1",   pro: "6.0.6",     vev: "1.13.4",   eva: "1.0.0x",   fib: "5.4.2",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },
+            159: { name: "B23.andrew",        date: "Jan 26",     tec: "6.0.8x",    pro: "6.0.7x",    vev: "1.13.4",   eva: "1.0.0",    fib: "5.4.2",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },        };
 
         // The number of releases (the length of the object)
         var rowNumber = Object.keys(pluginHistory).length;
