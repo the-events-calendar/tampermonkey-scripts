@@ -267,6 +267,8 @@
         const secondLine = firstLine + greenPlugins.length;
         const numPlugins = bluePlugins.length + greenPlugins.length + charcoalPlugins.length + thirdPartyPlugins.length;
 
+        const tableMinWidth = (numPlugins * 51) + firstColumnWidth + secondColumnWidth + 8;  // 8 = scrollbar width
+
         /**
          * Table of the plugin versions
          */
@@ -277,7 +279,7 @@
 
         htmlstring += '<style>' +
             '#plugin-versions, #plugin-versions * {	box-sizing: border-box; }' +
-            '#plugin-versions { z-index: 15; position: fixed; top: 0; background-color: rgb(62, 72, 73); color: rgb(242, 241, 240); transition-duration: 1000ms; transition-timing-function: ease-in-out; right: ' + startRight + 'px; min-width: 860px; }' +
+            '#plugin-versions { z-index: 15; position: fixed; top: 0; background-color: rgb(62, 72, 73); color: rgb(242, 241, 240); transition-duration: 1000ms; transition-timing-function: ease-in-out; right: ' + startRight + 'px; min-width: ' + tableMinWidth + 'px; }' +
             '#plugin-versions table { width: 100%; font-size: 12px; }' +
             '.versions td { padding: 0 5px !important; border-right: 1px solid white; line-height: 1.5em !important; font-size: 110% !important; }' +
             '.versions td img { width: 30px !important; }' +
@@ -316,14 +318,14 @@
         htmlstring += startHidden ? 'show' : 'hide';
         htmlstring += ']</span></td>' +
             '<td class="more-cell" id="more"><span id="mmore">[more]</span></td>' +
-            '<td class="blue"><img src="https://andrasguseo.com/images/new-tec-icon.svg" title="TEC" alt="The Events Calendar icon" /></td>' +
-            '<td class="blue"><img src="https://andrasguseo.com/images/new-ecp-icon.svg" title="ECP" alt="Events Calendar Pro icon" /></td>' +
-            '<td class="blue"><img src="https://andrasguseo.com/images/new-ve-icon.svg" title="VE" alt="The Events Calendar: Virtual Events icon" /></td>' +
-            '<td class="blue"><img src="https://andrasguseo.com/images/new-ve-icon.svg" title="EVA" alt="The Events Calendar: Event Automator icon" /></td>' +
+            '<td class="blue"><img src="https://andrasguseo.com/images/new-tec-icon.svg" title="The Events Calendar" alt="The Events Calendar icon" /></td>' +
+            '<td class="blue"><img src="https://andrasguseo.com/images/new-ecp-icon.svg" title="Events Calendar Pro" alt="Events Calendar Pro icon" /></td>' +
+            '<td class="blue"><img src="https://andrasguseo.com/images/new-ve-icon.svg" title="Virtual Events" alt="The Events Calendar: Virtual Events icon" /></td>' +
+            '<td class="blue"><img src="https://andrasguseo.com/images/EventAutomator-icon.svg" title="Event Automator" alt="The Events Calendar: Event Automator icon" /></td>' +
             '<td class="blue"><img src="https://andrasguseo.com/images/new-fb-icon.svg" title="Filter Bar" alt="The Events Calendar: Filter Bar icon" /></td>' +
             '<td class="blue"><img src="https://andrasguseo.com/images/new-eb-icon.svg" title="Eventbrite Tickets" alt="Eventbrite Tickets icon" /></td>' +
-            '<td class="green"><img src="https://andrasguseo.com/images/new-et-icon.svg" title="ET" alt="Event Tickets icon" /></td>' +
-            '<td class="green"><img src="https://andrasguseo.com/images/new-etp-icon.svg" title="ET+" alt="Event Tickets Plus icon" /></td>' +
+            '<td class="green"><img src="https://andrasguseo.com/images/new-et-icon.svg" title="Event Tickets" alt="Event Tickets icon" /></td>' +
+            '<td class="green"><img src="https://andrasguseo.com/images/new-etp-icon.svg" title="Event Tickets Plus" alt="Event Tickets Plus icon" /></td>' +
             '<td class="green"><img src="https://andrasguseo.com/images/new-ce-icon.svg" title="Community Events" alt="Community Events icon" /></td>' +
             '<td class="green" style="padding-top: 7px !important;"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>' +
             '<td class="charcoal" style="padding-top: 7px !important;">APM</td>' +
