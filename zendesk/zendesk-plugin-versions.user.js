@@ -366,10 +366,10 @@
                 htmlstring += '<td class="';
 
                 // Add class based on team
-                if ( 0 <= j && j <= 4 ) {
+                if ( 0 <= j && j < bluePlugins.length ) {
                     htmlstring += 'blue';
                 }
-                else if ( 5 <= j && j < 9 ) {
+                else if ( bluePlugins.length <= j && j < bluePlugins.length + greenPlugins.length ) {
                     htmlstring += 'green'
                 }
 
