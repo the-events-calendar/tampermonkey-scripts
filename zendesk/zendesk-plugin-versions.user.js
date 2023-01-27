@@ -37,6 +37,10 @@
     // Start hidden?
     const startHidden = false;
 
+    // Vertical offset
+    // Set to 55 if you want the first column to show
+    const verticalOffset = 0;
+
     // Define starting position of the container
     // The distance from the right edge of the screen
     const startRight = '350';
@@ -319,6 +323,7 @@ console.log(pluginNames);
             '.row { text-align: center; }' +
             '#hider, #more { cursor: pointer; }' +
             '.hider-cell, .more-cell { vertical-align: top; }' +
+            '.hider-cell-2 { position: absolute; left: -22px; width: 22px; height: 20px; background: #bbb; font-weight: bold; text-align: center; cursor: pointer; border-radius: 6px 0 0 6px;}' +
             '#plugin-versions thead, #plugin-versions tbody, #plugin-versions tr, #plugin-versions td { display: block; }' +
             '#plugin-versions tr:after { display: block; visibility: hidden; clear: both; content: " "; }' +
             '#plugin-versions thead td { height: 34px; }' +
@@ -333,6 +338,7 @@ console.log(pluginNames);
             '#plugin-versions td:nth-child(2) { width: ' + secondColumnWidth + 'px; text-align: left; }' +
             '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth+secondColumnWidth) + 'px) / ' + numPlugins + '); }' +
             '</style>';
+        htmlstring += '<div class="hider-cell-2" id="hider-2">👁️</div>';
         htmlstring += '<table width="100%" class="versions" id="versions-table" cellpadding="0" cellspacing="0">';
 
         // Header row
@@ -480,7 +486,7 @@ console.log(pluginNames);
             var block = document.getElementById( 'plugin-versions' );
             var str   = document.getElementById( 'hider' );
             var right = window.outerWidth-block.offsetLeft;
-            var hideRight = -block.offsetWidth + 55;
+            var hideRight = -block.offsetWidth + verticalOffset;
             if ( log ) console.log( 'block.offsetLeft: ' + block.offsetLeft );
             if ( log ) console.log( 'block.offsetWidth: ' + block.offsetWidth );
             if ( log ) console.log( 'window.outerWidth: ' + window.outerWidth );
@@ -523,7 +529,7 @@ console.log(pluginNames);
         scrollToBottomAction();
 
         if ( startHidden ) {
-            var startHiddenRight = -parent.offsetWidth + 55;
+            var startHiddenRight = -parent.offsetWidth + verticalOffset;
             parent.style.right = startHiddenRight + 'px';
 
         }
@@ -531,6 +537,7 @@ console.log(pluginNames);
         // Handle actions
         if ( document.getElementById( 'plugin-versions' ) != null ) {
             document.getElementById( 'hider' ).addEventListener( 'click', hideBlock );
+            document.getElementById( 'hider-2' ).addEventListener( 'click', hideBlock );
             document.getElementById( 'more' ).addEventListener( 'click', moreLess );
         }
 
