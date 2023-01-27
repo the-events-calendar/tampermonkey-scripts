@@ -4,7 +4,7 @@
 // @version      6.0.0
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
-// @include      https://ithemeshelp.zendesk.com/agent*
+// @match        https://ithemeshelp.zendesk.com/agent*
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @grant        none
@@ -32,33 +32,33 @@
 //== SETUP ==//
 
     // Enable logging
-    var log = false;
+    const log = false;
 
     // Start hidden?
-    var startHidden = true;
+    const startHidden = false;
 
     // Define starting position of the container
     // The distance from the right edge of the screen
-    var startRight = '350';
+    const startRight = '350';
 
     // Define the width of the first 2 columns (in pixels)
-    var firstColumnWidth = 70;
-    var secondColumnWidth = 120;
+    const firstColumnWidth = 70;
+    const secondColumnWidth = 120;
 
     // Define how many rows should be shown on load and when table is collapsed
-    var initialRows = 1;
+    const initialRows = 1;
 
     // Define whether table should scroll to the last (most actual) row on collapse
-    var scrollOnCollapse = true;
+    const scrollOnCollapse = true;
 
     // Height of the table (in pixels) when expanded
-    var expandedHeight = 300;
+    const expandedHeight = 300;
 
     // Check for the zoom level of the browser
-    let zoomlevel = (( window.outerWidth - 10 ) / window.innerWidth);
+    const zoomlevel = (( window.outerWidth - 10 ) / window.innerWidth);
 
     // The body tag. Used to check where to add the markup
-    var bodyTag = document.getElementsByTagName("body")[0];
+    const bodyTag = document.getElementsByTagName("body")[0];
 
 //== START ==//
     if ( log ) console.log ( alreadydone );
@@ -66,7 +66,7 @@
     if ( log ) console.log ( 'The <body> tag has ' + bodyTag.classList.length + ' classes' );
 
     // Only run if it wasn't executed before
-    if ( typeof alreadydone == 'undefined'  && bodyTag.classList.length >= 0 ) {
+    if ( typeof alreadydone == 'undefined' && bodyTag.classList.length >= 0 ) {
         if ( log ) console.log ( "Plugin versions has not run before." );
 
         var alreadydone = true;
@@ -90,7 +90,7 @@
          * - if it is a new version compared to last release, add 'x' at the end, like '4.6.19x'. Woo and EDD do not get tagged with 'x'
          * - if it is a hotfix, then creating a new line is not needed, just update the version number in the last line (See Event Tickets (eti) in line 12)
          */
-        var pluginHistory = {
+        const pluginHistory = {
             0:   { name: "",                  date: "",           tec: "",          pro: "",          vev: "",         fib: "",         ebt: "",        eti: "",           etp: "",          cev: "",          ctx: "",         apm: "",       iwp: "",       woo: "",      edd: ""  },
             1:   { name: "M18.01",            date: "Jan 7",      tec: "4.6.9.1x",  pro: "4.4.21",    vev: "-",        fib: "4.5.2",    ebt: "4.4.9",   eti: "4.6.3",      etp: "4.6.2",     cev: "4.5.8",     ctx: "4.5.3",    apm: "4.4",    iwp: "1.0.2",  woo: "-",     edd: "-" },
             2:   { name: "M18.02",            date: "Jan 22",     tec: "4.6.10.2x", pro: "4.4.22x",   vev: "-",        fib: "4.5.3x",   ebt: "4.4.9",   eti: "4.6.3",      etp: "4.6.2",     cev: "4.5.8",     ctx: "4.5.3",    apm: "4.4",    iwp: "1.0.2",  woo: "-",     edd: "-" },
@@ -254,8 +254,18 @@
         // The number of releases (the length of the object)
         var rowNumber = Object.keys(pluginHistory).length;
 
-        // Added Woo and EDD for static version
-        var pluginNames = ['tec', 'pro', 'vev', 'fib', 'ebt', 'eti', 'etp', 'cev', 'ctx', 'apm', 'iwp', 'woo', 'edd'];
+
+        // Plugin abbreviations
+        const bluePlugins = ['tec', 'pro', 'vev', 'fib', 'ebt'];
+        const greenPlugins = ['eti', 'etp', 'cev', 'ctx'];
+        const charcoalPlugins = ['apm', 'iwp'];
+        const thirdPartyPlugins = ['woo', 'edd'];
+
+        const pluginNames = [].concat(bluePlugins, greenPlugins, charcoalPlugins, thirdPartyPlugins);
+
+        const firstLine = bluePlugins.length + 2;
+        const secondLine = firstLine + greenPlugins.length;
+        const numPlugins = bluePlugins.length + greenPlugins.length + charcoalPlugins.length + thirdPartyPlugins.length;
 
         /**
          * Table of the plugin versions
@@ -280,7 +290,7 @@
             '.versions td.green.new-version { background-color: #2dd39c; }' +
             '.versions td.yellow { background-color: #ebe463; color: #666; }' +
             '.versions td.yellow.new-version { background-color: #ebc863; }' +
-            '.row td:nth-child(7), .row td:nth-child(11) { border-right-width: 3px; }' +
+            '.row td:nth-child(' + firstLine + '), .row td:nth-child(' + secondLine + ') { border-right-width: 3px; }' +
             '.row { text-align: center; }' +
             '#hider, #more { cursor: pointer; }' +
             '.hider-cell, .more-cell { vertical-align: top; }' +
@@ -296,7 +306,7 @@
             '#plugin-versions td { float: left; white-space: nowrap; }' +
             '#plugin-versions td:nth-child(1) { width: ' + firstColumnWidth + 'px; }' +
             '#plugin-versions td:nth-child(2) { width: ' + secondColumnWidth + 'px; text-align: left; }' +
-            '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth+secondColumnWidth) + 'px) / 13); }' +
+            '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth+secondColumnWidth) + 'px) / ' + numPlugins + '); }' +
             '</style>';
         htmlstring += '<table width="100%" class="versions" id="versions-table" cellpadding="0" cellspacing="0">';
 
@@ -347,7 +357,7 @@
 
             /**
              * Go through all the plugins
-             * pN = stores the plugin name so we can refer to it
+             * pN = stores the plugin name, so we can refer to it
              */
             for ( j = 0; j < pluginNames.length; j++ ) {
                 var pN = pluginNames[j];
@@ -511,10 +521,10 @@
      * Added new plugin versions (128)
      * Fixed version of tec for Jan release (5.14.0.4 instead of 5.14.4)
      * Adjusted indentation
-     * 
+     *
      *  5.0.2 - 2022-03-15
      * Added new plugin versions (127)
-     * 
+     *
      * 5.0.1 - 2022-03-07
      * Added new plugin versions (120-126)
      *
