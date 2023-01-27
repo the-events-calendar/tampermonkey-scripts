@@ -60,6 +60,12 @@
     // The body tag. Used to check where to add the markup
     const bodyTag = document.getElementsByTagName("body")[0];
 
+    // Constants to define whether a set of plugins should be shown or not.
+    const showBlue = true;
+    const showGreen = true;
+    const showCharcoal = true;
+    const showThirdParty = true;
+
 //== START ==//
     if ( log ) console.log ( alreadydone );
     if ( log ) console.log ( typeof alreadydone );
@@ -261,10 +267,29 @@
         const charcoalPlugins = ['apm', 'iwp'];
         const thirdPartyPlugins = ['woo', 'edd'];
 
-        const pluginNames = [].concat(bluePlugins, greenPlugins, charcoalPlugins, thirdPartyPlugins);
+        //var pluginNames = [].concat(bluePlugins, greenPlugins, charcoalPlugins, thirdPartyPlugins);
+        var pluginNames = [];
 
-        const numPlugins = bluePlugins.length + greenPlugins.length + charcoalPlugins.length + thirdPartyPlugins.length;
+        var numPlugins = 0;
 
+        if ( showBlue ) {
+            numPlugins = bluePlugins.length;
+            pluginNames.push(...bluePlugins);
+        }
+        if ( showGreen ) {
+            numPlugins += greenPlugins.length;
+            pluginNames.push(...greenPlugins);
+        }
+        if ( showCharcoal ) {
+            numPlugins += charcoalPlugins.length;
+            pluginNames.push(...charcoalPlugins);
+        }
+        if ( showThirdParty ) {
+            numPlugins += thirdPartyPlugins.length;
+            pluginNames.push(...thirdPartyPlugins);
+        }
+        //= bluePlugins.length + greenPlugins.length + charcoalPlugins.length + thirdPartyPlugins.length;
+console.log(pluginNames);
         const tableMinWidth = (numPlugins * 51) + firstColumnWidth + secondColumnWidth + 8;  // 8 = scrollbar width
 
         /**
@@ -315,23 +340,36 @@
             '<td class="hider-cell"><span id="hider">[';
         htmlstring += startHidden ? 'show' : 'hide';
         htmlstring += ']</span></td>' +
-            '<td class="more-cell" id="more"><span id="mmore">[more]</span></td>' +
-            '<td class="blue"><img src="https://andrasguseo.com/images/new-tec-icon.svg" title="The Events Calendar" alt="The Events Calendar icon" /></td>' +
-            '<td class="blue"><img src="https://andrasguseo.com/images/new-ecp-icon.svg" title="Events Calendar Pro" alt="Events Calendar Pro icon" /></td>' +
-            '<td class="blue"><img src="https://andrasguseo.com/images/new-ve-icon.svg" title="Virtual Events" alt="The Events Calendar: Virtual Events icon" /></td>' +
-            '<td class="blue"><img src="https://andrasguseo.com/images/EventAutomator-icon.svg" title="Event Automator" alt="The Events Calendar: Event Automator icon" /></td>' +
-            '<td class="blue"><img src="https://andrasguseo.com/images/new-fb-icon.svg" title="Filter Bar" alt="The Events Calendar: Filter Bar icon" /></td>' +
-            '<td class="blue last"><img src="https://andrasguseo.com/images/new-eb-icon.svg" title="Eventbrite Tickets" alt="Eventbrite Tickets icon" /></td>' +
-            '<td class="green"><img src="https://andrasguseo.com/images/new-et-icon.svg" title="Event Tickets" alt="Event Tickets icon" /></td>' +
-            '<td class="green"><img src="https://andrasguseo.com/images/new-etp-icon.svg" title="Event Tickets Plus" alt="Event Tickets Plus icon" /></td>' +
-            '<td class="green"><img src="https://andrasguseo.com/images/new-ce-icon.svg" title="Community Events" alt="Community Events icon" /></td>' +
-            '<td class="green last" style="padding-top: 7px !important;"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>' +
-            '<td class="charcoal" style="padding-top: 7px !important;">APM</td>' +
-            '<td class="charcoal" style="padding-top: 7px !important;">IW+</td>';
+            '<td class="more-cell" id="more"><span id="mmore">[more]</span></td>';
+
+        if ( showBlue ) {
+            htmlstring +=
+                '<td class="blue"><img src="https://andrasguseo.com/images/new-tec-icon.svg" title="The Events Calendar" alt="The Events Calendar icon" /></td>' +
+                '<td class="blue"><img src="https://andrasguseo.com/images/new-ecp-icon.svg" title="Events Calendar Pro" alt="Events Calendar Pro icon" /></td>' +
+                '<td class="blue"><img src="https://andrasguseo.com/images/new-ve-icon.svg" title="Virtual Events" alt="The Events Calendar: Virtual Events icon" /></td>' +
+                '<td class="blue"><img src="https://andrasguseo.com/images/EventAutomator-icon.svg" title="Event Automator" alt="The Events Calendar: Event Automator icon" /></td>' +
+                '<td class="blue"><img src="https://andrasguseo.com/images/new-fb-icon.svg" title="Filter Bar" alt="The Events Calendar: Filter Bar icon" /></td>' +
+                '<td class="blue last"><img src="https://andrasguseo.com/images/new-eb-icon.svg" title="Eventbrite Tickets" alt="Eventbrite Tickets icon" /></td>';
+        }
+        if ( showGreen ) {
+            htmlstring +=
+                '<td class="green"><img src="https://andrasguseo.com/images/new-et-icon.svg" title="Event Tickets" alt="Event Tickets icon" /></td>' +
+                '<td class="green"><img src="https://andrasguseo.com/images/new-etp-icon.svg" title="Event Tickets Plus" alt="Event Tickets Plus icon" /></td>' +
+                '<td class="green"><img src="https://andrasguseo.com/images/new-ce-icon.svg" title="Community Events" alt="Community Events icon" /></td>' +
+                '<td class="green last" style="padding-top: 7px !important;"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>';
+        }
+        if ( showCharcoal ) {
+            htmlstring +=
+                '<td class="charcoal" style="padding-top: 7px !important;">APM</td>' +
+                '<td class="charcoal" style="padding-top: 7px !important;">IW+</td>';
+        }
 
         // eCommerce in Header
-        htmlstring += '<td><img src="https://andrasguseo.com/images/woo-icon.png" title="WooCommerce" alt="WooCommerce icon" /></td>';
-        htmlstring += '<td><img src="https://andrasguseo.com/images/edd-headshot.png" title="Easy Digital Downloads" alt="Easy Digital Downloads icon" /></td>';
+        if ( showThirdParty ) {
+            htmlstring += '<td><img src="https://andrasguseo.com/images/woo-icon.png" title="WooCommerce" alt="WooCommerce icon" /></td>';
+            htmlstring += '<td><img src="https://andrasguseo.com/images/edd-headshot.png" title="Easy Digital Downloads" alt="Easy Digital Downloads icon" /></td>';
+        }
+
         htmlstring += '</tr></thead>';
 
         htmlstring += '<tbody id="pluginversions-tbody">';
