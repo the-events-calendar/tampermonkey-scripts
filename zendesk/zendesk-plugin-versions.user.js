@@ -23,52 +23,57 @@
  *
  * Versioning:
  * First digit:  only changes when year changes. 2 = 2019; 3 = 2020; 4 = 2021; 5 = 2022;
- * Second digit: increment when a bugfix or feature for the script
- * Third digit:  increment when updating the script with plugin versions
+ * Second digit: increment when a bugfix or feature for the script.
+ * Third digit:  increment when updating the script with plugin versions.
  */
 (function() {
     'use strict';
 
 //== SETUP ==//
-
-    // Enable logging
+/*
+ * Here are the settings that you can change.
+ */
+    // Enable logging for debugging.
     const log = false;
 
-    // Start hidden?
+    // Start hidden? When set to true, the bar will be
+    // hidden at the right edge of the screen on load.
     const startHidden = true;
-
-    // Vertical offset
-    // Set to 55 if you want the first column to show
-    const verticalOffset = 0;
-
-    // Define starting position of the container
-    // The distance from the right edge of the screen
-    const startRight = '350';
-
-    // Define the width of the first 2 columns (in pixels)
-    const firstColumnWidth = 70;
-    const secondColumnWidth = 120;
-
-    // Define how many rows should be shown on load and when table is collapsed
-    const initialRows = 1;
-
-    // Define whether table should scroll to the last (most actual) row on collapse
-    const scrollOnCollapse = true;
-
-    // Height of the table (in pixels) when expanded
-    const expandedHeight = 300;
-
-    // Check for the zoom level of the browser
-    const zoomlevel = (( window.outerWidth - 10 ) / window.innerWidth);
-
-    // The body tag. Used to check where to add the markup
-    const bodyTag = document.getElementsByTagName("body")[0];
 
     // Constants to define whether a set of plugins should be shown or not.
     const showBlue = true;
     const showGreen = true;
     const showCharcoal = true;
     const showThirdParty = true;
+
+    // Vertical offset
+    // Set to 0 - The tab with the eye icon is visible when closed.
+    // Set to 55 - The first column is visible when closed.
+    const verticalOffset = 0;
+
+    // The starting position of the container.
+    // The distance from the right edge of the screen.
+    // Set to 600 to not cover the search field.
+    const startRight = '350';
+
+    // The width of the first 2 columns (in pixels).
+    const firstColumnWidth = 70;
+    const secondColumnWidth = 120;
+
+    // Define how many rows should be shown on load and when table is collapsed.
+    const initialRows = 1;
+
+    // Define whether table should scroll to the last (most actual) row on collapse.
+    const scrollOnCollapse = true;
+
+    // Height of the table (in pixels) when expanded.
+    const expandedHeight = 300;
+
+    // Check for the zoom level of the browser.
+    const zoomlevel = (( window.outerWidth - 10 ) / window.innerWidth);
+
+    // The body tag. Used to check where to add the markup.
+    const bodyTag = document.getElementsByTagName("body")[0];
 
 //== START ==//
     if ( log ) console.log ( alreadydone );
