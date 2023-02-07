@@ -1,7 +1,7 @@
 # TEC Sniffer
 Author: Andras Guseo  
 Current version: 2.3.0  
-Release date: TBD
+Release date: 2021-09-10
 
 ## Description
 This is a tool created for the Support Team at The Events Calendar.
