@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      6.1.0
+// @version      6.1.1
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @match        https://ithemeshelp.zendesk.com/agent*
@@ -263,9 +263,11 @@
             154: { name: "G22.tyrannosaurus", date: "Dec 8",      tec: "6.0.5",     pro: "6.0.4",     vev: "1.13.3",   eva: "-",        fib: "5.4.0",    ebt: "4.6.12",  eti: "5.5.5x",     etp: "5.6.4x",    cev: "4.10.3x",   ctx: "4.8.3x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "7.1.1", edd: "3.1.0.3" },
             155: { name: "B22.zeppole",       date: "Dec 14",     tec: "6.0.6.2x",  pro: "6.0.5.1x",  vev: "1.13.3",   eva: "-",        fib: "5.4.1x",   ebt: "4.6.12",  eti: "5.5.5",      etp: "5.6.4",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.2.0", edd: "3.1.0.3" },
             156: { name: "G23.artichoke",     date: "Jan 16",     tec: "6.0.6",     pro: "6.0.5",     vev: "1.13.3",   eva: "-",        fib: "5.4.1",    ebt: "4.6.12",  eti: "5.5.6x",     etp: "5.6.5x",    cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },
-            157: { name: "B23.alexa",         date: "Jan 18",     tec: "6.0.7.1x",  pro: "6.0.6x",    vev: "1.13.4x",  eva: "-",        fib: "5.4.2x",   ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },
-            158: { name: "B23.asimo",         date: "Jan 26",     tec: "6.0.7.1",   pro: "6.0.6",     vev: "1.13.4",   eva: "1.0.0x",   fib: "5.4.2",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },
-            159: { name: "B23.andrew",        date: "Jan 26",     tec: "6.0.8x",    pro: "6.0.7x",    vev: "1.13.4",   eva: "1.0.0",    fib: "5.4.2",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },        };
+            157: { name: "B23.alexa",         date: "Jan 18",     tec: "6.0.7.1x",  pro: "6.0.6x",    vev: "1.13.4x",  eva: "-",        fib: "5.4.1",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },
+            158: { name: "B23.asimo",         date: "Jan 26",     tec: "6.0.7.1",   pro: "6.0.6",     vev: "1.13.4",   eva: "1.0.0x",   fib: "5.4.1",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.5" },
+            159: { name: "B23.andrew",        date: "Jan 26",     tec: "6.0.8x",    pro: "6.0.7x",    vev: "1.13.4",   eva: "1.0.0",    fib: "5.4.1",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.5" },
+            160: { name: "B23.bb8/G23.beans", date: "Feb 9",      tec: "6.0.9x",    pro: "6.0.8x",    vev: "1.13.5x",  eva: "1.0.0",    fib: "5.4.2x",   ebt: "4.6.12",  eti: "5.5.7x",     etp: "5.6.6x",    cev: "4.10.3",    ctx: "4.8.4x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.6" },
+        };
 
         // The number of releases (the length of the object)
         var rowNumber = Object.keys(pluginHistory).length;
@@ -343,6 +345,7 @@ console.log(pluginNames);
             '#plugin-versions td:nth-child(1) { width: ' + firstColumnWidth + 'px; }' +
             '#plugin-versions td:nth-child(2) { width: ' + secondColumnWidth + 'px; text-align: left; }' +
             '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth+secondColumnWidth) + 'px) / ' + numPlugins + '); }' +
+            '#plugin-versions .update-icon { float: right; }' +
             '</style>';
         htmlstring += '<div class="hider-cell-2" id="hider-2">👁️</div>';
         htmlstring += '<table width="100%" class="versions" id="versions-table" cellpadding="0" cellspacing="0">';
@@ -352,7 +355,10 @@ console.log(pluginNames);
             '<td class="hider-cell"><span id="hider">[';
         htmlstring += startHidden ? 'show' : 'hide';
         htmlstring += ']</span></td>' +
-            '<td class="more-cell" id="more"><span id="mmore">[more]</span></td>';
+            '<td class="more-cell" id="more">' +
+                '<span id="mmore">[more]</span>' +
+                '<a href="https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js" target="_blank" class="update-icon" title="Check for updates">🔄</a>' +
+            '</td>';
 
         if ( showBlue ) {
             htmlstring +=
@@ -551,6 +557,11 @@ console.log(pluginNames);
 
     /**
      * === Changelog ===
+     * 6.1.1 - 2023-02-09
+     * [Feature] Added an update button for easier updates.
+     * Added new plugin versions (160).
+     * Fixed past Filter Bar version numbers.
+     *
      * 6.1.0 - 2023-01-28
      * [Feature] The design automatically adjusts when new products are added.
      * [Feature] Added the possibility to hide certain plugin groups.
