@@ -345,6 +345,7 @@ console.log(pluginNames);
             '#plugin-versions td:nth-child(1) { width: ' + firstColumnWidth + 'px; }' +
             '#plugin-versions td:nth-child(2) { width: ' + secondColumnWidth + 'px; text-align: left; }' +
             '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth+secondColumnWidth) + 'px) / ' + numPlugins + '); }' +
+            '#plugin-versions .update-icon { float: right; }' +
             '</style>';
         htmlstring += '<div class="hider-cell-2" id="hider-2">👁️</div>';
         htmlstring += '<table width="100%" class="versions" id="versions-table" cellpadding="0" cellspacing="0">';
@@ -354,7 +355,10 @@ console.log(pluginNames);
             '<td class="hider-cell"><span id="hider">[';
         htmlstring += startHidden ? 'show' : 'hide';
         htmlstring += ']</span></td>' +
-            '<td class="more-cell" id="more"><span id="mmore">[more]</span></td>';
+            '<td class="more-cell" id="more">' +
+                '<span id="mmore">[more]</span>' +
+                '<a href="https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js" target="_blank" class="update-icon" title="Check for updates">🔄</a>' +
+            '</td>';
 
         if ( showBlue ) {
             htmlstring +=
@@ -554,6 +558,7 @@ console.log(pluginNames);
     /**
      * === Changelog ===
      * 6.1.1 - 2023-02-09
+     * [Feature] Added an update button for easier updates.
      * Added new plugin versions (160).
      * Fixed past Filter Bar version numbers.
      *
