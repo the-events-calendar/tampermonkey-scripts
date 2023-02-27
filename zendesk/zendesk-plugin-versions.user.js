@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      6.1.1
+// @version      6.1.2
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @match        https://ithemeshelp.zendesk.com/agent*
@@ -266,7 +266,8 @@
             157: { name: "B23.alexa",         date: "Jan 18",     tec: "6.0.7.1x",  pro: "6.0.6x",    vev: "1.13.4x",  eva: "-",        fib: "5.4.1",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.4" },
             158: { name: "B23.asimo",         date: "Jan 26",     tec: "6.0.7.1",   pro: "6.0.6",     vev: "1.13.4",   eva: "1.0.0x",   fib: "5.4.1",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.5" },
             159: { name: "B23.andrew",        date: "Jan 26",     tec: "6.0.8x",    pro: "6.0.7x",    vev: "1.13.4",   eva: "1.0.0",    fib: "5.4.1",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.5" },
-            160: { name: "B23.bb8/G23.beans", date: "Feb 9",      tec: "6.0.9x",    pro: "6.0.8x",    vev: "1.13.5x",  eva: "1.0.0",    fib: "5.4.2x",   ebt: "4.6.12",  eti: "5.5.7x",     etp: "5.6.6x",    cev: "4.10.3",    ctx: "4.8.4x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.6" },
+            160: { name: "B23.bb8/G23.beans", date: "Feb 9",      tec: "6.0.9x",    pro: "6.0.8x",    vev: "1.13.5x",  eva: "1.0.0",    fib: "5.4.2x",   ebt: "4.6.12",  eti: "5.5.7x",     etp: "5.6.6.1x",  cev: "4.10.3",    ctx: "4.8.4x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.6" },
+            161: { name: "B23.boilerplate",   date: "Feb 22",     tec: "6.0.10x",   pro: "6.0.9x",    vev: "1.13.6x",  eva: "1.1.0x",   fib: "5.4.3x",   ebt: "4.6.13x", eti: "5.5.8x",     etp: "5.6.7x",    cev: "4.10.4x",   ctx: "4.8.5x",   apm: "4.5.4x", iwp: "1.0.3",  woo: "7.4.0", edd: "3.1.0.6" },
         };
 
         // The number of releases (the length of the object)
@@ -557,6 +558,9 @@ console.log(pluginNames);
 
     /**
      * === Changelog ===
+     * 6.1.2 - 2023-02-27
+     * Added new plugin versions (161).
+     *
      * 6.1.1 - 2023-02-09
      * [Feature] Added an update button for easier updates.
      * Added new plugin versions (160).
