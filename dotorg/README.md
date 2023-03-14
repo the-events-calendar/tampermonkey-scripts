@@ -42,6 +42,10 @@ The script puts a text box on top of the reviews page. Clicking on the textbox w
 
 A more advanced version than `dotorg-helper.user.js` with more visual details. Resoled topics are green, topics that need attention are yellow, topics that can be closed are orange, old and closed topics are purple. Topics not needing attention are white.
 
+### Sample screenshot of dotorg-topic-highlighter
+
+![image](https://dl.dropboxusercontent.com/s/0vj43p7rmgo65z8/shot_230314_125557.jpg)
+
 ## `dotorg-topic-updater.user.js`
 
 ## `options.html`
