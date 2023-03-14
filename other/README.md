@@ -1,3 +1,9 @@
+## `loxi-tools.user.js`
+
+A set of tools adjusting the Loxi dashboard.
+
+## `tec-sniffer.user.js`
+
 # TEC Sniffer
 Author: Andras Guseo  
 Current version: 2.3.0  
