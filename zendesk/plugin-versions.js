@@ -1,4 +1,3 @@
-const pluginHistory = {
     0:   { name: "",                  date: "",           tec: "",          pro: "",          vev: "",         eva: "",         fib: "",         ebt: "",        eti: "",           etp: "",          cev: "",          ctx: "",         apm: "",       iwp: "",       woo: "",      edd: ""  },
     1:   { name: "M18.01",            date: "Jan 7",      tec: "4.6.9.1x",  pro: "4.4.21",    vev: "-",        eva: "-",        fib: "4.5.2",    ebt: "4.4.9",   eti: "4.6.3",      etp: "4.6.2",     cev: "4.5.8",     ctx: "4.5.3",    apm: "4.4",    iwp: "1.0.2",  woo: "-",     edd: "-" },
     2:   { name: "M18.02",            date: "Jan 22",     tec: "4.6.10.2x", pro: "4.4.22x",   vev: "-",        eva: "-",        fib: "4.5.3x",   ebt: "4.4.9",   eti: "4.6.3",      etp: "4.6.2",     cev: "4.5.8",     ctx: "4.5.3",    apm: "4.4",    iwp: "1.0.2",  woo: "-",     edd: "-" },
@@ -161,4 +160,3 @@ const pluginHistory = {
     159: { name: "B23.andrew",        date: "Jan 26",     tec: "6.0.8x",    pro: "6.0.7x",    vev: "1.13.4",   eva: "1.0.0",    fib: "5.4.1",    ebt: "4.6.12",  eti: "5.5.6",      etp: "5.6.5",     cev: "4.10.3",    ctx: "4.8.3",    apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.5" },
     160: { name: "B23.bb8/G23.beans", date: "Feb 9",      tec: "6.0.9x",    pro: "6.0.8x",    vev: "1.13.5x",  eva: "1.0.0",    fib: "5.4.2x",   ebt: "4.6.12",  eti: "5.5.7x",     etp: "5.6.6.1x",  cev: "4.10.3",    ctx: "4.8.4x",   apm: "4.5.2",  iwp: "1.0.3",  woo: "7.3.0", edd: "3.1.0.6" },
     161: { name: "B23.boilerplate",   date: "Feb 22",     tec: "6.0.10x",   pro: "6.0.9x",    vev: "1.13.6x",  eva: "1.1.0x",   fib: "5.4.3x",   ebt: "4.6.13x", eti: "5.5.8x",     etp: "5.6.7x",    cev: "4.10.4x",   ctx: "4.8.5x",   apm: "4.5.4x", iwp: "1.0.3",  woo: "7.4.0", edd: "3.1.0.6" },
-};
