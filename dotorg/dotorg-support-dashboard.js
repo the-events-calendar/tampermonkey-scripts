@@ -280,6 +280,19 @@ jQuery(document).ready(function( $ ) {
 	// Run processer.
 	process_topics();
 
+    // Identify bug tickets
+    if ( $( 'body' ).is( '.single-topic' ) ) {
+        var bugTicket = $( document ).text().search( /\b(?:bug ticket|internal ref|internal bug ticket reference|bug ticket reference)\b/gi );
+
+        if ( bugTicket > 0 ) {
+            $( '.bbp-lead-topic .topic' ).append(`
+                <div class="tamper-bug-ticket" style="background-color: #3D54FF; color: #fff; padding: 4px 12px 4px 10px; right: -1px; top: 10px; border-top-left-radius: 6px; border-bottom-left-radius: 6px; position: absolute;">
+                    With Bug Ticket
+                </div>
+            `).css( 'border', '0px solid #3D54FF' );
+        }
+    }
+
     /**
      * Status Filter per Page
      * All
@@ -394,5 +407,4 @@ jQuery(document).ready(function( $ ) {
         }
     }
 });
-
 /** Highlighter End */
