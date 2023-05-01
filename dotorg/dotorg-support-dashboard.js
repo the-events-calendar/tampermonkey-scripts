@@ -215,6 +215,12 @@ jQuery(document).ready(function( $ ) {
 
             $topic.find( '.bbp-topic-title .bbp-topic-meta' ).append( `<div class="tamper-label-container"><label class="tamper-label"></label></div>` );
 
+            if ( freshness.search( /(month?|year?)/ ) > 0 ) {
+                if( $( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
+                    $( this ).addClass( 'tamper-stale' );
+                    $permalink.prepend( icons.overdue );
+                }
+            }
 			/* Highlight resolved threads.
 			* Resolved topics on the forums already get prepended with a check-mark tick, so we don't
 			* need to add any other indicators our selves.
@@ -243,10 +249,6 @@ jQuery(document).ready(function( $ ) {
                     if( !$( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
                         $( this ).addClass( 'tamper-overdue' );
                         $permalink.prepend( icons.overdue );
-
-                        if ( isOlder6Months ) {
-                            $( this ).addClass( 'tamper-stale' );
-                        }
                     }
                     return;
                 }
@@ -296,7 +298,7 @@ jQuery(document).ready(function( $ ) {
         var totalStaleThreads = $( '.tamper-stale' ).length;
         var totalInActiveThreads = $( '.tamper-inactive' ).length;
         var totalOverdue = $( '.tamper-overdue' ).length;
-        var totalInactiveStaleThreads = Math.abs( totalInActiveThreads ) + Math.abs( totalStaleThreads );
+        var totalInactiveStaleThreads = Math.abs( totalInActiveThreads );
         var totalPendingThreads = Math.abs( totalNonLastVoiceThreads );
 
         // Follow Up
