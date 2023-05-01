@@ -308,11 +308,9 @@ jQuery(document).ready(function( $ ) {
         var totalNonLastVoiceThreads = $( '.topic:not(.tamper-last-voice)' ).length;
         var totalMyPendingThreads = $( '.tamper-logged-in' ).length;
         var totalOpenThreads = $( '.tamper-new' ).length;
-        var totalStaleThreads = $( '.tamper-stale' ).length;
-        var totalInActiveThreads = $( '.tamper-inactive' ).length;
         var totalOverdue = $( '.tamper-overdue' ).length;
-        var totalInactiveStaleThreads = Math.abs( totalInActiveThreads );
-        var totalPendingThreads = Math.abs( totalNonLastVoiceThreads );
+        var totalInactiveStaleThreads = $( '.tamper-inactive, .tamper-stale' ).length;
+        var totalPendingThreads = Math.abs( totalNonLastVoiceThreads  );
 
         // Follow Up
         $( '.topic:not(.tamper-last-voice, .tamper-new, .tamper-resolved, .tamper-overdue)').addClass('tamper-follow-up');
@@ -368,42 +366,37 @@ jQuery(document).ready(function( $ ) {
 
 		// All
 		$( '#tec-all' ).click( function() {
-			$( '.topic' ).show();
+			$( '.topic' ).slideDown();
 		});
 
 		// My Threads
 		$( '#tec-my-pending' ).click( function() {
-            refreshThreads();
-			$( '.topic' ).not('.tamper-logged-in').toggle();
+			$( '.topic' ).slideDown().not('.tamper-logged-in').slideToggle();
 		});
 
 		// All Pending
 		$( '#tec-all-pending' ).click( function() {
-            refreshThreads();
-			$( '.topic' ).not( '.topic:not(.tamper-last-voice):not(.tamper-resolved)' ).toggle();
+			$( '.topic' ).slideDown().not( '.topic:not(.tamper-last-voice):not(.tamper-resolved)' ).slideToggle();
 		});
 
 		// Open
 		$( '#tec-open' ).click( function() {
-            refreshThreads();
-			$( '.topic' ).not( '.tamper-new' ).toggle();
+			$( '.topic' ).slideDown().not( '.tamper-new' ).slideToggle();
 		});
 
 		// Overdue
 		$( '#tec-overdue' ).click( function() {
-            refreshThreads();
-			$( '.topic' ).not( '.tamper-overdue' ).toggle();
+			$( '.topic' ).slideDown().not( '.tamper-overdue' ).slideToggle();
 		});
 
 		// Inactive
 		$( '#tec-inactive' ).click( function() {
-            refreshThreads();
-			$( '.topic' ).not( '.tamper-inactive, .tamper-stale' ).toggle();
+			$( '.topic' ).slideDown().not( '.tamper-inactive, .tamper-stale' ).slideToggle();
 		});
 
         // Refresh Threads
         function refreshThreads() {
-			$( '.topic' ).show();
+			$( '.topic' ).slideDown();
         }
     }
 });
