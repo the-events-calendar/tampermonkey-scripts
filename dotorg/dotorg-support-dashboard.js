@@ -28,6 +28,7 @@ var closeColor     = '#ffe463';
 var pendingColor = '#73BADC';
 var openColor = '#EECB44';
 var overdueColor = '#D63F36';
+var inactiveColor = '#3D54FF';
 
 /** Last Voice Start */
 (function() {
@@ -116,21 +117,6 @@ var overdueColor = '#D63F36';
     // Check every line
     for( i = 0; i < x.length; i++ ) {
 
-        for( j = 0; j < tecteam.length; j++ ) {
-
-            // If not resolved, check if tha last voice is a team member
-            var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
-
-            if ( n > 0 ) {
-                // x[i].style.borderRight = "4px solid " + lastVoiceColor;
-                x[i].classList.add( 'tamper-last-voice' );
-            }
-        }
-    }
-
-    // Check every line
-    for( i = 0; i < x.length; i++ ) {
-
         // Check if the line is resolved
         for( j = 0; j < tecteam.length; j++ ) {
 
@@ -138,12 +124,13 @@ var overdueColor = '#D63F36';
             var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
             if ( n > 0 ) {
                 // x[i].style.backgroundColor = lastVoiceColor;
+                // x[i].style.borderRight = "4px solid " + lastVoiceColor;
+                x[i].classList.add( 'tamper-last-voice' );
             
                 // Check if logged in user is the last voice
                 if ( tecteam[j] == String(document.getElementsByClassName( 'username' )[0].innerHTML) ) {
                     x[i].classList.add( 'tamper-logged-in' );
                 }
-
                 continue;
             }
 
@@ -151,20 +138,12 @@ var overdueColor = '#D63F36';
             var m = x[i].innerHTML.search( 'class="resolved"' );
             if( m > 0 ) {
                 x[i].classList.add('tamper-resolved');
-
                 // If resolved then skip
                 continue;
             }
-
-            // Check tickets to resolve 
-            // Inactive threads > 1 month
-            var toStale = x[i].innerHTML.search( /[1-9] (month[s]?)/ );
-            if ( toStale > 0 ) {
-                x[i].classList.add( 'tamper-stale' );
-                continue;
-            }
+            
             // Inactive threads > 2 weeks
-            var toResolve = x[i].innerHTML.search( /[2-9] (week[s]?)/ );
+            var toResolve = x[i].innerHTML.search( /[2-4] (week[s]?)/ );
             if ( toResolve > 0 ) {
                 x[i].classList.add( 'tamper-inactive' );
                 continue;
@@ -247,11 +226,12 @@ jQuery(document).ready(function( $ ) {
                 const dateParts = dateString.split( ' at ' );
                 const date = dayjs( dateParts[0], 'MMMM D, YYYY' );
                 const isOlder6Months = date.isBefore( dayjs().subtract( 6, 'month' ) );
-                const isOverdue = date.isBefore( dayjs().subtract( 2, 'days' ) );
+                const isOverdue = date.isBefore( dayjs().subtract( 2, 'day' ) );
 
                 // Highlight Stale
                 if ( isOlder6Months ) {
 					$( this ).find( 'a' ).css( 'color', settings.color.oldClosed.text );
+                    $( this ).addClass( 'tamper-stale' );
 
 					$permalink.find( '.dashicons' ).not( '.wporg-ratings .dashicons' ).remove();
 					$permalink.prepend( icons.oldClosed );
@@ -263,6 +243,10 @@ jQuery(document).ready(function( $ ) {
                     if( !$( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
                         $( this ).addClass( 'tamper-overdue' );
                         $permalink.prepend( icons.overdue );
+
+                        if ( isOlder6Months ) {
+                            $( this ).addClass( 'tamper-stale' );
+                        }
                     }
                     return;
                 }
@@ -326,6 +310,7 @@ jQuery(document).ready(function( $ ) {
         $( '.tamper-overdue' ).find('.tamper-label').html('Overdue').css({ 'background-color': 'inherit', 'border': '1px solid ' + overdueColor, 'color': overdueColor });
         $( '.tamper-last-voice' ).find('.tamper-label').html('Answered').css({ 'background-color': lastVoiceColor, 'color': '#FFF' });
         $( '.tamper-resolved' ).find('.tamper-label').html('Resolved').css({ 'background-color': resolvedColor, 'color': '#FFF' });
+        $( '.tamper-inactive, .tamper-stale' ).find('.tamper-label').html('Inactive').css({ 'background-color': inactiveColor, 'color': '#FFF' });
 
         // Select All Threads
         $( '#tec-select-all' ).on( 'change', ( event ) => {
