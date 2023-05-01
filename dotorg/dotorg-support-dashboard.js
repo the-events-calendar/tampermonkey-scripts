@@ -20,6 +20,15 @@
 // @grant        GM_openInTab
 // ==/UserScript==
 
+// Thread Status Identifier 
+var i, j;
+var lastVoiceColor = '#E58000';
+var resolvedColor  = '#98fb98';
+var closeColor     = '#ffe463';
+var pendingColor = '#73BADC';
+var openColor = '#EECB44';
+var overdueColor = '#D63F36';
+
 /** Last Voice Start */
 (function() {
     'use strict';
@@ -104,9 +113,6 @@
         'zbtirrell',                    // Zach Tirrell                 - 2015-xx-xx to
     ];
 
-    var i, j;
-    var lastVoiceColor = '#E58000';
-
     // Check every line
     for( i = 0; i < x.length; i++ ) {
 
@@ -121,11 +127,6 @@
             }
         }
     }
-    // Thread Status Identifier 
-    var i, j;
-    var resolvedColor  = '#98fb98';
-    var lastVoiceColor = '#edf7ff';
-    var closeColor     = '#ffe463';
 
     // Check every line
     for( i = 0; i < x.length; i++ ) {
@@ -318,11 +319,11 @@ jQuery(document).ready(function( $ ) {
         $( '.tamper-label-container' ).css({ 'margin': '10px 0 5px' });
         $( '.tamper-label' ).css({ 'background-color': 'none', 'padding': '5px 15px', 'border-radius': '17px', 'text-transform': 'uppercase', 'font-weight': 'bold' });
         // Label Status Filter
-        $( '.tamper-new' ).find('.tamper-label').html('Open').css({ 'background-color': '#EECB44' });
-        $( '.tamper-follow-up' ).find('.tamper-label').html('Pending').css({ 'background-color': '#0089CA', 'color': '#FFF' });
-        $( '.tamper-overdue' ).find('.tamper-label').html('Overdue').css({ 'background-color': 'inherit', 'border': '1px solid #D63F36', 'color': '#D63F36' });
-        $( '.tamper-last-voice' ).find('.tamper-label').html('Answered').css({ 'background-color': '#E58000', 'color': '#FFF' });
-        $( '.tamper-resolved' ).find('.tamper-label').html('Resolved').css({ 'background-color': '#379200', 'color': '#FFF' });
+        $( '.tamper-new' ).find('.tamper-label').html('Open').css({ 'background-color': openColor });
+        $( '.tamper-follow-up' ).find('.tamper-label').html('Pending').css({ 'background-color': pendingColor, 'color': '#FFF' });
+        $( '.tamper-overdue' ).find('.tamper-label').html('Overdue').css({ 'background-color': 'inherit', 'border': '1px solid ' + overdueColor, 'color': overdueColor });
+        $( '.tamper-last-voice' ).find('.tamper-label').html('Answered').css({ 'background-color': lastVoiceColor, 'color': '#FFF' });
+        $( '.tamper-resolved' ).find('.tamper-label').html('Resolved').css({ 'background-color': resolvedColor, 'color': '#FFF' });
 
         // Select All Threads
         $( '#tec-select-all' ).on( 'change', ( event ) => {
@@ -342,14 +343,21 @@ jQuery(document).ready(function( $ ) {
 			<div class="support-dashboard-filter-status custom-topic-header plugin-support bbp-pagination">
                 <div class="bbp-pagination-links" style="width: 100%;">
                     <a href="#toggle-all" class="support-dashboard-filter-btn page-numbers" id="tec-all">All (<b>${totalOnPageThreads}</b>)</a>
-                    <a href="#toggle-my-pending" class="support-dashboard-filter-btn page-numbers" id="tec-my-pending">My Threads (<b>${totalMyPendingThreads}</b>)</a>
-                    <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-all-pending">All Pending (<b>${totalPendingThreads}</b>)</a>
-                    <a href="#toggle-open" class="support-dashboard-filter-btn page-numbers" id="tec-open">Open (<b>${totalOpenThreads}</b>)</a>
-                    <a href="#toggle-overdue" class="support-dashboard-filter-btn page-numbers" id="tec-overdue">Overdue (<b>${totalOverdue})</a>
-                    <a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-inactive">Inactive (<b>${totalInactiveStaleThreads}</b>)</a>
+                    <a href="#toggle-my-pending" class="support-dashboard-filter-btn page-numbers" id="tec-my-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> My Threads (<b>${totalMyPendingThreads}</b>)</a>
+                    <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-all-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> All Pending (<b>${totalPendingThreads}</b>)</a>
+                    <a href="#toggle-open" class="support-dashboard-filter-btn page-numbers" id="tec-open"><span class="support-filter-label" style="background-color:${openColor}"></span> Open (<b>${totalOpenThreads}</b>)</a>
+                    <a href="#toggle-overdue" class="support-dashboard-filter-btn page-numbers" id="tec-overdue"><span class="support-filter-label" style="background-color:${overdueColor}"></span> Overdue (<b>${totalOverdue})</a>
+                    <a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-inactive"> Inactive (<b>${totalInactiveStaleThreads}</b>)</a>
                 </div>
 			</div>
         ` );
+
+        $( '.support-filter-label' ).css({ 
+            'border-radius': '50px',
+            'width': '8px',
+            'height': '8px',
+            'display': 'inline-block' 
+        });
 
 		// All
 		$( '#tec-all' ).click( function() {
