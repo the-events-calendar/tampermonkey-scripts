@@ -149,7 +149,6 @@
             // Check resolved Threads
             var m = x[i].innerHTML.search( 'class="resolved"' );
             if( m > 0 ) {
-                x[i].style.backgroundColor = resolvedColor;
                 x[i].classList.add('tamper-resolved');
 
                 // If resolved then skip
@@ -192,19 +191,19 @@ jQuery(document).ready(function( $ ) {
 		settings = {
 			color: {
 				resolved: {
-					background: '#fff',
+					background: 'inherit',
 					text: 'inherit'
 				},
 				new: {
-					background: '#fff',
+					background: 'inherit',
 					text: 'inherit'
 				},
 				old: {
-					background: '#fff',
+					background: 'inherit',
 					text: 'inherit'
 				},
 				oldClosed: {
-					background: '#fff',
+					background: 'inherit',
 					text: 'inherit'
 				}
 			},
@@ -234,14 +233,12 @@ jQuery(document).ready(function( $ ) {
 			let resolved   = $permalink.find('.resolved').length > 0;
 
             $topic.find( '.bbp-topic-title .bbp-topic-meta' ).append( `<div class="tamper-label-container"><label class="tamper-label"></label></div>` );
-            $topic.find( '.bbp-topic-title' ).prepend( `<input id="tec-select-${id}" type="checkbox" name="topics[]" value="${id}" class="tec-select-topic">` );
 
 			/* Highlight resolved threads.
 			* Resolved topics on the forums already get prepended with a check-mark tick, so we don't
 			* need to add any other indicators our selves.
 			*/
 			if ( resolved ) {
-				$( this ).css( 'background-color', settings.color.resolved.background );
 				$( this ).find( 'a' ).css( 'color', settings.color.resolved.text );
 			} else {
                 const dateString = $( this ).find( '.bbp-topic-freshness a' ).attr( 'title' );
@@ -252,7 +249,6 @@ jQuery(document).ready(function( $ ) {
 
                 // Highlight Stale
                 if ( isOlder6Months ) {
-					$( this ).css( 'background-color', settings.color.oldClosed.background );
 					$( this ).find( 'a' ).css( 'color', settings.color.oldClosed.text );
 
 					$permalink.find( '.dashicons' ).not( '.wporg-ratings .dashicons' ).remove();
@@ -263,7 +259,7 @@ jQuery(document).ready(function( $ ) {
                 // Highlight Overdue
                 if ( isOverdue ) {    
                     if( !$( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
-                        $( this ).addClass( 'tamper-overdue' ).css( { 'background-color': '#FFF' } );
+                        $( this ).addClass( 'tamper-overdue' );
                     }
                     return;
                 }
@@ -272,7 +268,6 @@ jQuery(document).ready(function( $ ) {
 				* Prepends an icon to indicate this topic is getting old.
 				*/
 				if ( freshness.includes( 'week' ) || freshness.includes( 'month' ) || freshness.includes( 'year' ) ) {
-					$( this ).css( 'background-color', settings.color.old.background );
 					$( this ).find( 'a' ).css( 'color', settings.color.old.text );
 
 					$permalink.find( '.dashicons' ).not('.wporg-ratings .dashicons').remove();
@@ -283,7 +278,6 @@ jQuery(document).ready(function( $ ) {
 				* Prepends an icon to indicate this topic has gone unattended.
 				*/
 				if ( '1' === voicecount ) {
-					$( this ).css( 'background-color', settings.color.new.background );
 					$( this ).find( 'a' ).css( 'color', settings.color.new.text );
                     $( this ).addClass( 'tamper-new' );
 
@@ -324,11 +318,11 @@ jQuery(document).ready(function( $ ) {
         $( '.tamper-label-container' ).css({ 'margin': '10px 0 5px' });
         $( '.tamper-label' ).css({ 'background-color': 'none', 'padding': '5px 15px', 'border-radius': '17px', 'text-transform': 'uppercase', 'font-weight': 'bold' });
         // Label Status Filter
-        $( '.tamper-follow-up' ).find('.tamper-label').append('Pending').css({ 'background-color': '#0089CA', 'color': '#FFF' });
-        $( '.tamper-resolved' ).find('.tamper-label').append('Resolved').css({ 'background-color': '#379200', 'color': '#FFF' });
-        $( '.tamper-new' ).find('.tamper-label').append('Open').css({ 'background-color': '#EECB44' });
-        $( '.tamper-overdue' ).find('.tamper-label').append('Overdue').css({ 'background-color': '#FFF', 'border': '1px solid #D63F36', 'color': '#D63F36' });
-        $( '.tamper-last-voice' ).find('.tamper-label').append('Last Voice').css({ 'background-color': '#E58000', 'color': '#FFF' });
+        $( '.tamper-new' ).find('.tamper-label').html('Open').css({ 'background-color': '#EECB44' });
+        $( '.tamper-follow-up' ).find('.tamper-label').html('Pending').css({ 'background-color': '#0089CA', 'color': '#FFF' });
+        $( '.tamper-overdue' ).find('.tamper-label').html('Overdue').css({ 'background-color': 'inherit', 'border': '1px solid #D63F36', 'color': '#D63F36' });
+        $( '.tamper-last-voice' ).find('.tamper-label').html('Answered').css({ 'background-color': '#E58000', 'color': '#FFF' });
+        $( '.tamper-resolved' ).find('.tamper-label').html('Resolved').css({ 'background-color': '#379200', 'color': '#FFF' });
 
         // Select All Threads
         $( '#tec-select-all' ).on( 'change', ( event ) => {
@@ -357,15 +351,6 @@ jQuery(document).ready(function( $ ) {
 			</div>
         ` );
 
-        // $( '#bbpress-forums .bbp-pagination:first' ).after( `
-		// 	<div class="custom-topic-header plugin-support" style="margin: 10px 5px; float: left;">
-		// 		<label for="tec-select-all">
-        //             <small> <input id="tec-select-all" type="checkbox"> Select Topics </small>
-		// 		</label>
-        //         <a href="#toggle-open" class="button button-secondary" id="tec-open-in-new-tab">Open</a>
-		// 	</div>
-        // ` );
-
 		// All
 		$( '#tec-all' ).click( function() {
 			$( '.topic' ).show();
@@ -380,7 +365,7 @@ jQuery(document).ready(function( $ ) {
 		// All Pending
 		$( '#tec-all-pending' ).click( function() {
             refreshThreads();
-			$( '.topic' ).not( '.topic:not(.tamper-last-voice)' ).toggle();
+			$( '.topic' ).not( '.topic:not(.tamper-last-voice):not(.tamper-resolved)' ).toggle();
 		});
 
 		// Open
