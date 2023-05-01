@@ -117,6 +117,7 @@
 
             if ( n > 0 ) {
                 x[i].style.borderRight = "4px solid " + lastVoiceColor;
+                x[i].classList.add( 'tamper-last-voice' );
             }
         }
     }
@@ -131,7 +132,21 @@
 
         // Check if the line is resolved
         for( j = 0; j < tecteam.length; j++ ) {
-            //console.log();
+
+            // If not resolved, check if tha last voice is a team member
+            var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
+            if ( n > 0 ) {
+                x[i].style.backgroundColor = lastVoiceColor;
+            
+                // Check if logged in user is the last voice
+                if ( tecteam[j] == String(document.getElementsByClassName( 'username' )[0].innerHTML) ) {
+                    x[i].classList.add( 'tamper-logged-in-ticket' );
+                }
+
+                continue;
+            }
+
+            // Check resolved Threads
             var m = x[i].innerHTML.search( 'class="resolved"' );
             if( m > 0 ) {
                 x[i].style.backgroundColor = resolvedColor;
@@ -145,32 +160,14 @@
             // Inactive threads > 1 month
             var toStale = x[i].innerHTML.search( /[1-9] (month[s]?)/ );
             if ( toStale > 0 ) {
-                x[i].classList.add('tamper-stale');
+                x[i].classList.add( 'tamper-stale' );
                 continue;
             }
             // Inactive threads > 2 weeks
             var toResolve = x[i].innerHTML.search( /[2-9] (week[s]?)/ );
             if ( toResolve > 0 ) {
-                x[i].classList.add('tamper-to-resolve');
+                x[i].classList.add( 'tamper-inactive' );
                 continue;
-            }
-
-            // If not resolved, check if tha last voice is a team member
-            var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
-            if ( n > 0 ) {
-                var o = x[i].innerHTML.search( /[1-9] (month[s]?)/ );
-                if ( o > 0 ) {
-                    x[i].style.backgroundColor = closeColor;
-                    x[i].classList.add('tamper-closed');
-                    continue;
-                }
-                x[i].style.backgroundColor = lastVoiceColor;
-
-                // Check if logged in user is the last voice
-                if (String(tecteam[j]) == String(document.getElementsByClassName("username")[0].innerHTML)) {
-                    x[i].classList.add('tamper-logged-in-ticket');
-                    continue;
-                }
             }
         }
     }
@@ -178,7 +175,6 @@
 })();
 
 /** Highlighter */
-
 jQuery(document).ready(function( $ ) {
     dayjs.extend( window.dayjs_plugin_customParseFormat );
 
@@ -251,6 +247,7 @@ jQuery(document).ready(function( $ ) {
                 const dateParts = dateString.split( ' at ' );
                 const date = dayjs( dateParts[0], 'MMMM D, YYYY' );
                 const isOlder6Months = date.isBefore( dayjs().subtract( 6, 'month' ) );
+                const isOverdue = date.isBefore( dayjs().subtract( 2, 'days' ) );
 
                 if ( isOlder6Months ) {
 					$( this ).css( 'background-color', settings.color.oldClosed.background );
@@ -258,6 +255,13 @@ jQuery(document).ready(function( $ ) {
 
 					$permalink.find( '.dashicons' ).not( '.wporg-ratings .dashicons' ).remove();
 					$permalink.prepend( icons.oldClosed );
+                    return;
+                }
+
+                if ( isOverdue ) {    
+                    if( !$( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
+                        $( this ).addClass( 'tamper-overdue' ).css( { 'background-color': '#fce4e3' } );
+                    }
                     return;
                 }
 
@@ -293,7 +297,7 @@ jQuery(document).ready(function( $ ) {
     /**
      * Status Filter per Page
      * All
-     * My Pending - Logged in user's threads
+     * My Threads - Logged in user's threads
      * All Pending - Pending threads needed response
      * Open - New and Unassigned
      * Overdue - Tickets for more than 2 days
@@ -301,14 +305,15 @@ jQuery(document).ready(function( $ ) {
      */
 
     if ( $( 'body' ).is( '.bbp-view.archive' ) ) {
-        var totalOnPageTicket = $( '.topic' ).length;
-        var totalNotLastVoiceTicket = $( '.topic:not(.tamper-last-voice)' ).length;
-        var totalLoggedInTicket = $( '.tamper-logged-in-ticket' ).length;
-        var totalNewTicket = $( '.tamper-new-ticket' ).length;
-        var totalStaleTicket = $( '.tamper-stale' ).length;
-        var totalToResolveTicket = $( '.tamper-to-resolve' ).length;
-        var totalInactive = Math.abs( totalToResolveTicket ) + Math.abs( totalStaleTicket );
-        var totalFollUpTicket = Math.abs( totalNotLastVoiceTicket - totalNewTicket );
+        var totalOnPageThreads = $( '.topic' ).length;
+        var totalNonLastVoiceThreads = $( '.topic:not(.tamper-last-voice)' ).length;
+        var totalMyPendingThreads = $( '.tamper-logged-in-ticket' ).length;
+        var totalOpenThreads = $( '.tamper-new-ticket' ).length;
+        var totalStaleThreads = $( '.tamper-stale' ).length;
+        var totalInActiveThreads = $( '.tamper-inactive' ).length;
+        var totalOverdue = $( '.tamper-overdue' ).length;
+        var totalInactiveStaleThreads = Math.abs( totalInActiveThreads ) + Math.abs( totalStaleThreads );
+        var totalPendingThreads = Math.abs( totalNonLastVoiceThreads );
 
         $( '#tec-select-all' ).on( 'change', ( event ) => {
             $( '.tec-select-topic:visible' ).prop( 'checked', $( event.target ).is( ':checked' ) );
@@ -325,56 +330,56 @@ jQuery(document).ready(function( $ ) {
         $( '#bbpress-forums .bbp-pagination:first' ).before( `
 			<div class="support-dashboard-filter-status custom-topic-header plugin-support bbp-pagination">
                 <div class="bbp-pagination-links" style="width: 100%;">
-                    <a href="#toggle-all" class="support-dashboard-filter-btn page-numbers" id="tec-all">All (<b>${totalOnPageTicket}</b>)</a>
-                    <a href="#toggle-my-pending" class="support-dashboard-filter-btn page-numbers" id="tec-my-pending">My Pending (<b>${totalLoggedInTicket}</b>)</a>
-                    <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-hide-last-voice">All Pending (<b>${totalFollUpTicket}</b>)</a>
-                    <a href="#toggle-open" class="support-dashboard-filter-btn page-numbers" id="tec-open">Open (<b>${totalNewTicket}</b>)</a>
-                    <a href="#toggle-overdue" class="support-dashboard-filter-btn page-numbers" id="">Overdue</a>
-                    <a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-toggle-to-resolve">Inactive (<b>${totalInactive}</b>)</a>
+                    <a href="#toggle-all" class="support-dashboard-filter-btn page-numbers" id="tec-all">All (<b>${totalOnPageThreads}</b>)</a>
+                    <a href="#toggle-my-pending" class="support-dashboard-filter-btn page-numbers" id="tec-my-pending">My Threads (<b>${totalMyPendingThreads}</b>)</a>
+                    <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-all-pending">All Pending (<b>${totalPendingThreads}</b>)</a>
+                    <a href="#toggle-open" class="support-dashboard-filter-btn page-numbers" id="tec-open">Open (<b>${totalOpenThreads}</b>)</a>
+                    <a href="#toggle-overdue" class="support-dashboard-filter-btn page-numbers" id="tec-overdue">Overdue (<b>${totalOverdue})</a>
+                    <a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-inactive">Inactive (<b>${totalInactiveStaleThreads}</b>)</a>
                 </div>
 			</div>
         ` );
 
-        $( '#bbpress-forums .bbp-pagination:first' ).after( `
-			<div class="custom-topic-header plugin-support" style="margin: 10px 5px; float: left;">
-				<label for="tec-select-all">
-                    <small> <input id="tec-select-all" type="checkbox"> Select Topics </small>
-				</label>
-                <a href="#toggle-open" class="button button-secondary" id="tec-open-in-new-tab">Open</a>
-			</div>
-        ` );
+        // $( '#bbpress-forums .bbp-pagination:first' ).after( `
+		// 	<div class="custom-topic-header plugin-support" style="margin: 10px 5px; float: left;">
+		// 		<label for="tec-select-all">
+        //             <small> <input id="tec-select-all" type="checkbox"> Select Topics </small>
+		// 		</label>
+        //         <a href="#toggle-open" class="button button-secondary" id="tec-open-in-new-tab">Open</a>
+		// 	</div>
+        // ` );
 
 		// All
 		$( '#tec-all' ).click( function() {
 			$( '.topic' ).show();
 		});
 
-		// My Pending
+		// My Threads
 		$( '#tec-my-pending' ).click( function() {
 			$( '.topic' ).not('.tamper-logged-in-ticket').toggle();
 		});
 
 		// All Pending
-		$( '#tec-hide-last-voice' ).click( function() {
-            refreshThreads();
-			$( '.topic' ).not( '.topic:not(.tamper-last-voice)' ).hide();
-			$( '.tamper-new-ticket' ).hide();
+		$( '#tec-all-pending' ).click( function() {
+			$( '.topic' ).not( '.topic:not(.tamper-last-voice)' ).toggle();
 		});
 
 		// Open
 		$( '#tec-open' ).click( function() {
-			$( '.topic' ).hide();
-			$( '.tamper-new-ticket' ).show();
+			$( '.topic' ).not( '.tamper-new-ticket' ).toggle();
+		});
+
+		// Overdue
+		$( '#tec-overdue' ).click( function() {
+			$( '.topic' ).not( '.tamper-overdue' ).toggle();
 		});
 
 		// Inactive
-		$( '#tec-toggle-to-resolve' ).click( function() {
-			$( '.topic' ).not('.tamper-to-resolve, .tamper-stale').show();
+		$( '#tec-inactive' ).click( function() {
+			$( '.topic' ).not( '.tamper-inactive, .tamper-stale' ).toggle();
 		});
 
-        $( '.support-dashboard-filter-btn' ).click( function() {
-        });
-
+        // Refresh Threads
         function refreshThreads() {
 			$( '.topic' ).show();
         }
