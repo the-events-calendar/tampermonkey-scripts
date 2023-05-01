@@ -319,11 +319,11 @@ jQuery(document).ready(function( $ ) {
         $( '.tamper-label' ).css({ 'background-color': 'none', 'padding': '5px 15px', 'border-radius': '17px', 'text-transform': 'uppercase', 'font-weight': 'bold' });
         // Label Status Filter
         $( '.tamper-new' ).find('.tamper-label').html('Open').css({ 'background-color': openColor });
-        $( '.tamper-follow-up' ).find('.tamper-label').html('Pending').css({ 'background-color': pendingColor, 'color': '#FFF' });
+        $( '.tamper-follow-up' ).find('.tamper-label').html('Pending').css({ 'background-color': pendingColor, 'border': '1px solid ' + pendingColor, 'color': '#FFF' });
         $( '.tamper-overdue' ).find('.tamper-label').html('Overdue').css({ 'background-color': 'inherit', 'border': '1px solid ' + overdueColor, 'color': overdueColor });
-        $( '.tamper-last-voice' ).find('.tamper-label').html('Answered').css({ 'background-color': lastVoiceColor, 'color': '#FFF' });
-        $( '.tamper-resolved' ).find('.tamper-label').html('Resolved').css({ 'background-color': resolvedColor, 'color': '#FFF' });
-        $( '.tamper-inactive, .tamper-stale' ).find('.tamper-label').html('Inactive').css({ 'background-color': inactiveColor, 'color': '#FFF' });
+        $( '.tamper-last-voice' ).find('.tamper-label').html('Answered').css({ 'background-color': lastVoiceColor, 'border': '1px solid ' + lastVoiceColor, 'color': '#FFF' });
+        $( '.tamper-resolved' ).find('.tamper-label').html('Resolved').css({ 'background-color': resolvedColor, 'border': '1px solid ' + resolvedColor, 'color': '#FFF' });
+        $( '.tamper-inactive, .tamper-stale' ).find('.tamper-label').html('Inactive').css({ 'background-color': inactiveColor, 'border': '1px solid ' + inactiveColor, 'color': '#FFF' });
 
         // Select All Threads
         $( '#tec-select-all' ).on( 'change', ( event ) => {
