@@ -116,7 +116,7 @@
             var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
 
             if ( n > 0 ) {
-                x[i].style.borderRight = "4px solid " + lastVoiceColor;
+                // x[i].style.borderRight = "4px solid " + lastVoiceColor;
                 x[i].classList.add( 'tamper-last-voice' );
             }
         }
@@ -136,11 +136,11 @@
             // If not resolved, check if tha last voice is a team member
             var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
             if ( n > 0 ) {
-                x[i].style.backgroundColor = lastVoiceColor;
+                // x[i].style.backgroundColor = lastVoiceColor;
             
                 // Check if logged in user is the last voice
                 if ( tecteam[j] == String(document.getElementsByClassName( 'username' )[0].innerHTML) ) {
-                    x[i].classList.add( 'tamper-logged-in-ticket' );
+                    x[i].classList.add( 'tamper-logged-in' );
                 }
 
                 continue;
@@ -192,19 +192,19 @@ jQuery(document).ready(function( $ ) {
 		settings = {
 			color: {
 				resolved: {
-					background: '#d4fcd7',
+					background: '#fff',
 					text: 'inherit'
 				},
 				new: {
-					background: '#faf6cf',
+					background: '#fff',
 					text: 'inherit'
 				},
 				old: {
-					background: '#fcedd9',
+					background: '#fff',
 					text: 'inherit'
 				},
 				oldClosed: {
-					background: '#eae3fc',
+					background: '#fff',
 					text: 'inherit'
 				}
 			},
@@ -233,7 +233,8 @@ jQuery(document).ready(function( $ ) {
 			let freshness  = $( this ).find( '.bbp-topic-freshness' ).text();
 			let resolved   = $permalink.find('.resolved').length > 0;
 
-            $topic.find( '.bbp-topic-title .bbp-topic-meta' ).prepend( `<input id="tec-select-${id}" type="checkbox" name="topics[]" value="${id}" class="tec-select-topic">` );
+            $topic.find( '.bbp-topic-title .bbp-topic-meta' ).append( `<div class="tamper-label-container"><label class="tamper-label"></label></div>` );
+            $topic.find( '.bbp-topic-title' ).prepend( `<input id="tec-select-${id}" type="checkbox" name="topics[]" value="${id}" class="tec-select-topic">` );
 
 			/* Highlight resolved threads.
 			* Resolved topics on the forums already get prepended with a check-mark tick, so we don't
@@ -249,6 +250,7 @@ jQuery(document).ready(function( $ ) {
                 const isOlder6Months = date.isBefore( dayjs().subtract( 6, 'month' ) );
                 const isOverdue = date.isBefore( dayjs().subtract( 2, 'days' ) );
 
+                // Highlight Stale
                 if ( isOlder6Months ) {
 					$( this ).css( 'background-color', settings.color.oldClosed.background );
 					$( this ).find( 'a' ).css( 'color', settings.color.oldClosed.text );
@@ -258,9 +260,10 @@ jQuery(document).ready(function( $ ) {
                     return;
                 }
 
+                // Highlight Overdue
                 if ( isOverdue ) {    
                     if( !$( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
-                        $( this ).addClass( 'tamper-overdue' ).css( { 'background-color': '#fce4e3' } );
+                        $( this ).addClass( 'tamper-overdue' ).css( { 'background-color': '#FFF' } );
                     }
                     return;
                 }
@@ -282,7 +285,7 @@ jQuery(document).ready(function( $ ) {
 				if ( '1' === voicecount ) {
 					$( this ).css( 'background-color', settings.color.new.background );
 					$( this ).find( 'a' ).css( 'color', settings.color.new.text );
-                    $( this ).addClass( 'tamper-new-ticket' );
+                    $( this ).addClass( 'tamper-new' );
 
 					$permalink.find( '.dashicons' ).not('.wporg-ratings .dashicons').remove();
 					$permalink.prepend( icons.unattended );
@@ -307,18 +310,32 @@ jQuery(document).ready(function( $ ) {
     if ( $( 'body' ).is( '.bbp-view.archive' ) ) {
         var totalOnPageThreads = $( '.topic' ).length;
         var totalNonLastVoiceThreads = $( '.topic:not(.tamper-last-voice)' ).length;
-        var totalMyPendingThreads = $( '.tamper-logged-in-ticket' ).length;
-        var totalOpenThreads = $( '.tamper-new-ticket' ).length;
+        var totalMyPendingThreads = $( '.tamper-logged-in' ).length;
+        var totalOpenThreads = $( '.tamper-new' ).length;
         var totalStaleThreads = $( '.tamper-stale' ).length;
         var totalInActiveThreads = $( '.tamper-inactive' ).length;
         var totalOverdue = $( '.tamper-overdue' ).length;
         var totalInactiveStaleThreads = Math.abs( totalInActiveThreads ) + Math.abs( totalStaleThreads );
         var totalPendingThreads = Math.abs( totalNonLastVoiceThreads );
 
+        // Follow Up
+        $( '.topic:not(.tamper-last-voice, .tamper-new, .tamper-resolved, .tamper-overdue)').addClass('tamper-follow-up');
+        // Label Status
+        $( '.tamper-label-container' ).css({ 'margin': '10px 0 5px' });
+        $( '.tamper-label' ).css({ 'background-color': 'none', 'padding': '5px 15px', 'border-radius': '17px', 'text-transform': 'uppercase', 'font-weight': 'bold' });
+        // Label Status Filter
+        $( '.tamper-follow-up' ).find('.tamper-label').append('Pending').css({ 'background-color': '#0089CA', 'color': '#FFF' });
+        $( '.tamper-resolved' ).find('.tamper-label').append('Resolved').css({ 'background-color': '#379200', 'color': '#FFF' });
+        $( '.tamper-new' ).find('.tamper-label').append('Open').css({ 'background-color': '#EECB44' });
+        $( '.tamper-overdue' ).find('.tamper-label').append('Overdue').css({ 'background-color': '#FFF', 'border': '1px solid #D63F36', 'color': '#D63F36' });
+        $( '.tamper-last-voice' ).find('.tamper-label').append('Last Voice').css({ 'background-color': '#E58000', 'color': '#FFF' });
+
+        // Select All Threads
         $( '#tec-select-all' ).on( 'change', ( event ) => {
             $( '.tec-select-topic:visible' ).prop( 'checked', $( event.target ).is( ':checked' ) );
         } );
 
+        // Open New Tab Threads
         $( '#tec-open-in-new-tab' ).on( 'click', ( event ) => {
             event.preventDefault();
             $( '.tec-select-topic:checked' ).each(( k, topic ) => {
@@ -356,26 +373,31 @@ jQuery(document).ready(function( $ ) {
 
 		// My Threads
 		$( '#tec-my-pending' ).click( function() {
-			$( '.topic' ).not('.tamper-logged-in-ticket').toggle();
+            refreshThreads();
+			$( '.topic' ).not('.tamper-logged-in').toggle();
 		});
 
 		// All Pending
 		$( '#tec-all-pending' ).click( function() {
+            refreshThreads();
 			$( '.topic' ).not( '.topic:not(.tamper-last-voice)' ).toggle();
 		});
 
 		// Open
 		$( '#tec-open' ).click( function() {
-			$( '.topic' ).not( '.tamper-new-ticket' ).toggle();
+            refreshThreads();
+			$( '.topic' ).not( '.tamper-new' ).toggle();
 		});
 
 		// Overdue
 		$( '#tec-overdue' ).click( function() {
+            refreshThreads();
 			$( '.topic' ).not( '.tamper-overdue' ).toggle();
 		});
 
 		// Inactive
 		$( '#tec-inactive' ).click( function() {
+            refreshThreads();
 			$( '.topic' ).not( '.tamper-inactive, .tamper-stale' ).toggle();
 		});
 
