@@ -269,7 +269,7 @@ jQuery(document).ready(function( $ ) {
 				* Prepends an icon to indicate this topic is getting old.
 				*/
 				if ( freshness.includes( 'week' ) || freshness.includes( 'month' ) || freshness.includes( 'year' ) ) {
-					$( this ).find( 'a' ).css( 'color', settings.color.old.text );
+					// $( this ).find( 'a' ).css( 'color', settings.color.old.text );
 
 					$permalink.find( '.dashicons' ).not('.wporg-ratings .dashicons').remove();
 					$permalink.prepend( icons.old );
@@ -279,7 +279,7 @@ jQuery(document).ready(function( $ ) {
 				* Prepends an icon to indicate this topic has gone unattended.
 				*/
 				if ( '1' === voicecount ) {
-					$( this ).find( 'a' ).css( 'color', settings.color.new.text );
+					// $( this ).find( 'a' ).css( 'color', settings.color.new.text );
                     $( this ).addClass( 'tamper-new' );
 
 					$permalink.find( '.dashicons' ).not('.wporg-ratings .dashicons').remove();
@@ -339,9 +339,9 @@ jQuery(document).ready(function( $ ) {
         } );
 
         // Page Status Filter
-        $( '#bbpress-forums .bbp-pagination:first' ).before( `
-			<div class="support-dashboard-filter-status custom-topic-header plugin-support bbp-pagination">
-                <div class="bbp-pagination-links" style="width: 100%;">
+        $( '#bbpress-forums .bbp-pagination:first' ).after( `
+			<div class="support-dashboard-filter-status custom-topic-header plugin-support bbp-pagination" style="width: 100%;">
+                <div class="bbp-pagination-links" style="width: 100%; justify-content: right;">
                     <a href="#toggle-all" class="support-dashboard-filter-btn page-numbers" id="tec-all">All (<b>${totalOnPageThreads}</b>)</a>
                     <a href="#toggle-my-pending" class="support-dashboard-filter-btn page-numbers" id="tec-my-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> My Threads (<b>${totalMyPendingThreads}</b>)</a>
                     <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-all-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> All Pending (<b>${totalPendingThreads}</b>)</a>
@@ -351,6 +351,11 @@ jQuery(document).ready(function( $ ) {
                 </div>
 			</div>
         ` );
+
+        $( '.support-dashboard-filter-btn' ).click(function () {
+            $( '.support-dashboard-filter-btn' ).removeClass( 'current' );
+            $( this ).addClass( 'current' );   
+        });
 
         $( '.support-filter-label' ).css({ 
             'border-radius': '50px',
