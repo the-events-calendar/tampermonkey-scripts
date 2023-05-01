@@ -23,7 +23,7 @@
 // Thread Status Identifier 
 var i, j;
 var lastVoiceColor = '#E58000';
-var resolvedColor  = '#98fb98';
+var resolvedColor  = '#379200';
 var closeColor     = '#ffe463';
 var pendingColor = '#73BADC';
 var openColor = '#EECB44';
