@@ -187,7 +187,8 @@ jQuery(document).ready(function( $ ) {
 		icons = {
 			old: '<span class="dashicons dashicons-clock" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Old topic:"></span>',
 			oldClosed: '<span class="dashicons dashicons-dismiss" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Old and closed topic:"></span>',
-			unattended: '<span class="dashicons dashicons-warning" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Unattended topic:"></span>'
+			unattended: '<span class="dashicons dashicons-warning" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Unattended topic:"></span>',
+			overdue: '<span class="dashicons dashicons-clock" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Overdue:"></span>',
 		},
 		settings = {
 			color: {
@@ -261,6 +262,7 @@ jQuery(document).ready(function( $ ) {
                 if ( isOverdue ) {    
                     if( !$( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
                         $( this ).addClass( 'tamper-overdue' );
+                        $permalink.prepend( icons.overdue );
                     }
                     return;
                 }
@@ -340,14 +342,14 @@ jQuery(document).ready(function( $ ) {
 
         // Page Status Filter
         $( '#bbpress-forums .bbp-pagination:first' ).after( `
-			<div class="support-dashboard-filter-status custom-topic-header plugin-support bbp-pagination" style="width: 100%;">
-                <div class="bbp-pagination-links" style="width: 100%; justify-content: right;">
-                    <a href="#toggle-all" class="support-dashboard-filter-btn page-numbers" id="tec-all">All (<b>${totalOnPageThreads}</b>)</a>
-                    <a href="#toggle-my-pending" class="support-dashboard-filter-btn page-numbers" id="tec-my-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> My Threads (<b>${totalMyPendingThreads}</b>)</a>
-                    <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-all-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> All Pending (<b>${totalPendingThreads}</b>)</a>
-                    <a href="#toggle-open" class="support-dashboard-filter-btn page-numbers" id="tec-open"><span class="support-filter-label" style="background-color:${openColor}"></span> Open (<b>${totalOpenThreads}</b>)</a>
-                    <a href="#toggle-overdue" class="support-dashboard-filter-btn page-numbers" id="tec-overdue"><span class="support-filter-label" style="background-color:${overdueColor}"></span> Overdue (<b>${totalOverdue})</a>
-                    <a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-inactive"> Inactive (<b>${totalInactiveStaleThreads}</b>)</a>
+			<div class="support-dashboard-filter-status custom-topic-header plugin-support bbp-pagination">
+                <div class="bbp-pagination-links" style="width: 110%; justify-content: right;">
+                    <a href="#toggle-all" class="support-dashboard-filter-btn page-numbers" id="tec-all">All (${totalOnPageThreads})</a>
+                    <a href="#toggle-my-pending" class="support-dashboard-filter-btn page-numbers" id="tec-my-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> My Threads (${totalMyPendingThreads})</a>
+                    <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-all-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> All Pending (${totalPendingThreads})</a>
+                    <a href="#toggle-open" class="support-dashboard-filter-btn page-numbers" id="tec-open"><span class="support-filter-label" style="background-color:${openColor}"></span> Open (${totalOpenThreads})</a>
+                    <a href="#toggle-overdue" class="support-dashboard-filter-btn page-numbers" id="tec-overdue"><span class="support-filter-label" style="background-color:${overdueColor}"></span> Overdue (${totalOverdue})</a>
+                    <a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-inactive"> Inactive (${totalInactiveStaleThreads})</a>
                 </div>
 			</div>
         ` );
@@ -357,7 +359,7 @@ jQuery(document).ready(function( $ ) {
             $( this ).addClass( 'current' );   
         });
 
-        $( '.support-filter-label' ).css({ 
+        $( '.support-filter-label' ).css({
             'border-radius': '50px',
             'width': '8px',
             'height': '8px',
