@@ -23,14 +23,14 @@
 // Thread Status Identifier 
 var i, j;
 var lastVoiceColor = '#E58000';
-var resolvedColor  = '#379200';
-var closeColor     = '#ffe463';
+var resolvedColor = '#379200';
+var closeColor = '#ffe463';
 var pendingColor = '#73BADC';
 var openColor = '#EECB44';
 var overdueColor = '#D63F36';
 var inactiveColor = '#3D54FF';
 
-jQuery(document).ready(function( $ ) {
+jQuery( document ).ready( function( $ ) {
     'use strict';
 
     // Get all lines in an array
@@ -315,17 +315,17 @@ jQuery(document).ready(function( $ ) {
         var totalPendingThreads = Math.abs( totalNonLastVoiceThreads  );
 
         // Follow Up
-        $( '.topic:not(.tamper-last-voice, .tamper-new, .tamper-resolved, .tamper-overdue)').addClass('tamper-follow-up');
+        $( '.topic:not(.tamper-last-voice, .tamper-new, .tamper-resolved, .tamper-overdue)' ).addClass( 'tamper-follow-up' );
         // Label Status
         $( '.tamper-label-container' ).css({ 'margin': '10px 0 5px' });
         $( '.tamper-label' ).css({ 'background-color': 'none', 'padding': '5px 15px', 'border-radius': '17px', 'text-transform': 'uppercase', 'font-weight': 'bold' });
         // Label Status Filter
-        $( '.tamper-new' ).find('.tamper-label').html('Open').css({ 'background-color': openColor });
-        $( '.tamper-follow-up' ).find('.tamper-label').html('Pending').css({ 'background-color': pendingColor, 'border': '1px solid ' + pendingColor, 'color': '#FFF' });
-        $( '.tamper-overdue' ).find('.tamper-label').html('Overdue').css({ 'background-color': 'inherit', 'border': '1px solid ' + overdueColor, 'color': overdueColor });
-        $( '.tamper-last-voice' ).find('.tamper-label').html('Answered').css({ 'background-color': lastVoiceColor, 'border': '1px solid ' + lastVoiceColor, 'color': '#FFF' });
-        $( '.tamper-resolved' ).find('.tamper-label').html('Resolved').css({ 'background-color': resolvedColor, 'border': '1px solid ' + resolvedColor, 'color': '#FFF' });
-        $( '.tamper-inactive, .tamper-stale' ).find('.tamper-label').html('Inactive').css({ 'background-color': inactiveColor, 'border': '1px solid ' + inactiveColor, 'color': '#FFF' });
+        $( '.tamper-new' ).find( '.tamper-label' ).html( 'open' ).css({ 'background-color': openColor });
+        $( '.tamper-follow-up' ).find( '.tamper-label' ).html( 'pending' ).css({ 'background-color': pendingColor, 'border': '1px solid ' + pendingColor, 'color': '#FFF' });
+        $( '.tamper-overdue' ).find( '.tamper-label' ).html( 'overdue' ).css({ 'background-color': 'inherit', 'border': '1px solid ' + overdueColor, 'color': overdueColor });
+        $( '.tamper-last-voice' ).find( '.tamper-label' ).html( 'answered' ).css({ 'background-color': lastVoiceColor, 'border': '1px solid ' + lastVoiceColor, 'color': '#FFF' });
+        $( '.tamper-resolved' ).find( '.tamper-label ').html( 'resolved' ).css({ 'background-color': resolvedColor, 'border': '1px solid ' + resolvedColor, 'color': '#FFF' });
+        $( '.tamper-inactive, .tamper-stale' ).find( '.tamper-label' ).html( 'inactive' ).css({ 'background-color': inactiveColor, 'border': '1px solid ' + inactiveColor, 'color': '#FFF' });
 
         // Select All Threads
         $( '#tec-select-all' ).on( 'change', ( event ) => {
@@ -352,7 +352,7 @@ jQuery(document).ready(function( $ ) {
                     <a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-inactive"> Inactive (${totalInactiveStaleThreads})</a>
                 </div>
 			</div>
-        ` );
+        `);
 
         $( '.support-dashboard-filter-btn' ).click(function () {
             $( '.support-dashboard-filter-btn' ).removeClass( 'current' );
