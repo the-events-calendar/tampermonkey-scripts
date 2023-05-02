@@ -234,7 +234,7 @@ jQuery( document ).ready( function( $ ) {
                 const dateParts = dateString.split( ' at ' );
                 const date = dayjs( dateParts[0], 'MMMM D, YYYY' );
                 const isOlder6Months = date.isBefore( dayjs().subtract( 6, 'month' ) );
-                const isOverdue = date.isBefore( dayjs().subtract( 2, 'day' ) );
+                const isOverdue = date.isBefore( dayjs().subtract( 3, 'day' ) );
                 
                 // Highlight Stale
                 if ( isOlder6Months ) {
