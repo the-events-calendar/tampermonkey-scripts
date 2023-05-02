@@ -127,6 +127,7 @@ jQuery(document).ready(function( $ ) {
 			oldClosed: '<span class="dashicons dashicons-dismiss" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Old and closed topic:"></span>',
 			unattended: '<span class="dashicons dashicons-warning" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Unattended topic:"></span>',
 			overdue: '<span class="dashicons dashicons-clock" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Overdue:"></span>',
+            lastVoice: '<span class="dashicons dashicons-businessperson" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="User:"></span>',
 		},
 		settings = {
 			color: {
@@ -186,7 +187,7 @@ jQuery(document).ready(function( $ ) {
                 // Check resolved Threads
                 var m = x[i].innerHTML.search( 'class="resolved"' );
                 if( m > 0 ) {
-                    x[i].classList.add('tamper-resolved');
+                    x[i].classList.add( 'tamper-resolved' );
                     // If resolved then skip
                     continue;
                 }
@@ -212,12 +213,14 @@ jQuery(document).ready(function( $ ) {
 
             $topic.find( '.bbp-topic-title .bbp-topic-meta' ).append( `<div class="tamper-label-container"><label class="tamper-label"></label></div>` );
 
+            // Stale Threads Months and Years
             if ( freshness.search( /(month?|year?)/ ) > 0 ) {
                 if( $( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
                     $( this ).addClass( 'tamper-stale' );
                     $permalink.prepend( icons.overdue );
                 }
             }
+
 			/** 
              * Highlight resolved threads.
 			 * Resolved topics on the forums already get prepended with a check-mark tick, so we don't
