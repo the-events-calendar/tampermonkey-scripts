@@ -349,7 +349,7 @@ jQuery( document ).ready( function( $ ) {
             <div class="bbp-pagination-links" style="width: 110%; justify-content: right;">
                 <a href="#toggle-all" class="support-dashboard-filter-btn page-numbers" id="tec-all">All (${totalOnPageThreads})</a>
                 <a href="#toggle-my-pending" class="support-dashboard-filter-btn page-numbers" id="tec-my-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> My Threads (${totalMyPendingThreads})</a>
-                <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-all-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> All Pending (${totalPendingThreads})</a>
+                <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-all-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> Pending (${totalPendingThreads})</a>
                 <a href="#toggle-open" class="support-dashboard-filter-btn page-numbers" id="tec-open"><span class="support-filter-label" style="background-color:${openColor}"></span> Open (${totalOpenThreads})</a>
                 <a href="#toggle-overdue" class="support-dashboard-filter-btn page-numbers" id="tec-overdue"><span class="support-filter-label" style="background-color:${overdueColor}"></span> Overdue (${totalOverdue})</a>
                 <a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-inactive"> Inactive (${totalInactiveStaleThreads})</a>
