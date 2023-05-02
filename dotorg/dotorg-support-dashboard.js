@@ -30,6 +30,7 @@ var openColor = '#EECB44';
 var overdueColor = '#D63F36';
 var inactiveColor = '#3D54FF';
 
+// Initialize Script
 jQuery( document ).ready( function( $ ) {
     'use strict';
     
@@ -402,4 +403,7 @@ jQuery( document ).ready( function( $ ) {
         }
     }
 });
-/** Highlighter End */
+
+/**
+ * ToDo: Create a feature for canned replies via blocks or a reference link/URL
+ */
