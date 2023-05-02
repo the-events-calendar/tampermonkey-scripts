@@ -328,6 +328,7 @@ jQuery( document ).ready( function( $ ) {
         $( '.tamper-resolved' ).find( '.tamper-label ').html( 'resolved' ).css({ 'background-color': resolvedColor, 'border': '1px solid ' + resolvedColor, 'color': '#FFF' });
         $( '.tamper-inactive' ).find( '.tamper-label' ).html( 'inactive' ).css({ 'background-color': inactiveColor, 'border': '1px solid ' + inactiveColor, 'color': '#FFF' });
         $( '.tamper-stale' ).find( '.tamper-label' ).html( 'stale' ).css({ 'background-color': '#FFF', 'border': '1px solid ' + inactiveColor, 'color': inactiveColor });
+
         
         // Select All Threads
         $( '#tec-select-all' ).on( 'change', ( event ) => {
@@ -404,7 +405,6 @@ jQuery( document ).ready( function( $ ) {
         }
     }
 });
-
 /**
  * ToDo: Create a feature for canned replies via blocks or a reference link/URL
  */
