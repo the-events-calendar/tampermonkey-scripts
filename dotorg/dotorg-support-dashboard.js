@@ -30,8 +30,7 @@ var openColor = '#EECB44';
 var overdueColor = '#D63F36';
 var inactiveColor = '#3D54FF';
 
-/** Last Voice Start */
-(function() {
+jQuery(document).ready(function( $ ) {
     'use strict';
 
     // Get all lines in an array
@@ -114,47 +113,7 @@ var inactiveColor = '#3D54FF';
         'zbtirrell',                    // Zach Tirrell                 - 2015-xx-xx to
     ];
 
-    // Check every line
-    for( i = 0; i < x.length; i++ ) {
-
-        // Check if the line is resolved
-        for( j = 0; j < tecteam.length; j++ ) {
-
-            // If not resolved, check if tha last voice is a team member
-            var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
-            if ( n > 0 ) {
-                // x[i].style.backgroundColor = lastVoiceColor;
-                // x[i].style.borderRight = "4px solid " + lastVoiceColor;
-                x[i].classList.add( 'tamper-last-voice' );
-            
-                // Check if logged in user is the last voice
-                if ( tecteam[j] == String(document.getElementsByClassName( 'username' )[0].innerHTML) ) {
-                    x[i].classList.add( 'tamper-logged-in' );
-                }
-                continue;
-            }
-
-            // Check resolved Threads
-            var m = x[i].innerHTML.search( 'class="resolved"' );
-            if( m > 0 ) {
-                x[i].classList.add('tamper-resolved');
-                // If resolved then skip
-                continue;
-            }
-            
-            // Inactive threads > 2 weeks
-            var toResolve = x[i].innerHTML.search( /[2-4] (week[s]?)/ );
-            if ( toResolve > 0 ) {
-                x[i].classList.add( 'tamper-inactive' );
-                continue;
-            }
-        }
-    }
-
-})();
-
-/** Highlighter */
-jQuery(document).ready(function( $ ) {
+    /** Highlighter */
     dayjs.extend( window.dayjs_plugin_customParseFormat );
 
 	/*
@@ -204,14 +163,52 @@ jQuery(document).ready(function( $ ) {
 			return false;
 		}
 
+        // Last Voice Checker
+        for( i = 0; i < x.length; i++ ) {
+
+            // Check if the line is resolved
+            for( j = 0; j < tecteam.length; j++ ) {
+
+                // If not resolved, check if tha last voice is a team member
+                var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
+                if ( n > 0 ) {
+                    // x[i].style.backgroundColor = lastVoiceColor;
+                    // x[i].style.borderRight = "4px solid " + lastVoiceColor;
+                    x[i].classList.add( 'tamper-last-voice' );
+                
+                    // Check if logged in user is the last voice
+                    if ( tecteam[j] == String(document.getElementsByClassName( 'username' )[0].innerHTML) ) {
+                        x[i].classList.add( 'tamper-logged-in' );
+                    }
+                    continue;
+                }
+
+                // Check resolved Threads
+                var m = x[i].innerHTML.search( 'class="resolved"' );
+                if( m > 0 ) {
+                    x[i].classList.add('tamper-resolved');
+                    // If resolved then skip
+                    continue;
+                }
+                
+                // Inactive threads > 2 weeks
+                var toResolve = x[i].innerHTML.search( /[2-4] (week[s]?)/ );
+                if ( toResolve > 0 ) {
+                    x[i].classList.add( 'tamper-inactive' );
+                    continue;
+                }
+            }
+        }
+
+        // Highlighter
 		$topics = $( '.bbp-body > ul' );
-		$topics.each(function() {
+		$topics.each( function() {
             const $topic = $( this );
             const id = $topic.attr( 'id' ).replace( 'bbp-topic-', '' );
-			let $permalink = $( this ).find( 'a.bbp-topic-permalink' );
-			let voicecount = $( this ).find( '.bbp-topic-voice-count' ).text();
-			let freshness  = $( this ).find( '.bbp-topic-freshness' ).text();
-			let resolved   = $permalink.find('.resolved').length > 0;
+			var $permalink = $( this ).find( 'a.bbp-topic-permalink' );
+			var voicecount = $( this ).find( '.bbp-topic-voice-count' ).text();
+			var freshness = $( this ).find( '.bbp-topic-freshness' ).text();
+			var resolved = $permalink.find( '.resolved' ).length > 0;
 
             $topic.find( '.bbp-topic-title .bbp-topic-meta' ).append( `<div class="tamper-label-container"><label class="tamper-label"></label></div>` );
 
@@ -221,9 +218,10 @@ jQuery(document).ready(function( $ ) {
                     $permalink.prepend( icons.overdue );
                 }
             }
-			/* Highlight resolved threads.
-			* Resolved topics on the forums already get prepended with a check-mark tick, so we don't
-			* need to add any other indicators our selves.
+			/** 
+             * Highlight resolved threads.
+			 * Resolved topics on the forums already get prepended with a check-mark tick, so we don't
+			 * need to add any other indicators our selves.
 			*/
 			if ( resolved ) {
 				$( this ).find( 'a' ).css( 'color', settings.color.resolved.text );
@@ -253,24 +251,26 @@ jQuery(document).ready(function( $ ) {
                     return;
                 }
 
-				/* Highlight topics that are more than a week old.
-				* Prepends an icon to indicate this topic is getting old.
+				/** 
+                 * Highlight topics that are more than a week old.
+				 * Prepends an icon to indicate this topic is getting old.
 				*/
 				if ( freshness.includes( 'week' ) || freshness.includes( 'month' ) || freshness.includes( 'year' ) ) {
 					// $( this ).find( 'a' ).css( 'color', settings.color.old.text );
 
-					$permalink.find( '.dashicons' ).not('.wporg-ratings .dashicons').remove();
+					$permalink.find( '.dashicons' ).not( '.wporg-ratings .dashicons' ).remove();
 					$permalink.prepend( icons.old );
                 }
 
-				/* Highlight topics not yet replied to.
-				* Prepends an icon to indicate this topic has gone unattended.
+				/** 
+                 * Highlight topics not yet replied to.
+				 * Prepends an icon to indicate this topic has gone unattended.
 				*/
 				if ( '1' === voicecount ) {
 					// $( this ).find( 'a' ).css( 'color', settings.color.new.text );
                     $( this ).addClass( 'tamper-new' );
 
-					$permalink.find( '.dashicons' ).not('.wporg-ratings .dashicons').remove();
+					$permalink.find( '.dashicons' ).not( '.wporg-ratings .dashicons' ).remove();
 					$permalink.prepend( icons.unattended );
 				}
 			}
@@ -302,7 +302,6 @@ jQuery(document).ready(function( $ ) {
      * Overdue - Tickets for more than 2 days
      * Inactive - Stale tickets for 2 weeks
      */
-
     if ( $( 'body' ).is( '.bbp-view.archive' ) ) {
         var totalOnPageThreads = $( '.topic' ).length;
         var totalNonLastVoiceThreads = $( '.topic:not(.tamper-last-voice)' ).length;
@@ -366,37 +365,37 @@ jQuery(document).ready(function( $ ) {
 
 		// All
 		$( '#tec-all' ).click( function() {
-			$( '.topic' ).slideDown();
+			$( '.topic' ).show();
 		});
 
 		// My Threads
 		$( '#tec-my-pending' ).click( function() {
-			$( '.topic' ).slideDown().not('.tamper-logged-in').slideToggle();
+			$( '.topic' ).show().not('.tamper-logged-in').toggle();
 		});
 
 		// All Pending
 		$( '#tec-all-pending' ).click( function() {
-			$( '.topic' ).slideDown().not( '.topic:not(.tamper-last-voice):not(.tamper-resolved)' ).slideToggle();
+			$( '.topic' ).show().not( '.topic:not(.tamper-last-voice):not(.tamper-resolved)' ).toggle();
 		});
 
 		// Open
 		$( '#tec-open' ).click( function() {
-			$( '.topic' ).slideDown().not( '.tamper-new' ).slideToggle();
+			$( '.topic' ).show().not( '.tamper-new' ).toggle();
 		});
 
 		// Overdue
 		$( '#tec-overdue' ).click( function() {
-			$( '.topic' ).slideDown().not( '.tamper-overdue' ).slideToggle();
+			$( '.topic' ).show().not( '.tamper-overdue' ).toggle();
 		});
 
 		// Inactive
 		$( '#tec-inactive' ).click( function() {
-			$( '.topic' ).slideDown().not( '.tamper-inactive, .tamper-stale' ).slideToggle();
+			$( '.topic' ).show().not( '.tamper-inactive, .tamper-stale' ).toggle();
 		});
 
         // Refresh Threads
         function refreshThreads() {
-			$( '.topic' ).slideDown();
+			$( '.topic' ).show();
         }
     }
 });
