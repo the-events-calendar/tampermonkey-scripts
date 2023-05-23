@@ -179,7 +179,7 @@ jQuery( document ).ready( function( $ ) {
                     x[i].classList.add( 'tamper-last-voice' );
                     
                     // Check if logged in user is the last voice
-                    if ( tecteam[j] == String(document.getElementsByClassName( 'username' )[0].innerHTML) ) {
+                    if ( tecteam[j] == String(document.getElementsByClassName( 'username' )[0].innerHTML) || tecteam[j] == String(document.getElementsByClassName( 'display-name' )[0].innerHTML) ) {
                         x[i].classList.add( 'tamper-logged-in' );
                     }
                     continue;
