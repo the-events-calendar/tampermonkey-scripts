@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      6.1.3
+// @version      6.1.4
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @match        https://ithemeshelp.zendesk.com/agent*
@@ -272,7 +272,11 @@
             163: { name: "B23.borg",          date: "Mar 8",      tec: "6.0.10",    pro: "6.0.9.2",   vev: "1.13.6",   eva: "1.2.0x",   fib: "5.4.3",    ebt: "4.6.13",  eti: "5.5.9.1",    etp: "5.6.8",     cev: "4.10.5",    ctx: "4.8.6",    apm: "4.5.4",  iwp: "1.0.3",  woo: "7.4.1", edd: "3.1.0.6" },
             164: { name: "G23.celery",        date: "Mar 16",     tec: "6.0.10",    pro: "6.0.9.2",   vev: "1.13.6",   eva: "1.2.0",    fib: "5.4.3",    ebt: "4.6.13",  eti: "5.5.9.1",    etp: "5.6.8",     cev: "4.10.5",    ctx: "4.9.0x",   apm: "4.5.4",  iwp: "1.0.3",  woo: "7.5.0", edd: "3.1.1.1" },
             165: { name: "B23.c3po",          date: "Mar 20",     tec: "6.0.11x",   pro: "6.0.10x",   vev: "1.13.6",   eva: "1.2.0",    fib: "5.4.4x",   ebt: "4.6.13",  eti: "5.5.9.1",    etp: "5.6.8",     cev: "4.10.5",    ctx: "4.9.0",    apm: "4.5.4",  iwp: "1.0.3",  woo: "7.5.0", edd: "3.1.1.2" },
-            166: { name: "G23.daikon",        date: "Mar 20",     tec: "6.0.11",    pro: "6.0.10",    vev: "1.13.6",   eva: "1.2.0",    fib: "5.4.4",    ebt: "4.6.13",  eti: "5.5.10x",    etp: "5.6.9x",    cev: "4.10.6x",   ctx: "4.9.1x",   apm: "4.5.4",  iwp: "1.0.3",  woo: "7.5.0", edd: "3.1.1.2" },
+            166: { name: "G23.daikon",        date: "Apr 4",      tec: "6.0.11",    pro: "6.0.10",    vev: "1.13.6",   eva: "1.2.0",    fib: "5.4.4",    ebt: "4.6.13",  eti: "5.5.10x",    etp: "5.6.9x",    cev: "4.10.6x",   ctx: "4.9.1x",   apm: "4.5.4",  iwp: "1.0.3",  woo: "7.5.1", edd: "3.1.1.3" },
+            167: { name: "B23.data  ",        date: "Apr 10",     tec: "6.0.12x",   pro: "6.0.11x",   vev: "1.13.6",   eva: "1.2.0",    fib: "5.4.4",    ebt: "4.6.13",  eti: "5.5.10",     etp: "5.6.9",     cev: "4.10.6",    ctx: "4.9.1",    apm: "4.5.4",  iwp: "1.0.3",  woo: "7.5.1", edd: "3.1.1.3" },
+            168: { name: "G23.edamame",       date: "May 4",      tec: "6.0.12",    pro: "6.0.11",    vev: "1.13.6",   eva: "1.2.0",    fib: "5.4.4",    ebt: "4.6.13",  eti: "5.5.11.1x",  etp: "5.6.10x",   cev: "4.10.7x",   ctx: "4.9.2x",   apm: "4.5.4",  iwp: "1.0.3",  woo: "7.6.1", edd: "3.1.1.4.2" },
+            169: { name: "B23.ed290",         date: "May 8",      tec: "6.0.13.1x", pro: "6.0.12.1x", vev: "1.13.6",   eva: "1.2.0",    fib: "5.4.4",    ebt: "4.6.13",  eti: "5.5.11.1",   etp: "5.6.10",    cev: "4.10.7",    ctx: "4.9.2",    apm: "4.5.4",  iwp: "1.0.3",  woo: "7.7.0", edd: "3.1.1.4.2" },
+            170: { name: "B23.franky",        date: "May 11",     tec: "6.0.13.1",  pro: "6.0.12.1",  vev: "1.13.6",   eva: "1.3.0x",   fib: "5.4.4",    ebt: "4.6.13",  eti: "5.5.11.1",   etp: "5.6.10",    cev: "4.10.7",    ctx: "4.9.2",    apm: "4.5.4",  iwp: "1.0.3",  woo: "7.7.0", edd: "3.1.1.4.2" },
         };
 
         // The number of releases (the length of the object)
@@ -563,6 +567,9 @@ console.log(pluginNames);
 
     /**
      * === Changelog ===
+     * 6.1.4 - 2023-06-05
+     * Added new plugin versions (167-170).
+     *
      * 6.1.3 - 2023-04-03
      * Added new plugin versions (162-166).
      *
