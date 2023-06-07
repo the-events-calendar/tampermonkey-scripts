@@ -177,9 +177,12 @@ jQuery( document ).ready( function( $ ) {
                     // x[i].style.backgroundColor = lastVoiceColor;
                     // x[i].style.borderRight = "4px solid " + lastVoiceColor;
                     x[i].classList.add( 'tamper-last-voice' );
+                    // There are new users that did not complete the registration and name, showing a bug that username is not avaiable and using display name
+                    var username = document.getElementsByClassName( 'username' ).length > 0 ? document.getElementsByClassName( 'username' )[0].innerHTML : null;
+                    var display_name = document.getElementsByClassName( 'display-name' ).length > 0 ? document.getElementsByClassName( 'display-name' )[0].innerHTML : null;
                     
                     // Check if logged in user is the last voice
-                    if ( tecteam[j] == String(document.getElementsByClassName( 'username' )[0].innerHTML) || tecteam[j] == String(document.getElementsByClassName( 'display-name' )[0].innerHTML) ) {
+                    if ( tecteam[j] == username || tecteam[j] == display_name ) {
                         x[i].classList.add( 'tamper-logged-in' );
                     }
                     continue;
