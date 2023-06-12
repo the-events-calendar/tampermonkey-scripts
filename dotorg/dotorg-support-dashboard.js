@@ -30,6 +30,7 @@ var openColor = '#EECB44';
 var overdueColor = '#D63F36';
 var inactiveColor = '#3D54FF';
 
+// Initialize Script
 jQuery( document ).ready( function( $ ) {
     'use strict';
     
@@ -176,9 +177,12 @@ jQuery( document ).ready( function( $ ) {
                     // x[i].style.backgroundColor = lastVoiceColor;
                     // x[i].style.borderRight = "4px solid " + lastVoiceColor;
                     x[i].classList.add( 'tamper-last-voice' );
+                    // There are new users that did not complete the registration and name, showing a bug that username is not avaiable and using display name
+                    var username = document.getElementsByClassName( 'username' ).length > 0 ? document.getElementsByClassName( 'username' )[0].innerHTML : null;
+                    var display_name = document.getElementsByClassName( 'display-name' ).length > 0 ? document.getElementsByClassName( 'display-name' )[0].innerHTML : null;
                     
                     // Check if logged in user is the last voice
-                    if ( tecteam[j] == String(document.getElementsByClassName( 'username' )[0].innerHTML) ) {
+                    if ( tecteam[j] == username || tecteam[j] == display_name ) {
                         x[i].classList.add( 'tamper-logged-in' );
                     }
                     continue;
@@ -233,7 +237,7 @@ jQuery( document ).ready( function( $ ) {
                 const dateParts = dateString.split( ' at ' );
                 const date = dayjs( dateParts[0], 'MMMM D, YYYY' );
                 const isOlder6Months = date.isBefore( dayjs().subtract( 6, 'month' ) );
-                const isOverdue = date.isBefore( dayjs().subtract( 2, 'day' ) );
+                const isOverdue = date.isBefore( dayjs().subtract( 3, 'day' ) );
                 
                 // Highlight Stale
                 if ( isOlder6Months ) {
@@ -325,7 +329,9 @@ jQuery( document ).ready( function( $ ) {
         $( '.tamper-overdue' ).find( '.tamper-label' ).html( 'overdue' ).css({ 'background-color': 'inherit', 'border': '1px solid ' + overdueColor, 'color': overdueColor });
         $( '.tamper-last-voice' ).find( '.tamper-label' ).html( 'answered' ).css({ 'background-color': lastVoiceColor, 'border': '1px solid ' + lastVoiceColor, 'color': '#FFF' });
         $( '.tamper-resolved' ).find( '.tamper-label ').html( 'resolved' ).css({ 'background-color': resolvedColor, 'border': '1px solid ' + resolvedColor, 'color': '#FFF' });
-        $( '.tamper-inactive, .tamper-stale' ).find( '.tamper-label' ).html( 'inactive' ).css({ 'background-color': inactiveColor, 'border': '1px solid ' + inactiveColor, 'color': '#FFF' });
+        $( '.tamper-inactive' ).find( '.tamper-label' ).html( 'inactive' ).css({ 'background-color': inactiveColor, 'border': '1px solid ' + inactiveColor, 'color': '#FFF' });
+        $( '.tamper-stale' ).find( '.tamper-label' ).html( 'stale' ).css({ 'background-color': '#FFF', 'border': '1px solid ' + inactiveColor, 'color': inactiveColor });
+
         
         // Select All Threads
         $( '#tec-select-all' ).on( 'change', ( event ) => {
@@ -346,7 +352,7 @@ jQuery( document ).ready( function( $ ) {
             <div class="bbp-pagination-links" style="width: 110%; justify-content: right;">
                 <a href="#toggle-all" class="support-dashboard-filter-btn page-numbers" id="tec-all">All (${totalOnPageThreads})</a>
                 <a href="#toggle-my-pending" class="support-dashboard-filter-btn page-numbers" id="tec-my-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> My Threads (${totalMyPendingThreads})</a>
-                <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-all-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> All Pending (${totalPendingThreads})</a>
+                <a href="#toggle-all-pending" class="support-dashboard-filter-btn page-numbers" id="tec-all-pending"><span class="support-filter-label" style="background-color:${pendingColor}"></span> Pending (${totalPendingThreads})</a>
                 <a href="#toggle-open" class="support-dashboard-filter-btn page-numbers" id="tec-open"><span class="support-filter-label" style="background-color:${openColor}"></span> Open (${totalOpenThreads})</a>
                 <a href="#toggle-overdue" class="support-dashboard-filter-btn page-numbers" id="tec-overdue"><span class="support-filter-label" style="background-color:${overdueColor}"></span> Overdue (${totalOverdue})</a>
                 <a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-inactive"> Inactive (${totalInactiveStaleThreads})</a>
@@ -402,4 +408,6 @@ jQuery( document ).ready( function( $ ) {
         }
     }
 });
-/** Highlighter End */
+/**
+ * ToDo: Create a feature for canned replies via blocks or a reference link/URL
+ */
