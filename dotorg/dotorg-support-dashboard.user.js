@@ -39,19 +39,19 @@ jQuery( document ).ready( function( $ ) {
 	var x = document.getElementsByClassName( 'type-topic' );
 
 	// Get from resource team.json then covert it to array()
-    var jsonString = GM_getResourceText( 'tecTeam' );
+	var jsonString = GM_getResourceText( 'tecTeam' );
 
-    // Remove single-line comments (//)
-    var jsonTECTeam = jsonString.replace(/\/\/.*$/gm, '');
+	// Remove single-line comments (//)
+	var jsonTECTeam = jsonString.replace(/\/\/.*$/gm, '');
 
-    // Remove multi-line comments (/* ... */)
-    jsonTECTeam = jsonTECTeam.replace(/\/\*[\s\S]*?\*\//g, '');
+	// Remove multi-line comments (/* ... */)
+	jsonTECTeam = jsonTECTeam.replace(/\/\*[\s\S]*?\*\//g, '');
 
-    // Parse the modified JSON data
-    var data = JSON.parse(jsonTECTeam);
+	// Parse the modified JSON data
+	var data = JSON.parse(jsonTECTeam);
 
-    // Access the team array
-    var tecteam = data.team;
+	// Access the team array
+	var tecteam = data.team;
 
 	/** Highlighter */
 	dayjs.extend( window.dayjs_plugin_customParseFormat );
