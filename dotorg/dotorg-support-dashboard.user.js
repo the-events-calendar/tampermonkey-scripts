@@ -16,6 +16,7 @@
 // @require      https://unpkg.com/dayjs@1.8.21/plugin/customParseFormat.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-dashboard.js
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-dashboard.js
+// @resource     tecTeam https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/team.json
 // @grant        GM_getResourceText
 // @grant        GM_openInTab
 // ==/UserScript==
@@ -37,83 +38,20 @@ jQuery( document ).ready( function( $ ) {
 	// Get all lines in an array
 	var x = document.getElementsByClassName( 'type-topic' );
 
-	// TEC team members
-	var tecteam = [
-		'abinders',                     // Aaron Binders                - 2022-06-13 to
-		'abzlevelup',                   // Abz Abdul                    - 2021-07-19
-		'aguseo',                       // Andras Guseo                 - 2016-04-25
-		'alaasalama',                   // Alaa Salama                  - 2018-11-19 to 2020-08-31
-		'allenzamora',                  // Allen Zamora                 - 2021-08-23 to
-		'barryhughes-1',                // Barry Hughes                 - xxxx-xx-xx to 2020-07-31
-		'bordoni',                      // Gustavo Bordoni
-		'brianjessee',                  // Brian Jessee                 - 2014-xx-xx
-		'borkweb',                      // Mattew Batchelder            - 2015-xx-xx
-		'brook-tribe',                  // Brook                        - xxxx-xx-xx to 2017-xx-xx
-		'bskousen3',                    // Brendan Skousen              - 2017-10-23 to 2021
-		'camwynsp',                     // Stephen Page                 - 2018-xx-xx
-		'cheskatec',                    // (Fran)Cheska Aguiluz         - 2022-04-18
-		'chikaibeneme',                 // Chika Ibeneme                - 2020-02-10
-		'cliffpaulick',                 // Clifford Paulick             - 2015 to 2020
-		'cliffseal',                    // Cliff Seal - Pardot
-		'cmccullough1967',              // Chad McCollough              - 2021-08-23
-		'courane01',                    // Courtney Robertson           - 2017-02-22 to 2020
-		'cswebd3v',                     // Chris Swenson                - 2020-09-01 to 2021-12-31
-		'd0153',                        // Darian Baldazotes            - 2022-01-17
-        'dd15061995',                   // Deekshith Dekka              - 2022-xx-xx
-		'deblynprado',                  // Deblyn Prado                 - 2019-04-11
-		'djbramer',                     // Dan Bramer
-		'eeide',                        // Erica Eide                   - 2021-05-24
-		'erishel',                      // Edward Rishel                - 2018-03-12 to 2018-12-31
-		'eugenekyale',                  // Eugene Kyale                 - 2020-09-01
-		'eugenetribe',                  // Eugene Kyale                 - 2020-09-01
-		'geoffbel',                     // Geoffroy 'LeGeoff' Belanger  - 2016-01-20
-		'geoffgraham',                  // Geoff Graham                 - 2014 (?)
-		'ggwicz',                       // George Gecewicz              - xxxx-xx-xx to 2017-xx-xx
-		'greventscalendar',             // Gladys Roldan                - 2022-04-04
-		'gugaalves',                    // Gustavo "Guga" Alves         - 2021-08-23
-		'highprrrr',                    // James Welbes                 - 2021-02-01
-		'iammarta',                     // Marta Kozak                  - 2020-09-01
-		'iirvin',                       // Iris Irvin                   - 2022-06-13
-		'jaimemarchwinski',             // Jaime Marchwinski            - 2017-08-31
-		'jdbeacham',                    // John Beacham                 - 2022-03-08
-		'jeanabarquez',                 // Jean Abarquez                - 2022-03-22
-		'jentheo',                      // Jennifer Theodore            - 2017-05-08
-		'jeremy80',                     // Jeremy Marchandeau           - 2018-03-26 to 2020
-		'joshlevelupsupport2021',       // Joshua Cagasan               - 2021-07-19 to
-		'juanfra',                      // Juan Francisco Aldasoro      -
-		'kevfortec',                    // Kevin Suson                  - 2022-04-18 to
-		'koriashton',                   // Kori Ashton                  - 2020-09-01 to 2020
-		'kutatishh',                    // Kudzai                       -            to 2022-08-18
-		'latoyam1',                     // LaToya Murray                - 2017       to 2022-09-09
-		'leahkoerper',                  // Leah Koerper                 - since forevah
-		'lelandf',                      // Leland Fliegel               - 2021-xx-xx 
-		'lucasbustamante',              // Lucas Bustamante             - 2020-03-30 to 2020
-		'mandraagora',                  // Wolf Bishop                  - 2020-03-04
-		'masoodak',                     // Masood Khan                  - 2020-09-01
-		'matumu',                       // Marho Atumu                  - 2020-09-01 to
-		'mitogh',                       // Crisoforo Hernandez          - 2018 (?) to
-		'neillmcshea',                  // Neill McShae                 - 2015-xx-xx to
-		'nicosantos',                   // Nico Santos                  - 2015-xx-xx to 2019-xx-xx
-		'nikrosales',                   // Nik Rosales                  - 2020-02-24 to 2020-12-31
-		'patriciahillebrandt',          // Patricia Hillebrandt         - 2017-06-09 to 2021-08-15
-		'rafsuntaskin',                 // Rafsun Chowdhury             - 2020-03-30
-		'robelemental',                 // Rob Liy                      - 2021-05-24
-		'sdenike',                      // Shelby DeNike                - 2018-10-08 to 2019-08-31
-		'sdokus',                       // Samantha "Sami" Dokus        - 2022-08-08
-		'shatterdorn1',                 // Truman Dorn                  - 2021-03-01
-		'sjaure',                       // Santiago Jaureguiberry       - 2019-05-26
-		'skyshab',                      // Jason 'Sky' Shabatura        - 2018-01-02
-		'tdorn',                        // Truman Dorn (2)              - 2021-03-01
-		'tecphil',                      // Phil Hodges (Community Mgr)  - 2021-04 to 2021-08
-		'theeventscalendar',            // The Events Calendar          - 2020-12-18
-		'tokyobiyori',                  // Ali Darwich                  - 2018-11-19 to
-		'translationsbymoderntribe',    // Modern Tribe Translations    - 2020-03-30
-		'tribalmike',                   // Mike Cotton                  - 2018-10-11
-		'tribecari',                    // Caroline                     - 2016-05-16 to 2017-12-31
-		'tristan083',                   // Tristan Pepito               - 2022-01-17
-		'vicskf',                       // Victor Zarranz               - 2017-xx-xx
-		'zbtirrell',                    // Zach Tirrell                 - 2015-xx-xx 
-	];
+	// Get from resource team.json then covert it to array()
+    var jsonString = GM_getResourceText( 'tecTeam' );
+
+    // Remove single-line comments (//)
+    var jsonTECTeam = jsonString.replace(/\/\/.*$/gm, '');
+
+    // Remove multi-line comments (/* ... */)
+    jsonTECTeam = jsonTECTeam.replace(/\/\*[\s\S]*?\*\//g, '');
+
+    // Parse the modified JSON data
+    var data = JSON.parse(jsonTECTeam);
+
+    // Access the team array
+    var tecteam = data.team;
 
 	/** Highlighter */
 	dayjs.extend( window.dayjs_plugin_customParseFormat );
@@ -294,10 +232,10 @@ jQuery( document ).ready( function( $ ) {
 
 		if ( bugTicket > 0 ) {
 			$( '.bbp-lead-topic .topic' ).append(`
-            <div class="tamper-bug-ticket" style="background-color: #3D54FF; color: #fff; padding: 4px 12px 4px 10px; right: -1px; top: 10px; border-top-left-radius: 6px; border-bottom-left-radius: 6px; position: absolute;">
-            With Bug Ticket
-            </div>
-            `).css( 'border', '0px solid #3D54FF' );
+			<div class="tamper-bug-ticket" style="background-color: #3D54FF; color: #fff; padding: 4px 12px 4px 10px; right: -1px; top: 10px; border-top-left-radius: 6px; border-bottom-left-radius: 6px; position: absolute;">
+			With Bug Ticket
+			</div>
+			`).css( 'border', '0px solid #3D54FF' );
 		}
 	}
 
@@ -418,5 +356,5 @@ jQuery( document ).ready( function( $ ) {
 /**
  * === To Do ===
  * Create a feature for canned replies via blocks or a reference link/URL.
- * Move the user list to an external file.
+ * Move the user list to an external file. 
  */
