@@ -14,8 +14,8 @@
 // @require      https://code.jquery.com/jquery-3.2.1.min.js
 // @require      https://unpkg.com/dayjs@1.8.21/dayjs.min.js
 // @require      https://unpkg.com/dayjs@1.8.21/plugin/customParseFormat.js
-// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-dashboard.js
-// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-dashboard.js
+// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-dashboard.user.js
+// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-dashboard.user.js
 // @resource     tecTeam https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/team.json
 // @grant        GM_getResourceText
 // @grant        GM_openInTab
