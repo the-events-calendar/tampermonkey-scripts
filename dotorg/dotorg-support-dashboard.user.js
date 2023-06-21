@@ -267,9 +267,9 @@ jQuery( document ).ready( function( $ ) {
 		$( '.tamper-follow-up' ).find( '.tamper-label' ).html( 'open' ).css({ 'background-color': openColor, 'border': '1px solid ' + openColor, 'color': '#FFF' });
 		$( '.tamper-overdue' ).find( '.tamper-label' ).html( 'overdue' ).css({ 'background-color': 'inherit', 'border': '1px solid ' + overdueColor, 'color': overdueColor });
 		$( '.tamper-last-voice' ).find( '.tamper-label' ).html( 'answered' ).css({ 'background-color': lastVoiceColor, 'border': '1px solid ' + lastVoiceColor, 'color': '#FFF' });
-		$( '.tamper-resolved' ).find( '.tamper-label ').html( 'resolved' ).css({ 'background-color': resolvedColor, 'border': '1px solid ' + resolvedColor, 'color': '#FFF' });
 		$( '.tamper-inactive' ).find( '.tamper-label' ).html( 'inactive' ).css({ 'background-color': inactiveColor, 'border': '1px solid ' + inactiveColor, 'color': '#FFF' });
 		$( '.tamper-stale' ).find( '.tamper-label' ).html( 'stale' ).css({ 'background-color': '#FFF', 'border': '1px solid ' + inactiveColor, 'color': inactiveColor });
+		$( '.tamper-resolved' ).find( '.tamper-label ').html( 'resolved' ).css({ 'background-color': resolvedColor, 'border': '1px solid ' + resolvedColor, 'color': '#FFF' });
 
 
 		// Select All Threads
