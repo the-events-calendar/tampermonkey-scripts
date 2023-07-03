@@ -7,7 +7,7 @@
 // @match        https://ithemeshelp.zendesk.com/agent*
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
-// @resource     pluginHistory https://github.com/andrasguseo/tec-pluginversions-json/raw/main/pluginversions-json.js
+// @resource     pluginHistory https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/plugin-versions.json
 // @grant        GM_getResourceText
 // @noframes
 // ==/UserScript==
