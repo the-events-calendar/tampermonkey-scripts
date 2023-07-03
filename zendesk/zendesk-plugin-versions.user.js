@@ -7,7 +7,8 @@
 // @match        https://ithemeshelp.zendesk.com/agent*
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
-// @grant        none
+// @resource     pluginHistory https://github.com/andrasguseo/tec-pluginversions-json/raw/main/pluginversions-json.js
+// @grant        GM_getResourceText
 // @noframes
 // ==/UserScript==
 
@@ -95,7 +96,9 @@
          */
         var j;
 
-
+        // Get from resource team.json then covert it to array()
+        var jsonString = GM_getResourceText( 'pluginHistory' );
+        var pluginHistory = JSON.parse(jsonString);
 
         // The number of releases (the length of the object)
         var rowNumber = Object.keys(pluginHistory).length;
