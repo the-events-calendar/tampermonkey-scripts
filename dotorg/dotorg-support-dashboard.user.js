@@ -250,7 +250,7 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	if ( $( 'body' ).is( '.bbp-view.archive' ) ) {
 		var totalOnPageThreads = $( '.topic' ).length;
-		var totalNonLastVoiceThreads = $( '.topic:not(.tamper-last-voice)' ).length;
+		var totalNonLastVoiceThreads = $( '.topic:not(.tamper-last-voice, .tamper-resolved, .tamper-new)' ).length;
 		var totalMyOpenThreads = $( '.tamper-logged-in' ).length;
 		var totalNewThreads = $( '.tamper-new' ).length;
 		var totalOverdue = $( '.tamper-overdue' ).length;
@@ -258,13 +258,13 @@ jQuery( document ).ready( function( $ ) {
 		var totalOpenThreads = Math.abs( totalNonLastVoiceThreads  );
 
 		// Follow Up
-		$( '.topic:not(.tamper-last-voice, .tamper-new, .tamper-resolved, .tamper-overdue)' ).addClass( 'tamper-follow-up' );
+		$( '.topic:not(.tamper-last-voice, .tamper-new, .tamper-resolved, .tamper-overdue)' ).addClass( 'tamper-open' );
 		// Label Status
 		$( '.tamper-label-container' ).css({ 'margin': '10px 0 5px' });
 		$( '.tamper-label' ).css({ 'background-color': 'none', 'padding': '5px 15px', 'border-radius': '17px', 'text-transform': 'uppercase', 'font-weight': 'bold' });
 		// Label Status Filter
 		$( '.tamper-new' ).find( '.tamper-label' ).html( 'new' ).css({ 'background-color': newColor });
-		$( '.tamper-follow-up' ).find( '.tamper-label' ).html( 'open' ).css({ 'background-color': openColor, 'border': '1px solid ' + openColor, 'color': '#FFF' });
+		$( '.tamper-open' ).find( '.tamper-label' ).html( 'open' ).css({ 'background-color': openColor, 'border': '1px solid ' + openColor, 'color': '#FFF' });
 		$( '.tamper-overdue' ).find( '.tamper-label' ).html( 'overdue' ).css({ 'background-color': 'inherit', 'border': '1px solid ' + overdueColor, 'color': overdueColor });
 		$( '.tamper-last-voice' ).find( '.tamper-label' ).html( 'answered' ).css({ 'background-color': lastVoiceColor, 'border': '1px solid ' + lastVoiceColor, 'color': '#FFF' });
 		$( '.tamper-inactive' ).find( '.tamper-label' ).html( 'inactive' ).css({ 'background-color': inactiveColor, 'border': '1px solid ' + inactiveColor, 'color': '#FFF' });
@@ -323,7 +323,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// All Open
 		$( '#tec-all-open' ).click( function() {
-			$( '.topic' ).show().not( '.topic:not(.tamper-last-voice):not(.tamper-resolved)' ).toggle();
+			$( '.topic' ).show().not( '.topic:not(.tamper-last-voice, .tamper-resolved, .tamper-new)' ).toggle();
 		});
 
 		// New
@@ -356,5 +356,5 @@ jQuery( document ).ready( function( $ ) {
 /**
  * === To Do ===
  * Create a feature for canned replies via blocks or a reference link/URL.
- * Move the user list to an external file. 
+ * Move the user list to an external file.
  */
