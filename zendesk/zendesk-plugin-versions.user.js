@@ -5,6 +5,7 @@
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @match        https://ithemeshelp.zendesk.com/agent*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=zendesk.com
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @resource     pluginHistory https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/plugin-versions.json
@@ -391,6 +392,7 @@ console.log(pluginNames);
      * 6.2.0 - 2023-07-04
      * Moved the plugin versions object to an external file.
      * Added new plugin versions (171-174).
+     * Added Zendesk favicon.
      *
      * 6.1.4 - 2023-06-05
      * Added new plugin versions (167-170).
