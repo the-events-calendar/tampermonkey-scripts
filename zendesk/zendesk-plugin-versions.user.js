@@ -14,13 +14,13 @@
 
 /**
  * When a new release is out then:
- * 1. Update script version number in the header based on the versioning info below
- * 2. Go to the 'pluginHistory' object and make a copy of the last line in the below array
- * 3. Increase the starting number of the row by one
- * 4. Add the release name, date, and plugin version numbers
- * 5a. If it is a new version compared to last release, add 'x' at the end, like '4.6.19x'. Note: Woo and EDD do not get tagged with 'x'
- * 5b. If it is a hotfix, then creating a new line is not needed, just update the version number in the last line (See Event Tickets (eti) in line 12)
- * 6. Create a pull request and ping Andras to check and approve
+ * 1. Update script version number in the header based on the versioning info below.
+ * 2. Go to the 'plugin-versions.js' file and make a copy of the last line.
+ * 3. Increase the starting number of the row by one.
+ * 4. Add the release name, date, and plugin version numbers.
+ * 5a. If it is a new version compared to last release, add 'x' at the end, like '4.6.19x'. Note: Woo and EDD do not get tagged with 'x'.
+ * 5b. If it is a hotfix (4th digit increase), then creating a new line is not needed, just update the version number in the last line (See Event Tickets (eti) in line 12).
+ * 6. Create a pull request and ping Andras or Abz to check and approve.
  *
  * Versioning:
  * First digit:  only changes when year changes. 2 = 2019; 3 = 2020; 4 = 2021; 5 = 2022;
