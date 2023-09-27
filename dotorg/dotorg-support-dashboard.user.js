@@ -63,10 +63,10 @@ jQuery( document ).ready( function( $ ) {
 	/** Highlighter */
 	dayjs.extend( window.dayjs_plugin_customParseFormat );
 
-	/*
-	* The rules here are cascading, later rules will overwrite earlier ones.
-	* This is done to ensure the right priority is applied, as some states are more important than others.
-	*/
+	/**
+	 * The rules here are cascading, later rules will overwrite earlier ones.
+	 * This is done to ensure the right priority is applied, as some states are more important than others.
+	 */
 	var text, $topics, $permalink,
 	icons = {
 		old: '<span class="dashicons dashicons-clock" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Old topic:"></span>',
@@ -171,10 +171,10 @@ jQuery( document ).ready( function( $ ) {
 			}
 
 			/**
-			* Highlight resolved threads.
-			* Resolved topics on the forums already get prepended with a check-mark tick, so we don't
-			* need to add any other indicators our selves.
-			*/
+			 * Highlight resolved threads.
+			 * Resolved topics on the forums already get prepended with a check-mark tick, so we don't
+			 * need to add any other indicators our selves.
+			 */
 			if ( resolved ) {
 				$( this ).find( 'a' ).css( 'color', settings.color.resolved.text );
 			} else {
@@ -204,9 +204,9 @@ jQuery( document ).ready( function( $ ) {
 				}
 
 				/**
-				* Highlight topics that are more than a week old.
-				* Prepends an icon to indicate this topic is getting old.
-				*/
+				 * Highlight topics that are more than a week old.
+				 * Prepends an icon to indicate this topic is getting old.
+				 */
 				if ( freshness.includes( 'week' ) || freshness.includes( 'month' ) || freshness.includes( 'year' ) ) {
 					// $( this ).find( 'a' ).css( 'color', settings.color.old.text );
 					$permalink.find( '.dashicons' ).not( '.wporg-ratings .dashicons' ).remove();
@@ -214,9 +214,9 @@ jQuery( document ).ready( function( $ ) {
 				}
 
 				/**
-				* Highlight topics not yet replied to.
-				* Prepends an icon to indicate this topic has gone unattended.
-				*/
+				 * Highlight topics not yet replied to.
+				 * Prepends an icon to indicate this topic has gone unattended.
+				 */
 				if ( '1' === voicecount ) {
 					// $( this ).find( 'a' ).css( 'color', settings.color.new.text );
 					$( this ).addClass( 'tamper-new' );
@@ -245,14 +245,14 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/**
-	* Status Filter per Page
-	* All
-	* My Threads - Logged in user's threads
-	* All Open - Open threads needed response
-	* New - New and Unassigned
-	* Overdue - Tickets for more than 2 days
-	* Inactive - Stale tickets for 2 weeks
-	*/
+	 * Status Filter per Page
+	 * All
+	 * My Threads - Logged in user's threads
+	 * All Open - Open threads needed response
+	 * New - New and Unassigned
+	 * Overdue - Tickets for more than 2 days
+	 * Inactive - Stale tickets for 2 weeks
+	 */
 	if ( $( 'body' ).is( '.bbp-view.archive' ) ) {
 		var totalOnPageThreads = $( '.topic' ).length;
 		var totalNonLastVoiceThreads = $( '.topic:not(.tamper-last-voice, .tamper-new)' ).length;
@@ -352,16 +352,16 @@ jQuery( document ).ready( function( $ ) {
 	}
 });
 /**
-* === Changelog ===
-* [1.0.0] 2023-06-12
-* Initial release
-* [1.0.1] 2023-09-05
-* Add label for "Resolved" with "Follow Up"
-* Add to "Open" available under "Active Topics"
-* Move the user list to an external file
-*/
+ * === Changelog ===
+ * [1.0.0] 2023-06-12
+ * Initial release
+ * [1.0.1] 2023-09-05
+ * Add label for "Resolved" with "Follow Up"
+ * Add to "Open" available under "Active Topics"
+ * Move the user list to an external file
+ */
 
 /**
-* === To Do ===
-* Create a feature for canned replies via blocks or a reference link/URL.
-*/
+ * === To Do ===
+ * Create a feature for canned replies via blocks or a reference link/URL.
+ */
