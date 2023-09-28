@@ -6,10 +6,16 @@
 // @author       abzdmachinist
 // @match        https://wordpress.org/support/*
 // @match        https://*.wordpress.org/support/*
+// @match        https://wordpress.org/support/plugin/the-events-calendar/*
+// @match        https://wordpress.org/support/plugin/event-tickets/*
+// @match        https://wordpress.org/support/plugin/gigpress/*
+// @match        https://wordpress.org/support/plugin/advanced-post-manager/*
+// @match        https://wordpress.org/support/plugin/image-widget/*
 // @exclude      https://wordpress.org/support/view/pending*
 // @exclude      https://*.wordpress.org/support/view/pending*
 // @exclude      https://wordpress.org/support/view/spam*
 // @exclude      https://*.wordpress.org/support/view/spam*
+// @exclude      https://wordpress.org/support/view/*
 // @require      https://raw.githubusercontent.com/lodash/lodash/4.17.15-npm/lodash.min.js
 // @require      https://code.jquery.com/jquery-3.2.1.min.js
 // @require      https://unpkg.com/dayjs@1.8.21/dayjs.min.js
@@ -25,7 +31,8 @@
 var i, j;
 var lastVoiceColor = '#E58000';
 var resolvedColor = '#379200';
-var closeColor = '#ffe463';
+var resolvedFollowUpColor = '#BE39E3';
+var closeColor = '#FFE463';
 var openColor = '#73BADC';
 var newColor = '#EECB44';
 var overdueColor = '#D63F36';
@@ -56,40 +63,39 @@ jQuery( document ).ready( function( $ ) {
 	/** Highlighter */
 	dayjs.extend( window.dayjs_plugin_customParseFormat );
 
-	/*
-	* The rules here are cascading, later rules will overwrite earlier ones.
-	* This is done to ensure the right priority is applied, as some states are more important than others.
-	*/
-
+	/**
+	 * The rules here are cascading, later rules will overwrite earlier ones.
+	 * This is done to ensure the right priority is applied, as some states are more important than others.
+	 */
 	var text, $topics, $permalink,
-		icons = {
-			old: '<span class="dashicons dashicons-clock" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Old topic:"></span>',
-			oldClosed: '<span class="dashicons dashicons-dismiss" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Old and closed topic:"></span>',
-			unattended: '<span class="dashicons dashicons-warning" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Unattended topic:"></span>',
-			overdue: '<span class="dashicons dashicons-clock" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Overdue:"></span>',
-			lastVoice: '<span class="dashicons dashicons-businessperson" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="User:"></span>',
-		},
-		settings = {
-			color: {
-				resolved: {
-					background: 'inherit',
-					text: 'inherit'
-				},
-				new: {
-					background: 'inherit',
-					text: 'inherit'
-				},
-				old: {
-					background: 'inherit',
-					text: 'inherit'
-				},
-				oldClosed: {
-					background: 'inherit',
-					text: 'inherit'
-				}
+	icons = {
+		old: '<span class="dashicons dashicons-clock" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Old topic:"></span>',
+		oldClosed: '<span class="dashicons dashicons-dismiss" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Old and closed topic:"></span>',
+		unattended: '<span class="dashicons dashicons-warning" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Unattended topic:"></span>',
+		overdue: '<span class="dashicons dashicons-clock" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="Overdue:"></span>',
+		lastVoice: '<span class="dashicons dashicons-businessperson" style="font-size: 18px;margin-right: 3px;top: 2px; position: relative;" aria-label="User:"></span>',
+	},
+	settings = {
+		color: {
+			resolved: {
+				background: 'inherit',
+				text: 'inherit'
 			},
-			nonPOrT: false // Non-Plugin or Theme highlighting
-		};
+			new: {
+				background: 'inherit',
+				text: 'inherit'
+			},
+			old: {
+				background: 'inherit',
+				text: 'inherit'
+			},
+			oldClosed: {
+				background: 'inherit',
+				text: 'inherit'
+			}
+		},
+		nonPOrT: false // Non-Plugin or Theme highlighting
+	};
 
 	function should_topics_process() {
 		if (settings.nonPOrT) {
@@ -116,6 +122,7 @@ jQuery( document ).ready( function( $ ) {
 					// x[i].style.backgroundColor = lastVoiceColor;
 					// x[i].style.borderRight = "4px solid " + lastVoiceColor;
 					x[i].classList.add( 'tamper-last-voice' );
+
 					// There are new users that did not complete the registration and name, showing a bug that username is not avaiable and using display name
 					var username = document.getElementsByClassName( 'username' ).length > 0 ? document.getElementsByClassName( 'username' )[0].innerHTML : null;
 					var display_name = document.getElementsByClassName( 'display-name' ).length > 0 ? document.getElementsByClassName( 'display-name' )[0].innerHTML : null;
@@ -123,22 +130,21 @@ jQuery( document ).ready( function( $ ) {
 					// Check if logged in user is the last voice
 					if ( tecteam[j] == username || tecteam[j] == display_name ) {
 						x[i].classList.add( 'tamper-logged-in' );
+						continue;
 					}
-					continue;
-				}
-
-				// Check resolved Threads
-				var m = x[i].innerHTML.search( 'class="resolved"' );
-				if( m > 0 ) {
-					x[i].classList.add( 'tamper-resolved' );
-					// If resolved then skip
-					continue;
 				}
 
 				// Inactive threads > 2 weeks
 				var toResolve = x[i].innerHTML.search( /[2-4] (week[s]?)/ );
 				if ( toResolve > 0 ) {
 					x[i].classList.add( 'tamper-inactive' );
+					continue;
+				}
+
+				// Check resolved Threads
+				var m = x[i].innerHTML.search( 'class="resolved"' );
+				if ( m > 0 ) {
+					x[i].classList.add( 'tamper-resolved' );
 					continue;
 				}
 			}
@@ -182,7 +188,7 @@ jQuery( document ).ready( function( $ ) {
 				if ( isOlder6Months ) {
 					$( this ).find( 'a' ).css( 'color', settings.color.oldClosed.text );
 					$( this ).addClass( 'tamper-stale' );
-
+					
 					$permalink.find( '.dashicons' ).not( '.wporg-ratings .dashicons' ).remove();
 					$permalink.prepend( icons.oldClosed );
 					return;
@@ -203,7 +209,6 @@ jQuery( document ).ready( function( $ ) {
 				 */
 				if ( freshness.includes( 'week' ) || freshness.includes( 'month' ) || freshness.includes( 'year' ) ) {
 					// $( this ).find( 'a' ).css( 'color', settings.color.old.text );
-
 					$permalink.find( '.dashicons' ).not( '.wporg-ratings .dashicons' ).remove();
 					$permalink.prepend( icons.old );
 				}
@@ -250,18 +255,17 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	if ( $( 'body' ).is( '.bbp-view.archive' ) ) {
 		var totalOnPageThreads = $( '.topic' ).length;
-		var totalNonLastVoiceThreads = $( '.topic:not(.tamper-last-voice, .tamper-resolved, .tamper-new)' ).length;
+		var totalNonLastVoiceThreads = $( '.topic:not(.tamper-last-voice, .tamper-new)' ).length;
 		var totalMyOpenThreads = $( '.tamper-logged-in' ).length;
 		var totalNewThreads = $( '.tamper-new' ).length;
 		var totalOverdue = $( '.tamper-overdue' ).length;
 		var totalInactiveStaleThreads = $( '.tamper-inactive, .tamper-stale' ).length;
 		var totalOpenThreads = Math.abs( totalNonLastVoiceThreads  );
-
-		// Follow Up
-		$( '.topic:not(.tamper-last-voice, .tamper-new, .tamper-resolved, .tamper-overdue)' ).addClass( 'tamper-open' );
 		// Label Status
 		$( '.tamper-label-container' ).css({ 'margin': '10px 0 5px' });
 		$( '.tamper-label' ).css({ 'background-color': 'none', 'padding': '5px 15px', 'border-radius': '17px', 'text-transform': 'uppercase', 'font-weight': 'bold' });
+		// Follow Up
+		$( '.topic:not(.tamper-last-voice, .tamper-new, .tamper-overdue)' ).addClass( 'tamper-open' );
 		// Label Status Filter
 		$( '.tamper-new' ).find( '.tamper-label' ).html( 'new' ).css({ 'background-color': newColor });
 		$( '.tamper-open' ).find( '.tamper-label' ).html( 'open' ).css({ 'background-color': openColor, 'border': '1px solid ' + openColor, 'color': '#FFF' });
@@ -270,7 +274,7 @@ jQuery( document ).ready( function( $ ) {
 		$( '.tamper-inactive' ).find( '.tamper-label' ).html( 'inactive' ).css({ 'background-color': inactiveColor, 'border': '1px solid ' + inactiveColor, 'color': '#FFF' });
 		$( '.tamper-stale' ).find( '.tamper-label' ).html( 'stale' ).css({ 'background-color': '#FFF', 'border': '1px solid ' + inactiveColor, 'color': inactiveColor });
 		$( '.tamper-resolved' ).find( '.tamper-label ').html( 'resolved' ).css({ 'background-color': resolvedColor, 'border': '1px solid ' + resolvedColor, 'color': '#FFF' });
-
+		$( '.tamper-resolved.tamper-open' ).find( '.tamper-label ').html( 'resolved with follow up' ).css({ 'background-color': resolvedFollowUpColor, 'border': '1px solid ' + resolvedFollowUpColor, 'color': '#FFF' });
 
 		// Select All Threads
 		$( '#tec-select-all' ).on( 'change', ( event ) => {
@@ -287,17 +291,17 @@ jQuery( document ).ready( function( $ ) {
 
 		// Page Status Filter
 		$( '#bbpress-forums .bbp-pagination:first' ).after( `
-        <div class="support-dashboard-filter-status custom-topic-header plugin-support bbp-pagination">
-            <div class="bbp-pagination-links" style="width: 110%; justify-content: right;">
-                <a href="#toggle-all" class="support-dashboard-filter-btn page-numbers" id="tec-all">All (${totalOnPageThreads})</a>
-                <a href="#toggle-my-open" class="support-dashboard-filter-btn page-numbers" id="tec-my-open"><span class="support-filter-label" style="background-color:${openColor}"></span> My Threads (${totalMyOpenThreads})</a>
-                <a href="#toggle-all-open" class="support-dashboard-filter-btn page-numbers" id="tec-all-open"><span class="support-filter-label" style="background-color:${openColor}"></span> Open (${totalOpenThreads})</a>
-                <a href="#toggle-new" class="support-dashboard-filter-btn page-numbers" id="tec-new"><span class="support-filter-label" style="background-color:${newColor}"></span> New (${totalNewThreads})</a>
-                <a href="#toggle-overdue" class="support-dashboard-filter-btn page-numbers" id="tec-overdue"><span class="support-filter-label" style="background-color:${overdueColor}"></span> Overdue (${totalOverdue})</a>
-                <a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-inactive"> Inactive (${totalInactiveStaleThreads})</a>
-            </div>
-        </div>
-        `);
+		<div class="support-dashboard-filter-status custom-topic-header plugin-support bbp-pagination">
+		<div class="bbp-pagination-links" style="width: 110%; justify-content: right;">
+		<a href="#toggle-all" class="support-dashboard-filter-btn page-numbers" id="tec-all">All (${totalOnPageThreads})</a>
+		<a href="#toggle-my-open" class="support-dashboard-filter-btn page-numbers" id="tec-my-open"><span class="support-filter-label" style="background-color:${openColor}"></span> My Threads (${totalMyOpenThreads})</a>
+		<a href="#toggle-all-open" class="support-dashboard-filter-btn page-numbers" id="tec-all-open"><span class="support-filter-label" style="background-color:${openColor}"></span> Open (${totalOpenThreads})</a>
+		<a href="#toggle-new" class="support-dashboard-filter-btn page-numbers" id="tec-new"><span class="support-filter-label" style="background-color:${newColor}"></span> New (${totalNewThreads})</a>
+		<a href="#toggle-overdue" class="support-dashboard-filter-btn page-numbers" id="tec-overdue"><span class="support-filter-label" style="background-color:${overdueColor}"></span> Overdue (${totalOverdue})</a>
+		<a href="#toggle-inactive" class="support-dashboard-filter-btn page-numbers" id="tec-inactive"> Inactive (${totalInactiveStaleThreads})</a>
+		</div>
+		</div>
+		`);
 
 		$( '.support-dashboard-filter-btn' ).click(function () {
 			$( '.support-dashboard-filter-btn' ).removeClass( 'current' );
@@ -323,7 +327,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// All Open
 		$( '#tec-all-open' ).click( function() {
-			$( '.topic' ).show().not( '.topic:not(.tamper-last-voice, .tamper-resolved, .tamper-new)' ).toggle();
+			$( '.topic' ).show().not( '.topic:not(.tamper-last-voice, .tamper-new)' ).toggle();
 		});
 
 		// New
@@ -351,10 +355,13 @@ jQuery( document ).ready( function( $ ) {
  * === Changelog ===
  * [1.0.0] 2023-06-12
  * Initial release
+ * [1.0.1] 2023-09-05
+ * Add label for "Resolved" with "Follow Up"
+ * Add to "Open" available under "Active Topics"
+ * Move the user list to an external file
  */
 
 /**
  * === To Do ===
  * Create a feature for canned replies via blocks or a reference link/URL.
- * Move the user list to an external file.
  */
