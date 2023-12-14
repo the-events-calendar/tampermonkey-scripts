@@ -135,7 +135,7 @@
         //= bluePlugins.length + greenPlugins.length + charcoalPlugins.length + thirdPartyPlugins.length;
         if ( log ) console.log('Number of plugins: ' + numPlugins);
         if ( log ) console.log('Plugins: ' + pluginNames);
-        const tableMinWidth = (numPlugins * 51) + firstColumnWidth + secondColumnWidth + 8;  // 8 = scrollbar width
+        const tableMinWidth = (numPlugins * 51) + firstColumnWidth + secondColumnWidth + 10;  // 10 = scrollbar width
 
         /**
          * Table of the plugin versions
