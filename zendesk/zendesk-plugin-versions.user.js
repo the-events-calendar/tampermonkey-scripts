@@ -106,8 +106,8 @@
 
 
         // Plugin abbreviations
-        const bluePlugins = ['tec', 'pro', 'vev', 'eva', 'fib', 'ebt'];
-        const greenPlugins = ['eti', 'etp', 'cev', 'ctx'];
+        const bluePlugins = ['tec', 'pro', 'vev', 'eva', 'esm', 'fib', 'ebt'];
+        const greenPlugins = ['eti', 'etp', 'wap', 'cev', 'ctx'];
         const charcoalPlugins = ['apm', 'iwp'];
         const thirdPartyPlugins = ['woo', 'edd'];
 
@@ -133,7 +133,8 @@
             pluginNames.push(...thirdPartyPlugins);
         }
         //= bluePlugins.length + greenPlugins.length + charcoalPlugins.length + thirdPartyPlugins.length;
-console.log(pluginNames);
+        if ( log ) console.log('Number of plugins: ' + numPlugins);
+        if ( log ) console.log('Plugins: ' + pluginNames);
         const tableMinWidth = (numPlugins * 51) + firstColumnWidth + secondColumnWidth + 8;  // 8 = scrollbar width
 
         /**
