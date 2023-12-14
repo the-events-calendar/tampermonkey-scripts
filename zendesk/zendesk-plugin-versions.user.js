@@ -8,7 +8,8 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=zendesk.com
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
-// @resource     pluginHistory https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/plugin-versions.json
+// @resource     pluginHistory2 https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/plugin-versions.json
+// @resource     pluginHistory https://github.com/andrasguseo/tec-pluginversions-json/raw/main/pluginversions-json.js
 // @grant        GM_getResourceText
 // @noframes
 // ==/UserScript==
