@@ -199,7 +199,7 @@
                 '<td class="blue"><img src="https://andrasguseo.com/images/new-ecp-icon.svg" title="Events Calendar Pro" alt="Events Calendar Pro icon" /></td>' +
                 '<td class="blue"><img src="https://andrasguseo.com/images/new-ve-icon.svg" title="Virtual Events" alt="The Events Calendar: Virtual Events icon" /></td>' +
                 '<td class="blue"><img src="https://andrasguseo.com/images/EventAutomator-icon.svg" title="Event Automator" alt="The Events Calendar: Event Automator icon" /></td>' +
-                '<td class="blue"><img src="https://andrasguseo.com/images/EventScheduleManager-icon.svg" title="Event Schedule Manager" alt="Event Schedule Manager icon" /></td>' +
+                '<td class="blue"><img src="https://andrasguseo.com/images/event-schedule-manager-icon.svg" title="Event Schedule Manager" alt="Event Schedule Manager icon" /></td>' +
                 '<td class="blue"><img src="https://andrasguseo.com/images/new-fb-icon.svg" title="Filter Bar" alt="The Events Calendar: Filter Bar icon" /></td>' +
                 '<td class="blue last"><img src="https://andrasguseo.com/images/new-eb-icon.svg" title="Eventbrite Tickets" alt="Eventbrite Tickets icon" /></td>';
         }
@@ -207,7 +207,7 @@
             htmlstring +=
                 '<td class="green"><img src="https://andrasguseo.com/images/new-et-icon.svg" title="Event Tickets" alt="Event Tickets icon" /></td>' +
                 '<td class="green"><img src="https://andrasguseo.com/images/new-etp-icon.svg" title="Event Tickets Plus" alt="Event Tickets Plus icon" /></td>' +
-                '<td class="green"><img src="https://andrasguseo.com/images/new-wap-icon.svg" title="Wallet Plus" alt="Wallet Plus icon" /></td>' +
+                '<td class="green"><img src="https://andrasguseo.com/images/wallet-plus-icon.svg" title="Wallet Plus" alt="Wallet Plus icon" /></td>' +
                 '<td class="green"><img src="https://andrasguseo.com/images/new-ce-icon.svg" title="Community Events" alt="Community Events icon" /></td>' +
                 '<td class="green last" style="padding-top: 7px !important;"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>';
         }
