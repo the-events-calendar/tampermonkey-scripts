@@ -1,15 +1,14 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      6.2.0
+// @version      6.3.0
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @match        https://ithemeshelp.zendesk.com/agent*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=zendesk.com
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
-// @resource     pluginHistory2 https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/plugin-versions.json
-// @resource     pluginHistory https://github.com/andrasguseo/tec-pluginversions-json/raw/main/pluginversions-json.js
+// @resource     pluginHistory https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/plugin-versions.json
 // @grant        GM_getResourceText
 // @noframes
 // ==/UserScript==
@@ -393,6 +392,11 @@
 
     /**
      * === Changelog ===
+     * 6.3.0 - 2023-12-14
+     * Added Event Schedule Manager and Wallet Plus.
+     * Fixed the CSS for the scrollbar width.
+     * Added new plugin versions.
+     *
      * 6.2.0 - 2023-07-04
      * Moved the plugin versions object to an external file.
      * Added new plugin versions (171-174).
