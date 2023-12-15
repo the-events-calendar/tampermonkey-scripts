@@ -162,8 +162,8 @@ jQuery( document ).ready( function( $ ) {
 
 			$topic.find( '.bbp-topic-title .bbp-topic-meta' ).append( `<div class="tamper-label-container"><label class="tamper-label"></label></div>` );
 
-			// Stale Threads Months and Years
-			if ( freshness.search( /(month?|year?)/ ) > 0 || freshness.search( /(days)/ ) > 0 ) {
+			// Stale Threads Months and Years or > 2 Days Stale should be closed
+			if ( freshness.search( /(month?|year?)/ ) > 0 || freshness.search( /(\d{2,}|[3-9]+)\s*days/ ) > 0 ) {
 				if( $( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
 					$( this ).addClass( 'tamper-stale' );
 					$permalink.prepend( icons.overdue );
