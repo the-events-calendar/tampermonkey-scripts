@@ -163,7 +163,7 @@ jQuery( document ).ready( function( $ ) {
 			$topic.find( '.bbp-topic-title .bbp-topic-meta' ).append( `<div class="tamper-label-container"><label class="tamper-label"></label></div>` );
 
 			// Stale Threads Months and Years
-			if ( freshness.search( /(month?|year?)/ ) > 0 ) {
+			if ( freshness.search( /(month?|year?)/ ) > 0 || freshness.search( /(days)/ ) > 0 ) {
 				if( $( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
 					$( this ).addClass( 'tamper-stale' );
 					$permalink.prepend( icons.overdue );
@@ -188,7 +188,7 @@ jQuery( document ).ready( function( $ ) {
 				if ( isOlder6Months ) {
 					$( this ).find( 'a' ).css( 'color', settings.color.oldClosed.text );
 					$( this ).addClass( 'tamper-stale' );
-					
+
 					$permalink.find( '.dashicons' ).not( '.wporg-ratings .dashicons' ).remove();
 					$permalink.prepend( icons.oldClosed );
 					return;
