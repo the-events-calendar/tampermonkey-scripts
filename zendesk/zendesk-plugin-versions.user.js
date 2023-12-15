@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      6.2.0
+// @version      6.3.0
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @match        https://ithemeshelp.zendesk.com/agent*
@@ -106,8 +106,8 @@
 
 
         // Plugin abbreviations
-        const bluePlugins = ['tec', 'pro', 'vev', 'eva', 'fib', 'ebt'];
-        const greenPlugins = ['eti', 'etp', 'cev', 'ctx'];
+        const bluePlugins = ['tec', 'pro', 'vev', 'eva', 'esm', 'fib', 'ebt'];
+        const greenPlugins = ['eti', 'etp', 'wap', 'cev', 'ctx'];
         const charcoalPlugins = ['apm', 'iwp'];
         const thirdPartyPlugins = ['woo', 'edd'];
 
@@ -133,8 +133,9 @@
             pluginNames.push(...thirdPartyPlugins);
         }
         //= bluePlugins.length + greenPlugins.length + charcoalPlugins.length + thirdPartyPlugins.length;
-console.log(pluginNames);
-        const tableMinWidth = (numPlugins * 51) + firstColumnWidth + secondColumnWidth + 8;  // 8 = scrollbar width
+        if ( log ) console.log('Number of plugins: ' + numPlugins);
+        if ( log ) console.log('Plugins: ' + pluginNames);
+        const tableMinWidth = (numPlugins * 51) + firstColumnWidth + secondColumnWidth + 10;  // 10 = scrollbar width
 
         /**
          * Table of the plugin versions
@@ -198,6 +199,7 @@ console.log(pluginNames);
                 '<td class="blue"><img src="https://andrasguseo.com/images/new-ecp-icon.svg" title="Events Calendar Pro" alt="Events Calendar Pro icon" /></td>' +
                 '<td class="blue"><img src="https://andrasguseo.com/images/new-ve-icon.svg" title="Virtual Events" alt="The Events Calendar: Virtual Events icon" /></td>' +
                 '<td class="blue"><img src="https://andrasguseo.com/images/EventAutomator-icon.svg" title="Event Automator" alt="The Events Calendar: Event Automator icon" /></td>' +
+                '<td class="blue"><img src="https://andrasguseo.com/images/event-schedule-manager-icon.svg" title="Event Schedule Manager" alt="Event Schedule Manager icon" /></td>' +
                 '<td class="blue"><img src="https://andrasguseo.com/images/new-fb-icon.svg" title="Filter Bar" alt="The Events Calendar: Filter Bar icon" /></td>' +
                 '<td class="blue last"><img src="https://andrasguseo.com/images/new-eb-icon.svg" title="Eventbrite Tickets" alt="Eventbrite Tickets icon" /></td>';
         }
@@ -205,6 +207,7 @@ console.log(pluginNames);
             htmlstring +=
                 '<td class="green"><img src="https://andrasguseo.com/images/new-et-icon.svg" title="Event Tickets" alt="Event Tickets icon" /></td>' +
                 '<td class="green"><img src="https://andrasguseo.com/images/new-etp-icon.svg" title="Event Tickets Plus" alt="Event Tickets Plus icon" /></td>' +
+                '<td class="green"><img src="https://andrasguseo.com/images/wallet-plus-icon.svg" title="Wallet Plus" alt="Wallet Plus icon" /></td>' +
                 '<td class="green"><img src="https://andrasguseo.com/images/new-ce-icon.svg" title="Community Events" alt="Community Events icon" /></td>' +
                 '<td class="green last" style="padding-top: 7px !important;"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>';
         }
@@ -389,6 +392,11 @@ console.log(pluginNames);
 
     /**
      * === Changelog ===
+     * 6.3.0 - 2023-12-14
+     * Added Event Schedule Manager and Wallet Plus.
+     * Fixed the CSS for the scrollbar width.
+     * Added new plugin versions.
+     *
      * 6.2.0 - 2023-07-04
      * Moved the plugin versions object to an external file.
      * Added new plugin versions (171-174).
