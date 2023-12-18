@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TEC: WordPress.org Support Dashboard
 // @namespace    https://theeventscalendar.com/
-// @version      1.0.0
+// @version      1.0.2
 // @description  Support Dashboard Script
 // @author       abzdmachinist
 // @match        https://wordpress.org/support/*
@@ -359,6 +359,8 @@ jQuery( document ).ready( function( $ ) {
  * Add label for "Resolved" with "Follow Up"
  * Add to "Open" available under "Active Topics"
  * Move the user list to an external file
+ * [1.0.2] 2023-12-15
+ * Add > 2 days stale condition (regex) for "Inactive" Topics
  */
 
 /**
