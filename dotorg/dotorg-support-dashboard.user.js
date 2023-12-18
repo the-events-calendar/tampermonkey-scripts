@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TEC: WordPress.org Support Dashboard
 // @namespace    https://theeventscalendar.com/
-// @version      1.0.0
+// @version      1.0.2
 // @description  Support Dashboard Script
 // @author       abzdmachinist
 // @match        https://wordpress.org/support/*
@@ -162,8 +162,8 @@ jQuery( document ).ready( function( $ ) {
 
 			$topic.find( '.bbp-topic-title .bbp-topic-meta' ).append( `<div class="tamper-label-container"><label class="tamper-label"></label></div>` );
 
-			// Stale Threads Months and Years
-			if ( freshness.search( /(month?|year?)/ ) > 0 ) {
+			// Stale Threads Months and Years or > 2 Days Stale should be closed
+			if ( freshness.search( /(month?|year?)/ ) > 0 || freshness.search( /(\d{2,}|[3-9]+)\s*days/ ) > 0 ) {
 				if( $( '#bbp-topic-' + id ).hasClass( 'tamper-last-voice' ) ) {
 					$( this ).addClass( 'tamper-stale' );
 					$permalink.prepend( icons.overdue );
@@ -188,7 +188,7 @@ jQuery( document ).ready( function( $ ) {
 				if ( isOlder6Months ) {
 					$( this ).find( 'a' ).css( 'color', settings.color.oldClosed.text );
 					$( this ).addClass( 'tamper-stale' );
-					
+
 					$permalink.find( '.dashicons' ).not( '.wporg-ratings .dashicons' ).remove();
 					$permalink.prepend( icons.oldClosed );
 					return;
@@ -359,6 +359,8 @@ jQuery( document ).ready( function( $ ) {
  * Add label for "Resolved" with "Follow Up"
  * Add to "Open" available under "Active Topics"
  * Move the user list to an external file
+ * [1.0.2] 2023-12-15
+ * Add > 2 days stale condition (regex) for "Inactive" Topics
  */
 
 /**
