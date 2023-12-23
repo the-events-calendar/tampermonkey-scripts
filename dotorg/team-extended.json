@@ -1,4 +1,5 @@
 {
+    "team": [
     {
         "username": "abinders",
         "name": "Aaron Binders",
@@ -420,4 +421,5 @@
         "name": "Zach Tirrell",
         "start_date": "2015-xx-xx"
     }
+    ]
 }
