@@ -8,12 +8,14 @@
     {
         "username": "abzlevelup",
         "name": "Abz 'Dmachinist'",
-        "start_date": "2021-07-19"
+        "start_date": "2021-07-19",
+        "active": "1"
     },
     {
         "username": "aguseo",
         "name": "Andras Guseo",
-        "start_date": "2016-04-25"
+        "start_date": "2016-04-25",
+        "active": "1"
     },
     {
         "username": "alaasalama",
