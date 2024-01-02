@@ -16,8 +16,8 @@
 // @require      https://unpkg.com/dayjs@1.8.21/dayjs.min.js
 // @require      https://unpkg.com/dayjs@1.8.21/plugin/customParseFormat.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js
-// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-dashboard.user.js
-// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-dashboard.user.js
+// @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-capacity-report-collector.user.js
+// @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-capacity-report-collector.user.js
 // @resource     tecTeam https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/team.json
 // @grant        GM_getResourceText
 // @grant        GM_openInTab
@@ -100,3 +100,9 @@
         }
     };
 })();
+
+/**
+* === Changelog ===
+* [1.0.0] 2024-01-02
+* Fixes: Update and Download URL
+*/
