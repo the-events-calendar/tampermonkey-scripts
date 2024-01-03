@@ -2,11 +2,11 @@
 // @name         TEC: WordPress.org Reply Count
 // @namespace    http://tampermonkey.net/
 // @version      1.0.0
-// @description  try to take over the world!
+// @description  Count replies of TEC team members on the .org forums.
 // @author       You
 // @match        https://profiles.wordpress.org/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=wordpress.org
-// @resource     tecTeam https://raw.githubusercontent.com/the-events-calendar/tampermonkey-scripts/dotorg-team-extended-json/dotorg/team-extended.json
+// @resource     tecTeam https://raw.githubusercontent.com/the-events-calendar/tampermonkey-scripts/main/dotorg/team-extended.json
 // @grant        GM_getResourceText
 // @grant        GM_openInTab
 // ==/UserScript==
