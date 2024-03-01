@@ -160,12 +160,14 @@
         {
             "username": "eugenekyale",
             "name": "Eugene Kyale",
-            "start_date": "2020-09-01"
+            "start_date": "2020-09-01",
+            "end_date": "2024-02-29"
         },
         {
             "username": "eugenetribe",
             "name": "Eugene Kyale",
-            "start_date": "2020-09-01"
+            "start_date": "2020-09-01",
+            "end_date": "2024-02-29"
         },
         {
             "username": "frankremmy",
@@ -238,7 +240,8 @@
         {
             "username": "jeffr0",
             "name": "Jeff Chandler",
-            "start_date": "2023-06-03"
+            "start_date": "2023-06-03",
+            "end_date": "2024-02-23"
         },
         {
             "username": "jentheo",
@@ -329,8 +332,8 @@
         {
             "username": "mitogh",
             "name": "Crisoforo Hernandez",
-            "start_date": "2018",
-            "end_date": "xx-xx"
+            "start_date": "2018-xx-xx",
+            "end_date": "xxxx-xx-xx"
         },
         {
             "username": "neillmcshea",
@@ -340,7 +343,7 @@
         {
             "username": "nicosantos",
             "name": "Nico Santos",
-            "start_date": "2015",
+            "start_date": "2015-xx-xx",
             "end_date": "2020-02-29"
         },
         {
