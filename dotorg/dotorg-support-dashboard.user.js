@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name         TEC: WordPress.org Support Dashboard
 // @namespace    https://theeventscalendar.com/
-// @version      1.0.2
+// @version      1.0.3
 // @description  Support Dashboard Script
 // @author       abzdmachinist
 // @match        https://wordpress.org/support/*
 // @match        https://*.wordpress.org/support/*
 // @match        https://wordpress.org/support/plugin/the-events-calendar/*
 // @match        https://wordpress.org/support/plugin/event-tickets/*
+// @match        https://wordpress.org/support/plugin/the-events-calendar-category-colors/*
+// @match        https://wordpress.org/support/plugin/bookit/*
 // @match        https://wordpress.org/support/plugin/gigpress/*
 // @match        https://wordpress.org/support/plugin/advanced-post-manager/*
 // @match        https://wordpress.org/support/plugin/image-widget/*
@@ -22,7 +24,7 @@
 // @require      https://unpkg.com/dayjs@1.8.21/plugin/customParseFormat.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-dashboard.user.js
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/dotorg-support-dashboard.user.js
-// @resource     tecTeam https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/team.json
+// @resource     tecTeam https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/dotorg/team-extended.json
 // @grant        GM_getResourceText
 // @grant        GM_openInTab
 // ==/UserScript==
@@ -48,14 +50,12 @@ jQuery( document ).ready( function( $ ) {
 	// Get from resource team.json then covert it to array()
 	var jsonString = GM_getResourceText( 'tecTeam' );
 
-	// Remove single-line comments (//)
-	var jsonTECTeam = jsonString.replace(/\/\/.*$/gm, '');
-
-	// Remove multi-line comments (/* ... */)
-	jsonTECTeam = jsonTECTeam.replace(/\/\*[\s\S]*?\*\//g, '');
-
 	// Parse the modified JSON data
-	var data = JSON.parse(jsonTECTeam);
+	var data = JSON.parse(jsonString);
+
+	// Get Active Users only
+    const activeUsers = data.team.filter( user => user.active === "1" );
+    activeUsers.sort(( a, b ) => a.name.localeCompare( b.name ));
 
 	// Access the team array
 	var tecteam = data.team;
@@ -117,7 +117,7 @@ jQuery( document ).ready( function( $ ) {
 			for( j = 0; j < tecteam.length; j++ ) {
 
 				// If not resolved, check if tha last voice is a team member
-				var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j] + '/"' );
+				var n = x[i].innerHTML.search( 'href="https://wordpress.org/support/users/' + tecteam[j].username + '/"' );
 				if ( n > 0 ) {
 					// x[i].style.backgroundColor = lastVoiceColor;
 					// x[i].style.borderRight = "4px solid " + lastVoiceColor;
@@ -128,7 +128,7 @@ jQuery( document ).ready( function( $ ) {
 					var display_name = document.getElementsByClassName( 'display-name' ).length > 0 ? document.getElementsByClassName( 'display-name' )[0].innerHTML : null;
 
 					// Check if logged in user is the last voice
-					if ( tecteam[j] == username || tecteam[j] == display_name ) {
+					if ( tecteam[j].username == username || tecteam[j].name == display_name ) {
 						x[i].classList.add( 'tamper-logged-in' );
 						continue;
 					}
@@ -270,11 +270,11 @@ jQuery( document ).ready( function( $ ) {
 		$( '.tamper-new' ).find( '.tamper-label' ).html( 'new' ).css({ 'background-color': newColor });
 		$( '.tamper-open' ).find( '.tamper-label' ).html( 'open' ).css({ 'background-color': openColor, 'border': '1px solid ' + openColor, 'color': '#FFF' });
 		$( '.tamper-overdue' ).find( '.tamper-label' ).html( 'overdue' ).css({ 'background-color': 'inherit', 'border': '1px solid ' + overdueColor, 'color': overdueColor });
-		$( '.tamper-last-voice' ).find( '.tamper-label' ).html( 'answered' ).css({ 'background-color': lastVoiceColor, 'border': '1px solid ' + lastVoiceColor, 'color': '#FFF' });
 		$( '.tamper-inactive' ).find( '.tamper-label' ).html( 'inactive' ).css({ 'background-color': inactiveColor, 'border': '1px solid ' + inactiveColor, 'color': '#FFF' });
 		$( '.tamper-stale' ).find( '.tamper-label' ).html( 'stale' ).css({ 'background-color': '#FFF', 'border': '1px solid ' + inactiveColor, 'color': inactiveColor });
 		$( '.tamper-resolved' ).find( '.tamper-label ').html( 'resolved' ).css({ 'background-color': resolvedColor, 'border': '1px solid ' + resolvedColor, 'color': '#FFF' });
 		$( '.tamper-resolved.tamper-open' ).find( '.tamper-label ').html( 'resolved with follow up' ).css({ 'background-color': resolvedFollowUpColor, 'border': '1px solid ' + resolvedFollowUpColor, 'color': '#FFF' });
+		$( '.tamper-last-voice ' ).find( '.tamper-label' ).html( 'answered' ).css({ 'background-color': lastVoiceColor, 'border': '1px solid ' + lastVoiceColor, 'color': '#FFF' });
 
 		// Select All Threads
 		$( '#tec-select-all' ).on( 'change', ( event ) => {
@@ -361,6 +361,9 @@ jQuery( document ).ready( function( $ ) {
  * Move the user list to an external file
  * [1.0.2] 2023-12-15
  * Add > 2 days stale condition (regex) for "Inactive" Topics
+ * [1.0.3] 2024-04-23
+ * Add reference to Category Colors and Bookit
+ * User.json reference Update — team-extended.json
  */
 
 /**
