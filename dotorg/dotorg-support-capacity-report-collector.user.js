@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TEC: .org Weekly Support Capacity Tracking Threads and Reviews
 // @namespace    https://theeventscalendar.com/
-// @version      1.0.0
+// @version      1.0.1
 // @description  Analyzes the weekly count of tickets for a WordPress.org plugin support forum and adds labels for new reviews and threads
 // @author       abzdmachinist
 // @match        https://wordpress.org/support/*
@@ -29,13 +29,15 @@
     // Function to calculate the weekly ticket count
     function thread_weekly_count() {
         var ticketElements = document.querySelectorAll('.topic');
-        $( '.site-main' ).prepend( '<table class="support-capacity-threads" border="1" style="font-size:12px;"><tr><td style="padding: 5px;"><b>ID</b></td><td style="padding: 5px;"><b>threadStatus</b></td><td style="padding: 5px;"><b>Date</b></td><td style="padding: 5px;"><b>Week</b></td><td style="padding: 5px;"><b>URL</b></td></tr></table>' );
+        $( '.site-main' ).prepend( '<table class="support-capacity-threads" border="1" style="font-size:12px;"><tr><td style="padding: 5px;"><b>ID</b></td><td style="padding: 5px;"><b>threadStatus</b></td><td style="padding: 5px;"><b>Date</b></td><td style="padding: 5px;"><b>Week</b></td><td style="padding: 5px;"><b>URL</b></td><td style="padding: 5px;"><b>Author</b><td style="padding: 5px;"><b>Last Reply</b></td></tr></table>' );
 
         for ( var i = 0; i < ticketElements.length; i++ ) {
             var threadDate = ticketElements[i].querySelector( '.bbp-topic-freshness a' ).title;
             var threadStatus = ticketElements[i].querySelector( '.bbp-topic-title .bbp-topic-meta .tamper-label-container label.tamper-label' ).innerText;
             var threadID = ticketElements[i].id.replace( /^bbp-topic-/ , "");
             var threadURL = ticketElements[i].querySelector( '.bbp-topic-permalink' ).href;
+            var threadAuthor = ticketElements[i].querySelector( '.bbp-author-name' ).innerText;
+            var threadLastReply = ticketElements[i].querySelector( '.bbp-topic-freshness-author .bbp-author-name' ).innerText;
             var messageLog = '#' + threadID + ' ' + threadStatus.toLowerCase()  + ' — ' + threadDate + ' / Week #' + convert_to_week_number(threadDate.replace(/\sat\s\d{1,2}:\d{2}\s(AM|PM)$/i, "")) + ' ' + threadURL;
 
             var htmlLog = `<tr>
@@ -44,6 +46,8 @@
                 <td style="padding: 5px;"> ${threadDate} </td>
                 <td style="padding: 5px;"> ${convert_to_week_number(threadDate.replace(/\sat\s\d{1,2}:\d{2}\s(AM|PM)$/i, ""))} </td>
                 <td style="padding: 5px; width: 50px;"> ${threadURL} </td>
+                <td style="padding: 5px; width: 50px;"> ${threadAuthor} </td>
+                <td style="padding: 5px; width: 50px;"> ${threadLastReply} </td>
             </tr>`;
 
             $( '.support-capacity-threads' ).append(htmlLog);
@@ -53,7 +57,7 @@
 
     function reviews_weekly_count() {
         var ticketElements = document.querySelectorAll('.topic');
-        $( '.site-main' ).prepend( '<table class="support-capacity-reviews" border="1" style="font-size:12px;"><tr><td style="padding: 5px;"><b>ID</b></td><td style="padding: 5px;"><b>threadStatus</b></td><td style="padding: 5px;"><b>Date</b></td><td style="padding: 5px;"><b>Week</b></td><td style="padding: 5px;"><b>Review</b></td><td style="padding: 5px;"><b>Stars</b></td><td style="padding: 5px;"><b>URL</b></td></tr></table>' );
+        $( '.site-main' ).prepend( '<table class="support-capacity-reviews" border="1" style="font-size:12px;"><tr><td style="padding: 5px;"><b>ID</b></td><td style="padding: 5px;"><b>Status</b></td><td style="padding: 5px;"><b>Date</b></td><td style="padding: 5px;"><b>Week</b></td><td style="padding: 5px;"><b>Review</b></td><td style="padding: 5px;"><b>Stars</b></td><td style="padding: 5px;"><b>URL</b></td><td style="padding: 5px;"><b>Author</b><td style="padding: 5px;"><b>Last Reply</b></td></tr></table>' );
 
         for ( var i = 0; i < ticketElements.length; i++ ) {
             var threadDate = ticketElements[i].querySelector( '.bbp-topic-freshness a' ).title;
@@ -61,6 +65,9 @@
             var threadID = ticketElements[i].id.replace( /^bbp-topic-/ , "");
             var threadURL = ticketElements[i].querySelector( '.bbp-topic-permalink' ).href;
             var threadReview = ticketElements[i].querySelector( '.bbp-topic-title a' ).innerText;
+            var threadAuthor = ticketElements[i].querySelector( '.bbp-author-name' ).innerText;
+            var threadLastReply = ticketElements[i].querySelector( '.bbp-topic-freshness-author .bbp-author-name' ).innerText;
+
             var threadStars = ticketElements[i].querySelector( '.wporg-ratings' ).title;
             var messageLog = '#' + threadID + ' ' + threadStatus.toLowerCase()  + ' — ' + threadDate + ' / Week #' + convert_to_week_number(threadDate.replace(/\sat\s\d{1,2}:\d{2}\s(AM|PM)$/i, "")) + ' ' + threadURL;
 
@@ -72,6 +79,8 @@
                 <td style="padding: 5px;"> ${threadReview} </td>
                 <td style="padding: 5px;"> ${threadStars.replace(/\sout\s+of\s+5\s+stars$/i, "")} </td>
                 <td style="padding: 5px; width: 50px;"> ${threadURL} </td>
+                <td style="padding: 5px; width: 50px;"> ${threadAuthor} </td>
+                <td style="padding: 5px; width: 50px;"> ${threadLastReply} </td>
                 </tr>`;
 
             $( '.support-capacity-reviews' ).append( htmlLog );
@@ -105,4 +114,6 @@
 * === Changelog ===
 * [1.0.0] 2024-01-02
 * Fixes: Update and Download URL
+* [1.0.1] 2024-04-23
+* Updates: Last Replies + Author
 */
