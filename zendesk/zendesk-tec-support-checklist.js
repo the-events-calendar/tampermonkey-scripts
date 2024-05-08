@@ -72,6 +72,7 @@
 		}
 	}
 
+
 	// Style the sticky note
 	GM_addStyle( `
     #sticky-note {
@@ -82,7 +83,7 @@
         background-color: #9FA392;
         color: #efebe9;
         padding: 10px;
-        z-index: 9999;
+        z-index: 9;
         overflow-y: scroll;
         transition: top 1s ease;
         border-radius: 6px;
@@ -132,5 +133,4 @@
 
 	// Add event listener for toggling action
 	document.getElementById( 'tec-list-hider' ).addEventListener( 'click', toggleSticky );
-
 } )();
