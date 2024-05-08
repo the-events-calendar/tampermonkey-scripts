@@ -4,7 +4,7 @@
 // @version      1.0.0
 // @description  Adds a sticky note to the bottom of the page with the support workflow as a checklist
 // @author       Sam Dokus
-// @match        https://ithemeshelp.zendesk.com/agent*
+// @match        https://ithemeshelp.zendesk.com/agent/tickets*
 // @grant        GM_addStyle
 // ==/UserScript==
 
