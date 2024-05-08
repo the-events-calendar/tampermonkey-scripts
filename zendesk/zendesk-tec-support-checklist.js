@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TEC Support Checklist
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.0.0
 // @description  Adds a sticky note to the bottom of the page with the support workflow as a checklist
 // @author       Sam Dokus
 // @match        https://ithemeshelp.zendesk.com/agent*
