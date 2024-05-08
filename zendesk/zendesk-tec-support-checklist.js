@@ -17,10 +17,10 @@
 
 	// Template for the sticky note content
 	const stickyNoteContent = `
-        <div id="content">
+        <div id="tec-list-content">
             <h3>Support Checklist</h3>
         </div>
-        <div class="hider-cell" id="hider">⚡️ Hide ⚡️</div>
+        <div class="hider-cell" id="tec-list-hider">⚡️ Hide ⚡️</div>
     `;
 
 	// Set innerHTML using template
@@ -57,8 +57,8 @@
 
 	// Action to hide/show sticky note
 	function toggleSticky() {
-		const contentDiv = document.getElementById( 'content' );
-		const hiderButton = document.getElementById( 'hider' );
+		const contentDiv = document.getElementById( 'tec-list-content' );
+		const hiderButton = document.getElementById( 'tec-list-hider' );
 		if ( ! isHidden ) {
 			// The note is visible, switch it to hidden
 			contentDiv.classList.add( 'hidden' );
@@ -109,7 +109,7 @@
         color: #efebe9;
     }
 
-    #hider {
+    #tec-list-hider {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -127,10 +127,10 @@
 	document.body.appendChild( stickyNote );
 
 	// Add the checklist to the sticky note
-	document.getElementById( 'content' ).appendChild( checklist );
+	document.getElementById( 'tec-list-content' ).appendChild( checklist );
 	toggleSticky();
 
 	// Add event listener for toggling action
-	document.getElementById( 'hider' ).addEventListener( 'click', toggleSticky );
+	document.getElementById( 'tec-list-hider' ).addEventListener( 'click', toggleSticky );
 
 } )();
