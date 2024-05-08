@@ -109,7 +109,7 @@
         color: #efebe9;
     }
 
-    .hider-cell {
+    #hider {
         position: absolute;
         bottom: 0;
         left: 0;
