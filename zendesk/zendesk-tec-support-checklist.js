@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Zendesk: TEC Support Checklist
+// @name         TEC Zendesk - Support Workflow Checklist
 // @namespace    http://tampermonkey.net/
 // @version      1.0.0
 // @description  Adds a sticky note to the bottom of the page with the support workflow as a checklist
