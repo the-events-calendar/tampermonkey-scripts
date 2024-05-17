@@ -27,7 +27,8 @@
         {
             "username": "allenzamora",
             "name": "Allen Zamora",
-            "start_date": "2021-08-23"
+            "start_date": "2021-08-23",
+            "end_date": "xxxx-xx-xx"
         },
         {
             "username": "atousanajafi",
@@ -98,7 +99,8 @@
             "username": "cmccullough1967",
             "name": "Chad McCollough",
             "start_date": "2021-08-23",
-            "active": "1"
+            "end_date" : "2024-04-16",
+            "active": "0"
         },
         {
             "username": "courane01",
@@ -178,7 +180,9 @@
         {
             "username": "geoffbel",
             "name": "Geoffroy 'LeGeoff' Belanger",
-            "start_date": "2016-01-20"
+            "start_date": "2016-01-20",
+            "end_date": "2024-04-22",
+            "active": "0"
         },
         {
             "username": "geoffgraham",
@@ -190,7 +194,8 @@
             "username": "ggwicz",
             "name": "George Gecewicz",
             "start_date": "2010-10-01",
-            "end_date_1": "2017-xx-xx"
+            "end_date_1": "2017-xx-xx",
+            "active": "1"
         },
         {
             "username": "greventscalendar",
@@ -269,7 +274,9 @@
         {
             "username": "juanfra",
             "name": "Juan Francisco Aldasoro",
-            "start_date": "2018-04-03"
+            "start_date": "2018-04-03",
+            "end_date": "2024-04-22",
+            "active": "0"
         },
         {
             "username": "kevfortec",
@@ -367,7 +374,8 @@
             "username": "robelemental",
             "name": "Rob Liy",
             "start_date": "2021-05-24",
-            "active": "1"
+            "end_date": "2024-05-16",
+            "active": "0"
         },
         {
             "username": "sammysamp",
@@ -391,7 +399,8 @@
             "username": "shatterdorn1",
             "name": "Truman Dorn",
             "start_date": "2021-03-01",
-            "active": "0"
+            "active": "0",
+            "note": "tdorn is used"
         },
         {
             "username": "sjaure",
