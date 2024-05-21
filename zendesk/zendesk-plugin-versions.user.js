@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      6.3.0
+// @version      6.3.1
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @match        https://ithemeshelp.zendesk.com/agent*
@@ -177,7 +177,7 @@
             '#plugin-versions td { float: left; white-space: nowrap; }' +
             '#plugin-versions td:nth-child(1) { width: ' + firstColumnWidth + 'px; }' +
             '#plugin-versions td:nth-child(2) { width: ' + secondColumnWidth + 'px; text-align: left; }' +
-            '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth+secondColumnWidth) + 'px) / ' + numPlugins + '); }' +
+            '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth+secondColumnWidth+1) + 'px) / ' + numPlugins + '); }' +
             '#plugin-versions .update-icon { float: right; }' +
             '</style>';
         htmlstring += '<div class="hider-cell-2" id="hider-2">👁️</div>';
@@ -392,6 +392,9 @@
 
     /**
      * === Changelog ===
+     * 6.3.1 - 2024-05-17
+     * Fix - Make sure the row doesn't wrap.
+     *
      * 6.3.0 - 2023-12-14
      * Added Event Schedule Manager and Wallet Plus.
      * Fixed the CSS for the scrollbar width.
