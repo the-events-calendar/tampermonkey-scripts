@@ -9,6 +9,7 @@
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @resource     pluginHistory https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/plugin-versions.json
+// @resource     pluginHistoryDev https://raw.githubusercontent.com/andrasguseo/tec-pluginversions-json/main/pluginversions-json.js
 // @grant        GM_getResourceText
 // @noframes
 // ==/UserScript==
@@ -35,6 +36,9 @@
 /*
  * Here are the settings that you can change.
  */
+    // Enable dev mode.
+    const dev = false;
+
     // Enable logging for debugging.
     const log = false;
 
@@ -73,13 +77,13 @@
 
     // Check for the zoom level of the browser.
     const zoomlevel = (( window.outerWidth - 10 ) / window.innerWidth);
-    
+
     // The body tag. Used to check where to add the markup.
     const bodyTag = document.getElementsByTagName("body")[0];
-    
+
     // The URL prefix of the image repository.
     const imgRepo = 'https://raw.githubusercontent.com/the-events-calendar/tampermonkey-scripts/main/img/';
-    
+
 //== START ==//
     if ( log ) console.log ( alreadydone );
     if ( log ) console.log ( typeof alreadydone );
@@ -101,7 +105,12 @@
         var j;
 
         // Get from resource team.json then covert it to array()
-        var jsonString = GM_getResourceText( 'pluginHistory' );
+        if ( dev ) {
+            var jsonString = GM_getResourceText( 'pluginHistoryDev' );
+        } else {
+            var jsonString = GM_getResourceText( 'pluginHistory' );
+        }
+
         var pluginHistory = JSON.parse(jsonString);
 
         // The number of releases (the length of the object)
