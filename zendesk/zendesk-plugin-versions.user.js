@@ -214,7 +214,7 @@
                 '<td class="blue"><img src="' + imgRepo + 'ecp-icon.svg" title="Events Calendar Pro" alt="Events Calendar Pro icon" /></td>' +
                 '<td class="blue"><img src="' + imgRepo + 've-icon.svg" title="Virtual Events" alt="The Events Calendar: Virtual Events icon" /></td>' +
                 '<td class="blue"><img src="' + imgRepo + 'eva-icon.svg" title="Event Automator" alt="The Events Calendar: Event Automator icon" /></td>' +
-                '<td class="blue"><img src="' + imgRepo + 'event-schedule-manager-icon.svg" title="Event Schedule Manager" alt="Event Schedule Manager icon" /></td>' +
+                '<td class="blue"><img src="' + imgRepo + 'esm-icon.svg" title="Event Schedule Manager" alt="Event Schedule Manager icon" /></td>' +
                 '<td class="blue"><img src="' + imgRepo + 'bookit-icon-256x256.png" title="BookIt" alt="BookIt icon" /></td>' +
                 '<td class="blue"><img src="' + imgRepo + 'bookit-pro-icon-256x256.png" title="BookIt Pro" alt="BookIt Pro icon" /></td>' +
                 '<td class="blue"><img src="' + imgRepo + 'fb-icon.svg" title="Filter Bar" alt="The Events Calendar: Filter Bar icon" /></td>' +
