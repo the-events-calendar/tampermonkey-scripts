@@ -106,7 +106,7 @@
 
 
         // Plugin abbreviations
-        const bluePlugins = ['tec', 'pro', 'vev', 'eva', 'esm', 'fib', 'ebt'];
+        const bluePlugins = ['tec', 'pro', 'vev', 'eva', 'esm', 'bit', 'bip', 'fib', 'ebt'];
         const greenPlugins = ['eti', 'etp', 'wap', 'cev', 'ctx'];
         const charcoalPlugins = ['apm', 'iwp'];
         const thirdPartyPlugins = ['woo', 'edd'];
@@ -200,6 +200,8 @@
                 '<td class="blue"><img src="https://andrasguseo.com/images/new-ve-icon.svg" title="Virtual Events" alt="The Events Calendar: Virtual Events icon" /></td>' +
                 '<td class="blue"><img src="https://andrasguseo.com/images/EventAutomator-icon.svg" title="Event Automator" alt="The Events Calendar: Event Automator icon" /></td>' +
                 '<td class="blue"><img src="https://andrasguseo.com/images/event-schedule-manager-icon.svg" title="Event Schedule Manager" alt="Event Schedule Manager icon" /></td>' +
+                '<td class="blue"><img src="' + imgRepo + 'bookit-icon-256x256.png" title="BookIt" alt="BookIt icon" /></td>' +
+                '<td class="blue"><img src="' + imgRepo + 'bookit-pro-icon-256x256.png" title="BookIt Pro" alt="BookIt Pro icon" /></td>' +
                 '<td class="blue"><img src="https://andrasguseo.com/images/new-fb-icon.svg" title="Filter Bar" alt="The Events Calendar: Filter Bar icon" /></td>' +
                 '<td class="blue last"><img src="https://andrasguseo.com/images/new-eb-icon.svg" title="Eventbrite Tickets" alt="Eventbrite Tickets icon" /></td>';
         }
