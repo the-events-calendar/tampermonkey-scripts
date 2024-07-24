@@ -73,10 +73,13 @@
 
     // Check for the zoom level of the browser.
     const zoomlevel = (( window.outerWidth - 10 ) / window.innerWidth);
-
+    
     // The body tag. Used to check where to add the markup.
     const bodyTag = document.getElementsByTagName("body")[0];
-
+    
+    // The URL prefix of the image repository.
+    const imgRepo = 'https://raw.githubusercontent.com/the-events-calendar/tampermonkey-scripts/main/img/';
+    
 //== START ==//
     if ( log ) console.log ( alreadydone );
     if ( log ) console.log ( typeof alreadydone );
@@ -195,23 +198,23 @@
 
         if ( showBlue ) {
             htmlstring +=
-                '<td class="blue"><img src="https://andrasguseo.com/images/new-tec-icon.svg" title="The Events Calendar" alt="The Events Calendar icon" /></td>' +
-                '<td class="blue"><img src="https://andrasguseo.com/images/new-ecp-icon.svg" title="Events Calendar Pro" alt="Events Calendar Pro icon" /></td>' +
-                '<td class="blue"><img src="https://andrasguseo.com/images/new-ve-icon.svg" title="Virtual Events" alt="The Events Calendar: Virtual Events icon" /></td>' +
-                '<td class="blue"><img src="https://andrasguseo.com/images/EventAutomator-icon.svg" title="Event Automator" alt="The Events Calendar: Event Automator icon" /></td>' +
-                '<td class="blue"><img src="https://andrasguseo.com/images/event-schedule-manager-icon.svg" title="Event Schedule Manager" alt="Event Schedule Manager icon" /></td>' +
+                '<td class="blue"><img src="' + imgRepo + 'tec-icon.svg" title="The Events Calendar" alt="The Events Calendar icon" /></td>' +
+                '<td class="blue"><img src="' + imgRepo + 'ecp-icon.svg" title="Events Calendar Pro" alt="Events Calendar Pro icon" /></td>' +
+                '<td class="blue"><img src="' + imgRepo + 've-icon.svg" title="Virtual Events" alt="The Events Calendar: Virtual Events icon" /></td>' +
+                '<td class="blue"><img src="' + imgRepo + 'eva-icon.svg" title="Event Automator" alt="The Events Calendar: Event Automator icon" /></td>' +
+                '<td class="blue"><img src="' + imgRepo + 'event-schedule-manager-icon.svg" title="Event Schedule Manager" alt="Event Schedule Manager icon" /></td>' +
                 '<td class="blue"><img src="' + imgRepo + 'bookit-icon-256x256.png" title="BookIt" alt="BookIt icon" /></td>' +
                 '<td class="blue"><img src="' + imgRepo + 'bookit-pro-icon-256x256.png" title="BookIt Pro" alt="BookIt Pro icon" /></td>' +
-                '<td class="blue"><img src="https://andrasguseo.com/images/new-fb-icon.svg" title="Filter Bar" alt="The Events Calendar: Filter Bar icon" /></td>' +
-                '<td class="blue last"><img src="https://andrasguseo.com/images/new-eb-icon.svg" title="Eventbrite Tickets" alt="Eventbrite Tickets icon" /></td>';
+                '<td class="blue"><img src="' + imgRepo + 'fb-icon.svg" title="Filter Bar" alt="The Events Calendar: Filter Bar icon" /></td>' +
+                '<td class="blue last"><img src="' + imgRepo + 'eb-icon.svg" title="Eventbrite Tickets" alt="Eventbrite Tickets icon" /></td>';
         }
         if ( showGreen ) {
             htmlstring +=
-                '<td class="green"><img src="https://andrasguseo.com/images/new-et-icon.svg" title="Event Tickets" alt="Event Tickets icon" /></td>' +
-                '<td class="green"><img src="https://andrasguseo.com/images/new-etp-icon.svg" title="Event Tickets Plus" alt="Event Tickets Plus icon" /></td>' +
-                '<td class="green"><img src="https://andrasguseo.com/images/wallet-plus-icon.svg" title="Wallet Plus" alt="Wallet Plus icon" /></td>' +
-                '<td class="green"><img src="https://andrasguseo.com/images/new-ce-icon.svg" title="Community Events" alt="Community Events icon" /></td>' +
-                '<td class="green last" style="padding-top: 7px !important;"><img src="https://andrasguseo.com/images/new-ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>';
+                '<td class="green"><img src="' + imgRepo + 'et-icon.svg" title="Event Tickets" alt="Event Tickets icon" /></td>' +
+                '<td class="green"><img src="' + imgRepo + 'etp-icon.svg" title="Event Tickets Plus" alt="Event Tickets Plus icon" /></td>' +
+                '<td class="green"><img src="' + imgRepo + 'wp-icon.svg" title="Wallet Plus" alt="Wallet Plus icon" /></td>' +
+                '<td class="green"><img src="' + imgRepo + 'ce-icon.svg" title="Community Events" alt="Community Events icon" /></td>' +
+                '<td class="green last" style="padding-top: 7px !important;"><img src="' + imgRepo + 'ct-icon.svg" title="Community Tickets" alt="Community Tickets icon" /></td>';
         }
         if ( showCharcoal ) {
             htmlstring +=
@@ -221,8 +224,8 @@
 
         // eCommerce in Header
         if ( showThirdParty ) {
-            htmlstring += '<td><img src="https://andrasguseo.com/images/woo-icon.png" title="WooCommerce" alt="WooCommerce icon" /></td>';
-            htmlstring += '<td><img src="https://andrasguseo.com/images/edd-headshot.png" title="Easy Digital Downloads" alt="Easy Digital Downloads icon" /></td>';
+            htmlstring += '<td><img src="' + imgRepo + 'woo-icon.png" title="WooCommerce" alt="WooCommerce icon" /></td>';
+            htmlstring += '<td><img src="' + imgRepo + 'edd-icon.png" title="Easy Digital Downloads" alt="Easy Digital Downloads icon" /></td>';
         }
 
         htmlstring += '</tr></thead>';
