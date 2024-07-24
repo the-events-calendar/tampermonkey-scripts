@@ -33,9 +33,9 @@
     'use strict';
 
 //== SETUP ==//
-/*
- * Here are the settings that you can change.
- */
+    /*
+     * Here are the settings that you can change.
+     */
     // Enable dev mode.
     const dev = false;
 
@@ -76,10 +76,10 @@
     const expandedHeight = 300;
 
     // Check for the zoom level of the browser.
-    const zoomlevel = (( window.outerWidth - 10 ) / window.innerWidth);
+    const zoomlevel = ((window.outerWidth - 10) / window.innerWidth);
 
     // The body tag. Used to check where to add the markup.
-    const bodyTag = document.getElementsByTagName("body")[0];
+    const bodyTag = document.getElementsByTagName( "body" )[ 0 ];
 
     // The URL prefix of the image repository.
     const imgRepo;
@@ -91,19 +91,19 @@
 
 
 //== START ==//
-    if ( log ) console.log ( alreadydone );
-    if ( log ) console.log ( typeof alreadydone );
-    if ( log ) console.log ( 'The <body> tag has ' + bodyTag.classList.length + ' classes' );
+    if ( log ) console.log( alreadydone );
+    if ( log ) console.log( typeof alreadydone );
+    if ( log ) console.log( 'The <body> tag has ' + bodyTag.classList.length + ' classes' );
 
     // Only run if it wasn't executed before
     if ( typeof alreadydone == 'undefined' && bodyTag.classList.length >= 0 ) {
-        if ( log ) console.log ( "Plugin versions has not run before." );
+        if ( log ) console.log( "Plugin versions has not run before." );
 
         var alreadydone = true;
 
         var initialRowsHeight = initialRows * 20;
 
-        if ( log ) console.log ( typeof alreadydone );
+        if ( log ) console.log( typeof alreadydone );
 
         /**
          * j - counter
@@ -117,17 +117,17 @@
             var jsonString = GM_getResourceText( 'pluginHistory' );
         }
 
-        var pluginHistory = JSON.parse(jsonString);
+        var pluginHistory = JSON.parse( jsonString );
 
         // The number of releases (the length of the object)
-        var rowNumber = Object.keys(pluginHistory).length;
+        var rowNumber = Object.keys( pluginHistory ).length;
 
 
         // Plugin abbreviations
-        const bluePlugins = ['tec', 'pro', 'vev', 'eva', 'esm', 'bit', 'bip', 'fib', 'ebt'];
-        const greenPlugins = ['eti', 'etp', 'wap', 'cev', 'ctx'];
-        const charcoalPlugins = ['apm', 'iwp'];
-        const thirdPartyPlugins = ['woo', 'edd'];
+        const bluePlugins = [ 'tec', 'pro', 'vev', 'eva', 'esm', 'bit', 'bip', 'fib', 'ebt' ];
+        const greenPlugins = [ 'eti', 'etp', 'wap', 'cev', 'ctx' ];
+        const charcoalPlugins = [ 'apm', 'iwp' ];
+        const thirdPartyPlugins = [ 'woo', 'edd' ];
 
         //var pluginNames = [].concat(bluePlugins, greenPlugins, charcoalPlugins, thirdPartyPlugins);
         var pluginNames = [];
@@ -136,29 +136,29 @@
 
         if ( showBlue ) {
             numPlugins = bluePlugins.length;
-            pluginNames.push(...bluePlugins);
+            pluginNames.push( ...bluePlugins );
         }
         if ( showGreen ) {
             numPlugins += greenPlugins.length;
-            pluginNames.push(...greenPlugins);
+            pluginNames.push( ...greenPlugins );
         }
         if ( showCharcoal ) {
             numPlugins += charcoalPlugins.length;
-            pluginNames.push(...charcoalPlugins);
+            pluginNames.push( ...charcoalPlugins );
         }
         if ( showThirdParty ) {
             numPlugins += thirdPartyPlugins.length;
-            pluginNames.push(...thirdPartyPlugins);
+            pluginNames.push( ...thirdPartyPlugins );
         }
         //= bluePlugins.length + greenPlugins.length + charcoalPlugins.length + thirdPartyPlugins.length;
-        if ( log ) console.log('Number of plugins: ' + numPlugins);
-        if ( log ) console.log('Plugins: ' + pluginNames);
+        if ( log ) console.log( 'Number of plugins: ' + numPlugins );
+        if ( log ) console.log( 'Plugins: ' + pluginNames );
         const tableMinWidth = (numPlugins * 51) + firstColumnWidth + secondColumnWidth + 10;  // 10 = scrollbar width
 
         /**
          * Table of the plugin versions
          */
-        var htmlMarkup = document.createElement('div');
+        var htmlMarkup = document.createElement( 'div' );
         htmlMarkup.id = 'plugin-versions';
 
         var htmlstring = '';
@@ -195,7 +195,7 @@
             '#plugin-versions td { float: left; white-space: nowrap; }' +
             '#plugin-versions td:nth-child(1) { width: ' + firstColumnWidth + 'px; }' +
             '#plugin-versions td:nth-child(2) { width: ' + secondColumnWidth + 'px; text-align: left; }' +
-            '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth+secondColumnWidth+1) + 'px) / ' + numPlugins + '); }' +
+            '#plugin-versions td:nth-child(n+3) { width: calc((100% - ' + (firstColumnWidth + secondColumnWidth + 1) + 'px) / ' + numPlugins + '); }' +
             '#plugin-versions .update-icon { float: right; }' +
             '</style>';
         htmlstring += '<div class="hider-cell-2" id="hider-2">👁️</div>';
@@ -207,8 +207,8 @@
         htmlstring += startHidden ? 'show' : 'hide';
         htmlstring += ']</span></td>' +
             '<td class="more-cell" id="more">' +
-                '<span id="mmore">[more]</span>' +
-                '<a href="https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js" target="_blank" class="update-icon" title="Check for updates">🔄</a>' +
+            '<span id="mmore">[more]</span>' +
+            '<a href="https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js" target="_blank" class="update-icon" title="Check for updates">🔄</a>' +
             '</td>';
 
         if ( showBlue ) {
@@ -251,28 +251,28 @@
 
         for( var number in pluginHistory ) {
 
-            if ( log ) console.log('Number: ' + number + ' ' + rowNumber );
+            if ( log ) console.log( 'Number: ' + number + ' ' + rowNumber );
 
             htmlstring += '<tr class="row';
             // For the last row add additional classes
 
             // Show last 3 rows on hover
-            if ( number >= rowNumber-3 && number < rowNumber-1 ) htmlstring += ' show';
+            if ( number >= rowNumber - 3 && number < rowNumber - 1 ) htmlstring += ' show';
 
             // Always show last row
-            if (  number == rowNumber-1 ) {
+            if ( number == rowNumber - 1 ) {
                 htmlstring += ' last last-row alwayson';
             }
             htmlstring += '">';
-            htmlstring += '<td>' + pluginHistory[number].date + '</td>';
-            htmlstring += '<td>' + pluginHistory[number].name + '</td>';
+            htmlstring += '<td>' + pluginHistory[ number ].date + '</td>';
+            htmlstring += '<td>' + pluginHistory[ number ].name + '</td>';
 
             /**
              * Go through all the plugins
              * pN = stores the plugin name, so we can refer to it
              */
-            for ( j = 0; j < pluginNames.length; j++ ) {
-                var pN = pluginNames[j];
+            for( j = 0; j < pluginNames.length; j++ ) {
+                var pN = pluginNames[ j ];
 
                 // Open the cell
                 htmlstring += '<td class="';
@@ -283,18 +283,17 @@
                     if ( j == bluePlugins.length - 1 ) {
                         htmlstring += ' last';
                     }
-                }
-                else if ( bluePlugins.length <= j && j < bluePlugins.length + greenPlugins.length ) {
-                    htmlstring += 'green'
+                } else if ( bluePlugins.length <= j && j < bluePlugins.length + greenPlugins.length ) {
+                    htmlstring += 'green';
                     if ( j == bluePlugins.length + greenPlugins.length - 1 ) {
                         htmlstring += ' last';
                     }
                 }
 
-                if( log ) console.log( 'this: ' + number + '-' + pN );
+                if ( log ) console.log( 'this: ' + number + '-' + pN );
 
                 // If plugin version number has 'x', then it's a new release, so add extra class
-                if( pluginHistory[number][pN].includes( "x" ) ) {
+                if ( pluginHistory[ number ][ pN ].includes( "x" ) ) {
                     htmlstring += ' new-version';
                 }
 
@@ -302,7 +301,7 @@
                 htmlstring += '"';
 
                 // Print the version number and close the cell
-                htmlstring += '>' + pluginHistory[number][pN].replace( 'x', '' ) + '</td>';
+                htmlstring += '>' + pluginHistory[ number ][ pN ].replace( 'x', '' ) + '</td>';
 
             } // end for ( j = 0; j < pluginNames.length; j++ )
 
@@ -322,14 +321,14 @@
         htmlMarkup.innerHTML = htmlstring;
 
         // Adding to markup
-        console.log('Adding plugin versions to markup');
-        document.getElementsByTagName("body")[0].appendChild( htmlMarkup );
+        console.log( 'Adding plugin versions to markup' );
+        document.getElementsByTagName( "body" )[ 0 ].appendChild( htmlMarkup );
 
         /**
          * Expand / collapse table
          */
         function moreLess() {
-            var tbody = document.getElementById('pluginversions-tbody');
+            var tbody = document.getElementById( 'pluginversions-tbody' );
             var more = document.getElementById( 'mmore' );
             var bodyHeight = tbody.clientHeight;
 
@@ -337,8 +336,7 @@
                 tbody.style.height = initialRowsHeight + 'px';
                 more.innerHTML = '[more]';
                 if ( scrollOnCollapse ) scrollToBottom();
-            }
-            else {
+            } else {
                 tbody.style.height = expandedHeight + 'px';
                 more.innerHTML = '[less]';
             }
@@ -351,8 +349,8 @@
             var pluginVersions = document.getElementById( 'plugin-versions' );
 
             var block = document.getElementById( 'plugin-versions' );
-            var str   = document.getElementById( 'hider' );
-            var right = window.outerWidth-block.offsetLeft;
+            var str = document.getElementById( 'hider' );
+            var right = window.outerWidth - block.offsetLeft;
             var hideRight = -block.offsetWidth + verticalOffset;
             if ( log ) console.log( 'block.offsetLeft: ' + block.offsetLeft );
             if ( log ) console.log( 'block.offsetWidth: ' + block.offsetWidth );
@@ -366,8 +364,7 @@
                 if ( log ) console.log( 'showing' );
                 pluginVersions.style.right = startRight + 'px';
                 str.innerHTML = '[hide]';
-            }
-            else {
+            } else {
                 if ( log ) console.log( 'hiding' );
                 pluginVersions.style.right = hideRight + 'px';
                 str.innerHTML = '[show]';
@@ -378,15 +375,15 @@
          * Scroll to the bottom of the version numbers on collapse
          */
         function scrollToBottom() {
-            var bodyHeight = document.getElementById('pluginversions-tbody').clientHeight;
+            var bodyHeight = document.getElementById( 'pluginversions-tbody' ).clientHeight;
             if ( bodyHeight > initialRowsHeight ) {
                 scrollToBottomAction();
-                setTimeout( scrollToBottom, 1);
+                setTimeout( scrollToBottom, 1 );
             }
         }
 
         function scrollToBottomAction() {
-            document.getElementById('pluginversions-tbody').scrollTop=document.getElementById('pluginversions-tbody').scrollHeight;
+            document.getElementById( 'pluginversions-tbody' ).scrollTop = document.getElementById( 'pluginversions-tbody' ).scrollHeight;
         }
 
         //using closure to cache all child elements
