@@ -82,7 +82,13 @@
     const bodyTag = document.getElementsByTagName("body")[0];
 
     // The URL prefix of the image repository.
-    const imgRepo = 'https://raw.githubusercontent.com/the-events-calendar/tampermonkey-scripts/main/img/';
+    const imgRepo;
+    if ( dev ) {
+        imgRepo = 'https://andrasguseo.com/images/';
+    } else {
+        imgRepo = 'https://raw.githubusercontent.com/the-events-calendar/tampermonkey-scripts/main/img/';
+    }
+
 
 //== START ==//
     if ( log ) console.log ( alreadydone );
