@@ -82,13 +82,11 @@
     const bodyTag = document.getElementsByTagName( "body" )[ 0 ];
 
     // The URL prefix of the image repository.
-    const imgRepo;
+    // The URL prefix of the image repository.
+    let imgRepo = 'https://raw.githubusercontent.com/the-events-calendar/tampermonkey-scripts/main/img/';
     if ( dev ) {
         imgRepo = 'https://andrasguseo.com/images/';
-    } else {
-        imgRepo = 'https://raw.githubusercontent.com/the-events-calendar/tampermonkey-scripts/main/img/';
     }
-
 
 //== START ==//
     if ( log ) console.log( alreadydone );
@@ -111,10 +109,9 @@
         var j;
 
         // Get from resource team.json then covert it to array()
+        let jsonString = GM_getResourceText( 'pluginHistory' );
         if ( dev ) {
-            var jsonString = GM_getResourceText( 'pluginHistoryDev' );
-        } else {
-            var jsonString = GM_getResourceText( 'pluginHistory' );
+            jsonString = GM_getResourceText( 'pluginHistoryDev' );
         }
 
         var pluginHistory = JSON.parse( jsonString );
