@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      6.3.1
+// @version      7.0.0
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @match        https://ithemeshelp.zendesk.com/agent*
@@ -406,6 +406,11 @@
 
     /**
      * === Changelog ===
+     * 7.0.0 - 2024-07-24
+     * Feature - Added BookIt and BookIt Pro to the plugin list.
+     * Feature - Added a dev mode constant.
+     * Tweak - Icons are loaded from the GitHub repository.
+     *
      * 6.3.1 - 2024-05-17
      * Fix - Make sure the row doesn't wrap.
      *
