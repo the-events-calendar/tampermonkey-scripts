@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="57px" height="57px" viewBox="0 0 57 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>FB icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="00.Brand-Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-nav-release" transform="translate(-251.000000, -619.000000)">
+            <g id="FB-icon" transform="translate(251.333276, 620.593726)">
+                <polygon id="Path-6" fill="#FFFFFF" points="2.25412634 1 54.213499 0.293736359 54.6806741 1.27230139 36.155512 23.0810372 36.155512 36.9492426 19.8283254 36.9492426 20.2123267 23.460617"></polygon>
+                <polygon id="Fill-1" points="0 1 7.93033787 10 47.6197628 10 55 1"></polygon>
+                <polygon id="Fill-1" points="0 1 7.93033787 10 47.6197628 10 55 1"></polygon>
+                <g id="Group-9" transform="translate(1.000000, 0.000000)">
+                    <polygon id="Fill-2" fill="#3D54FF" transform="translate(27.344261, 44.626282) scale(1, -1) translate(-27.344261, -44.626282) " points="35.0541696 35.376282 19.4183843 48.3004098 18.8283254 53.876282 35.8601956 53.876282 35.8601956 42.9014573"></polygon>
+                    <path d="M53.213499,0.293736359 L1.01919259,0.293736359 C0.513642363,0.293736359 0.234171531,0.879373746 0.552851704,1.27230139 L19.0780138,23.0810372 C19.1647749,23.1878201 19.2123267,23.322133 19.2123267,23.460617 L19.2123267,40.4991612 C19.2123267,40.6726834 19.2874084,40.8386974 19.4183843,40.9521542 L34.0259493,53.6601518 C34.4147057,53.9980195 35.0203649,53.7218857 35.0203649,53.2071588 L35.0203649,23.460617 C35.0203649,23.322133 35.0679167,23.1878201 35.155512,23.0810372 L53.6806741,1.27230139 C53.9985201,0.879373746 53.7190492,0.293736359 53.213499,0.293736359 Z" id="Stroke-3" stroke="#0F1031" stroke-width="2.25" stroke-linejoin="round"></path>
+                    <line x1="19.946459" y1="35.3000017" x2="34.7734295" y2="35.3000017" id="Stroke-7" stroke="#0F1031" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="7.94089345" y1="9.29603414" x2="39.8226804" y2="9.29603414" id="Stroke-5" stroke="#0F1031" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
