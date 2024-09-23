@@ -77,7 +77,8 @@
             "username": "cheskatec",
             "name": "Cheska Aguiluz",
             "start_date": "2022-04-18",
-            "active": "1"
+            "end_date": "2024-08-28",
+            "active": "0"
         },
         {
             "username": "chikaibeneme",
@@ -211,7 +212,9 @@
         {
             "username": "highprrrr",
             "name": "James Welbes",
-            "start_date": "2021-02-01"
+            "start_date": "2021-02-01",
+            "end_date": "2024-08-21",
+            "active": "0"
         },
         {
             "username": "iammarta",
@@ -314,6 +317,12 @@
             "end_date": "2023-10-06"
         },
         {
+            "username": "luanluta",
+            "name": "Luan Luta",
+            "start_date": "2024-07-01",
+            "active": "1"
+        },
+        {
             "username": "lucasbustamante",
             "name": "Lucas Bustamante",
             "start_date": "2020-03-30",
@@ -324,6 +333,12 @@
             "name": "Wolf Bishop",
             "start_date": "2020-03-04",
             "end_date": "2023-08-31"
+        },
+        {
+            "username": "marcc3d",
+            "name": "Marcos Barreto",
+            "start_date": "2024-07-01",
+            "active": "1"
         },
         {
             "username": "masoodak",
@@ -360,10 +375,23 @@
             "end_date": "2020-12-31"
         },
         {
+            "username": "norbertferia",
+            "name": "Norbert Feria",
+            "start_date": "2023-09-11",
+            "end_date": "2024-07-30",
+            "active": "0"
+        },
+        {
             "username": "patriciahillebrandt",
             "name": "Patricia Hillebrandt",
             "start_date": "2017-06-09",
             "end_date": "2021-08-15"
+        },
+        {
+            "username": "paulacido",
+            "name": "Paul Acido",
+            "start_date": "2023-12-04",
+            "active": "0"
         },
         {
             "username": "rafsuntaskin",
