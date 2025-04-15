@@ -434,7 +434,8 @@
             "username": "sjaure",
             "name": "Santiago Jaureguiberry",
             "start_date": "2019-05-26",
-            "active": "1"
+            "end_date": "2025-03-26",
+            "active": "0"
         },
         {
             "username": "skyshab",
@@ -472,7 +473,9 @@
         {
             "username": "tribalmike",
             "name": "Mike Cotton",
-            "start_date": "2018-10-11"
+            "start_date": "2018-10-11",
+            "end_date": "2025-03-26",
+            "active": "0"
         },
         {
             "username": "tribecari",
