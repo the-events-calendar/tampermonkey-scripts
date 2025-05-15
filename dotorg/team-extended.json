@@ -176,7 +176,8 @@
             "username": "frankremmy",
             "name": "Frank Remmy",
             "start_date": "2023-07-07",
-            "active": "1"
+            "end_date": "2024-07-01",
+            "active": "0"
         },
         {
             "username": "geoffbel",
@@ -237,13 +238,15 @@
             "username": "jdbeacham",
             "name": "John Beacham",
             "start_date": "2022-03-08",
-            "active": "1"
+            "end_date": "2024-10-14",
+            "active": "0"
         },
         {
             "username": "jeanabarquez",
             "name": "Jean Abarquez",
             "start_date": "2022-03-22",
-            "end_date": "2023-08-31"
+            "end_date": "2023-08-31",
+            "active": "0"
         },
         {
             "username": "jeffr0",
@@ -255,6 +258,12 @@
             "username": "jentheo",
             "name": "Jennifer Theodore",
             "start_date": "2017-05-08"
+        },
+        {
+            "username": "jeromealtarejos",
+            "name": "Jerome Altarejos",
+            "start_date": "2025-04-02",
+            "active": "1"
         },
         {
             "username": "jescandoit",
