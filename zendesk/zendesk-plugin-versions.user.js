@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Zendesk - Latest plugin versions (TEC)
 // @namespace    https://theeventscalendar.com/
-// @version      7.0.0
+// @version      8.0.0
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @match        https://ithemeshelp.zendesk.com/agent*
@@ -408,6 +408,9 @@
 
     /**
      * === Changelog ===
+     * 8.0.0 - 2025-05-15
+     * Feature - Added support for Help Scout.
+     *
      * 7.0.0 - 2024-07-24
      * Feature - Added BookIt and BookIt Pro to the plugin list.
      * Feature - Added a dev mode constant.
