@@ -5,6 +5,8 @@
 // @description  Display the latest version numbers of The Events Calendar plugins.
 // @author       Andras Guseo
 // @match        https://ithemeshelp.zendesk.com/agent*
+// @match        https://secure.helpscout.net/inboxes/c6ce78358c4f9a89/*
+// @match        https://secure.helpscout.net/conversation/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=zendesk.com
 // @updateURL    https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
 // @downloadURL  https://github.com/the-events-calendar/tampermonkey-scripts/raw/main/zendesk/zendesk-plugin-versions.user.js
