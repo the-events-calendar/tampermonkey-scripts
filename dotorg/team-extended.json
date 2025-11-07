@@ -4,7 +4,8 @@
             "username": "abinders",
             "name": "Aaron Binders",
             "start_date": "2022-06-13",
-            "end_date": "2022-08-01"
+            "end_date": "2022-08-01",
+            "active": "0"
         },
         {
             "username": "abzlevelup",
@@ -16,19 +17,22 @@
             "username": "aguseo",
             "name": "Andras Guseo",
             "start_date": "2016-04-25",
+            "end_date": "2025-10-29",
             "active": "0"
         },
         {
             "username": "alaasalama",
             "name": "Alaa Salama",
             "start_date": "2018-11-19",
-            "end_date": "2020-08-31"
+            "end_date": "2020-08-31",
+            "active": "0"
         },
         {
             "username": "allenzamora",
             "name": "Allen Zamora",
             "start_date": "2021-08-23",
-            "end_date": "2022-04-25"
+            "end_date": "2022-04-25",
+            "active": "0"
         },
         {
             "username": "atousanajafi",
@@ -39,39 +43,46 @@
         {
             "username": "barryhughes-1",
             "name": "Barry Hughes",
-            "end_date": "2020-07-31"
+            "end_date": "2020-07-31",
+            "active": "0"
         },
         {
             "username": "bordoni",
             "name": "Gustavo Bordoni",
-            "start_date": "2014-12-01"
+            "start_date": "2014-12-01",
+            "active": "1"
         },
         {
             "username": "brianjessee",
             "name": "Brian Jessee",
-            "start_date": "2014-08-11"
+            "start_date": "2014-08-11",
+            "active": "0"
         },
         {
             "username": "borkweb",
             "name": "Mattew Batchelder",
-            "start_date": "2015-03-24"
+            "start_date": "2015-03-24",
+            "active": "1"
         },
         {
             "username": "brook-tribe",
             "name": "Brook",
             "start_date": "2014-02-01",
-            "end_date": "2017-10-30"
+            "end_date": "2017-10-30",
+            "active": "0"
         },
         {
             "username": "bskousen3",
             "name": "Brendan Skousen",
             "start_date": "2017-10-23",
-            "end_date": "2020-12-31"
+            "end_date": "2020-12-31",
+            "active": "0"
         },
         {
             "username": "camwynsp",
             "name": "Stephen Page",
-            "start_date": "2018-06-01"
+            "start_date": "2018-06-01",
+            "active": "0"
         },
         {
             "username": "cheskatec",
@@ -90,7 +101,8 @@
             "username": "cliffpaulick",
             "name": "Clifford Paulick",
             "start_date": "2015-09-01",
-            "end_date": "2019-05-31"
+            "end_date": "2019-05-31",
+            "active": "0"
         },
         {
             "username": "cliffseal",
@@ -113,18 +125,22 @@
             "username": "courane01",
             "name": "Courtney Robertson",
             "start_date": "2017-02-22",
-            "end_date": "2020-10-31"
+            "end_date": "2020-10-31",
+            "active": "0"
         },
         {
             "username": "cswebd3v",
             "name": "Chris Swenson",
             "start_date": "2020-09-01",
-            "end_date": "2021-12-31"
+            "end_date": "2021-12-31",
+            "active": "0"
         },
         {
             "username": "daphne1",
             "name": "Daphne Rucker",
-            "start_date": "2023-10-18"
+            "start_date": "2023-10-18",
+            "end_date": "2025-10-29",
+            "active": "0"
         },
         {
             "username": "d0153",
@@ -136,7 +152,8 @@
             "username": "dd15061995",
             "name": "Deekshith Dekka",
             "start_date": "2022-xx-xx",
-            "end_date": "2023-07-21"
+            "end_date": "2023-07-21",
+            "active": "0"
         },
         {
             "username": "deblynprado",
@@ -146,13 +163,15 @@
         },
         {
             "username": "djbramer",
-            "name": "Dan Bramer"
+            "name": "Dan Bramer",
+            "active": "0"
         },
         {
             "username": "ecalley",
             "name": "Elise Alley",
             "start_date": "2023-06-21",
-            "end_date": "2023-08-01"
+            "end_date": "2023-08-01",
+            "active": "0"
         },
         {
             "username": "eeide",
@@ -164,19 +183,22 @@
             "username": "erishel",
             "name": "Edward Rishel",
             "start_date": "2018-03-12",
-            "end_date": "2018-12-31"
+            "end_date": "2018-12-31",
+            "active": "0"
         },
         {
             "username": "eugenekyale",
             "name": "Eugene Kyale",
             "start_date": "2020-09-01",
-            "end_date": "2024-02-29"
+            "end_date": "2024-02-29",
+            "active": "0"
         },
         {
             "username": "eugenetribe",
             "name": "Eugene Kyale",
             "start_date": "2020-09-01",
-            "end_date": "2024-02-29"
+            "end_date": "2024-02-29",
+            "active": "0"
         },
         {
             "username": "frankremmy",
@@ -196,25 +218,27 @@
             "username": "geoffgraham",
             "name": "Geoff Graham",
             "start_date": "2014-09-10",
-            "end_date": "2020-12-31"
+            "end_date": "2020-12-31",
+            "active": "0"
         },
         {
             "username": "ggwicz",
             "name": "George Gecewicz",
             "start_date": "2010-10-01",
-            "end_date_1": "2017-xx-xx",
             "active": "1"
         },
         {
             "username": "greventscalendar",
             "name": "Gladys Roldan",
-            "start_date": "2022-04-04"
+            "start_date": "2022-04-04",
+            "active": "1"
         },
         {
             "username": "gugaalves",
             "name": "Gustavo 'Guga' Alves",
             "start_date": "2021-08-23",
-            "active": "1"
+            "end_date": "2025-10-29",
+            "active": "0"
         },
         {
             "username": "highprrrr",
@@ -245,7 +269,8 @@
         {
             "username": "jaimemarchwinski",
             "name": "Jaime Marchwinski",
-            "start_date": "2017-08-31"
+            "start_date": "2017-08-31",
+            "active": "1"
         },
         {
             "username": "jdbeacham",
@@ -265,12 +290,14 @@
             "username": "jeffr0",
             "name": "Jeff Chandler",
             "start_date": "2023-06-03",
-            "end_date": "2024-02-23"
+            "end_date": "2024-02-23",
+            "active": "0"
         },
         {
             "username": "jentheo",
             "name": "Jennifer Theodore",
-            "start_date": "2017-05-08"
+            "start_date": "2017-05-08",
+            "active": "1"
         },
         {
             "username": "jeromealtarejos",
@@ -289,13 +316,15 @@
             "username": "jeremy80",
             "name": "Jeremy Marchandeau",
             "start_date": "2018-03-26",
-            "end_date": "2021-02-28"
+            "end_date": "2021-02-28",
+            "active": "0"
         },
         {
             "username": "joshlevelupsupport2021",
             "name": "Joshua Cagasan",
             "start_date": "2021-07-19",
-            "end_date": "2022-04-14"
+            "end_date": "2022-04-14",
+            "active": "0"
         },
         {
             "username": "juanfra",
@@ -308,25 +337,29 @@
             "username": "kevfortec",
             "name": "Kevin Suson",
             "start_date": "2022-04-18",
-            "end_date": "2022-09-05"
+            "end_date": "2022-09-05",
+            "active": "0"
         },
         {
             "username": "koriashton",
             "name": "Kori Ashton",
             "start_date": "2020-09-01",
-            "end_date": "2022-xx-xx"
+            "end_date": "2022-xx-xx",
+            "active": "0"
         },
         {
             "username": "kutatishh",
             "name": "Kudzai",
             "start_date": "2022-08-18",
-            "end_date": "2021-xx-xx"
+            "end_date": "2021-xx-xx",
+            "active": "0"
         },
         {
             "username": "latoyam1",
             "name": "LaToya Murray",
             "start_date": "2017-08-01",
-            "end_date": "2022-09-09"
+            "end_date": "2022-09-09",
+            "active": "0"
         },
         {
             "username": "leahkoerper",
@@ -337,25 +370,29 @@
             "username": "lelandf",
             "name": "Leland Fliegel",
             "start_date": "2021-xx-xx",
-            "end_date": "2023-10-06"
+            "end_date": "2023-10-06",
+            "active": "0"
         },
         {
             "username": "luanluta",
             "name": "Luan Luta",
             "start_date": "2024-07-01",
-            "active": "1"
+            "end_date": "2025-10-29",
+            "active": "0"
         },
         {
             "username": "lucasbustamante",
             "name": "Lucas Bustamante",
             "start_date": "2020-03-30",
-            "end_date": "2020-xx-xx"
+            "end_date": "2020-xx-xx",
+            "active": "0"
         },
         {
             "username": "mandraagora",
             "name": "Wolf Bishop",
             "start_date": "2020-03-04",
-            "end_date": "2023-08-31"
+            "end_date": "2023-08-31",
+            "active": "0"
         },
         {
             "username": "marcc3d",
@@ -372,30 +409,37 @@
         {
             "username": "matumu",
             "name": "Marho Atumu",
-            "start_date": "2020-09-01"
+            "start_date": "2020-09-01",
+            "end_date": "2022-xx-xx",
+            "active": "0"
         },
         {
             "username": "mitogh",
             "name": "Crisoforo Hernandez",
             "start_date": "2018-xx-xx",
-            "end_date": "xxxx-xx-xx"
+            "end_date": "xxxx-xx-xx",
+            "active": "0"
         },
         {
             "username": "neillmcshea",
             "name": "Neill McShae",
-            "start_date": "2013-04-26"
+            "start_date": "2013-04-26",
+            "end_date": "2025-10-29",
+            "active": "0"
         },
         {
             "username": "nicosantos",
             "name": "Nico Santos",
             "start_date": "2015-xx-xx",
-            "end_date": "2020-02-29"
+            "end_date": "2020-02-29",
+            "active": "0"
         },
         {
             "username": "nikrosales",
             "name": "Nik Rosales",
             "start_date": "2020-02-24",
-            "end_date": "2020-12-31"
+            "end_date": "2020-12-31",
+            "active": "0"
         },
         {
             "username": "norbertferia",
@@ -408,7 +452,8 @@
             "username": "patriciahillebrandt",
             "name": "Patricia Hillebrandt",
             "start_date": "2017-06-09",
-            "end_date": "2021-08-15"
+            "end_date": "2021-08-15",
+            "active": "0"
         },
         {
             "username": "paulacido",
@@ -419,7 +464,9 @@
         {
             "username": "rafsuntaskin",
             "name": "Rafsun Chowdhury",
-            "start_date": "2020-03-30"
+            "start_date": "2020-03-30",
+            "end_date": "2025-10-29",
+            "active": "0"
         },
         {
             "username": "robelemental",
@@ -432,13 +479,14 @@
             "username": "sammysamp",
             "name": "Sammy Puche",
             "start_date": "2023-07-07",
-            "active": "1"
+            "active": "0"
         },
         {
             "username": "sdenike",
             "name": "Shelby DeNike",
             "start_date": "2018-10-08",
-            "end_date": "2019-08-31"
+            "end_date": "2019-08-31",
+            "active": "0"
         },
         {
             "username": "sdokus",
@@ -450,8 +498,8 @@
             "username": "shatterdorn1",
             "name": "Truman Dorn",
             "start_date": "2021-03-01",
-            "active": "0",
-            "note": "tdorn is used"
+            "end_date": "2025-10-29",
+            "active": "0"
         },
         {
             "username": "sjaure",
@@ -463,35 +511,41 @@
         {
             "username": "skyshab",
             "name": "Jason 'Sky' Shabatura",
-            "start_date": "2018-01-02"
+            "start_date": "2018-01-02",
+            "active": "1"
         },
         {
             "username": "tdorn",
             "name": "Truman Dorn",
             "start_date": "2021-03-01",
-            "active": "1"
+            "end_date": "2025-10-29",
+            "active": "0"
         },
         {
             "username": "tecphil",
             "name": "Phil Hodges (Community Mgr)",
             "start_date": "2021-04",
-            "end_date": "2021-08"
+            "end_date": "2021-08",
+            "active": "0"
         },
         {
             "username": "theeventscalendar",
             "name": "The Events Calendar",
-            "start_date": "2020-12-18"
+            "start_date": "2020-12-18",
+            "active": "1"
         },
         {
             "username": "tokyobiyori",
             "name": "Ali Darwich",
             "start_date": "2018-11-19",
-            "end_date": "2022-01-31"
+            "end_date": "2022-01-31",
+            "active": "0"
         },
         {
             "username": "translationsbymoderntribe",
             "name": "Modern Tribe Translations",
-            "start_date": "2020-03-30"
+            "start_date": "2020-03-30",
+            "active": "1"
         },
         {
             "username": "tribalmike",
@@ -504,7 +558,8 @@
             "username": "tribecari",
             "name": "Caroline",
             "start_date": "2016-05-16",
-            "end_date": "2017-12-31"
+            "end_date": "2017-12-31",
+            "active": "0"
         },
         {
             "username": "tristan083",
@@ -515,12 +570,14 @@
         {
             "username": "vicskf",
             "name": "Victor Zarranz",
-            "start_date": "2017-02-06"
+            "start_date": "2017-02-06",
+            "active": "1"
         },
         {
             "username": "zbtirrell",
             "name": "Zach Tirrell",
-            "start_date": "2015-03-24"
+            "start_date": "2015-03-24",
+            "active": "1"
         }
     ]
 }
